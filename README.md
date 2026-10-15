@@ -138,5 +138,5 @@ python generate_ong_data.py
 ## 📬 Contato & Redes
 
 - **GitHub:** [github.com/WandRherison](https://github.com/WandRherison)
-- **LinkedIn:** [linkedin.com/in/wanderson-alves](https://linkedin.com)
+- **LinkedIn:** [Wand Rherison](https://www.linkedin.com/in/wand-rherison-derley-pereira-alves-silva-b55293225/)
 - **E-mail:** wandrherison@gmail.com
