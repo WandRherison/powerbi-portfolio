@@ -20,11 +20,7 @@ erDiagram
     dProdutos           ||--o{ fPedidos : "1:N (ID_Produto)"
     dTransportadoras    ||--o{ fPedidos : "1:N (ID_Transportadora)"
     dCentrosDistribuicao||--o{ fPedidos : "1:N (ID_CentroDistribuicao)"
-
-    dCalendario         ||--o{ fPedidos : "1:N [Ativo] (Data_Pedido)"
-    dCalendario         ||..o{ fPedidos : "1:N [Inativo] (Data_Envio)"
-    dCalendario         ||..o{ fPedidos : "1:N [Inativo] (Data_Entrega_Real)"
-    dCalendario         ||..o{ fPedidos : "1:N [Inativo] (Data_Previsao_Entrega)"
+    dCalendario         ||--o{ fPedidos : "1:N (Data_Pedido)"
 
     fPedidos {
         string ID_Pedido PK
@@ -33,9 +29,9 @@ erDiagram
         int ID_Transportadora FK
         int ID_CentroDistribuicao FK
         date Data_Pedido FK
-        date Data_Envio FK_Inativo
-        date Data_Previsao_Entrega FK_Inativo
-        date Data_Entrega_Real FK_Inativo
+        date Data_Envio FK
+        date Data_Previsao_Entrega FK
+        date Data_Entrega_Real FK
         int Quantidade
         float Valor_Bruto
         float Desconto
