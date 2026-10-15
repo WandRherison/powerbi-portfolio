@@ -26,7 +26,7 @@ Você pode explorar e interagir diretamente com os relatórios publicados no Pow
 | **1. Adega & Distribuidora** | Comercial B2B, Vendas & Logística | **Star Schema** | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiNmVhZmZhMDYtOGExZi00MDIyLTg2MmQtMzM3NWFlZmExZjZjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20Adega/README.md) |
 | **2. ONG Viva Comunidade** | Terceiro Setor, Captação & Impacto Social | **Galaxy Schema** (Multi-Fato) | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiNTYzNjE5YmYtYWRmMy00YzFhLTg1NWMtOTE5OTAyYmRjOWJlIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20ONG/README.md) |
 | **3. PetShop Gatitos** | Varejo B2C, Customer Analytics | **Star Schema** | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiZjhhODBjZTctYTI0My00ZDE4LTgwNzctMGZjZWM1OTU0MDRjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20PetShop/README.md) |
-| **4. Supply Chain & Logística**| E-commerce, Torre de Controle & SLAs | **Star Schema** (Role-Playing) | 📦 *Em Homologação* | [Ver Case](Projetos/Projeto%20-%20SupplyChain/README.md) |
+| **4. Supply Chain & Logística**| E-commerce, Torre de Controle & SLAs | **Star Schema** (Role-Playing) | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiNTg3Y2Y5ZGItNmI5OS00Mzk4LWI0NTMtZjVhOGMzYmRkMGU3IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20SupplyChain/README.md) |
 
 ---
 
@@ -68,6 +68,7 @@ Você pode explorar e interagir diretamente com os relatórios publicados no Pow
   - Modelagem avançada Star Schema com **Role-Playing Dimensions** (`dCalendario` conectada a `Data_Pedido`, `Data_Envio`, `Data_Previsao_Entrega` e `Data_Entrega_Real`).
   - Geração de 8.150 pedidos com validação temporal estrita e taxa de atraso calibrada em 15,37%.
   - Fórmulas DAX especializadas: **OTIF % (On-Time Delivery)**, **Lead Time Médio**, **Margem de Contribuição Líquida** e uso de relacionamentos inativos com `USERELATIONSHIP`.
+- **Arquivo PBIX:** [`Projetos/Projeto - SupplyChain/PowerBI - SupplyChain.pbix`](Projetos/Projeto%20-%20SupplyChain/PowerBI%20-%20SupplyChain.pbix)
 - **Case Detalhado & DAX:** [`Projetos/Projeto - SupplyChain/README.md`](Projetos/Projeto%20-%20SupplyChain/README.md) e [`Projetos/Projeto - SupplyChain/DAX_MEASURES.md`](Projetos/Projeto%20-%20SupplyChain/DAX_MEASURES.md)
 
 ---

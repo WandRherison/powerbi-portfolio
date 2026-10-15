@@ -1,8 +1,10 @@
 # 🚚 Projeto 4: Supply Chain & Omnichannel Logistics Analytics
 
-[![Power BI](https://img.shields.io/badge/Power_BI-Supply_Chain_Control_Tower-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://github.com)
+[![Power BI](https://img.shields.io/badge/Power_BI-Online_Demo-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://app.powerbi.com/view?r=eyJrIjoiNTg3Y2Y5ZGItNmI5OS00Mzk4LWI0NTMtZjVhOGMzYmRkMGU3IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9)
 [![Modelagem](https://img.shields.io/badge/Modelagem-Star_Schema_(Role--Playing)-darkblue?style=for-the-badge)](https://github.com)
 [![Logística](https://img.shields.io/badge/KPIs-OTIF_%26_Lead_Time-green?style=for-the-badge)](https://github.com)
+
+🔗 **[Clique aqui para interagir com o Dashboard Online](https://app.powerbi.com/view?r=eyJrIjoiNTg3Y2Y5ZGItNmI5OS00Mzk4LWI0NTMtZjVhOGMzYmRkMGU3IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9)**
 
 Ambiente analítico completo projetado para uma operação de **Varejo Omnichannel e Logística de E-commerce**, integrando múltiplos Centros de Distribuição (CDs), transportadoras parceiras e vendas B2C e B2B em todo o território nacional.
 
@@ -240,3 +242,12 @@ Os arquivos CSV são salvos automaticamente em:
 - `Projetos/Projeto - SupplyChain/data/`
 
 O catálogo com todas as fórmulas DAX documentadas e a tabela calendário encontram-se em [`DAX_MEASURES.md`](DAX_MEASURES.md).
+
+---
+
+## 📂 Arquivos Disponíveis
+
+- `PowerBI - SupplyChain.pbix`: Arquivo do projeto para download e inspeção no Power BI Desktop.
+- `DAX_MEASURES.md`: Catálogo completo de fórmulas DAX e tabela calendário.
+- `data/`: Datasets em formato CSV com codificação UTF-8-sig e integridade referencial estrita.
+
