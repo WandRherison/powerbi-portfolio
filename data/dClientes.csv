@@ -1,0 +1,251 @@
+﻿ID_Cliente;Nome_Fantasia;Razao_Social;CNPJ;Tipo_Cliente;Segmento;Cidade;UF;Regiao;Limite_Credito;Data_Cadastro;Status
+1001;Taverna Henry Gabriel Alves;da Cruz Bebidas e Alimentos LTDA;21.843.065/0001-79;Mercado & Conveniência;Varejo Rápido;São Paulo;SP;Sudeste;15000;2021-12-13;Ativo
+1002;Taverna Pedro Henrique da Conceição;Novais S.A. Bebidas e Alimentos LTDA;86.374.209/0001-30;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;5000;2023-10-07;Inativo
+1003;Boteco Lavínia Fernandes;Cassiano Bebidas e Alimentos LTDA;51.830.246/0001-21;Mercado & Conveniência;Varejo Rápido;Curitiba;PR;Sul;50000;2021-12-01;Ativo
+1004;Boteco Vinícius Aparecida;Nascimento Bebidas e Alimentos LTDA;61.495.723/0001-01;Restaurante;Food Service;São Paulo;SP;Sudeste;10000;2021-07-13;Ativo
+1005;Bar do Matheus Santos;Aparecida e Filhos Bebidas e Alimentos LTDA;41.360.728/0001-01;Bar & Pub;Food Service / Noturno;Londrina;PR;Sul;50000;2021-12-21;Ativo
+1006;Taverna Emanuella Castro;Fogaça Bebidas e Alimentos LTDA;41.295.863/0001-10;Bar & Pub;Food Service / Noturno;Rio de Janeiro;RJ;Sudeste;50000;2021-11-22;Ativo
+1007;Mercearia Gabrielly da Mata;Rodrigues Duarte S/A Bebidas e Alimentos LTDA;05.629.178/0001-10;Restaurante;Food Service;Uberlândia;MG;Sudeste;15000;2021-12-22;Ativo
+1008;Adega Melina Gonçalves;Casa Grande Bebidas e Alimentos LTDA;23.457.861/0001-07;Adega & Empório;Especializado;São Paulo;SP;Sudeste;80000;2022-02-16;Ativo
+1009;Adega Pedro Lucas Carvalho;Borges Bebidas e Alimentos LTDA;12.865.309/0001-23;Restaurante;Food Service;Ribeirão Preto;SP;Sudeste;10000;2021-03-15;Ativo
+1010;Boteco Giovanna Peixoto;Moura Bebidas e Alimentos LTDA;80.154.269/0001-61;Casa de Eventos & Buffet;Eventos;Sorocaba;SP;Sudeste;5000;2022-01-26;Ativo
+1011;Espetinho Ana Beatriz Lopes;Marques Abreu e Filhos Bebidas e Alimentos LTDA;82.165.970/0001-01;Restaurante;Food Service;Sorocaba;SP;Sudeste;50000;2022-02-14;Ativo
+1012;Taverna Evelyn Teixeira;Nogueira Vasconcelos - EI Bebidas e Alimentos LTDA;95.706.248/0001-89;Bar & Pub;Food Service / Noturno;São Paulo;SP;Sudeste;25000;2021-01-01;Inativo
+1013;Boteco Danilo da Costa;Barros e Filhos Bebidas e Alimentos LTDA;18.295.364/0001-01;Restaurante;Food Service;Belo Horizonte;MG;Sudeste;50000;2023-01-25;Ativo
+1014;Mercearia Sarah Pereira;Cunha Bebidas e Alimentos LTDA;34.657.298/0001-29;Bar & Pub;Food Service / Noturno;Rio de Janeiro;RJ;Sudeste;15000;2023-04-18;Ativo
+1015;Boteco Marcela Campos;Câmara Azevedo Ltda. Bebidas e Alimentos LTDA;98.341.062/0001-61;Restaurante;Food Service;Niterói;RJ;Sudeste;5000;2021-02-02;Ativo
+1016;Boteco Dante da Conceição;Andrade Ltda. Bebidas e Alimentos LTDA;83.459.172/0001-55;Mercado & Conveniência;Varejo Rápido;Ribeirão Preto;SP;Sudeste;10000;2021-04-21;Ativo
+1017;Restaurante Maria Júlia da Cruz;Jesus Bebidas e Alimentos LTDA;19.623.547/0001-71;Adega & Empório;Especializado;Belo Horizonte;MG;Sudeste;25000;2021-10-23;Ativo
+1018;Adega Cauê Rocha;Araújo - ME Bebidas e Alimentos LTDA;13.894.765/0001-64;Mercado & Conveniência;Varejo Rápido;Sorocaba;SP;Sudeste;15000;2022-06-12;Ativo
+1019;Restaurante Luiz Otávio da Mota;da Cruz Bebidas e Alimentos LTDA;78.105.463/0001-05;Restaurante;Food Service;Rio de Janeiro;RJ;Sudeste;80000;2021-04-28;Ativo
+1020;Boteco Renan Cavalcante;Mendonça Bebidas e Alimentos LTDA;36.019.758/0001-19;Casa de Eventos & Buffet;Eventos;Rio de Janeiro;RJ;Sudeste;50000;2023-01-18;Ativo
+1021;Taverna Maria da Paz;Sampaio Bebidas e Alimentos LTDA;72.381.046/0001-09;Mercado & Conveniência;Varejo Rápido;Curitiba;PR;Sul;10000;2023-05-14;Ativo
+1022;Restaurante Ana Sophia Araújo;Pacheco - ME Bebidas e Alimentos LTDA;82.047.159/0001-26;Bar & Pub;Food Service / Noturno;Belo Horizonte;MG;Sudeste;80000;2023-02-21;Ativo
+1023;Point do Davi Luiz Rocha;Guerra Campos - EI Bebidas e Alimentos LTDA;90.135.427/0001-90;Mercado & Conveniência;Varejo Rápido;São José dos Campos;SP;Sudeste;15000;2022-01-18;Ativo
+1024;Empório Nicolas Rios;da Costa Bebidas e Alimentos LTDA;62.438.071/0001-28;Adega & Empório;Especializado;São Paulo;SP;Sudeste;5000;2022-02-17;Ativo
+1025;Restaurante Guilherme Barbosa;Montenegro da Luz S.A. Bebidas e Alimentos LTDA;13.529.864/0001-47;Adega & Empório;Especializado;Belo Horizonte;MG;Sudeste;5000;2022-06-27;Ativo
+1026;Taverna Sarah Albuquerque;Ribeiro Bebidas e Alimentos LTDA;24.105.873/0001-27;Bar & Pub;Food Service / Noturno;Londrina;PR;Sul;15000;2021-06-10;Ativo
+1027;Pizzaria Alexia Pereira;Silva Fernandes S.A. Bebidas e Alimentos LTDA;48.720.531/0001-85;Bar & Pub;Food Service / Noturno;Uberlândia;MG;Sudeste;80000;2023-12-04;Ativo
+1028;Adega Caio Abreu;Vargas Bebidas e Alimentos LTDA;42.795.306/0001-21;Restaurante;Food Service;Ribeirão Preto;SP;Sudeste;10000;2021-07-23;Ativo
+1029;Restaurante Dom Sales;Nogueira Andrade Ltda. Bebidas e Alimentos LTDA;82.610.945/0001-90;Mercado & Conveniência;Varejo Rápido;Curitiba;PR;Sul;80000;2023-06-24;Ativo
+1030;Pizzaria Elisa Costela;Rios Caldeira Ltda. Bebidas e Alimentos LTDA;62.391.570/0001-07;Restaurante;Food Service;Londrina;PR;Sul;15000;2023-05-20;Ativo
+1031;Pub Luiz Henrique Sousa;Viana Bebidas e Alimentos LTDA;34.265.098/0001-20;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;25000;2022-10-02;Ativo
+1032;Boteco Maria Isis Câmara;Marques Ferreira Ltda. Bebidas e Alimentos LTDA;30.972.581/0001-94;Bar & Pub;Food Service / Noturno;São Paulo;SP;Sudeste;10000;2021-12-20;Ativo
+1033;Pizzaria Clara Ramos;Rocha Bebidas e Alimentos LTDA;50.127.468/0001-10;Mercado & Conveniência;Varejo Rápido;Rio de Janeiro;RJ;Sudeste;50000;2023-04-13;Ativo
+1034;Mercearia Henrique Peixoto;Ferreira Bebidas e Alimentos LTDA;68.134.720/0001-83;Bar & Pub;Food Service / Noturno;Belo Horizonte;MG;Sudeste;25000;2022-05-03;Inativo
+1035;Bar do Luiza Abreu;Fonseca Lopes S/A Bebidas e Alimentos LTDA;59.182.463/0001-64;Restaurante;Food Service;Curitiba;PR;Sul;80000;2023-10-29;Inativo
+1036;Pub Julia Duarte;Sampaio Bebidas e Alimentos LTDA;82.375.619/0001-45;Mercado & Conveniência;Varejo Rápido;Rio de Janeiro;RJ;Sudeste;15000;2022-04-05;Ativo
+1037;Boteco Ana Julia Guerra;da Rosa Ltda. Bebidas e Alimentos LTDA;65.739.182/0001-62;Mercado & Conveniência;Varejo Rápido;Sorocaba;SP;Sudeste;15000;2021-11-23;Ativo
+1038;Bar do Lucca Ribeiro;da Paz - EI Bebidas e Alimentos LTDA;95.167.280/0001-33;Restaurante;Food Service;Uberlândia;MG;Sudeste;80000;2023-10-29;Ativo
+1039;Pub Juan Alves;da Cruz - ME Bebidas e Alimentos LTDA;17.654.938/0001-28;Adega & Empório;Especializado;Ribeirão Preto;SP;Sudeste;10000;2023-08-08;Ativo
+1040;Point do Isabelly da Cruz;Rezende Sales S/A Bebidas e Alimentos LTDA;63.295.480/0001-85;Restaurante;Food Service;Campinas;SP;Sudeste;15000;2021-06-15;Ativo
+1041;Mercearia Theo Campos;Carvalho Bebidas e Alimentos LTDA;89.563.472/0001-66;Adega & Empório;Especializado;Curitiba;PR;Sul;10000;2022-12-23;Ativo
+1042;Pub Maitê Castro;Machado Bebidas e Alimentos LTDA;34.751.290/0001-27;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;50000;2022-02-07;Ativo
+1043;Espetinho Allana da Costa;Farias Bebidas e Alimentos LTDA;81.296.357/0001-60;Adega & Empório;Especializado;Londrina;PR;Sul;25000;2022-05-12;Ativo
+1044;Restaurante Paulo Azevedo;Jesus Bebidas e Alimentos LTDA;87.601.342/0001-45;Bar & Pub;Food Service / Noturno;Sorocaba;SP;Sudeste;10000;2022-05-30;Ativo
+1045;Boteco Asafe Teixeira;Mendes Bebidas e Alimentos LTDA;54.673.819/0001-49;Bar & Pub;Food Service / Noturno;Londrina;PR;Sul;5000;2021-01-10;Ativo
+1046;Pub Pedro Lucas da Mata;Mendonça Bebidas e Alimentos LTDA;65.981.372/0001-91;Mercado & Conveniência;Varejo Rápido;Campinas;SP;Sudeste;10000;2021-02-15;Ativo
+1047;Pub Sophie Alves;Pastor Bebidas e Alimentos LTDA;01.683.794/0001-06;Bar & Pub;Food Service / Noturno;Uberlândia;MG;Sudeste;10000;2023-05-27;Ativo
+1048;Pizzaria Gabrielly Duarte;Marques Duarte Ltda. Bebidas e Alimentos LTDA;46.980.352/0001-51;Bar & Pub;Food Service / Noturno;Londrina;PR;Sul;10000;2022-08-12;Ativo
+1049;Taverna Valentina Aragão;Câmara Bebidas e Alimentos LTDA;10.896.754/0001-25;Casa de Eventos & Buffet;Eventos;Niterói;RJ;Sudeste;10000;2023-10-07;Ativo
+1050;Point do José Melo;Nunes S.A. Bebidas e Alimentos LTDA;45.296.013/0001-98;Mercado & Conveniência;Varejo Rápido;Belo Horizonte;MG;Sudeste;80000;2022-12-24;Ativo
+1051;Hamburgueria Henrique Pacheco;das Neves - EI Bebidas e Alimentos LTDA;69.304.182/0001-90;Restaurante;Food Service;Curitiba;PR;Sul;5000;2023-11-19;Inativo
+1052;Espetinho Ana Julia Rodrigues;Vieira - EI Bebidas e Alimentos LTDA;58.692.074/0001-16;Bar & Pub;Food Service / Noturno;Campinas;SP;Sudeste;5000;2021-03-05;Ativo
+1053;Mercearia Laura Mendonça;Lopes Ltda. Bebidas e Alimentos LTDA;72.615.483/0001-40;Restaurante;Food Service;São José dos Campos;SP;Sudeste;10000;2023-09-15;Inativo
+1054;Point do Stephany Vasconcelos;Martins Bebidas e Alimentos LTDA;94.561.027/0001-05;Bar & Pub;Food Service / Noturno;Niterói;RJ;Sudeste;5000;2022-11-08;Ativo
+1055;Espetinho Ryan Sá;Nunes Bebidas e Alimentos LTDA;65.032.197/0001-96;Bar & Pub;Food Service / Noturno;São Paulo;SP;Sudeste;5000;2023-08-07;Ativo
+1056;Point do Daniela da Luz;da Mota Bebidas e Alimentos LTDA;48.091.752/0001-31;Restaurante;Food Service;Ribeirão Preto;SP;Sudeste;25000;2023-07-16;Ativo
+1057;Taverna Joana Mendonça;Sales Melo e Filhos Bebidas e Alimentos LTDA;70.129.354/0001-16;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;50000;2023-02-02;Ativo
+1058;Hamburgueria Emilly Melo;Lima Bebidas e Alimentos LTDA;59.726.810/0001-72;Restaurante;Food Service;São José dos Campos;SP;Sudeste;25000;2023-05-05;Ativo
+1059;Point do Matheus Dias;Souza - EI Bebidas e Alimentos LTDA;23.857.940/0001-05;Bar & Pub;Food Service / Noturno;Campinas;SP;Sudeste;25000;2023-12-09;Ativo
+1060;Hamburgueria Mathias da Rocha;Fonseca Cavalcanti Ltda. Bebidas e Alimentos LTDA;82.406.793/0001-08;Restaurante;Food Service;Belo Horizonte;MG;Sudeste;80000;2021-01-22;Ativo
+1061;Point do José Porto;Caldeira Bebidas e Alimentos LTDA;94.736.210/0001-96;Bar & Pub;Food Service / Noturno;Rio de Janeiro;RJ;Sudeste;5000;2021-01-20;Ativo
+1062;Espetinho Thiago Mendes;Azevedo - ME Bebidas e Alimentos LTDA;10.294.783/0001-17;Bar & Pub;Food Service / Noturno;Niterói;RJ;Sudeste;5000;2023-02-03;Ativo
+1063;Pub Isaac Novais;Pereira Bebidas e Alimentos LTDA;93.687.251/0001-77;Bar & Pub;Food Service / Noturno;São José dos Campos;SP;Sudeste;25000;2023-07-16;Ativo
+1064;Restaurante Dante Pimenta;Teixeira S.A. Bebidas e Alimentos LTDA;34.176.509/0001-01;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;25000;2023-08-30;Ativo
+1065;Hamburgueria André Jesus;Sales Bebidas e Alimentos LTDA;74.012.539/0001-05;Bar & Pub;Food Service / Noturno;Campinas;SP;Sudeste;50000;2023-07-12;Ativo
+1066;Pub Ravi Lucca da Luz;Lima Camargo - EI Bebidas e Alimentos LTDA;24.906.173/0001-31;Bar & Pub;Food Service / Noturno;Rio de Janeiro;RJ;Sudeste;5000;2021-12-16;Ativo
+1067;Adega Alícia Macedo;Martins e Filhos Bebidas e Alimentos LTDA;64.730.851/0001-72;Casa de Eventos & Buffet;Eventos;São José dos Campos;SP;Sudeste;25000;2022-04-18;Ativo
+1068;Pizzaria Ayla Pereira;Alves Bebidas e Alimentos LTDA;30.478.192/0001-07;Restaurante;Food Service;São José dos Campos;SP;Sudeste;5000;2021-05-22;Ativo
+1069;Pizzaria Luísa da Mota;Pacheco Lopes e Filhos Bebidas e Alimentos LTDA;17.532.806/0001-23;Bar & Pub;Food Service / Noturno;São Paulo;SP;Sudeste;15000;2023-02-03;Ativo
+1070;Restaurante Bella Jesus;da Paz Bebidas e Alimentos LTDA;68.037.241/0001-49;Casa de Eventos & Buffet;Eventos;Uberlândia;MG;Sudeste;25000;2023-10-27;Inativo
+1071;Pub Igor Vargas;Moraes Bebidas e Alimentos LTDA;87.601.423/0001-45;Mercado & Conveniência;Varejo Rápido;Niterói;RJ;Sudeste;80000;2021-01-02;Ativo
+1072;Empório Melina Pires;Teixeira Bebidas e Alimentos LTDA;34.279.508/0001-92;Mercado & Conveniência;Varejo Rápido;Santos;SP;Sudeste;15000;2021-03-22;Ativo
+1073;Mercearia Rhavi Santos;das Neves Novaes S/A Bebidas e Alimentos LTDA;61.390.752/0001-09;Bar & Pub;Food Service / Noturno;São Paulo;SP;Sudeste;80000;2023-05-08;Ativo
+1074;Espetinho Leandro Monteiro;Moraes Bebidas e Alimentos LTDA;67.813.495/0001-49;Restaurante;Food Service;Niterói;RJ;Sudeste;5000;2022-03-01;Ativo
+1075;Pub Mateus Peixoto;Azevedo da Mota - ME Bebidas e Alimentos LTDA;84.025.637/0001-22;Bar & Pub;Food Service / Noturno;Uberlândia;MG;Sudeste;50000;2022-06-12;Ativo
+1076;Boteco Maitê Nascimento;Ferreira Bebidas e Alimentos LTDA;89.632.145/0001-19;Bar & Pub;Food Service / Noturno;Curitiba;PR;Sul;10000;2022-06-01;Ativo
+1077;Point do Hadassa da Conceição;Aparecida Bebidas e Alimentos LTDA;76.859.130/0001-46;Bar & Pub;Food Service / Noturno;Campinas;SP;Sudeste;10000;2022-05-10;Ativo
+1078;Empório José Montenegro;Brito Bebidas e Alimentos LTDA;18.705.932/0001-03;Restaurante;Food Service;Londrina;PR;Sul;50000;2022-11-15;Ativo
+1079;Boteco Leonardo Barbosa;Viana Bebidas e Alimentos LTDA;56.182.437/0001-48;Restaurante;Food Service;Londrina;PR;Sul;25000;2022-02-16;Ativo
+1080;Pub Mariah Nogueira;Pinto S/A Bebidas e Alimentos LTDA;43.180.569/0001-99;Mercado & Conveniência;Varejo Rápido;Londrina;PR;Sul;15000;2021-12-31;Ativo
+1081;Point do Ana Clara Alves;Duarte S/A Bebidas e Alimentos LTDA;59.617.432/0001-99;Casa de Eventos & Buffet;Eventos;São José dos Campos;SP;Sudeste;80000;2022-04-01;Ativo
+1082;Pizzaria Luiz Miguel Cavalcante;Barros Pimenta - ME Bebidas e Alimentos LTDA;37.219.856/0001-62;Bar & Pub;Food Service / Noturno;Ribeirão Preto;SP;Sudeste;10000;2023-08-21;Ativo
+1083;Hamburgueria Antony Martins;Rocha Bebidas e Alimentos LTDA;21.794.635/0001-88;Mercado & Conveniência;Varejo Rápido;Ribeirão Preto;SP;Sudeste;15000;2023-04-30;Ativo
+1084;Bar do Theodoro Marques;Costa Bebidas e Alimentos LTDA;71.394.256/0001-79;Casa de Eventos & Buffet;Eventos;Campinas;SP;Sudeste;25000;2022-08-21;Ativo
+1085;Boteco Ana Carolina Almeida;da Mota Bebidas e Alimentos LTDA;90.762.158/0001-91;Mercado & Conveniência;Varejo Rápido;Londrina;PR;Sul;5000;2021-01-13;Ativo
+1086;Restaurante Mateus Pinto;Rocha Bebidas e Alimentos LTDA;21.093.765/0001-93;Restaurante;Food Service;Curitiba;PR;Sul;10000;2023-10-22;Ativo
+1087;Empório João Borges;Duarte Bebidas e Alimentos LTDA;23.964.750/0001-89;Casa de Eventos & Buffet;Eventos;Campinas;SP;Sudeste;15000;2022-10-08;Ativo
+1088;Pub Théo Mendes;Souza Bebidas e Alimentos LTDA;17.986.320/0001-65;Bar & Pub;Food Service / Noturno;Uberlândia;MG;Sudeste;80000;2022-06-11;Ativo
+1089;Pub Isabela Albuquerque;Nascimento Bebidas e Alimentos LTDA;75.493.206/0001-08;Bar & Pub;Food Service / Noturno;Rio de Janeiro;RJ;Sudeste;5000;2021-07-11;Ativo
+1090;Restaurante Ravi Lucca Melo;Pinto - EI Bebidas e Alimentos LTDA;93.158.260/0001-70;Mercado & Conveniência;Varejo Rápido;Curitiba;PR;Sul;80000;2022-05-25;Ativo
+1091;Restaurante João Lucas Aparecida;da Rosa - ME Bebidas e Alimentos LTDA;13.286.754/0001-00;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;5000;2021-06-30;Ativo
+1092;Pub Leonardo Leão;Mendonça - EI Bebidas e Alimentos LTDA;40.513.769/0001-28;Adega & Empório;Especializado;Niterói;RJ;Sudeste;10000;2022-09-26;Ativo
+1093;Empório Gael Henrique Rodrigues;Nogueira Bebidas e Alimentos LTDA;50.621.834/0001-92;Bar & Pub;Food Service / Noturno;Londrina;PR;Sul;80000;2023-09-29;Ativo
+1094;Point do Otávio Ramos;Aragão Ltda. Bebidas e Alimentos LTDA;23.164.750/0001-02;Bar & Pub;Food Service / Noturno;Rio de Janeiro;RJ;Sudeste;15000;2022-01-14;Ativo
+1095;Bar do Bella Vasconcelos;Viana Peixoto S/A Bebidas e Alimentos LTDA;29.461.073/0001-62;Restaurante;Food Service;Ribeirão Preto;SP;Sudeste;5000;2022-03-07;Ativo
+1096;Bar do Arthur Fogaça;Pastor Duarte S/A Bebidas e Alimentos LTDA;40.253.987/0001-70;Mercado & Conveniência;Varejo Rápido;Ribeirão Preto;SP;Sudeste;5000;2021-09-28;Ativo
+1097;Point do Davi Lucas Melo;Vasconcelos Bebidas e Alimentos LTDA;81.749.602/0001-48;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;15000;2022-07-17;Ativo
+1098;Pub Raquel da Rosa;Ramos Bebidas e Alimentos LTDA;07.635.982/0001-37;Bar & Pub;Food Service / Noturno;Uberlândia;MG;Sudeste;80000;2021-02-18;Ativo
+1099;Boteco Lívia Barbosa;Duarte - EI Bebidas e Alimentos LTDA;12.475.689/0001-90;Restaurante;Food Service;São Paulo;SP;Sudeste;5000;2021-08-19;Ativo
+1100;Adega Sofia da Rocha;Montenegro Bebidas e Alimentos LTDA;61.895.473/0001-99;Casa de Eventos & Buffet;Eventos;Niterói;RJ;Sudeste;50000;2023-07-30;Ativo
+1101;Mercearia Marcela da Conceição;Fernandes Bebidas e Alimentos LTDA;69.123.847/0001-60;Bar & Pub;Food Service / Noturno;Sorocaba;SP;Sudeste;50000;2022-12-06;Ativo
+1102;Bar do Leandro Rodrigues;Azevedo Bebidas e Alimentos LTDA;19.605.284/0001-78;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;15000;2021-05-22;Ativo
+1103;Espetinho Dante Pastor;Rios Bebidas e Alimentos LTDA;65.978.023/0001-10;Restaurante;Food Service;São Paulo;SP;Sudeste;10000;2021-07-09;Ativo
+1104;Boteco Ana Lívia Fogaça;Oliveira - EI Bebidas e Alimentos LTDA;27.360.945/0001-70;Mercado & Conveniência;Varejo Rápido;Rio de Janeiro;RJ;Sudeste;15000;2021-11-27;Ativo
+1105;Mercearia Agatha Oliveira;Lima Novais - EI Bebidas e Alimentos LTDA;80.491.275/0001-04;Mercado & Conveniência;Varejo Rápido;Belo Horizonte;MG;Sudeste;80000;2023-08-12;Ativo
+1106;Adega Clara Abreu;Casa Grande Nunes e Filhos Bebidas e Alimentos LTDA;12.075.493/0001-08;Bar & Pub;Food Service / Noturno;São José dos Campos;SP;Sudeste;10000;2022-09-15;Ativo
+1107;Adega Larissa Marques;Castro Bebidas e Alimentos LTDA;45.107.862/0001-56;Adega & Empório;Especializado;São Paulo;SP;Sudeste;80000;2022-07-29;Ativo
+1108;Point do Enrico da Mata;Ribeiro Bebidas e Alimentos LTDA;79.621.405/0001-05;Casa de Eventos & Buffet;Eventos;Belo Horizonte;MG;Sudeste;80000;2022-10-21;Ativo
+1109;Adega Lorena Camargo;Rocha Bebidas e Alimentos LTDA;97.401.368/0001-01;Adega & Empório;Especializado;Ribeirão Preto;SP;Sudeste;80000;2023-11-20;Ativo
+1110;Hamburgueria Nicolas da Rosa;Vargas Carvalho Ltda. Bebidas e Alimentos LTDA;51.039.687/0001-00;Bar & Pub;Food Service / Noturno;São Paulo;SP;Sudeste;10000;2022-03-26;Ativo
+1111;Espetinho Gabrielly Nascimento;Montenegro Novais e Filhos Bebidas e Alimentos LTDA;16.037.859/0001-05;Bar & Pub;Food Service / Noturno;Uberlândia;MG;Sudeste;15000;2022-07-05;Ativo
+1112;Empório Liz Oliveira;Santos Bebidas e Alimentos LTDA;64.130.278/0001-66;Adega & Empório;Especializado;São José dos Campos;SP;Sudeste;5000;2023-09-22;Ativo
+1113;Espetinho Maria Clara Sales;Borges Bebidas e Alimentos LTDA;13.648.709/0001-40;Mercado & Conveniência;Varejo Rápido;Belo Horizonte;MG;Sudeste;15000;2022-11-10;Ativo
+1114;Espetinho Ana Luiza Souza;Câmara Bebidas e Alimentos LTDA;21.846.795/0001-23;Adega & Empório;Especializado;Ribeirão Preto;SP;Sudeste;80000;2022-06-02;Ativo
+1115;Pub Juan da Costa;Casa Grande Ltda. Bebidas e Alimentos LTDA;29.175.348/0001-00;Restaurante;Food Service;Rio de Janeiro;RJ;Sudeste;15000;2021-11-03;Ativo
+1116;Restaurante Manuela Rodrigues;Pires Bebidas e Alimentos LTDA;27.136.945/0001-91;Casa de Eventos & Buffet;Eventos;Campinas;SP;Sudeste;10000;2022-05-07;Ativo
+1117;Bar do Daniel Fogaça;das Neves - ME Bebidas e Alimentos LTDA;09.562.847/0001-34;Restaurante;Food Service;Ribeirão Preto;SP;Sudeste;5000;2022-12-04;Ativo
+1118;Taverna Natália Gomes;Pacheco Bebidas e Alimentos LTDA;07.324.819/0001-53;Restaurante;Food Service;Sorocaba;SP;Sudeste;15000;2023-05-12;Ativo
+1119;Boteco Manuella Caldeira;Silva Bebidas e Alimentos LTDA;82.015.349/0001-61;Restaurante;Food Service;Curitiba;PR;Sul;25000;2021-05-12;Ativo
+1120;Restaurante Rebeca Pimenta;Fonseca Freitas Ltda. Bebidas e Alimentos LTDA;65.098.271/0001-77;Adega & Empório;Especializado;São José dos Campos;SP;Sudeste;5000;2022-08-25;Ativo
+1121;Pub Gabriel Novais;da Paz Bebidas e Alimentos LTDA;92.504.187/0001-89;Mercado & Conveniência;Varejo Rápido;São Paulo;SP;Sudeste;50000;2022-01-27;Ativo
+1122;Taverna Heloísa Cardoso;das Neves - EI Bebidas e Alimentos LTDA;52.196.380/0001-85;Mercado & Conveniência;Varejo Rápido;Niterói;RJ;Sudeste;80000;2022-08-09;Ativo
+1123;Boteco Eloá das Neves;Cunha Fernandes - ME Bebidas e Alimentos LTDA;32.807.645/0001-27;Bar & Pub;Food Service / Noturno;Belo Horizonte;MG;Sudeste;80000;2021-10-26;Ativo
+1124;Espetinho Bárbara Vargas;Peixoto Garcia S.A. Bebidas e Alimentos LTDA;29.703.815/0001-19;Casa de Eventos & Buffet;Eventos;Londrina;PR;Sul;80000;2021-09-10;Ativo
+1125;Restaurante Alice Sá;da Conceição Bebidas e Alimentos LTDA;34.761.295/0001-30;Adega & Empório;Especializado;Niterói;RJ;Sudeste;50000;2023-04-10;Ativo
+1126;Espetinho Alexia Vasconcelos;Montenegro Bebidas e Alimentos LTDA;62.394.180/0001-90;Bar & Pub;Food Service / Noturno;Belo Horizonte;MG;Sudeste;25000;2023-03-31;Ativo
+1127;Adega Maria Luísa Freitas;Silva - EI Bebidas e Alimentos LTDA;41.273.985/0001-06;Mercado & Conveniência;Varejo Rápido;Curitiba;PR;Sul;10000;2021-07-13;Ativo
+1128;Point do Fernando Câmara;Ferreira Bebidas e Alimentos LTDA;60.942.138/0001-31;Restaurante;Food Service;Belo Horizonte;MG;Sudeste;80000;2021-02-11;Ativo
+1129;Mercearia Evelyn Câmara;Dias S/A Bebidas e Alimentos LTDA;52.807.319/0001-27;Adega & Empório;Especializado;Londrina;PR;Sul;15000;2023-10-07;Ativo
+1130;Restaurante Maria Isis Machado;Barros S/A Bebidas e Alimentos LTDA;32.608.157/0001-90;Restaurante;Food Service;São Paulo;SP;Sudeste;15000;2022-02-02;Ativo
+1131;Mercearia Calebe da Costa;Porto Bebidas e Alimentos LTDA;71.863.402/0001-68;Bar & Pub;Food Service / Noturno;Londrina;PR;Sul;80000;2023-08-26;Ativo
+1132;Hamburgueria Olívia Oliveira;Silva Casa Grande Ltda. Bebidas e Alimentos LTDA;05.347.192/0001-20;Bar & Pub;Food Service / Noturno;Uberlândia;MG;Sudeste;80000;2022-10-29;Ativo
+1133;Taverna Eloah Azevedo;Gomes - ME Bebidas e Alimentos LTDA;65.480.291/0001-08;Bar & Pub;Food Service / Noturno;Uberlândia;MG;Sudeste;10000;2021-03-09;Ativo
+1134;Pub Rodrigo Siqueira;Vargas - EI Bebidas e Alimentos LTDA;20.549.137/0001-07;Mercado & Conveniência;Varejo Rápido;Ribeirão Preto;SP;Sudeste;80000;2022-06-01;Ativo
+1135;Boteco Maria Luiza Pires;Carvalho Azevedo e Filhos Bebidas e Alimentos LTDA;04.391.625/0001-82;Mercado & Conveniência;Varejo Rápido;Sorocaba;SP;Sudeste;10000;2022-12-12;Inativo
+1136;Empório Olívia Gonçalves;da Cunha Bebidas e Alimentos LTDA;34.560.287/0001-26;Mercado & Conveniência;Varejo Rápido;São José dos Campos;SP;Sudeste;10000;2021-02-26;Ativo
+1137;Hamburgueria Emilly Lopes;Souza Bebidas e Alimentos LTDA;65.238.974/0001-53;Bar & Pub;Food Service / Noturno;São José dos Campos;SP;Sudeste;50000;2022-11-15;Ativo
+1138;Hamburgueria Vitor Barros;Barros Bebidas e Alimentos LTDA;92.480.563/0001-42;Adega & Empório;Especializado;Campinas;SP;Sudeste;25000;2022-10-31;Ativo
+1139;Empório Ana Carolina das Neves;Pereira Bebidas e Alimentos LTDA;27.530.961/0001-64;Adega & Empório;Especializado;Londrina;PR;Sul;80000;2022-10-24;Ativo
+1140;Pizzaria Danilo Barbosa;Fonseca Bebidas e Alimentos LTDA;20.964.385/0001-14;Mercado & Conveniência;Varejo Rápido;Uberlândia;MG;Sudeste;10000;2023-03-09;Inativo
+1141;Bar do Davi Luiz da Costa;Fonseca Bebidas e Alimentos LTDA;90.253.741/0001-77;Bar & Pub;Food Service / Noturno;Niterói;RJ;Sudeste;5000;2022-08-18;Inativo
+1142;Adega Eduardo Oliveira;Moura Fonseca - ME Bebidas e Alimentos LTDA;43.105.782/0001-36;Mercado & Conveniência;Varejo Rápido;São José dos Campos;SP;Sudeste;80000;2022-05-04;Ativo
+1143;Pub Hellena Novais;da Luz Ltda. Bebidas e Alimentos LTDA;73.458.106/0001-07;Restaurante;Food Service;São Paulo;SP;Sudeste;10000;2023-12-30;Ativo
+1144;Hamburgueria Diogo Machado;Silva Macedo S/A Bebidas e Alimentos LTDA;59.146.280/0001-93;Adega & Empório;Especializado;Campinas;SP;Sudeste;10000;2023-11-26;Ativo
+1145;Pub Luiz Fernando Vieira;Moraes Bebidas e Alimentos LTDA;13.298.075/0001-42;Adega & Empório;Especializado;Rio de Janeiro;RJ;Sudeste;50000;2021-12-15;Ativo
+1146;Mercearia Emilly Martins;Pimenta Borges S/A Bebidas e Alimentos LTDA;67.983.405/0001-68;Restaurante;Food Service;Uberlândia;MG;Sudeste;80000;2022-04-26;Ativo
+1147;Pub Anna Liz Ramos;Machado - ME Bebidas e Alimentos LTDA;85.264.910/0001-34;Adega & Empório;Especializado;Belo Horizonte;MG;Sudeste;25000;2023-11-23;Ativo
+1148;Hamburgueria Luana Montenegro;Campos - EI Bebidas e Alimentos LTDA;42.875.163/0001-68;Adega & Empório;Especializado;Niterói;RJ;Sudeste;25000;2021-08-26;Ativo
+1149;Point do Alice Barros;Costa Bebidas e Alimentos LTDA;84.257.906/0001-86;Bar & Pub;Food Service / Noturno;São José dos Campos;SP;Sudeste;15000;2023-09-14;Ativo
+1150;Hamburgueria Lucca Pastor;Cavalcante Ribeiro - EI Bebidas e Alimentos LTDA;50.876.423/0001-48;Mercado & Conveniência;Varejo Rápido;Curitiba;PR;Sul;80000;2023-07-30;Ativo
+1151;Boteco Otto Vargas;Pinto Bebidas e Alimentos LTDA;07.452.316/0001-63;Bar & Pub;Food Service / Noturno;Uberlândia;MG;Sudeste;80000;2023-09-20;Ativo
+1152;Espetinho Jade da Rosa;Barbosa Bebidas e Alimentos LTDA;02.736.514/0001-35;Bar & Pub;Food Service / Noturno;Ribeirão Preto;SP;Sudeste;15000;2023-12-06;Ativo
+1153;Adega João Pedro Dias;Siqueira Bebidas e Alimentos LTDA;62.549.087/0001-08;Adega & Empório;Especializado;Campinas;SP;Sudeste;10000;2022-06-21;Ativo
+1154;Adega Maria Flor Campos;Machado Bebidas e Alimentos LTDA;21.093.457/0001-68;Bar & Pub;Food Service / Noturno;Niterói;RJ;Sudeste;80000;2022-01-21;Ativo
+1155;Pizzaria Liam Duarte;Correia Bebidas e Alimentos LTDA;78.932.604/0001-63;Bar & Pub;Food Service / Noturno;Belo Horizonte;MG;Sudeste;15000;2021-09-05;Inativo
+1156;Bar do Isabel Montenegro;da Costa Bebidas e Alimentos LTDA;95.072.341/0001-89;Restaurante;Food Service;Belo Horizonte;MG;Sudeste;10000;2021-12-01;Ativo
+1157;Mercearia Stella Albuquerque;Lopes S.A. Bebidas e Alimentos LTDA;56.903.817/0001-24;Adega & Empório;Especializado;Belo Horizonte;MG;Sudeste;80000;2022-02-15;Ativo
+1158;Pizzaria Alícia Barbosa;Montenegro Bebidas e Alimentos LTDA;84.170.326/0001-57;Bar & Pub;Food Service / Noturno;Londrina;PR;Sul;25000;2022-12-01;Ativo
+1159;Restaurante Emanuelly Sá;Costa Pereira - EI Bebidas e Alimentos LTDA;80.971.234/0001-15;Bar & Pub;Food Service / Noturno;Sorocaba;SP;Sudeste;25000;2022-09-16;Ativo
+1160;Pub Maria Alice Cassiano;Duarte Pimenta Ltda. Bebidas e Alimentos LTDA;64.589.732/0001-41;Adega & Empório;Especializado;Belo Horizonte;MG;Sudeste;80000;2021-09-10;Ativo
+1161;Empório Ana Clara Melo;Freitas Ltda. Bebidas e Alimentos LTDA;16.485.039/0001-86;Mercado & Conveniência;Varejo Rápido;Londrina;PR;Sul;25000;2023-11-13;Ativo
+1162;Hamburgueria Rafael Silveira;Pacheco - ME Bebidas e Alimentos LTDA;86.295.107/0001-20;Bar & Pub;Food Service / Noturno;Belo Horizonte;MG;Sudeste;5000;2021-09-22;Ativo
+1163;Point do Henry Correia;Macedo Ltda. Bebidas e Alimentos LTDA;26.374.589/0001-81;Restaurante;Food Service;Rio de Janeiro;RJ;Sudeste;25000;2022-10-13;Ativo
+1164;Adega Davi Santos;Moreira Costela - EI Bebidas e Alimentos LTDA;78.621.394/0001-92;Mercado & Conveniência;Varejo Rápido;Uberlândia;MG;Sudeste;50000;2022-05-20;Ativo
+1165;Mercearia Daniela Rocha;Pimenta Bebidas e Alimentos LTDA;39.472.156/0001-00;Restaurante;Food Service;Belo Horizonte;MG;Sudeste;50000;2023-01-23;Ativo
+1166;Point do Oliver Sales;Dias Bebidas e Alimentos LTDA;58.420.731/0001-76;Mercado & Conveniência;Varejo Rápido;Campinas;SP;Sudeste;25000;2023-01-16;Ativo
+1167;Adega Catarina Vargas;da Rocha Aparecida Ltda. Bebidas e Alimentos LTDA;57.493.182/0001-05;Bar & Pub;Food Service / Noturno;Uberlândia;MG;Sudeste;5000;2021-05-03;Ativo
+1168;Empório Vitor Hugo Novais;Carvalho Bebidas e Alimentos LTDA;93.805.412/0001-80;Bar & Pub;Food Service / Noturno;Sorocaba;SP;Sudeste;25000;2021-06-19;Ativo
+1169;Restaurante Ravi Lucca Aragão;Jesus Ltda. Bebidas e Alimentos LTDA;12.049.365/0001-90;Bar & Pub;Food Service / Noturno;Belo Horizonte;MG;Sudeste;25000;2023-01-04;Ativo
+1170;Hamburgueria Murilo Sá;Duarte Bebidas e Alimentos LTDA;01.345.987/0001-49;Bar & Pub;Food Service / Noturno;Campinas;SP;Sudeste;5000;2022-03-20;Ativo
+1171;Espetinho Luiz Gustavo Andrade;Viana Bebidas e Alimentos LTDA;24.079.861/0001-75;Mercado & Conveniência;Varejo Rápido;São Paulo;SP;Sudeste;10000;2023-02-09;Ativo
+1172;Bar do Alice Marques;Carvalho Bebidas e Alimentos LTDA;74.360.218/0001-93;Mercado & Conveniência;Varejo Rápido;Rio de Janeiro;RJ;Sudeste;5000;2023-02-23;Ativo
+1173;Bar do Maria Cecília Ramos;Silva Bebidas e Alimentos LTDA;05.478.162/0001-53;Casa de Eventos & Buffet;Eventos;São José dos Campos;SP;Sudeste;50000;2021-10-17;Ativo
+1174;Hamburgueria Jade Lima;Borges Bebidas e Alimentos LTDA;12.837.904/0001-55;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;80000;2022-09-15;Ativo
+1175;Hamburgueria Hadassa da Costa;Sá Bebidas e Alimentos LTDA;54.029.617/0001-69;Bar & Pub;Food Service / Noturno;São José dos Campos;SP;Sudeste;80000;2022-02-19;Ativo
+1176;Adega Isaac Martins;Castro Bebidas e Alimentos LTDA;84.152.670/0001-13;Bar & Pub;Food Service / Noturno;Sorocaba;SP;Sudeste;50000;2022-09-22;Ativo
+1177;Taverna João Felipe Mendes;Marques Souza - EI Bebidas e Alimentos LTDA;68.794.152/0001-47;Mercado & Conveniência;Varejo Rápido;Niterói;RJ;Sudeste;5000;2022-08-04;Ativo
+1178;Restaurante Enrico Moura;Moura Bebidas e Alimentos LTDA;51.804.972/0001-70;Mercado & Conveniência;Varejo Rápido;Santos;SP;Sudeste;5000;2023-12-30;Ativo
+1179;Mercearia Stella Cassiano;Duarte Moreira - ME Bebidas e Alimentos LTDA;37.149.056/0001-12;Restaurante;Food Service;Ribeirão Preto;SP;Sudeste;80000;2021-06-30;Inativo
+1180;Pizzaria Olivia Leão;Nunes Bebidas e Alimentos LTDA;87.450.326/0001-07;Adega & Empório;Especializado;Belo Horizonte;MG;Sudeste;80000;2021-03-31;Ativo
+1181;Taverna Pedro Henrique Pacheco;Aparecida - ME Bebidas e Alimentos LTDA;18.073.629/0001-27;Bar & Pub;Food Service / Noturno;Londrina;PR;Sul;80000;2022-06-20;Ativo
+1182;Restaurante Luiz Miguel Vargas;Vargas Ramos e Filhos Bebidas e Alimentos LTDA;65.937.802/0001-78;Bar & Pub;Food Service / Noturno;Niterói;RJ;Sudeste;80000;2023-10-01;Ativo
+1183;Mercearia Valentina Carvalho;Campos Bebidas e Alimentos LTDA;86.251.049/0001-32;Mercado & Conveniência;Varejo Rápido;Campinas;SP;Sudeste;5000;2021-10-05;Ativo
+1184;Point do Maria Fernanda Rocha;Nascimento Bebidas e Alimentos LTDA;39.721.654/0001-40;Bar & Pub;Food Service / Noturno;Belo Horizonte;MG;Sudeste;15000;2022-08-13;Ativo
+1185;Espetinho Henry Gabriel Andrade;Pimenta Bebidas e Alimentos LTDA;39.104.682/0001-18;Bar & Pub;Food Service / Noturno;Rio de Janeiro;RJ;Sudeste;5000;2021-01-25;Ativo
+1186;Boteco Calebe da Cruz;Guerra - ME Bebidas e Alimentos LTDA;83.014.265/0001-76;Adega & Empório;Especializado;Uberlândia;MG;Sudeste;25000;2021-12-31;Ativo
+1187;Hamburgueria Antonella Oliveira;da Costa Bebidas e Alimentos LTDA;28.379.504/0001-83;Casa de Eventos & Buffet;Eventos;Rio de Janeiro;RJ;Sudeste;80000;2022-04-14;Ativo
+1188;Taverna Luiz Fernando Pires;Novais Bebidas e Alimentos LTDA;05.674.231/0001-02;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;50000;2023-02-09;Ativo
+1189;Mercearia Kaique da Rosa;Cirino Bebidas e Alimentos LTDA;73.825.190/0001-50;Casa de Eventos & Buffet;Eventos;Ribeirão Preto;SP;Sudeste;50000;2023-04-16;Ativo
+1190;Pizzaria Júlia Leão;Gomes da Cruz Ltda. Bebidas e Alimentos LTDA;51.762.084/0001-31;Mercado & Conveniência;Varejo Rápido;Uberlândia;MG;Sudeste;80000;2021-11-12;Ativo
+1191;Empório Vitor Gabriel Garcia;Barbosa S.A. Bebidas e Alimentos LTDA;83.712.509/0001-94;Restaurante;Food Service;Sorocaba;SP;Sudeste;5000;2023-07-02;Ativo
+1192;Empório Mateus Sousa;Souza - ME Bebidas e Alimentos LTDA;93.614.257/0001-14;Bar & Pub;Food Service / Noturno;Uberlândia;MG;Sudeste;25000;2022-01-12;Ativo
+1193;Pizzaria Maria Flor Nascimento;das Neves Bebidas e Alimentos LTDA;58.730.629/0001-77;Restaurante;Food Service;Rio de Janeiro;RJ;Sudeste;15000;2022-02-11;Ativo
+1194;Adega Ester Dias;Aparecida Bebidas e Alimentos LTDA;32.084.591/0001-19;Bar & Pub;Food Service / Noturno;Sorocaba;SP;Sudeste;25000;2023-05-24;Ativo
+1195;Espetinho Leandro Costa;da Conceição Bebidas e Alimentos LTDA;93.745.261/0001-11;Bar & Pub;Food Service / Noturno;Ribeirão Preto;SP;Sudeste;15000;2022-08-14;Ativo
+1196;Restaurante Mariane Marques;Siqueira Vieira Ltda. Bebidas e Alimentos LTDA;28.714.053/0001-93;Adega & Empório;Especializado;Niterói;RJ;Sudeste;50000;2021-09-20;Ativo
+1197;Boteco Calebe Teixeira;Jesus S.A. Bebidas e Alimentos LTDA;31.208.495/0001-72;Bar & Pub;Food Service / Noturno;São José dos Campos;SP;Sudeste;10000;2023-09-07;Ativo
+1198;Pub Dante Pinto;Ribeiro Bebidas e Alimentos LTDA;09.687.423/0001-04;Mercado & Conveniência;Varejo Rápido;Uberlândia;MG;Sudeste;10000;2023-01-28;Ativo
+1199;Taverna Allana Almeida;Cavalcanti Bebidas e Alimentos LTDA;18.296.475/0001-32;Mercado & Conveniência;Varejo Rápido;Rio de Janeiro;RJ;Sudeste;25000;2021-06-16;Ativo
+1200;Boteco Vitor Vieira;Barros Bebidas e Alimentos LTDA;67.351.204/0001-48;Restaurante;Food Service;São Paulo;SP;Sudeste;15000;2022-08-03;Ativo
+1201;Empório Benício Borges;Garcia Bebidas e Alimentos LTDA;87.059.164/0001-72;Bar & Pub;Food Service / Noturno;Niterói;RJ;Sudeste;15000;2022-08-09;Ativo
+1202;Hamburgueria Luara Ramos;Nunes Bebidas e Alimentos LTDA;80.315.476/0001-50;Mercado & Conveniência;Varejo Rápido;Sorocaba;SP;Sudeste;50000;2021-05-29;Ativo
+1203;Taverna Caleb Barbosa;Nogueira Bebidas e Alimentos LTDA;02.591.478/0001-69;Restaurante;Food Service;Belo Horizonte;MG;Sudeste;50000;2023-05-26;Ativo
+1204;Hamburgueria Isabella Barbosa;Castro Bebidas e Alimentos LTDA;36.597.102/0001-83;Bar & Pub;Food Service / Noturno;Niterói;RJ;Sudeste;15000;2023-05-27;Ativo
+1205;Boteco Cecilia Aragão;Lopes S.A. Bebidas e Alimentos LTDA;56.907.231/0001-38;Bar & Pub;Food Service / Noturno;São José dos Campos;SP;Sudeste;80000;2021-04-29;Ativo
+1206;Taverna Rafael Fogaça;Lopes Bebidas e Alimentos LTDA;96.184.275/0001-00;Bar & Pub;Food Service / Noturno;Campinas;SP;Sudeste;50000;2021-10-16;Ativo
+1207;Adega Diogo Barros;Cassiano Bebidas e Alimentos LTDA;26.590.741/0001-63;Casa de Eventos & Buffet;Eventos;Niterói;RJ;Sudeste;10000;2022-08-14;Ativo
+1208;Restaurante Lívia Fonseca;Caldeira Bebidas e Alimentos LTDA;12.634.570/0001-12;Bar & Pub;Food Service / Noturno;Uberlândia;MG;Sudeste;80000;2021-07-25;Ativo
+1209;Mercearia Benjamim Borges;Novaes Bebidas e Alimentos LTDA;95.602.347/0001-10;Restaurante;Food Service;Curitiba;PR;Sul;15000;2021-05-25;Ativo
+1210;Restaurante Ryan Oliveira;Rodrigues Garcia S.A. Bebidas e Alimentos LTDA;49.831.056/0001-87;Casa de Eventos & Buffet;Eventos;São José dos Campos;SP;Sudeste;10000;2021-08-04;Ativo
+1211;Bar do Yuri Leão;Mendes Bebidas e Alimentos LTDA;54.396.718/0001-78;Restaurante;Food Service;Ribeirão Preto;SP;Sudeste;80000;2021-04-30;Ativo
+1212;Bar do Heitor Carvalho;Abreu Bebidas e Alimentos LTDA;56.932.814/0001-19;Restaurante;Food Service;Ribeirão Preto;SP;Sudeste;5000;2022-09-07;Ativo
+1213;Adega Aurora Pereira;Mendes Dias S.A. Bebidas e Alimentos LTDA;54.781.239/0001-75;Restaurante;Food Service;Niterói;RJ;Sudeste;80000;2022-09-11;Ativo
+1214;Boteco Isabel Fonseca;Nunes S.A. Bebidas e Alimentos LTDA;82.053.164/0001-41;Adega & Empório;Especializado;Uberlândia;MG;Sudeste;5000;2023-07-09;Ativo
+1215;Hamburgueria Davi Miguel Vieira;Rocha Bebidas e Alimentos LTDA;24.395.178/0001-47;Restaurante;Food Service;Uberlândia;MG;Sudeste;25000;2023-02-15;Ativo
+1216;Restaurante Diogo Machado;Pacheco Bebidas e Alimentos LTDA;89.640.253/0001-33;Bar & Pub;Food Service / Noturno;São Paulo;SP;Sudeste;25000;2022-09-15;Ativo
+1217;Pizzaria Theo Ribeiro;Cavalcante Bebidas e Alimentos LTDA;90.672.384/0001-81;Bar & Pub;Food Service / Noturno;Campinas;SP;Sudeste;25000;2023-10-03;Ativo
+1218;Point do Gael Henrique da Luz;Moraes Souza - EI Bebidas e Alimentos LTDA;93.728.514/0001-49;Bar & Pub;Food Service / Noturno;Rio de Janeiro;RJ;Sudeste;5000;2023-05-17;Ativo
+1219;Restaurante Benicio Mendes;da Rocha - ME Bebidas e Alimentos LTDA;12.586.397/0001-24;Bar & Pub;Food Service / Noturno;Londrina;PR;Sul;5000;2021-05-14;Ativo
+1220;Pub Maria Sophia Ferreira;Brito Bebidas e Alimentos LTDA;75.120.849/0001-06;Casa de Eventos & Buffet;Eventos;Campinas;SP;Sudeste;25000;2022-11-12;Ativo
+1221;Empório Henrique Rocha;Sousa da Cruz - EI Bebidas e Alimentos LTDA;82.543.716/0001-08;Mercado & Conveniência;Varejo Rápido;Londrina;PR;Sul;50000;2021-09-29;Ativo
+1222;Restaurante Léo Cirino;Gonçalves Bebidas e Alimentos LTDA;93.748.502/0001-86;Restaurante;Food Service;Uberlândia;MG;Sudeste;50000;2021-02-15;Ativo
+1223;Mercearia Paulo Costela;Sá Bebidas e Alimentos LTDA;19.276.830/0001-74;Casa de Eventos & Buffet;Eventos;Ribeirão Preto;SP;Sudeste;50000;2023-12-30;Ativo
+1224;Boteco Vinicius Rios;Moura Bebidas e Alimentos LTDA;56.840.271/0001-00;Bar & Pub;Food Service / Noturno;Niterói;RJ;Sudeste;10000;2023-09-20;Ativo
+1225;Point do Luiz Felipe Rocha;Pimenta Bebidas e Alimentos LTDA;12.509.863/0001-78;Mercado & Conveniência;Varejo Rápido;Ribeirão Preto;SP;Sudeste;5000;2023-07-06;Ativo
+1226;Pub Evelyn Sales;Moraes Gomes - ME Bebidas e Alimentos LTDA;26.813.479/0001-79;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;5000;2023-07-16;Ativo
+1227;Hamburgueria Lucas Gabriel Mendonça;Carvalho Bebidas e Alimentos LTDA;57.062.834/0001-49;Bar & Pub;Food Service / Noturno;Belo Horizonte;MG;Sudeste;80000;2021-10-18;Inativo
+1228;Bar do Mathias Gomes;Jesus Bebidas e Alimentos LTDA;76.931.048/0001-85;Restaurante;Food Service;Ribeirão Preto;SP;Sudeste;10000;2023-11-30;Ativo
+1229;Taverna Ana Andrade;Câmara Bebidas e Alimentos LTDA;42.795.308/0001-10;Bar & Pub;Food Service / Noturno;Ribeirão Preto;SP;Sudeste;25000;2023-04-16;Ativo
+1230;Restaurante Ian da Mata;Nogueira Bebidas e Alimentos LTDA;78.390.125/0001-62;Bar & Pub;Food Service / Noturno;São José dos Campos;SP;Sudeste;80000;2021-03-06;Ativo
+1231;Pizzaria Manuella da Luz;Borges Bebidas e Alimentos LTDA;13.865.427/0001-02;Restaurante;Food Service;São José dos Campos;SP;Sudeste;5000;2022-11-14;Ativo
+1232;Adega Liz Cavalcante;Viana Costela S.A. Bebidas e Alimentos LTDA;95.476.123/0001-00;Restaurante;Food Service;Rio de Janeiro;RJ;Sudeste;15000;2021-04-03;Ativo
+1233;Bar do Ana da Rocha;Moraes Bebidas e Alimentos LTDA;12.608.947/0001-69;Adega & Empório;Especializado;Campinas;SP;Sudeste;10000;2023-11-22;Ativo
+1234;Taverna João Vitor Silva;da Cruz Bebidas e Alimentos LTDA;67.245.831/0001-02;Mercado & Conveniência;Varejo Rápido;Londrina;PR;Sul;50000;2023-11-17;Ativo
+1235;Boteco Marcela Barbosa;Guerra - EI Bebidas e Alimentos LTDA;57.824.096/0001-20;Casa de Eventos & Buffet;Eventos;Uberlândia;MG;Sudeste;25000;2022-03-09;Ativo
+1236;Pizzaria Maria Cecília Porto;Azevedo Bebidas e Alimentos LTDA;63.971.825/0001-73;Mercado & Conveniência;Varejo Rápido;Niterói;RJ;Sudeste;15000;2023-04-11;Ativo
+1237;Hamburgueria Alice Fernandes;Nunes Mendonça Ltda. Bebidas e Alimentos LTDA;09.153.846/0001-36;Restaurante;Food Service;Uberlândia;MG;Sudeste;5000;2023-11-27;Ativo
+1238;Taverna Lunna Marques;Lima S.A. Bebidas e Alimentos LTDA;24.967.051/0001-55;Restaurante;Food Service;Belo Horizonte;MG;Sudeste;15000;2023-12-06;Ativo
+1239;Boteco Enzo Freitas;Aragão Gonçalves e Filhos Bebidas e Alimentos LTDA;36.150.879/0001-03;Mercado & Conveniência;Varejo Rápido;São Paulo;SP;Sudeste;10000;2022-04-20;Ativo
+1240;Mercearia Eduardo Cardoso;Moreira Rodrigues - ME Bebidas e Alimentos LTDA;05.163.789/0001-15;Casa de Eventos & Buffet;Eventos;Londrina;PR;Sul;5000;2021-01-15;Ativo
+1241;Restaurante Raul Gomes;Siqueira S/A Bebidas e Alimentos LTDA;59.413.670/0001-82;Casa de Eventos & Buffet;Eventos;Rio de Janeiro;RJ;Sudeste;50000;2021-06-10;Inativo
+1242;Hamburgueria Sofia Nunes;Pimenta e Filhos Bebidas e Alimentos LTDA;75.386.192/0001-15;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;50000;2021-09-12;Inativo
+1243;Adega Luísa Cunha;Brito S.A. Bebidas e Alimentos LTDA;96.532.148/0001-46;Mercado & Conveniência;Varejo Rápido;Ribeirão Preto;SP;Sudeste;50000;2021-07-11;Ativo
+1244;Boteco Enzo Gabriel da Cruz;Vasconcelos Bebidas e Alimentos LTDA;04.386.512/0001-99;Restaurante;Food Service;Uberlândia;MG;Sudeste;25000;2023-12-09;Ativo
+1245;Espetinho Heloísa da Rocha;Viana S.A. Bebidas e Alimentos LTDA;61.375.402/0001-65;Bar & Pub;Food Service / Noturno;Sorocaba;SP;Sudeste;80000;2023-02-08;Ativo
+1246;Espetinho Apollo Fonseca;Cardoso Bebidas e Alimentos LTDA;96.547.130/0001-18;Bar & Pub;Food Service / Noturno;Santos;SP;Sudeste;25000;2022-08-24;Ativo
+1247;Point do Arthur Gabriel Pastor;Albuquerque Ltda. Bebidas e Alimentos LTDA;09.642.731/0001-05;Mercado & Conveniência;Varejo Rápido;Ribeirão Preto;SP;Sudeste;25000;2021-12-02;Ativo
+1248;Bar do Isadora Barros;da Mota Barros Ltda. Bebidas e Alimentos LTDA;83.247.901/0001-00;Adega & Empório;Especializado;Curitiba;PR;Sul;25000;2021-05-03;Inativo
+1249;Espetinho Luiza Siqueira;Araújo da Cruz S/A Bebidas e Alimentos LTDA;17.025.983/0001-13;Bar & Pub;Food Service / Noturno;Ribeirão Preto;SP;Sudeste;5000;2022-11-06;Inativo
+1250;Pub João Guilherme Sampaio;Castro - ME Bebidas e Alimentos LTDA;89.412.653/0001-91;Casa de Eventos & Buffet;Eventos;Belo Horizonte;MG;Sudeste;5000;2022-06-23;Ativo

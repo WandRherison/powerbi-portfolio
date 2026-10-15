@@ -1,0 +1,5 @@
+﻿ID_Canal;Nome_Canal;Taxa_Intermediacao_Perc;Liquidacao_Dias
+1;Pix;0.0;0
+2;Cartão de Crédito;2.5;30
+3;Boleto Bancário;1.2;2
+4;Transferência Bancária;0.0;1

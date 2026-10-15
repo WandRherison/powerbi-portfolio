@@ -1,0 +1,401 @@
+﻿ID_Doador;Nome;Tipo_Pessoa;Documento;Cidade;Estado;Data_Primeiro_Aporte;Status_Doador
+1001;João Guilherme da Cruz;PF;321.564.087-26;Brasília;DF;2023-06-22;Inativo
+1002;Caleb Cunha;PF;380.416.975-93;Campinas;SP;2023-02-19;Ativo
+1003;Teixeira S.A. S.A.;PJ;65.419.203/0001-62;São Paulo;SP;2024-03-08;Ativo
+1004;Fogaça Ltda. S.A.;PJ;94.053.871/0001-17;Recife;PE;2024-08-13;Ativo
+1005;Laís Pires;PF;953.806.174-84;Niterói;RJ;2023-05-03;Ativo
+1006;Garcia Ltda. S.A.;PJ;75.296.183/0001-33;Rio de Janeiro;RJ;2023-12-28;Inativo
+1007;Eloá Nascimento;PF;327.984.156-91;Rio de Janeiro;RJ;2023-04-21;Ativo
+1008;Arthur Gabriel Dias;PF;641.782.953-73;Santos;SP;2023-03-28;Ativo
+1009;Natália Casa Grande;PF;423.596.871-82;Recife;PE;2024-09-06;Ativo
+1010;Sr. Davi Miguel Moraes;PF;710.698.423-03;Campinas;SP;2024-09-12;Ativo
+1011;Maria Helena Peixoto;PF;784.905.231-50;Brasília;DF;2023-04-09;Ativo
+1012;Pedro Henrique Castro;PF;704.916.825-49;Recife;PE;2023-06-23;Ativo
+1013;Fernanda Cassiano;PF;520.483.761-26;Porto Alegre;RS;2025-02-27;Ativo
+1014;Benjamin da Costa;PF;918.530.746-75;Campinas;SP;2024-04-22;Ativo
+1015;Vinícius Pereira;PF;638.527.914-64;Salvador;BA;2023-09-14;Ativo
+1016;Henry Gabriel Azevedo;PF;503.418.627-62;Uberlândia;MG;2023-07-07;Ativo
+1017;Andrade Ltda. S.A.;PJ;18.325.796/0001-18;São Paulo;SP;2023-12-22;Inativo
+1018;Dra. Olívia da Cruz;PF;763.089.214-40;São Paulo;SP;2023-07-25;Ativo
+1019;Srta. Beatriz Araújo;PF;651.798.304-00;Campinas;SP;2024-12-26;Ativo
+1020;Ravi da Cruz;PF;179.054.632-06;Rio de Janeiro;RJ;2023-10-13;Ativo
+1021;Mendonça S.A.;PJ;73.601.895/0001-93;Rio de Janeiro;RJ;2023-09-16;Ativo
+1022;da Paz S.A.;PJ;68.719.250/0001-10;Porto Alegre;RS;2024-02-16;Inativo
+1023;Levi Araújo;PF;072.946.158-02;Salvador;BA;2025-04-22;Ativo
+1024;Bárbara Nunes;PF;301.954.278-23;São Paulo;SP;2024-01-01;Ativo
+1025;João Gonçalves;PF;247.905.368-74;Porto Alegre;RS;2024-05-03;Ativo
+1026;Hadassa Montenegro;PF;425.018.967-85;Rio de Janeiro;RJ;2023-04-24;Ativo
+1027;Sra. Vitória Albuquerque;PF;841.720.953-05;Recife;PE;2025-04-23;Ativo
+1028;Gustavo Henrique Silva;PF;534.782.091-88;Brasília;DF;2024-02-28;Inativo
+1029;Abreu Ltda. S.A.;PJ;24.953.867/0001-20;Recife;PE;2024-03-05;Ativo
+1030;Barbosa e Filhos S.A.;PJ;28.069.413/0001-41;Porto Alegre;RS;2023-01-16;Ativo
+1031;Leandro Fonseca;PF;053.819.276-30;Uberlândia;MG;2023-07-17;Ativo
+1032;Enrico Cavalcanti;PF;602.573.148-90;Rio de Janeiro;RJ;2023-08-29;Ativo
+1033;Ana Carolina Melo;PF;397.261.405-52;Curitiba;PR;2023-06-17;Ativo
+1034;da Mota S.A.;PJ;14.578.320/0001-38;Salvador;BA;2024-09-10;Ativo
+1035;Cavalcanti S.A.;PJ;94.078.325/0001-30;Niterói;RJ;2023-06-29;Inativo
+1036;Sophia Camargo;PF;634.058.927-83;São Paulo;SP;2024-05-02;Ativo
+1037;Azevedo S.A.;PJ;59.182.463/0001-64;Santos;SP;2024-07-19;Ativo
+1038;Dr. Juan Novaes;PF;236.581.940-06;Recife;PE;2024-09-26;Ativo
+1039;Gustavo Henrique Lopes;PF;957.361.820-68;Uberlândia;MG;2024-04-17;Ativo
+1040;Théo Ribeiro;PF;951.672.804-94;Belo Horizonte;MG;2023-05-12;Ativo
+1041;Joaquim Melo;PF;917.354.826-09;Niterói;RJ;2023-02-07;Ativo
+1042;Isabelly Casa Grande;PF;016.874.392-22;Santos;SP;2025-02-06;Ativo
+1043;Catarina Martins;PF;895.634.721-28;Rio de Janeiro;RJ;2023-07-08;Ativo
+1044;Sra. Milena da Luz;PF;347.512.906-06;Belo Horizonte;MG;2023-09-05;Ativo
+1045;Lucas Gabriel Dias;PF;812.963.570-40;Campinas;SP;2023-12-31;Ativo
+1046;Jesus S.A.;PJ;58.730.164/0001-54;Campinas;SP;2023-04-10;Ativo
+1047;Maria Helena Mendes;PF;054.638.179-01;Uberlândia;MG;2023-01-31;Ativo
+1048;Raquel Alves;PF;659.813.720-95;Campinas;SP;2024-02-28;Ativo
+1049;Amanda Barros;PF;627.108.395-12;Belo Horizonte;MG;2024-09-04;Ativo
+1050;Fernandes S.A.;PJ;64.920.357/0001-70;Belo Horizonte;MG;2024-12-07;Ativo
+1051;Ferreira S.A. S.A.;PJ;10.896.754/0001-25;Salvador;BA;2025-04-17;Ativo
+1052;Bruna Nunes;PF;374.621.098-40;Niterói;RJ;2023-07-16;Ativo
+1053;Amanda das Neves;PF;968.510.743-20;São Paulo;SP;2023-06-17;Ativo
+1054;Ana Cecília Ferreira;PF;865.042.917-30;Recife;PE;2023-07-08;Ativo
+1055;Maria Cecília Porto;PF;726.154.839-19;Curitiba;PR;2023-06-13;Ativo
+1056;Juliana Duarte;PF;314.986.750-93;Porto Alegre;RS;2024-12-23;Ativo
+1057;Sr. Ryan Cunha;PF;549.286.073-92;Campinas;SP;2025-02-06;Ativo
+1058;Nicolas Mendonça;PF;837.569.402-92;Uberlândia;MG;2023-05-13;Ativo
+1059;Nathan Sales;PF;345.987.216-00;Campinas;SP;2024-04-02;Ativo
+1060;Sra. Júlia das Neves;PF;431.572.098-41;Porto Alegre;RS;2024-06-30;Ativo
+1061;Rodrigo da Mota;PF;984.012.536-24;Niterói;RJ;2023-10-25;Ativo
+1062;Vitor Cardoso;PF;408.921.375-41;Brasília;DF;2024-04-14;Ativo
+1063;Pietra Macedo;PF;520.837.416-17;Salvador;BA;2024-03-17;Ativo
+1064;Ana Júlia Cassiano;PF;241.708.395-79;Belo Horizonte;MG;2023-04-26;Ativo
+1065;Machado S.A.;PJ;74.628.509/0001-10;Salvador;BA;2025-03-22;Ativo
+1066;Heitor da Luz;PF;123.940.657-61;Rio de Janeiro;RJ;2023-06-04;Ativo
+1067;da Rocha S.A.;PJ;03.452.896/0001-38;Recife;PE;2024-11-30;Ativo
+1068;Gael Henrique Lima;PF;183.592.604-51;Campinas;SP;2023-12-29;Ativo
+1069;João Pedro Macedo;PF;174.532.690-16;São Paulo;SP;2023-09-15;Ativo
+1070;Luna Pereira;PF;401.759.826-94;Brasília;DF;2023-03-03;Inativo
+1071;Ravy Moreira;PF;742.835.019-05;Rio de Janeiro;RJ;2023-03-04;Ativo
+1072;Dr. Cauã Castro;PF;567.293.014-06;Niterói;RJ;2024-09-26;Ativo
+1073;Lorenzo Camargo;PF;680.543.972-83;Campinas;SP;2024-05-03;Ativo
+1074;Dr. Pedro Miguel Teixeira;PF;034.712.865-35;Rio de Janeiro;RJ;2025-03-16;Ativo
+1075;Pires - EI S.A.;PJ;32.470.695/0001-61;Campinas;SP;2023-07-08;Ativo
+1076;Ravi Campos;PF;274.859.316-28;Uberlândia;MG;2023-12-16;Ativo
+1077;Novaes S.A.;PJ;26.348.105/0001-20;Niterói;RJ;2024-01-14;Ativo
+1078;Dr. Alexandre da Paz;PF;472.396.815-64;Curitiba;PR;2024-10-06;Ativo
+1079;Sr. Isaque Oliveira;PF;639.028.417-96;Brasília;DF;2024-12-08;Ativo
+1080;Davi Lucas Montenegro;PF;951.630.842-24;Belo Horizonte;MG;2025-02-08;Ativo
+1081;Daniela Barbosa;PF;745.893.012-88;Santos;SP;2024-09-28;Ativo
+1082;Raquel Nogueira;PF;013.562.849-06;Belo Horizonte;MG;2024-05-06;Ativo
+1083;Teixeira e Filhos S.A.;PJ;17.258.049/0001-41;Belo Horizonte;MG;2024-11-05;Ativo
+1084;Luiz Henrique Freitas;PF;623.479.108-50;Rio de Janeiro;RJ;2023-03-29;Ativo
+1085;Pinto S.A.;PJ;37.219.856/0001-62;Brasília;DF;2023-05-03;Ativo
+1086;Laura Rocha;PF;821.394.567-00;Niterói;RJ;2023-01-15;Ativo
+1087;Liz Costa;PF;671.834.259-91;Recife;PE;2024-01-24;Ativo
+1088;Miguel da Mota;PF;097.621.583-77;Brasília;DF;2024-04-03;Ativo
+1089;Cecilia Pires;PF;104.638.257-80;Brasília;DF;2024-01-25;Ativo
+1090;Luan Souza;PF;623.148.509-98;Campinas;SP;2023-05-21;Ativo
+1091;Lucca Camargo;PF;712.683.905-77;Salvador;BA;2025-01-18;Ativo
+1092;Vitor Gabriel Campos;PF;754.932.068-38;Brasília;DF;2023-01-22;Ativo
+1093;Luan Pimenta;PF;317.529.046-99;Santos;SP;2025-01-02;Ativo
+1094;Thales Camargo;PF;132.867.540-80;Porto Alegre;RS;2023-02-27;Ativo
+1095;Beatriz Mendonça;PF;964.052.137-06;Recife;PE;2024-10-06;Ativo
+1096;Brito S.A.;PJ;58.903.216/0001-47;Rio de Janeiro;RJ;2024-01-02;Ativo
+1097;Heitor Ramos;PF;908.621.457-67;Santos;SP;2024-12-07;Ativo
+1098;Giovanna Pastor;PF;395.614.078-84;Curitiba;PR;2023-04-17;Ativo
+1099;Isis Cavalcanti;PF;102.879.563-77;Uberlândia;MG;2023-07-21;Ativo
+1100;Davi Lucas Sousa;PF;681.503.479-84;Niterói;RJ;2024-02-17;Ativo
+1101;Hellena Pimenta;PF;084.359.712-79;Brasília;DF;2024-12-03;Ativo
+1102;Mendonça e Filhos S.A.;PJ;71.824.903/0001-35;Recife;PE;2024-10-24;Ativo
+1103;Lunna Garcia;PF;984.375.602-92;Porto Alegre;RS;2024-03-03;Ativo
+1104;Machado S.A.;PJ;36.589.742/0001-41;Rio de Janeiro;RJ;2023-12-01;Ativo
+1105;Lima S.A.;PJ;54.917.308/0001-25;Brasília;DF;2023-05-28;Ativo
+1106;Pedro Brito;PF;520.469.837-00;Belo Horizonte;MG;2023-05-13;Ativo
+1107;Dr. Benjamim da Paz;PF;945.087.163-93;São Paulo;SP;2024-09-30;Ativo
+1108;Luiz Fernando Novais;PF;514.783.029-41;Rio de Janeiro;RJ;2023-12-15;Ativo
+1109;João Gabriel Sampaio;PF;458.017.362-71;São Paulo;SP;2023-02-14;Ativo
+1110;Vinícius Cunha;PF;697.218.435-55;Belo Horizonte;MG;2023-02-17;Ativo
+1111;Eduardo Castro;PF;901.235.467-61;Uberlândia;MG;2023-05-12;Ativo
+1112;Cunha S.A.;PJ;81.530.264/0001-59;Niterói;RJ;2024-10-05;Ativo
+1113;Henry Gonçalves;PF;908.126.435-42;Campinas;SP;2024-04-24;Ativo
+1114;André Monteiro;PF;628.341.705-17;Rio de Janeiro;RJ;2024-05-24;Ativo
+1115;Allana Marques;PF;156.438.209-51;Salvador;BA;2023-03-07;Ativo
+1116;Sr. Raul Sales;PF;516.708.324-90;Recife;PE;2023-02-02;Ativo
+1117;Miguel das Neves;PF;539.610.428-70;Belo Horizonte;MG;2025-03-24;Ativo
+1118;Sr. Isaac Caldeira;PF;243.186.075-26;Rio de Janeiro;RJ;2024-06-26;Ativo
+1119;Melissa Rodrigues;PF;958.130.762-12;Brasília;DF;2024-12-21;Ativo
+1120;Ana Laura Fogaça;PF;814.360.792-50;Curitiba;PR;2024-03-02;Ativo
+1121;Ayla Pimenta;PF;986.345.017-01;Uberlândia;MG;2023-04-30;Inativo
+1122;Olívia Montenegro;PF;207.896.145-02;Brasília;DF;2024-05-14;Ativo
+1123;Moura S.A.;PJ;82.596.341/0001-36;Curitiba;PR;2024-11-11;Inativo
+1124;Lívia Azevedo;PF;516.274.830-71;Santos;SP;2023-03-23;Inativo
+1125;Dr. Matteo Cardoso;PF;914.732.860-69;Niterói;RJ;2023-08-08;Ativo
+1126;Maria Cecília Almeida;PF;542.173.609-16;Santos;SP;2024-10-19;Ativo
+1127;Juan Viana;PF;180.524.963-06;Rio de Janeiro;RJ;2023-08-29;Ativo
+1128;Cirino Sales - EI S.A.;PJ;27.039.165/0001-23;Recife;PE;2023-08-28;Ativo
+1129;Sra. Isabel Nascimento;PF;347.612.958-64;Porto Alegre;RS;2024-03-18;Ativo
+1130;Vitória Leão;PF;239.670.814-78;Porto Alegre;RS;2024-08-16;Ativo
+1131;João Miguel Barros;PF;247.813.065-35;Niterói;RJ;2025-03-12;Inativo
+1132;Leão S/A S.A.;PJ;68.513.024/0001-88;Recife;PE;2024-06-27;Ativo
+1133;Sr. Lucas Gabriel Vieira;PF;290.831.547-50;Salvador;BA;2023-02-13;Ativo
+1134;José Miguel Cunha;PF;286.091.573-77;Uberlândia;MG;2023-05-04;Ativo
+1135;Natália Azevedo;PF;170.546.928-02;Salvador;BA;2024-01-06;Ativo
+1136;Agatha Pimenta;PF;536.190.248-98;Uberlândia;MG;2024-03-28;Ativo
+1137;Ana Clara Porto;PF;654.802.913-51;Belo Horizonte;MG;2024-08-29;Inativo
+1138;Lívia Carvalho;PF;058.671.324-71;Rio de Janeiro;RJ;2023-06-11;Ativo
+1139;Benício Silva;PF;704.186.592-49;Santos;SP;2023-10-11;Ativo
+1140;Ísis Melo;PF;403.268.519-33;Porto Alegre;RS;2025-03-11;Ativo
+1141;Maria Liz Souza;PF;765.139.248-55;Curitiba;PR;2024-07-25;Ativo
+1142;Sra. Anna Liz Lopes;PF;924.805.631-89;Campinas;SP;2023-05-09;Ativo
+1143;Mariane Cavalcante;PF;759.082.316-30;São Paulo;SP;2024-04-21;Ativo
+1144;Maria Luiza Fonseca;PF;820.143.759-41;Campinas;SP;2023-04-27;Ativo
+1145;Maria Clara Fonseca;PF;602.537.418-07;Santos;SP;2024-01-02;Ativo
+1146;Gonçalves S.A.;PJ;54.306.172/0001-17;Brasília;DF;2023-08-02;Ativo
+1147;Bárbara da Luz;PF;473.928.105-88;Santos;SP;2024-08-24;Ativo
+1148;Cavalcanti S.A.;PJ;71.592.068/0001-55;Brasília;DF;2023-04-26;Ativo
+1149;Dra. Emanuella Vieira;PF;583.019.476-75;Uberlândia;MG;2023-09-02;Ativo
+1150;Maria Eduarda Martins;PF;821.093.457-05;Salvador;BA;2024-07-14;Ativo
+1151;Cardoso Ltda. S.A.;PJ;17.854.296/0001-00;Campinas;SP;2024-09-28;Ativo
+1152;Pedro Montenegro;PF;012.785.639-03;Uberlândia;MG;2023-10-10;Ativo
+1153;Larissa Barros;PF;439.152.078-88;Uberlândia;MG;2024-06-21;Inativo
+1154;Lucca Nunes;PF;091.854.236-70;Salvador;BA;2023-08-28;Ativo
+1155;Ana Monteiro;PF;849.316.250-70;Curitiba;PR;2024-10-09;Ativo
+1156;Pedro Lucas Leão;PF;793.241.685-09;Porto Alegre;RS;2023-04-04;Ativo
+1157;Cardoso S.A.;PJ;58.127.309/0001-27;Niterói;RJ;2024-06-20;Inativo
+1158;Diego Brito;PF;046.783.195-57;Porto Alegre;RS;2024-11-29;Ativo
+1159;Emanuel Monteiro;PF;879.230.416-87;São Paulo;SP;2024-04-30;Ativo
+1160;Pacheco Fogaça S/A S.A.;PJ;04.785.326/0001-22;Brasília;DF;2024-01-09;Ativo
+1161;Pedro Carvalho;PF;456.203.879-92;Recife;PE;2023-01-13;Ativo
+1162;Laura Barbosa;PF;687.942.035-47;Campinas;SP;2024-07-17;Ativo
+1163;Dr. Luiz Otávio Sá;PF;236.405.781-71;Brasília;DF;2024-09-03;Ativo
+1164;Mirella Cassiano;PF;982.746.135-46;Porto Alegre;RS;2025-01-05;Ativo
+1165;Sophia Nascimento;PF;749.602.835-56;Niterói;RJ;2024-06-06;Ativo
+1166;Lorena Vieira;PF;074.586.129-67;Brasília;DF;2024-10-09;Ativo
+1167;Moura Pires e Filhos S.A.;PJ;96.285.107/0001-00;Belo Horizonte;MG;2025-01-16;Ativo
+1168;Almeida Macedo Ltda. S.A.;PJ;62.951.348/0001-11;Campinas;SP;2023-06-20;Ativo
+1169;Srta. Stella Costela;PF;857.432.196-64;Niterói;RJ;2023-04-07;Ativo
+1170;Dr. Rodrigo Correia;PF;348.125.679-55;Uberlândia;MG;2025-04-28;Ativo
+1171;Marcela Novais;PF;491.856.372-46;Santos;SP;2024-05-07;Ativo
+1172;Aparecida S.A.;PJ;41.537.260/0001-88;Curitiba;PR;2023-08-16;Ativo
+1173;Júlia Novais;PF;421.956.708-94;São Paulo;SP;2023-11-10;Ativo
+1174;Igor Aragão;PF;165.730.942-80;Recife;PE;2025-04-04;Ativo
+1175;Olívia Mendes;PF;345.270.869-10;Recife;PE;2024-09-24;Ativo
+1176;Dra. Ana Carolina Cavalcanti;PF;620.935.184-06;Niterói;RJ;2025-04-11;Ativo
+1177;Kaique Nunes;PF;915.234.708-79;Porto Alegre;RS;2023-02-28;Ativo
+1178;Camargo Farias S.A. S.A.;PJ;74.205.983/0001-39;Santos;SP;2024-02-28;Ativo
+1179;Pimenta Porto - ME S.A.;PJ;68.503.914/0001-09;Porto Alegre;RS;2023-10-28;Ativo
+1180;Sr. André da Luz;PF;637.925.480-38;Campinas;SP;2025-01-11;Ativo
+1181;Maria Cecília Sales;PF;301.927.654-34;Brasília;DF;2024-02-11;Ativo
+1182;Laís Freitas;PF;938.176.524-37;Niterói;RJ;2023-07-02;Ativo
+1183;Dra. Olivia Sá;PF;839.540.721-14;Brasília;DF;2024-10-07;Ativo
+1184;Brenda Araújo;PF;893.461.572-91;Porto Alegre;RS;2023-05-02;Inativo
+1185;Gabrielly Silva;PF;971.430.568-39;Salvador;BA;2023-06-30;Ativo
+1186;Novais - ME S.A.;PJ;40.628.153/0001-00;Rio de Janeiro;RJ;2024-12-10;Ativo
+1187;Sampaio S.A.;PJ;18.073.629/0001-27;Santos;SP;2024-10-20;Ativo
+1188;Vargas Ramos e Filhos S.A.;PJ;65.937.802/0001-78;Belo Horizonte;MG;2023-10-07;Ativo
+1189;Luiz Fernando Campos;PF;286.415.037-90;Santos;SP;2025-04-17;Ativo
+1190;Ísis Lima;PF;863.172.950-77;Porto Alegre;RS;2024-12-20;Ativo
+1191;Ribeiro - ME S.A.;PJ;90.318.546/0001-88;Porto Alegre;RS;2023-06-25;Ativo
+1192;Augusto Guerra;PF;738.601.254-35;São Paulo;SP;2023-03-17;Ativo
+1193;Kevin Casa Grande;PF;836.270.159-59;Salvador;BA;2024-05-13;Ativo
+1194;Luiz Felipe Ramos;PF;685.739.142-46;Belo Horizonte;MG;2025-02-08;Ativo
+1195;Olívia da Costa;PF;342.690.518-33;Curitiba;PR;2023-10-13;Ativo
+1196;José Miguel Costela;PF;517.620.843-17;São Paulo;SP;2024-08-26;Ativo
+1197;Ana Cecília Barbosa;PF;389.712.406-87;Campinas;SP;2024-08-08;Ativo
+1198;Srta. Pietra da Cruz;PF;936.142.578-19;Belo Horizonte;MG;2023-10-23;Inativo
+1199;Maria Alice das Neves;PF;457.306.281-53;Niterói;RJ;2025-04-08;Ativo
+1200;Ana Clara Nunes;PF;320.845.917-32;Rio de Janeiro;RJ;2024-05-01;Ativo
+1201;da Conceição S.A.;PJ;63.745.291/0001-67;São Paulo;SP;2023-11-01;Inativo
+1202;Eloá Siqueira;PF;528.943.170-50;Rio de Janeiro;RJ;2025-02-01;Ativo
+1203;Breno Rios;PF;096.157.823-86;Salvador;BA;2025-03-24;Ativo
+1204;Thiago Marques;PF;507.938.421-23;Campinas;SP;2023-01-15;Ativo
+1205;Vinícius Silveira;PF;489.073.162-87;Campinas;SP;2023-01-19;Ativo
+1206;Isaque Correia;PF;984.625.301-05;Recife;PE;2025-03-25;Inativo
+1207;Isabelly Sampaio;PF;341.560.872-71;Curitiba;PR;2024-09-22;Ativo
+1208;Olívia Araújo;PF;021.368.945-60;Campinas;SP;2024-08-08;Ativo
+1209;Renan da Mata;PF;014.769.835-93;Porto Alegre;RS;2023-12-23;Ativo
+1210;Cecília Sá;PF;614.879.325-37;Santos;SP;2023-11-18;Ativo
+1211;Srta. Anna Liz Montenegro;PF;501.378.269-40;Santos;SP;2024-08-19;Ativo
+1212;Porto Ltda. S.A.;PJ;79.324.850/0001-03;Brasília;DF;2024-05-22;Ativo
+1213;Vargas - EI S.A.;PJ;43.102.785/0001-16;Curitiba;PR;2024-08-13;Ativo
+1214;Sra. Luiza Fonseca;PF;190.236.475-99;Porto Alegre;RS;2023-08-28;Ativo
+1215;Pedro Machado;PF;896.075.234-74;Santos;SP;2023-05-16;Ativo
+1216;Albuquerque S.A.;PJ;46.870.912/0001-15;Niterói;RJ;2024-05-18;Ativo
+1217;Mateus Cavalcante;PF;248.931.057-79;Porto Alegre;RS;2025-03-20;Ativo
+1218;da Rosa S.A.;PJ;71.528.394/0001-01;Salvador;BA;2024-03-04;Ativo
+1219;da Rosa Abreu - ME S.A.;PJ;56.932.814/0001-19;Uberlândia;MG;2023-06-16;Ativo
+1220;Gabriela Mendes;PF;526.873.149-19;Rio de Janeiro;RJ;2024-05-13;Ativo
+1221;Fonseca S.A.;PJ;13.254.087/0001-75;Porto Alegre;RS;2024-03-11;Inativo
+1222;Lavínia Sales;PF;167.952.830-03;Recife;PE;2023-11-22;Ativo
+1223;Ana Sophia Machado;PF;976.483.015-39;Recife;PE;2024-10-19;Inativo
+1224;Luiz Gustavo Cavalcante;PF;906.723.845-74;Rio de Janeiro;RJ;2023-06-19;Ativo
+1225;Thomas Souza;PF;893.726.450-10;Recife;PE;2024-02-06;Ativo
+1226;Rodrigo Caldeira;PF;461.057.293-16;Niterói;RJ;2024-06-19;Ativo
+1227;Vicente Mendes;PF;571.396.208-30;Uberlândia;MG;2024-12-08;Inativo
+1228;Almeida Ltda. S.A.;PJ;12.349.657/0001-48;Brasília;DF;2023-03-11;Ativo
+1229;da Conceição S.A.;PJ;62.859.340/0001-20;Brasília;DF;2024-10-24;Ativo
+1230;Pastor S.A.;PJ;69.051.823/0001-42;Belo Horizonte;MG;2023-11-03;Ativo
+1231;Nascimento S.A. S.A.;PJ;59.370.264/0001-80;Curitiba;PR;2023-04-08;Ativo
+1232;Maria Julia Pimenta;PF;615.234.897-82;Porto Alegre;RS;2024-05-01;Ativo
+1233;Catarina Dias;PF;134.092.578-88;Curitiba;PR;2023-05-12;Ativo
+1234;Cecilia Oliveira;PF;692.354.170-07;Campinas;SP;2024-10-11;Ativo
+1235;Davi Miguel Cirino;PF;570.628.349-47;Rio de Janeiro;RJ;2025-01-30;Inativo
+1236;Jesus S.A.;PJ;76.931.048/0001-85;Rio de Janeiro;RJ;2024-08-19;Inativo
+1237;da Mota S.A. S.A.;PJ;84.263.957/0001-10;Campinas;SP;2024-03-29;Ativo
+1238;Danilo da Mata;PF;850.693.147-93;Belo Horizonte;MG;2025-03-04;Inativo
+1239;Andrade S.A.;PJ;74.560.398/0001-57;São Paulo;SP;2024-01-20;Ativo
+1240;Dra. Marcela Santos;PF;962.415.803-70;Salvador;BA;2023-11-23;Ativo
+1241;Vitor Gabriel Cavalcante;PF;548.726.031-17;Porto Alegre;RS;2025-04-06;Ativo
+1242;Davi Lucas Sampaio;PF;239.571.840-88;Rio de Janeiro;RJ;2023-04-03;Ativo
+1243;Maria Vitória Garcia;PF;718.342.596-73;Salvador;BA;2024-02-22;Inativo
+1244;Vasconcelos e Filhos S.A.;PJ;17.560.438/0001-27;Rio de Janeiro;RJ;2024-05-23;Ativo
+1245;Thales da Mata;PF;549.861.370-93;São Paulo;SP;2024-10-29;Ativo
+1246;Raul Almeida;PF;127.306.985-40;Campinas;SP;2023-03-13;Ativo
+1247;João Guilherme Borges;PF;541.297.086-94;Recife;PE;2024-04-13;Ativo
+1248;Ayla Santos;PF;103.789.426-03;Brasília;DF;2023-12-30;Ativo
+1249;Luigi Campos;PF;627.013.984-87;São Paulo;SP;2023-01-15;Ativo
+1250;Dr. Kaique Carvalho;PF;628.045.973-00;Rio de Janeiro;RJ;2023-06-10;Inativo
+1251;Sr. Dom Jesus;PF;973.061.524-16;Campinas;SP;2024-11-14;Ativo
+1252;Luara Vieira;PF;234.501.986-70;São Paulo;SP;2024-06-30;Ativo
+1253;Valentim Pereira;PF;836.250.197-95;Belo Horizonte;MG;2024-04-13;Ativo
+1254;Theo Porto;PF;910.268.354-70;Campinas;SP;2023-06-25;Ativo
+1255;Emanuella Teixeira;PF;710.495.263-25;Porto Alegre;RS;2024-07-21;Ativo
+1256;Sofia da Paz;PF;869.530.174-57;Rio de Janeiro;RJ;2023-04-04;Ativo
+1257;Thomas Costela;PF;285.340.961-98;Niterói;RJ;2024-04-26;Ativo
+1258;da Cruz S/A S.A.;PJ;61.749.023/0001-98;Brasília;DF;2024-01-06;Ativo
+1259;Anthony Gabriel Santos;PF;209.374.581-04;Curitiba;PR;2023-09-30;Ativo
+1260;Sra. Bárbara Vargas;PF;056.249.738-29;Rio de Janeiro;RJ;2023-07-17;Ativo
+1261;Sophia Fonseca;PF;072.816.943-69;Porto Alegre;RS;2025-02-09;Ativo
+1262;Dra. Agatha Aparecida;PF;039.826.175-02;Santos;SP;2023-12-21;Ativo
+1263;Lorenzo da Cruz;PF;654.907.283-29;Recife;PE;2024-10-13;Ativo
+1264;Valentim Aparecida;PF;617.925.408-76;Salvador;BA;2023-10-06;Ativo
+1265;Costa S.A.;PJ;49.372.860/0001-45;Salvador;BA;2023-01-13;Ativo
+1266;Dom Abreu;PF;603.428.591-70;Curitiba;PR;2025-04-29;Inativo
+1267;Gustavo Moura;PF;367.012.894-87;Rio de Janeiro;RJ;2024-04-22;Ativo
+1268;Maria Fernanda Marques;PF;192.530.486-89;Curitiba;PR;2025-03-18;Inativo
+1269;José Pedro Dias;PF;658.321.097-59;Uberlândia;MG;2024-01-03;Ativo
+1270;Cauê Cavalcante;PF;795.304.281-97;Rio de Janeiro;RJ;2023-06-19;Ativo
+1271;Julia Campos;PF;124.657.039-43;Campinas;SP;2024-04-23;Ativo
+1272;Josué Fogaça;PF;680.529.173-95;Campinas;SP;2023-08-19;Ativo
+1273;Isadora Brito;PF;712.065.849-20;Brasília;DF;2024-12-03;Ativo
+1274;Rodrigues S.A.;PJ;14.906.735/0001-93;Uberlândia;MG;2024-09-14;Ativo
+1275;Sr. Asafe Martins;PF;026.753.491-43;Belo Horizonte;MG;2023-05-23;Ativo
+1276;Luiz Gustavo Cunha;PF;248.310.596-33;Uberlândia;MG;2024-10-24;Ativo
+1277;Pietra Araújo;PF;146.937.820-50;Uberlândia;MG;2025-02-14;Ativo
+1278;Sra. Pietra Nogueira;PF;758.321.046-17;Curitiba;PR;2024-08-17;Ativo
+1279;Araújo S.A.;PJ;78.564.190/0001-67;Recife;PE;2023-02-15;Ativo
+1280;Isabella da Mata;PF;803.472.196-40;São Paulo;SP;2024-01-21;Ativo
+1281;Dra. Maria Alice Pastor;PF;052.413.798-60;Brasília;DF;2024-05-09;Ativo
+1282;Araújo S.A. S.A.;PJ;93.048.725/0001-30;Brasília;DF;2023-02-28;Ativo
+1283;Luigi Silva;PF;250.714.863-26;Brasília;DF;2023-11-09;Ativo
+1284;Dr. Carlos Eduardo Fernandes;PF;452.183.976-28;Campinas;SP;2023-04-23;Ativo
+1285;Dra. Maria Alice Câmara;PF;926.857.104-85;São Paulo;SP;2023-09-28;Ativo
+1286;Ana Beatriz Cirino;PF;953.840.761-00;Uberlândia;MG;2024-08-31;Ativo
+1287;Luiz Felipe Dias;PF;215.309.874-23;Recife;PE;2023-05-01;Ativo
+1288;Cauê Silveira;PF;096.357.142-70;Belo Horizonte;MG;2024-06-28;Inativo
+1289;Nogueira S.A.;PJ;61.794.853/0001-37;Campinas;SP;2024-08-11;Inativo
+1290;Juan Almeida;PF;541.027.369-99;Rio de Janeiro;RJ;2023-04-25;Ativo
+1291;Lucca Peixoto;PF;970.351.682-30;Rio de Janeiro;RJ;2025-04-29;Inativo
+1292;Sr. Gabriel Jesus;PF;894.526.107-94;Rio de Janeiro;RJ;2023-06-07;Ativo
+1293;Rebeca Cassiano;PF;059.372.684-74;Porto Alegre;RS;2024-09-02;Ativo
+1294;Cavalcante Porto Ltda. S.A.;PJ;17.923.546/0001-17;Curitiba;PR;2023-02-09;Ativo
+1295;Ramos - EI S.A.;PJ;62.538.190/0001-52;Santos;SP;2024-02-16;Ativo
+1296;Martins S.A.;PJ;43.970.158/0001-05;Uberlândia;MG;2024-02-14;Ativo
+1297;Maria Sophia Sá;PF;930.684.521-98;Santos;SP;2024-06-18;Ativo
+1298;Letícia Barros;PF;602.831.497-87;Niterói;RJ;2024-01-02;Ativo
+1299;Otávio Barros;PF;632.947.580-65;Curitiba;PR;2023-07-16;Ativo
+1300;Maria Laura Novaes;PF;547.608.391-00;Rio de Janeiro;RJ;2023-05-16;Ativo
+1301;Nunes Pastor - EI S.A.;PJ;19.862.457/0001-33;Campinas;SP;2023-08-21;Ativo
+1302;Rezende S.A.;PJ;79.012.365/0001-96;Curitiba;PR;2024-02-15;Ativo
+1303;Gonçalves Ltda. S.A.;PJ;30.726.851/0001-87;Porto Alegre;RS;2024-09-16;Ativo
+1304;Samuel Sampaio;PF;132.758.694-00;Campinas;SP;2024-04-28;Ativo
+1305;Pedro Miguel Cunha;PF;675.904.183-66;São Paulo;SP;2023-05-19;Ativo
+1306;Carvalho S.A.;PJ;80.216.954/0001-75;Brasília;DF;2025-02-26;Ativo
+1307;Luiz Miguel Santos;PF;345.698.720-00;Porto Alegre;RS;2024-12-10;Ativo
+1308;Marcelo Mendonça;PF;972.634.810-22;São Paulo;SP;2023-02-17;Inativo
+1309;da Paz S/A S.A.;PJ;60.294.157/0001-07;Campinas;SP;2024-02-06;Ativo
+1310;Gabrielly da Mata;PF;680.957.342-92;Rio de Janeiro;RJ;2023-12-16;Ativo
+1311;José Pereira;PF;496.327.501-52;Santos;SP;2023-01-14;Ativo
+1312;Stephany Pinto;PF;610.452.987-94;Uberlândia;MG;2024-04-14;Ativo
+1313;Lucca da Mota;PF;548.962.107-94;Curitiba;PR;2025-01-18;Ativo
+1314;Maria Luiza Ribeiro;PF;520.938.416-06;Curitiba;PR;2023-03-30;Ativo
+1315;Pacheco e Filhos S.A.;PJ;93.576.182/0001-24;Rio de Janeiro;RJ;2024-08-26;Ativo
+1316;Letícia Cavalcante;PF;824.031.956-42;Uberlândia;MG;2024-07-10;Ativo
+1317;Aurora Câmara;PF;534.829.761-55;São Paulo;SP;2024-06-05;Ativo
+1318;Melo S/A S.A.;PJ;91.784.032/0001-80;Santos;SP;2024-12-21;Ativo
+1319;Ana Júlia Cassiano;PF;235.846.170-90;Uberlândia;MG;2024-04-08;Ativo
+1320;Lívia Pires;PF;250.739.164-25;São Paulo;SP;2023-05-06;Ativo
+1321;Cardoso - EI S.A.;PJ;69.837.504/0001-67;Uberlândia;MG;2025-01-30;Ativo
+1322;Marcelo Albuquerque;PF;583.096.147-48;Niterói;RJ;2025-04-09;Ativo
+1323;Caldeira Gomes - EI S.A.;PJ;94.206.781/0001-19;Curitiba;PR;2024-04-29;Ativo
+1324;Valentina Fernandes;PF;625.381.490-70;Niterói;RJ;2025-03-19;Ativo
+1325;Davi Lucca Cunha;PF;082.976.351-12;Uberlândia;MG;2023-12-21;Ativo
+1326;Peixoto S/A S.A.;PJ;10.857.349/0001-06;Recife;PE;2025-04-10;Ativo
+1327;Isis Melo;PF;230.987.654-29;Recife;PE;2023-07-11;Ativo
+1328;Thomas Silveira;PF;914.063.825-15;Porto Alegre;RS;2024-10-12;Ativo
+1329;Gabriela Fogaça;PF;642.083.175-07;Brasília;DF;2024-02-13;Ativo
+1330;Alexandre Albuquerque;PF;197.804.523-97;Recife;PE;2024-05-28;Ativo
+1331;Isabel Marques;PF;497.061.582-94;Curitiba;PR;2024-02-02;Inativo
+1332;Bruna Brito;PF;092.561.743-16;Santos;SP;2024-04-30;Ativo
+1333;Freitas Ltda. S.A.;PJ;21.637.954/0001-80;Rio de Janeiro;RJ;2024-02-21;Ativo
+1334;Eloah Camargo;PF;209.834.571-23;Niterói;RJ;2025-01-12;Ativo
+1335;Maria Helena Vasconcelos;PF;502.368.914-05;Rio de Janeiro;RJ;2023-10-09;Ativo
+1336;Rezende S.A.;PJ;50.392.481/0001-04;São Paulo;SP;2023-04-09;Ativo
+1337;Ferreira S.A.;PJ;62.075.134/0001-29;Salvador;BA;2024-01-22;Ativo
+1338;Samuel Duarte;PF;354.071.986-57;Recife;PE;2023-09-14;Inativo
+1339;Macedo S.A.;PJ;97.163.520/0001-57;Porto Alegre;RS;2023-05-03;Ativo
+1340;Dra. Allana Caldeira;PF;690.487.521-67;São Paulo;SP;2025-02-11;Ativo
+1341;Gabrielly Rezende;PF;758.601.342-07;Recife;PE;2025-02-28;Ativo
+1342;Camargo S.A.;PJ;13.026.548/0001-52;Belo Horizonte;MG;2024-07-18;Ativo
+1343;Enzo Monteiro;PF;261.947.503-16;São Paulo;SP;2023-06-15;Ativo
+1344;Esther Silva;PF;516.094.782-58;São Paulo;SP;2023-12-01;Ativo
+1345;Theo Abreu;PF;806.743.129-96;Salvador;BA;2025-02-22;Ativo
+1346;Mathias Ribeiro;PF;956.341.287-73;Curitiba;PR;2023-07-19;Ativo
+1347;Catarina Carvalho;PF;684.957.230-00;Porto Alegre;RS;2024-04-01;Ativo
+1348;Pinto Silva Ltda. S.A.;PJ;52.846.701/0001-40;Porto Alegre;RS;2023-11-09;Ativo
+1349;Maria Vitória Rocha;PF;846.709.531-84;Santos;SP;2025-01-16;Ativo
+1350;Rios S/A S.A.;PJ;34.275.610/0001-10;São Paulo;SP;2023-08-14;Ativo
+1351;Vitor Hugo Andrade;PF;571.496.823-91;Porto Alegre;RS;2024-04-03;Ativo
+1352;Laura Sales;PF;068.352.971-40;Campinas;SP;2024-01-05;Ativo
+1353;Câmara S.A.;PJ;58.369.124/0001-29;Santos;SP;2023-11-12;Inativo
+1354;Ana Vitória Cirino;PF;281.306.947-78;Campinas;SP;2023-10-03;Ativo
+1355;José Miguel Abreu;PF;572.018.649-20;Salvador;BA;2023-07-22;Ativo
+1356;Maria Alice Barbosa;PF;583.140.672-53;Campinas;SP;2025-02-01;Ativo
+1357;Sr. Heitor Ribeiro;PF;598.214.360-05;Brasília;DF;2023-05-23;Ativo
+1358;Manuella Machado;PF;390.528.716-12;Rio de Janeiro;RJ;2023-06-28;Inativo
+1359;Sra. Amanda Moreira;PF;587.302.169-40;Uberlândia;MG;2025-04-19;Inativo
+1360;Vargas Nascimento - EI S.A.;PJ;01.356.879/0001-71;Campinas;SP;2023-05-30;Ativo
+1361;Maya Ramos;PF;120.358.764-35;Salvador;BA;2023-11-16;Ativo
+1362;Vieira da Cunha - EI S.A.;PJ;13.486.579/0001-96;Rio de Janeiro;RJ;2023-03-26;Ativo
+1363;Mathias Rocha;PF;180.564.723-71;Salvador;BA;2024-05-06;Ativo
+1364;Montenegro S.A.;PJ;14.870.239/0001-27;Salvador;BA;2023-04-23;Ativo
+1365;Ana Melo;PF;283.157.940-60;São Paulo;SP;2024-09-05;Ativo
+1366;Albuquerque S.A.;PJ;89.206.537/0001-16;Salvador;BA;2024-04-08;Ativo
+1367;Gustavo Henrique Souza;PF;536.941.702-43;Campinas;SP;2023-05-13;Ativo
+1368;Danilo Cirino;PF;907.548.236-10;Uberlândia;MG;2024-01-28;Ativo
+1369;Gael Henrique Silveira;PF;975.218.043-41;Brasília;DF;2024-01-25;Ativo
+1370;Dr. Rael Farias;PF;942.867.510-58;Salvador;BA;2023-10-28;Ativo
+1371;Sr. Henry Silva;PF;645.172.398-37;Salvador;BA;2023-01-08;Ativo
+1372;Ryan Novaes;PF;129.687.430-31;Porto Alegre;RS;2024-07-11;Ativo
+1373;Thiago Pires;PF;063.942.758-83;Belo Horizonte;MG;2023-04-28;Ativo
+1374;Heloisa Vargas;PF;942.385.017-05;Niterói;RJ;2024-07-22;Ativo
+1375;Isaque Pimenta;PF;289.315.476-09;Rio de Janeiro;RJ;2025-02-19;Ativo
+1376;Câmara - ME S.A.;PJ;31.428.056/0001-75;Brasília;DF;2024-07-11;Inativo
+1377;Olivia Marques;PF;095.874.231-60;Recife;PE;2024-07-15;Ativo
+1378;Garcia Rezende - ME S.A.;PJ;51.438.769/0001-27;Belo Horizonte;MG;2025-04-25;Ativo
+1379;Rafaela Pereira;PF;082.315.974-41;Rio de Janeiro;RJ;2024-06-19;Ativo
+1380;Francisco Castro;PF;513.720.698-95;Niterói;RJ;2023-11-25;Ativo
+1381;Pastor Castro e Filhos S.A.;PJ;60.381.459/0001-04;Uberlândia;MG;2025-01-14;Ativo
+1382;Diogo Araújo;PF;249.836.071-96;Santos;SP;2025-03-07;Ativo
+1383;Machado Pereira - ME S.A.;PJ;72.369.418/0001-81;Brasília;DF;2023-05-14;Ativo
+1384;Sophia da Luz;PF;257.460.139-43;Brasília;DF;2023-10-10;Ativo
+1385;Antony Costa;PF;896.714.035-57;Niterói;RJ;2023-07-25;Ativo
+1386;Borges - ME S.A.;PJ;28.065.341/0001-64;Curitiba;PR;2023-03-02;Ativo
+1387;da Conceição S.A.;PJ;76.549.801/0001-72;Belo Horizonte;MG;2023-03-09;Ativo
+1388;Rhavi Vargas;PF;314.769.205-16;Campinas;SP;2023-07-27;Ativo
+1389;Stephany Campos;PF;806.512.379-12;São Paulo;SP;2023-01-12;Ativo
+1390;Isis da Luz;PF;865.423.197-19;Curitiba;PR;2023-08-29;Ativo
+1391;Dr. José das Neves;PF;956.810.734-75;Salvador;BA;2023-10-05;Ativo
+1392;Thomas Guerra;PF;580.137.496-57;Salvador;BA;2023-06-05;Ativo
+1393;Benício da Luz;PF;351.409.627-99;Campinas;SP;2024-11-07;Inativo
+1394;Thales Macedo;PF;034.197.625-34;Campinas;SP;2023-03-31;Ativo
+1395;Sr. Alexandre Castro;PF;146.253.870-35;Porto Alegre;RS;2023-02-26;Inativo
+1396;Sousa e Filhos S.A.;PJ;19.457.628/0001-49;Rio de Janeiro;RJ;2025-03-15;Ativo
+1397;Gael Marques;PF;604.137.825-90;Porto Alegre;RS;2024-03-05;Ativo
+1398;Fernandes S.A.;PJ;18.476.239/0001-06;Niterói;RJ;2025-02-20;Ativo
+1399;Lucca Vasconcelos;PF;790.382.516-02;Santos;SP;2025-01-21;Ativo
+1400;Dr. Luiz Gustavo Moreira;PF;804.129.356-51;Belo Horizonte;MG;2023-12-24;Inativo

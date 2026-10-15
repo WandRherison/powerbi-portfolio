@@ -1,0 +1,23 @@
+﻿ID_Produto;Nome_Produto;Categoria;Subcategoria;Volume_Emb;Preco_Tabela;Custo_Padrao
+101;Cerveja Pilsen Lata 350ml (Pack 12 un);Cervejas;Mainstream;Pack 12x350ml;42.0;28.5
+102;Cerveja Puro Malte Lata 350ml (Pack 12 un);Cervejas;Premium;Pack 12x350ml;54.0;36.0
+103;Cerveja IPA Garrafa 600ml (Cx 6 un);Cervejas;Artesanal;Cx 6x600ml;78.0;49.0
+104;Cerveja Long Neck 330ml (Cx 24 un);Cervejas;Premium;Cx 24x330ml;135.0;92.0
+105;Cerveja Zero Álcool Lata 350ml (Pack 12 un);Cervejas;Saudável;Pack 12x350ml;48.0;32.5
+106;Chopp Pilsen Barril 50 Litros;Cervejas;Barril;Barril 50L;490.0;295.0
+201;Refrigerante Cola Pet 2L (Fardo 6 un);Refrigerantes;PET;Fd 6x2L;48.0;31.0
+202;Refrigerante Guaraná Lata 350ml (Pack 12 un);Refrigerantes;Lata;Pack 12x350ml;36.0;22.0
+203;Refrigerante Limão Zero Lata 350ml (Pack 12 un);Refrigerantes;Zero;Pack 12x350ml;38.0;23.5
+204;Água Mineral s/ Gás 500ml (Fardo 12 un);Águas;Sem Gás;Fd 12x500ml;24.0;11.5
+205;Água Mineral c/ Gás 500ml (Fardo 12 un);Águas;Com Gás;Fd 12x500ml;28.0;13.0
+206;Água Tônica Lata 350ml (Pack 12 un);Não Alcoólicos;Misturadores;Pack 12x350ml;45.0;27.0
+207;Suco Integral de Laranja 1L (Cx 6 un);Sucos;Integral;Cx 6x1L;58.0;38.0
+208;Suco Uva Tinto Integral 1.5L (Cx 6 un);Sucos;Integral;Cx 6x1.5L;72.0;46.0
+301;Energético Original Lata 250ml (Pack 6 un);Energéticos;Lata;Pack 6x250ml;54.0;33.0
+302;Energético Tropical Lata 473ml (Pack 6 un);Energéticos;Lata Grande;Pack 6x473ml;66.0;41.0
+303;Isotônico Tangerina 500ml (Cx 6 un);Isotônicos;Garrafa;Cx 6x500ml;39.0;24.0
+401;Gin London Dry 750ml (Garrafa);Destilados;Gin;Gfa 750ml;95.0;58.0
+402;Vodka Premium 1L (Garrafa);Destilados;Vodka;Gfa 1L;85.0;51.0
+403;Whisky Escocês 8 Anos 1L (Garrafa);Destilados;Whisky;Gfa 1L;120.0;76.0
+404;Cachaça Prata Envelhecida 700ml (Garrafa);Destilados;Cachaça;Gfa 700ml;46.0;26.0
+405;Vino Tinto Seco Cabernet 750ml (Cx 6 un);Vinhos;Tinto;Cx 6x750ml;210.0;132.0

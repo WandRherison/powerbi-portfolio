@@ -1,0 +1,22 @@
+# Ambientes virtuais e Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.venv
+env/
+venv/
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos temporários do Power BI
+*.tmp
+*.temp
+~$*
+
+# Logs
+*.log
