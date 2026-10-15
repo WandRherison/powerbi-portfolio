@@ -127,4 +127,4 @@ python generate_ong_data.py
 
 - **GitHub:** [github.com/WandWebDesign](https://github.com/WandWebDesign)
 - **LinkedIn:** [linkedin.com/in/wanderson-alves](https://linkedin.com)
-- **E-mail:** contato@wandwebdesign.com
+- **E-mail:** wandrherison@gmail.com
