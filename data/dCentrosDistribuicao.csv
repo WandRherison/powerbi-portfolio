@@ -1,0 +1,5 @@
+﻿ID_CentroDistribuicao;Nome_CD;Cidade;Estado;Regiao;Capacidade_Armazenagem
+1;CD Cajamar - SP;Cajamar;SP;Sudeste;120.000 m²
+2;CD Extrema - MG;Extrema;MG;Sudeste;95.000 m²
+3;CD Gravataí - RS;Gravataí;RS;Sul;65.000 m²
+4;CD Cabo Santo Agostinho - PE;Cabo de Santo Agostinho;PE;Nordeste;70.000 m²

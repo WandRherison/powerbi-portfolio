@@ -1,0 +1,6 @@
+﻿ID_Transportadora;Nome_Empresa;Modal;SLA_Padrao_Dias
+101;LogBrasil Express;Expresso;2
+102;TransRodoviário Cargas;Rodoviário;5
+103;AeroCargo Brasil;Aéreo;1
+104;Velox Distribuição & Entrega;Rodoviário;4
+105;NorteSul Logística Integrada;Rodoviário;7

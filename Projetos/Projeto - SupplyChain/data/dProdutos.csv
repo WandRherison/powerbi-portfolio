@@ -1,0 +1,26 @@
+﻿ID_Produto;Nome_Produto;Categoria;Subcategoria;Peso_Kg;Custo_Unitario;Preco_Tabela
+2001;Smart TV 55 Polegadas 4K UHD;Eletrônicos;TV & Vídeo;14.8;1750.0;2899.0
+2002;Smartphone 128GB 5G Octa-Core;Eletrônicos;Telefonia;0.42;980.0;1849.0
+2003;Notebook Core i5 16GB SSD 512GB;Eletrônicos;Informática;1.95;2350.0;3799.0
+2004;Monitor Gamer 27 Polegadas 165Hz;Eletrônicos;Informática;5.4;790.0;1399.0
+2005;Fone de Ouvido Bluetooth Noise Cancelling;Eletrônicos;Áudio;0.35;140.0;299.0
+2006;Soundbar 2.1 Canais 160W Subwoofer;Eletrônicos;Áudio;4.2;360.0;699.0
+2007;Geladeira Frost Free Duplex 430L;Eletrodomésticos;Linha Branca;64.5;2100.0;3499.0
+2008;Máquina de Lavar Roupas 12kg;Eletrodomésticos;Linha Branca;42.0;1350.0;2299.0
+2009;Fritadeira Elétrica Air Fryer 4.5L;Eletrodomésticos;Portáteis;4.6;185.0;389.0
+2010;Micro-ondas 32 Litros Inox;Eletrodomésticos;Portáteis;15.2;380.0;689.0
+2011;Aspirador de Pó Robô Inteligente WiFi;Eletrodomésticos;Portáteis;3.4;520.0;999.0
+2012;Cafeteira Expresso Automática;Eletrodomésticos;Portáteis;3.8;260.0;499.0
+2013;Cadeira Ergonômica Presidente com Apoio;Casa & Decoração;Móveis Escritório;16.5;410.0;799.0
+2014;Mesa Escrivaninha Industrial 120cm;Casa & Decoração;Móveis Escritório;21.0;190.0;429.0
+2015;Jogo de Panelas Cerâmica 5 Peças;Casa & Decoração;Cozinha;5.8;160.0;349.0
+2016;Aparelho de Jantar Porcelana 20 Peças;Casa & Decoração;Mesa Posta;8.9;170.0;369.0
+2017;Kit Almofadas Decorativas Veludo (4 un);Casa & Decoração;Decoração;1.2;45.0;119.0
+2018;Tênis Esportivo Running Amortecimento;Moda & Calçados;Calçados Esportivos;0.85;130.0;329.0
+2019;Mochila Executiva Impermeável Antifurto;Moda & Calçados;Acessórios;0.95;75.0;189.0
+2020;Jaqueta Corta-Vento Térmica Repelente;Moda & Calçados;Vestuário;0.55;95.0;249.0
+2021;Relógio Smartwatch Esportivo GPS;Moda & Calçados;Wearables;0.28;280.0;599.0
+2022;Secador de Cabelos Profissional 2200W;Beleza & Cuidados;Cabelos;1.15;95.0;229.0
+2023;Escova Rotativa Modeladora Cerâmica;Beleza & Cuidados;Cabelos;0.92;78.0;179.0
+2024;Kit Perfume Eau de Parfum 100ml;Beleza & Cuidados;Perfumaria;0.45;110.0;289.0
+2025;Aparador e Barbeador Elétrico Lavável;Beleza & Cuidados;Barbearia;0.4;68.0;159.0
