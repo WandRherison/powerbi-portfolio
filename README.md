@@ -106,7 +106,7 @@ PowerBI-Portfolio/
 
 ### 1. Clonar o Repositório:
 ```bash
-git clone https://github.com/SEU-USUARIO/powerbi-portfolio.git
+git clone https://github.com/WandWebDesign/powerbi-portfolio.git
 cd powerbi-portfolio
 ```
 
@@ -125,6 +125,6 @@ python generate_ong_data.py
 
 ## 📬 Contato & Redes
 
-- **LinkedIn:** [linkedin.com/in/SEU-PERFIL](https://linkedin.com)
-- **GitHub:** [github.com/SEU-USUARIO](https://github.com)
-- **E-mail:** seu.email@exemplo.com
+- **GitHub:** [github.com/WandWebDesign](https://github.com/WandWebDesign)
+- **LinkedIn:** [linkedin.com/in/wanderson-alves](https://linkedin.com)
+- **E-mail:** contato@wandwebdesign.com
