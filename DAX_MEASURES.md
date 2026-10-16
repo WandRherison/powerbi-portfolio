@@ -1,4 +1,6 @@
-# Catálogo de Medidas DAX - Gestão Analítica para ONG Social
+# Catálogo de Medidas DAX - Gestão Analítica para ONG Social (Projeto 2)
+
+> 💡 **Nota de Navegação:** Este catálogo refere-se ao **Projeto 2 (ONG Social Básica)**. Se você estiver desenvolvendo o **Projeto 5 (ONG Multi-Programas com 3 Fatos e Metas Orçamentárias)**, consulte o catálogo completo atualizado em [Projetos/Projeto - ONG Multi-Programas/DAX_MEASURES.md](file:///d:/PowerBI-Agent/Projetos/Projeto%20-%20ONG%20Multi-Programas/DAX_MEASURES.md).
 
 Este documento consolida a modelagem analítica e as fórmulas em **DAX (Data Analysis Expressions)** projetadas para a Organização Não Governamental (ONG) de assistência comunitária. O modelo adota a arquitetura **Star Schema Multi-Fato** (*Constellation / Galaxy Schema*), compartilhando dimensões com as tabelas fato **`fDoacoes`** (captação de recursos) e **`fAtendimentos`** (impacto social e execução de projetos).
 

@@ -24,7 +24,7 @@ erDiagram
     dCalendario      ||--o{ fAtendimentos    : "1:N (Data_Atendimento)"
 
     dProjetos        ||--o{ fOrcamentoMetas  : "1:N (ID_Projeto)"
-    dCalendario      ||--o{ fOrcamentoMetas  : "1:N (AnoMes)"
+    dCalendario      ||--o{ fOrcamentoMetas  : "1:N (Data_Meta)"
 
     fDoacoes {
         string ID_Doacao PK
@@ -51,8 +51,9 @@ erDiagram
     }
 
     fOrcamentoMetas {
-        int AnoMes PK
-        int ID_Projeto PK
+        date Data_Meta FK
+        int AnoMes
+        int ID_Projeto FK
         float Meta_Arrecadacao
         int Meta_Atendimentos
         float Orcamento_Teto_Custos
@@ -137,12 +138,13 @@ Registra os serviços de assistência prestados diretamente na ponta.
 ---
 
 ### 2.3. Fato de Planejamento: `fOrcamentoMetas.csv`
-Tabela com granularidade mensal por projeto com o plano orçamentário e metas sociais aprovadas.
+Tabela com granularidade mensal por projeto com o plano orçamentário e metas sociais aprovadas. Ancorada no dia 01 de cada mês para garantir relacionamento estrito 1:N com `dCalendario[Date]`.
 
 | Coluna | Tipo | Chave | Descrição |
 | :--- | :--- | :---: | :--- |
-| `AnoMes` | Inteiro | PK / FK | Ano e mês do planejamento no formato `YYYYMM` (relaciona com `dCalendario[AnoMesNum]`). |
-| `ID_Projeto` | Inteiro | PK / FK | Chave estrangeira para `dProjetos`. |
+| `Data_Meta` | Data | FK | Primeiro dia do mês orçado no formato `YYYY-MM-01` (relaciona com `dCalendario[Date]` em 1:N). |
+| `AnoMes` | Inteiro | - | Ano e mês do planejamento no formato `YYYYMM` (ex: `202501`). |
+| `ID_Projeto` | Inteiro | FK | Chave estrangeira para `dProjetos`. |
 | `Meta_Arrecadacao` | Decimal | - | Meta financeira orçada de captação de recursos no mês (R$). |
 | `Meta_Atendimentos` | Inteiro | - | Meta programática de serviços sociais a serem entregues. |
 | `Orcamento_Teto_Custos` | Decimal | - | Limite máximo permitido de desembolso para o projeto. |

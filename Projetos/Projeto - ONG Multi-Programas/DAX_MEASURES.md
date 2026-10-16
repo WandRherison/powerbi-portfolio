@@ -51,17 +51,23 @@ RETURN
 
 Todas as conexões são **1 para Muitos (1:\*)** com direção de filtro **Única (Dimensão filtra Fato)**:
 
-| Tabela Origem (1) | Tabela Destino (\*) | Coluna de Junção | Tipo de Relacionamento |
-| :--- | :--- | :--- | :---: |
-| `dProjetos` | `fDoacoes` | `ID_Projeto` | Ativo |
-| `dProjetos` | `fAtendimentos` | `ID_Projeto` | Ativo |
-| `dProjetos` | `fOrcamentoMetas` | `ID_Projeto` | Ativo |
-| `dDoadores` | `fDoacoes` | `ID_Doador` | Ativo |
-| `dCanais` | `fDoacoes` | `ID_Canal` | Ativo |
-| `dRegioes` | `fAtendimentos` | `ID_Regiao` | Ativo |
-| `dCalendario` | `fDoacoes` | `Date` = `Data_Doacao` | Ativo |
-| `dCalendario` | `fAtendimentos` | `Date` = `Data_Atendimento`| Ativo |
-| `dCalendario` | `fOrcamentoMetas` | `AnoMesNum` = `AnoMes` | Ativo |
+| Tabela Origem (1) | Tabela Destino (\*) | Coluna de Junção | Tipo de Relacionamento | Direção do Filtro |
+| :--- | :--- | :--- | :---: | :---: |
+| `dProjetos` | `fDoacoes` | `ID_Projeto` | Ativo | Única (1 $\rightarrow$ \*) |
+| `dProjetos` | `fAtendimentos` | `ID_Projeto` | Ativo | Única (1 $\rightarrow$ \*) |
+| `dProjetos` | `fOrcamentoMetas` | `ID_Projeto` | Ativo | Única (1 $\rightarrow$ \*) |
+| `dDoadores` | `fDoacoes` | `ID_Doador` | Ativo | Única (1 $\rightarrow$ \*) |
+| `dCanais` | `fDoacoes` | `ID_Canal` | Ativo | Única (1 $\rightarrow$ \*) |
+| `dRegioes` | `fAtendimentos` | `ID_Regiao` | Ativo | Única (1 $\rightarrow$ \*) |
+| `dCalendario` | `fDoacoes` | `Date` = `Data_Doacao` | Ativo | Única (1 $\rightarrow$ \*) |
+| `dCalendario` | `fAtendimentos` | `Date` = `Data_Atendimento` | Ativo | Única (1 $\rightarrow$ \*) |
+| `dCalendario` | `fOrcamentoMetas` | `Date` = `Data_Meta` | Ativo | Única (1 $\rightarrow$ \*) |
+
+> [!TIP]
+> **Arquitetura Dimensional - Resolução do Conflito de Grão (Evitando M:M):**
+> A tabela `dCalendario` possui granularidade **diária** (onde `[Date]` é chave primária estritamente única, mas `[AnoMesNum]` repete 28 a 31 vezes por mês). Já a tabela `fOrcamentoMetas` possui granularidade **mensal por projeto** (o mês repete 6 vezes, uma por projeto). 
+> 
+> Se relacionássemos por `AnoMesNum = AnoMes`, o Power BI forçaria uma relação **Muitos-para-Muitos (*:*)**, que gera ambiguidade no modelo. A solução recomendada de padrão ouro em engenharia de dados é **ancorar a meta no primeiro dia de cada mês (`Data_Meta = YYYY-MM-01`)**. Assim, relacionamos `dCalendario[Date]` (1) $\rightarrow$ `fOrcamentoMetas[Data_Meta]` (*), transformando a conexão em um relacionamento estrito de **1 para Muitos (1:*)**, ativo e com direção de filtro única!
 
 ---
 

@@ -187,6 +187,7 @@ def generate_fact_planning(df_projetos):
                 teto_custo = round(meta_arrec * np.random.uniform(0.72, 0.85), 2)
                 
             metas_list.append({
+                "Data_Meta": f"{ano}-{mes:02d}-01",
                 "AnoMes": int(anomes),
                 "ID_Projeto": id_proj,
                 "Meta_Arrecadacao": meta_arrec,
