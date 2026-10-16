@@ -105,25 +105,57 @@ CALCULATE (
 ---
 
 ### 3.3. Variação MoM (Month-over-Month) da Arrecadação
-- **Objetivo:** Mede a expansão ou contração do fluxo de doações líquidas em relação ao mês anterior.
-- **Formatação:** Porcentagem (`+0.00%;-0.00%;0.00%`)
+- **Objetivo:** Mede a expansão ou contração do fluxo de doações líquidas em relação ao mês anterior. Projetada de forma inteligente para funcionar tanto em **visuais temporais/slicers** quanto em **Cartões de KPI (New Card com Rótulo de Referência)** quando nenhum mês está selecionado.
+- **Formatação:** Porcentagem (`+0.00%;-0.00%;0.00%` ou `0.0%`)
 
 ```dax
 [Arrecadação MoM %] = 
-VAR ArrecadacaoAtual = [Total Arrecadado Líquido]
-VAR ArrecadacaoAnterior = 
+VAR TemMesFiltrado = HASONEVALUE ( dCalendario[AnoMesNum] )
+
+-- Cenário 1: Existe 1 mês no contexto (linha de Matriz, Gráfico temporal ou Slicer selecionado)
+VAR MoM_Filtrado = 
+    VAR Atual = [Total Arrecadado Líquido]
+    VAR Anterior = 
+        CALCULATE (
+            [Total Arrecadado Líquido],
+            DATEADD ( dCalendario[Date], -1, MONTH )
+        )
+    RETURN
+        DIVIDE ( Atual - Anterior, Anterior, BLANK () )
+
+-- Cenário 2: Card Geral sem mês selecionado -> Ancorar no Último Mês com Dados vs Mês Anterior
+VAR UltimaDataFato = CALCULATE ( MAX ( fDoacoes[Data_Doacao] ), ALL ( fDoacoes ) )
+VAR UltimoAno = YEAR ( UltimaDataFato )
+VAR UltimoMes = MONTH ( UltimaDataFato )
+VAR UltimoAnoMes = ( UltimoAno * 100 ) + UltimoMes
+
+VAR AnoAnt = IF ( UltimoMes = 1, UltimoAno - 1, UltimoAno )
+VAR MesAnt = IF ( UltimoMes = 1, 12, UltimoMes - 1 )
+VAR PenultimoAnoMes = ( AnoAnt * 100 ) + MesAnt
+
+VAR ArrecadacaoUltimoMes = 
     CALCULATE (
         [Total Arrecadado Líquido],
-        DATEADD ( dCalendario[Date], -1, MONTH )
+        dCalendario[AnoMesNum] = UltimoAnoMes,
+        ALL ( dCalendario )
     )
-VAR VariacaoAbsoluta = ArrecadacaoAtual - ArrecadacaoAnterior
+VAR ArrecadacaoPenultimoMes = 
+    CALCULATE (
+        [Total Arrecadado Líquido],
+        dCalendario[AnoMesNum] = PenultimoAnoMes,
+        ALL ( dCalendario )
+    )
+
+VAR MoM_UltimoMes = 
+    DIVIDE ( ArrecadacaoUltimoMes - ArrecadacaoPenultimoMes, ArrecadacaoPenultimoMes, BLANK () )
+
 RETURN
-    DIVIDE (
-        VariacaoAbsoluta,
-        ArrecadacaoAnterior,
-        BLANK ()
-    )
+    IF ( TemMesFiltrado, MoM_Filtrado, MoM_UltimoMes )
 ```
+
+> 💡 **Dica de Visualização (Novo Card / Rótulo de Referência):**
+> - Se o usuário selecionar um mês específico no segmentador (ex: `Out/2026`), a medida calcula a variação daquele mês contra o mês anterior (`Set/2026`).
+> - Se o painel estiver no estado padrão geral (sem nenhum filtro de mês aplicado), a medida identifica automaticamente o fechamento mais recente (`Out/2026` vs `Set/2026`) e exibe o MoM correto no rótulo de referência, evitando o valor estático `0.0%`!
 
 ---
 
