@@ -1,0 +1,701 @@
+﻿ID_Doador;Tipo_Doador;Cidade;Estado;Data_Cadastro;Status_Doador
+10001;PF;Salvador;BA;2023-06-22;Inativo/Churn
+10002;PF;Campinas;SP;2023-02-08;Ativo
+10003;PJ;São Paulo;SP;2024-03-03;Ativo
+10004;PJ;Recife;PE;2024-01-16;Ativo
+10005;PF;Rio de Janeiro;RJ;2023-12-13;Ativo
+10006;PJ;Ribeirão Preto;SP;2023-08-05;Inativo/Churn
+10007;PF;Ribeirão Preto;SP;2023-06-09;Ativo
+10008;PF;Santos;SP;2025-04-27;Ativo
+10009;PF;Recife;PE;2023-05-16;Ativo
+10010;PF;Campinas;SP;2024-10-17;Ativo
+10011;PF;Salvador;BA;2023-02-19;Ativo
+10012;PF;Recife;PE;2023-02-16;Ativo
+10013;PF;Porto Alegre;RS;2023-05-26;Ativo
+10014;PF;Campinas;SP;2023-12-06;Ativo
+10015;PF;Brasília;DF;2023-12-28;Ativo
+10016;PF;Belo Horizonte;MG;2025-02-24;Ativo
+10017;PJ;São Paulo;SP;2023-02-11;Inativo/Churn
+10018;PF;São Paulo;SP;2023-11-05;Ativo
+10019;PF;Campinas;SP;2025-04-26;Ativo
+10020;PF;Ribeirão Preto;SP;2024-10-13;Ativo
+10021;PJ;Ribeirão Preto;SP;2023-12-09;Ativo
+10022;PJ;Porto Alegre;RS;2024-11-28;Inativo/Churn
+10023;PF;Brasília;DF;2024-03-08;Ativo
+10024;PF;São Paulo;SP;2023-01-11;Ativo
+10025;PF;Porto Alegre;RS;2023-09-06;Ativo
+10026;PF;Ribeirão Preto;SP;2024-10-18;Ativo
+10027;PF;Recife;PE;2024-06-12;Inativo/Churn
+10028;PF;Salvador;BA;2024-03-07;Inativo/Churn
+10029;PJ;Recife;PE;2023-08-30;Ativo
+10030;PJ;Porto Alegre;RS;2023-12-01;Ativo
+10031;PF;Belo Horizonte;MG;2024-06-06;Ativo
+10032;PF;Ribeirão Preto;SP;2023-06-08;Ativo
+10033;PF;Curitiba;PR;2023-05-25;Ativo
+10034;PJ;Brasília;DF;2024-08-13;Ativo
+10035;PJ;Rio de Janeiro;RJ;2023-05-31;Inativo/Churn
+10036;PF;São Paulo;SP;2024-07-11;Ativo
+10037;PJ;Santos;SP;2024-06-18;Ativo
+10038;PF;Recife;PE;2024-02-15;Ativo
+10039;PF;Belo Horizonte;MG;2023-03-09;Ativo
+10040;PF;Niterói;RJ;2024-12-14;Ativo
+10041;PF;Rio de Janeiro;RJ;2025-04-13;Ativo
+10042;PF;Santos;SP;2023-07-13;Ativo
+10043;PF;Ribeirão Preto;SP;2024-08-11;Ativo
+10044;PF;Niterói;RJ;2023-05-03;Ativo
+10045;PF;Campinas;SP;2024-03-31;Ativo
+10046;PJ;Campinas;SP;2024-07-15;Ativo
+10047;PF;Belo Horizonte;MG;2023-10-26;Ativo
+10048;PF;Campinas;SP;2023-04-19;Ativo
+10049;PF;Niterói;RJ;2023-03-13;Ativo
+10050;PJ;Niterói;RJ;2023-12-21;Ativo
+10051;PJ;Brasília;DF;2024-03-25;Ativo
+10052;PF;Rio de Janeiro;RJ;2023-05-04;Ativo
+10053;PF;São Paulo;SP;2023-12-28;Ativo
+10054;PF;Recife;PE;2023-06-06;Ativo
+10055;PF;Curitiba;PR;2024-08-13;Ativo
+10056;PF;Porto Alegre;RS;2024-03-07;Ativo
+10057;PF;Campinas;SP;2024-12-05;Ativo
+10058;PF;Belo Horizonte;MG;2024-07-20;Ativo
+10059;PF;Campinas;SP;2023-09-10;Ativo
+10060;PF;Porto Alegre;RS;2024-07-29;Ativo
+10061;PF;Rio de Janeiro;RJ;2024-07-05;Inativo/Churn
+10062;PF;Salvador;BA;2023-11-22;Ativo
+10063;PF;Brasília;DF;2024-02-19;Ativo
+10064;PF;Niterói;RJ;2023-04-21;Ativo
+10065;PJ;Brasília;DF;2023-09-23;Ativo
+10066;PF;Ribeirão Preto;SP;2025-04-09;Ativo
+10067;PJ;Recife;PE;2024-01-16;Ativo
+10068;PF;Campinas;SP;2023-09-11;Ativo
+10069;PF;São Paulo;SP;2024-12-19;Ativo
+10070;PF;Salvador;BA;2024-08-12;Inativo/Churn
+10071;PF;Ribeirão Preto;SP;2024-02-24;Ativo
+10072;PF;Rio de Janeiro;RJ;2023-12-08;Ativo
+10073;PF;Campinas;SP;2024-05-18;Ativo
+10074;PF;Ribeirão Preto;SP;2023-03-28;Ativo
+10075;PJ;Campinas;SP;2023-12-22;Ativo
+10076;PF;Belo Horizonte;MG;2023-02-19;Ativo
+10077;PJ;Rio de Janeiro;RJ;2024-05-05;Ativo
+10078;PF;Curitiba;PR;2024-09-15;Ativo
+10079;PF;Salvador;BA;2024-02-20;Ativo
+10080;PF;Niterói;RJ;2023-04-13;Ativo
+10081;PF;Santos;SP;2023-11-24;Ativo
+10082;PF;Niterói;RJ;2024-05-03;Ativo
+10083;PJ;Niterói;RJ;2023-11-27;Ativo
+10084;PF;Ribeirão Preto;SP;2025-02-14;Ativo
+10085;PJ;Salvador;BA;2024-09-06;Ativo
+10086;PF;Rio de Janeiro;RJ;2024-12-13;Ativo
+10087;PF;Recife;PE;2023-08-10;Ativo
+10088;PF;Salvador;BA;2024-02-16;Ativo
+10089;PF;Salvador;BA;2023-08-05;Ativo
+10090;PF;Campinas;SP;2024-01-19;Ativo
+10091;PF;Brasília;DF;2025-04-17;Ativo
+10092;PF;Salvador;BA;2024-02-13;Ativo
+10093;PF;Santos;SP;2024-10-27;Ativo
+10094;PF;Porto Alegre;RS;2024-09-12;Ativo
+10095;PF;Recife;PE;2024-07-16;Ativo
+10096;PJ;Ribeirão Preto;SP;2023-12-07;Inativo/Churn
+10097;PF;Santos;SP;2023-08-03;Ativo
+10098;PF;Curitiba;PR;2025-03-02;Ativo
+10099;PF;Belo Horizonte;MG;2025-02-05;Inativo/Churn
+10100;PF;Rio de Janeiro;RJ;2023-05-22;Ativo
+10101;PF;Salvador;BA;2023-03-15;Ativo
+10102;PJ;Recife;PE;2023-06-20;Inativo/Churn
+10103;PF;Porto Alegre;RS;2023-08-26;Ativo
+10104;PJ;Ribeirão Preto;SP;2023-09-06;Ativo
+10105;PJ;Salvador;BA;2024-10-17;Ativo
+10106;PF;Niterói;RJ;2023-04-09;Ativo
+10107;PF;São Paulo;SP;2024-08-20;Ativo
+10108;PF;Ribeirão Preto;SP;2024-08-15;Ativo
+10109;PF;São Paulo;SP;2024-12-28;Ativo
+10110;PF;Niterói;RJ;2025-04-01;Ativo
+10111;PF;Belo Horizonte;MG;2024-01-26;Ativo
+10112;PJ;Rio de Janeiro;RJ;2023-01-18;Ativo
+10113;PF;Campinas;SP;2023-06-27;Ativo
+10114;PF;Ribeirão Preto;SP;2025-04-14;Ativo
+10115;PF;Brasília;DF;2024-02-19;Ativo
+10116;PF;Recife;PE;2024-06-12;Ativo
+10117;PF;Niterói;RJ;2023-06-23;Ativo
+10118;PF;Ribeirão Preto;SP;2024-03-31;Ativo
+10119;PF;Salvador;BA;2024-11-06;Ativo
+10120;PF;Curitiba;PR;2023-09-03;Ativo
+10121;PF;Belo Horizonte;MG;2024-12-05;Inativo/Churn
+10122;PF;Salvador;BA;2023-01-06;Ativo
+10123;PJ;Curitiba;PR;2024-02-14;Inativo/Churn
+10124;PF;Santos;SP;2025-02-16;Inativo/Churn
+10125;PF;Rio de Janeiro;RJ;2023-10-05;Ativo
+10126;PF;Santos;SP;2025-02-27;Ativo
+10127;PF;Ribeirão Preto;SP;2023-06-15;Ativo
+10128;PJ;Recife;PE;2024-04-08;Ativo
+10129;PF;Porto Alegre;RS;2025-02-27;Ativo
+10130;PF;Porto Alegre;RS;2023-11-05;Ativo
+10131;PF;Rio de Janeiro;RJ;2023-08-26;Inativo/Churn
+10132;PJ;Recife;PE;2024-08-03;Ativo
+10133;PF;Brasília;DF;2023-09-08;Ativo
+10134;PF;Belo Horizonte;MG;2025-04-17;Ativo
+10135;PF;Brasília;DF;2025-04-03;Ativo
+10136;PF;Belo Horizonte;MG;2023-01-01;Ativo
+10137;PF;Niterói;RJ;2024-05-18;Inativo/Churn
+10138;PF;Ribeirão Preto;SP;2025-01-29;Ativo
+10139;PF;Santos;SP;2023-01-31;Ativo
+10140;PF;Porto Alegre;RS;2023-06-23;Ativo
+10141;PF;Curitiba;PR;2024-07-17;Ativo
+10142;PF;Campinas;SP;2024-04-22;Ativo
+10143;PF;São Paulo;SP;2024-01-07;Ativo
+10144;PF;Campinas;SP;2023-03-31;Ativo
+10145;PF;Santos;SP;2024-01-10;Ativo
+10146;PJ;Salvador;BA;2023-05-03;Ativo
+10147;PF;Santos;SP;2023-05-14;Ativo
+10148;PJ;Salvador;BA;2025-01-24;Ativo
+10149;PF;Belo Horizonte;MG;2023-04-18;Ativo
+10150;PF;Brasília;DF;2025-04-07;Ativo
+10151;PJ;Campinas;SP;2023-07-15;Ativo
+10152;PF;Belo Horizonte;MG;2023-07-19;Ativo
+10153;PF;Belo Horizonte;MG;2025-01-08;Inativo/Churn
+10154;PF;Brasília;DF;2023-09-14;Ativo
+10155;PF;Curitiba;PR;2024-02-16;Ativo
+10156;PF;Porto Alegre;RS;2025-03-30;Ativo
+10157;PJ;Rio de Janeiro;RJ;2024-10-19;Inativo/Churn
+10158;PF;Porto Alegre;RS;2023-11-26;Ativo
+10159;PF;São Paulo;SP;2025-04-17;Ativo
+10160;PJ;Salvador;BA;2023-11-09;Ativo
+10161;PF;Recife;PE;2024-04-29;Ativo
+10162;PF;Campinas;SP;2024-09-11;Ativo
+10163;PF;Salvador;BA;2024-08-03;Ativo
+10164;PF;Porto Alegre;RS;2024-11-11;Ativo
+10165;PF;Rio de Janeiro;RJ;2025-03-15;Ativo
+10166;PF;Salvador;BA;2024-12-02;Ativo
+10167;PJ;Niterói;RJ;2023-07-07;Ativo
+10168;PJ;Campinas;SP;2024-01-21;Ativo
+10169;PF;Rio de Janeiro;RJ;2023-12-16;Ativo
+10170;PF;Belo Horizonte;MG;2023-04-10;Ativo
+10171;PF;Santos;SP;2024-06-09;Ativo
+10172;PJ;Curitiba;PR;2023-02-02;Ativo
+10173;PF;São Paulo;SP;2023-12-24;Ativo
+10174;PF;Recife;PE;2023-12-09;Ativo
+10175;PF;Recife;PE;2023-01-12;Ativo
+10176;PF;Rio de Janeiro;RJ;2023-04-21;Ativo
+10177;PF;Porto Alegre;RS;2023-04-02;Ativo
+10178;PJ;Santos;SP;2023-12-22;Ativo
+10179;PJ;Porto Alegre;RS;2023-04-15;Ativo
+10180;PF;Campinas;SP;2023-02-18;Ativo
+10181;PF;Salvador;BA;2024-05-28;Ativo
+10182;PF;Rio de Janeiro;RJ;2023-04-21;Ativo
+10183;PF;Salvador;BA;2025-03-09;Ativo
+10184;PF;Porto Alegre;RS;2024-01-05;Inativo/Churn
+10185;PF;Brasília;DF;2024-03-08;Ativo
+10186;PJ;Ribeirão Preto;SP;2025-01-24;Ativo
+10187;PJ;Santos;SP;2023-11-29;Ativo
+10188;PJ;Niterói;RJ;2025-04-17;Ativo
+10189;PF;Santos;SP;2023-07-25;Ativo
+10190;PF;Porto Alegre;RS;2025-01-04;Ativo
+10191;PJ;Porto Alegre;RS;2024-01-13;Ativo
+10192;PF;São Paulo;SP;2025-01-04;Ativo
+10193;PF;Brasília;DF;2024-09-24;Ativo
+10194;PF;Niterói;RJ;2023-10-23;Ativo
+10195;PF;Curitiba;PR;2023-05-27;Ativo
+10196;PF;São Paulo;SP;2023-05-31;Ativo
+10197;PF;Campinas;SP;2024-10-31;Ativo
+10198;PF;Niterói;RJ;2024-07-04;Inativo/Churn
+10199;PF;Rio de Janeiro;RJ;2024-10-20;Ativo
+10200;PF;Ribeirão Preto;SP;2024-09-30;Ativo
+10201;PJ;São Paulo;SP;2024-12-26;Inativo/Churn
+10202;PF;Ribeirão Preto;SP;2023-03-26;Ativo
+10203;PF;Brasília;DF;2023-06-02;Inativo/Churn
+10204;PF;Campinas;SP;2023-04-05;Ativo
+10205;PF;Campinas;SP;2024-09-17;Ativo
+10206;PF;Recife;PE;2024-06-11;Inativo/Churn
+10207;PF;Curitiba;PR;2023-06-19;Ativo
+10208;PF;Campinas;SP;2024-01-22;Ativo
+10209;PF;Porto Alegre;RS;2023-10-25;Ativo
+10210;PF;Santos;SP;2023-10-23;Ativo
+10211;PF;Santos;SP;2025-04-13;Ativo
+10212;PJ;Salvador;BA;2024-11-27;Ativo
+10213;PJ;Curitiba;PR;2023-08-06;Ativo
+10214;PF;Porto Alegre;RS;2024-10-17;Inativo/Churn
+10215;PF;Santos;SP;2023-10-13;Ativo
+10216;PJ;Rio de Janeiro;RJ;2024-03-08;Ativo
+10217;PF;Porto Alegre;RS;2024-12-19;Ativo
+10218;PJ;Brasília;DF;2024-01-24;Ativo
+10219;PJ;Belo Horizonte;MG;2023-04-28;Ativo
+10220;PF;Ribeirão Preto;SP;2024-11-19;Ativo
+10221;PJ;Porto Alegre;RS;2023-06-02;Inativo/Churn
+10222;PF;Recife;PE;2023-03-20;Ativo
+10223;PF;Recife;PE;2025-04-19;Inativo/Churn
+10224;PF;Ribeirão Preto;SP;2023-01-23;Ativo
+10225;PF;Recife;PE;2023-05-25;Ativo
+10226;PF;Rio de Janeiro;RJ;2024-01-03;Ativo
+10227;PF;Belo Horizonte;MG;2023-09-16;Inativo/Churn
+10228;PJ;Salvador;BA;2024-09-23;Ativo
+10229;PJ;Salvador;BA;2025-01-24;Ativo
+10230;PJ;Niterói;RJ;2025-01-17;Ativo
+10231;PJ;Curitiba;PR;2023-11-29;Ativo
+10232;PF;Porto Alegre;RS;2024-09-14;Ativo
+10233;PF;Curitiba;PR;2023-04-02;Ativo
+10234;PF;Campinas;SP;2023-09-13;Ativo
+10235;PF;Ribeirão Preto;SP;2024-08-11;Inativo/Churn
+10236;PJ;Ribeirão Preto;SP;2023-01-04;Inativo/Churn
+10237;PJ;Campinas;SP;2024-08-29;Inativo/Churn
+10238;PF;Niterói;RJ;2024-02-16;Inativo/Churn
+10239;PJ;São Paulo;SP;2024-12-07;Ativo
+10240;PF;Brasília;DF;2024-03-19;Ativo
+10241;PF;Porto Alegre;RS;2024-10-19;Ativo
+10242;PF;Ribeirão Preto;SP;2025-01-26;Ativo
+10243;PF;Brasília;DF;2023-08-29;Inativo/Churn
+10244;PJ;Ribeirão Preto;SP;2023-10-22;Ativo
+10245;PF;São Paulo;SP;2024-04-05;Inativo/Churn
+10246;PF;Campinas;SP;2023-12-05;Ativo
+10247;PF;Recife;PE;2023-04-01;Ativo
+10248;PF;Salvador;BA;2025-04-22;Ativo
+10249;PF;São Paulo;SP;2023-04-05;Ativo
+10250;PF;Ribeirão Preto;SP;2024-05-02;Inativo/Churn
+10251;PF;Campinas;SP;2023-03-30;Ativo
+10252;PF;São Paulo;SP;2023-03-19;Ativo
+10253;PF;Niterói;RJ;2025-01-10;Ativo
+10254;PF;Campinas;SP;2025-02-20;Ativo
+10255;PF;Porto Alegre;RS;2025-04-05;Ativo
+10256;PF;Ribeirão Preto;SP;2023-09-02;Ativo
+10257;PF;Rio de Janeiro;RJ;2023-03-30;Ativo
+10258;PJ;Salvador;BA;2025-02-27;Ativo
+10259;PF;Curitiba;PR;2023-05-05;Ativo
+10260;PF;Ribeirão Preto;SP;2023-10-16;Ativo
+10261;PF;Porto Alegre;RS;2023-04-17;Ativo
+10262;PF;Santos;SP;2023-04-16;Ativo
+10263;PF;Recife;PE;2024-01-01;Ativo
+10264;PF;Brasília;DF;2024-09-19;Ativo
+10265;PJ;Brasília;DF;2023-07-06;Ativo
+10266;PF;Curitiba;PR;2024-01-18;Inativo/Churn
+10267;PF;Ribeirão Preto;SP;2023-03-03;Ativo
+10268;PF;Curitiba;PR;2023-05-08;Inativo/Churn
+10269;PF;Belo Horizonte;MG;2024-10-13;Ativo
+10270;PF;Ribeirão Preto;SP;2025-03-23;Ativo
+10271;PF;Campinas;SP;2024-05-06;Ativo
+10272;PF;Campinas;SP;2024-02-10;Ativo
+10273;PF;Salvador;BA;2023-11-14;Ativo
+10274;PJ;Belo Horizonte;MG;2024-05-03;Ativo
+10275;PF;Niterói;RJ;2024-01-06;Ativo
+10276;PF;Belo Horizonte;MG;2024-02-17;Ativo
+10277;PF;Belo Horizonte;MG;2024-09-06;Ativo
+10278;PF;Curitiba;PR;2023-07-23;Ativo
+10279;PJ;Recife;PE;2024-04-11;Ativo
+10280;PF;São Paulo;SP;2024-12-11;Ativo
+10281;PF;Salvador;BA;2024-05-06;Ativo
+10282;PJ;Salvador;BA;2023-04-23;Ativo
+10283;PF;Salvador;BA;2023-01-15;Ativo
+10284;PF;Campinas;SP;2024-12-12;Ativo
+10285;PF;São Paulo;SP;2023-06-05;Ativo
+10286;PF;Belo Horizonte;MG;2023-04-24;Ativo
+10287;PF;Recife;PE;2025-04-15;Ativo
+10288;PF;Niterói;RJ;2023-11-28;Inativo/Churn
+10289;PJ;Campinas;SP;2025-02-24;Inativo/Churn
+10290;PF;Ribeirão Preto;SP;2024-02-16;Ativo
+10291;PF;Ribeirão Preto;SP;2023-07-25;Inativo/Churn
+10292;PF;Ribeirão Preto;SP;2024-06-26;Ativo
+10293;PF;Porto Alegre;RS;2023-04-17;Ativo
+10294;PJ;Curitiba;PR;2024-01-15;Ativo
+10295;PJ;Santos;SP;2024-07-28;Ativo
+10296;PJ;Belo Horizonte;MG;2024-03-18;Ativo
+10297;PF;Santos;SP;2023-09-03;Ativo
+10298;PF;Rio de Janeiro;RJ;2024-11-11;Ativo
+10299;PF;Curitiba;PR;2025-04-23;Ativo
+10300;PF;Ribeirão Preto;SP;2024-04-14;Ativo
+10301;PJ;Campinas;SP;2025-04-01;Ativo
+10302;PJ;Curitiba;PR;2023-01-13;Ativo
+10303;PJ;Porto Alegre;RS;2024-04-10;Ativo
+10304;PF;Campinas;SP;2023-06-10;Ativo
+10305;PF;São Paulo;SP;2023-07-28;Ativo
+10306;PJ;Salvador;BA;2024-02-15;Ativo
+10307;PF;Porto Alegre;RS;2023-06-29;Ativo
+10308;PF;São Paulo;SP;2023-06-16;Inativo/Churn
+10309;PJ;Campinas;SP;2023-08-30;Ativo
+10310;PF;Ribeirão Preto;SP;2024-02-28;Ativo
+10311;PF;Santos;SP;2024-03-13;Ativo
+10312;PF;Belo Horizonte;MG;2023-11-24;Ativo
+10313;PF;Curitiba;PR;2024-06-16;Ativo
+10314;PF;Curitiba;PR;2023-11-13;Ativo
+10315;PJ;Ribeirão Preto;SP;2024-02-15;Ativo
+10316;PF;Belo Horizonte;MG;2025-02-24;Inativo/Churn
+10317;PF;São Paulo;SP;2025-01-28;Ativo
+10318;PJ;Santos;SP;2024-01-26;Ativo
+10319;PF;Belo Horizonte;MG;2023-03-20;Ativo
+10320;PF;São Paulo;SP;2023-05-24;Ativo
+10321;PJ;Belo Horizonte;MG;2024-10-20;Ativo
+10322;PF;Rio de Janeiro;RJ;2024-03-05;Ativo
+10323;PJ;Curitiba;PR;2023-03-10;Inativo/Churn
+10324;PF;Rio de Janeiro;RJ;2023-01-06;Ativo
+10325;PF;Belo Horizonte;MG;2024-06-02;Ativo
+10326;PJ;Recife;PE;2023-07-23;Ativo
+10327;PF;Recife;PE;2024-02-11;Ativo
+10328;PF;Porto Alegre;RS;2023-09-09;Ativo
+10329;PF;Salvador;BA;2024-11-17;Ativo
+10330;PF;Recife;PE;2024-10-26;Ativo
+10331;PF;Curitiba;PR;2023-01-16;Inativo/Churn
+10332;PF;Santos;SP;2023-06-23;Ativo
+10333;PJ;Ribeirão Preto;SP;2023-04-27;Ativo
+10334;PF;Rio de Janeiro;RJ;2023-08-20;Ativo
+10335;PF;Ribeirão Preto;SP;2025-04-27;Ativo
+10336;PJ;São Paulo;SP;2023-02-25;Inativo/Churn
+10337;PJ;Brasília;DF;2024-07-27;Ativo
+10338;PF;Recife;PE;2023-08-19;Inativo/Churn
+10339;PJ;Porto Alegre;RS;2024-10-29;Ativo
+10340;PF;São Paulo;SP;2023-07-17;Ativo
+10341;PF;Recife;PE;2023-03-06;Ativo
+10342;PJ;Niterói;RJ;2024-04-23;Ativo
+10343;PF;São Paulo;SP;2024-07-20;Ativo
+10344;PF;São Paulo;SP;2023-03-03;Ativo
+10345;PF;Brasília;DF;2024-07-09;Ativo
+10346;PF;Curitiba;PR;2023-11-23;Ativo
+10347;PF;Porto Alegre;RS;2024-01-23;Ativo
+10348;PJ;Porto Alegre;RS;2023-06-09;Ativo
+10349;PF;Santos;SP;2024-07-03;Ativo
+10350;PJ;São Paulo;SP;2024-09-23;Ativo
+10351;PF;Porto Alegre;RS;2023-08-29;Ativo
+10352;PF;Campinas;SP;2024-01-03;Ativo
+10353;PJ;Santos;SP;2023-09-10;Inativo/Churn
+10354;PF;Campinas;SP;2023-10-03;Ativo
+10355;PF;Brasília;DF;2024-10-02;Ativo
+10356;PF;Campinas;SP;2023-02-08;Ativo
+10357;PF;Salvador;BA;2023-10-06;Ativo
+10358;PF;Ribeirão Preto;SP;2024-05-31;Inativo/Churn
+10359;PF;Belo Horizonte;MG;2024-10-01;Inativo/Churn
+10360;PJ;Campinas;SP;2024-01-21;Ativo
+10361;PF;Brasília;DF;2024-02-19;Ativo
+10362;PJ;Ribeirão Preto;SP;2023-09-05;Ativo
+10363;PF;Brasília;DF;2023-06-17;Ativo
+10364;PJ;Brasília;DF;2024-08-17;Ativo
+10365;PF;São Paulo;SP;2023-03-02;Ativo
+10366;PJ;Brasília;DF;2025-01-01;Ativo
+10367;PF;Campinas;SP;2023-12-12;Ativo
+10368;PF;Belo Horizonte;MG;2023-11-07;Ativo
+10369;PF;Salvador;BA;2024-12-16;Ativo
+10370;PF;Brasília;DF;2024-06-27;Ativo
+10371;PF;Brasília;DF;2024-04-19;Ativo
+10372;PF;Porto Alegre;RS;2023-12-20;Ativo
+10373;PF;Niterói;RJ;2023-12-13;Inativo/Churn
+10374;PF;Rio de Janeiro;RJ;2023-02-06;Ativo
+10375;PF;Ribeirão Preto;SP;2023-10-28;Ativo
+10376;PJ;Salvador;BA;2024-09-10;Inativo/Churn
+10377;PF;Recife;PE;2024-05-24;Ativo
+10378;PJ;Niterói;RJ;2024-03-08;Ativo
+10379;PF;Ribeirão Preto;SP;2023-04-18;Ativo
+10380;PF;Rio de Janeiro;RJ;2024-03-09;Ativo
+10381;PJ;Belo Horizonte;MG;2024-06-29;Ativo
+10382;PF;Santos;SP;2025-03-02;Ativo
+10383;PJ;Salvador;BA;2024-09-12;Ativo
+10384;PF;Salvador;BA;2025-04-12;Ativo
+10385;PF;Rio de Janeiro;RJ;2024-05-29;Ativo
+10386;PJ;Curitiba;PR;2023-02-12;Ativo
+10387;PJ;Niterói;RJ;2023-06-29;Ativo
+10388;PF;Campinas;SP;2024-02-10;Ativo
+10389;PF;São Paulo;SP;2023-10-05;Ativo
+10390;PF;Curitiba;PR;2024-02-17;Ativo
+10391;PF;Brasília;DF;2023-03-01;Ativo
+10392;PF;Brasília;DF;2023-06-18;Ativo
+10393;PF;Campinas;SP;2024-11-06;Inativo/Churn
+10394;PF;Campinas;SP;2024-06-21;Ativo
+10395;PF;Porto Alegre;RS;2024-05-02;Inativo/Churn
+10396;PJ;Ribeirão Preto;SP;2024-11-08;Ativo
+10397;PF;Porto Alegre;RS;2025-03-05;Ativo
+10398;PJ;Rio de Janeiro;RJ;2023-06-29;Ativo
+10399;PF;Santos;SP;2024-08-21;Ativo
+10400;PF;Niterói;RJ;2023-10-23;Inativo/Churn
+10401;PF;Campinas;SP;2024-01-31;Ativo
+10402;PF;Ribeirão Preto;SP;2023-03-10;Ativo
+10403;PF;Niterói;RJ;2024-11-08;Ativo
+10404;PF;Rio de Janeiro;RJ;2023-01-03;Inativo/Churn
+10405;PF;Santos;SP;2025-03-18;Ativo
+10406;PF;Curitiba;PR;2025-04-16;Ativo
+10407;PJ;Porto Alegre;RS;2023-11-03;Inativo/Churn
+10408;PF;Recife;PE;2024-07-19;Ativo
+10409;PF;Rio de Janeiro;RJ;2024-10-31;Ativo
+10410;PJ;Brasília;DF;2023-04-19;Ativo
+10411;PF;Salvador;BA;2024-05-27;Ativo
+10412;PF;Porto Alegre;RS;2024-05-02;Ativo
+10413;PF;São Paulo;SP;2023-07-13;Inativo/Churn
+10414;PF;Salvador;BA;2024-04-11;Ativo
+10415;PF;Porto Alegre;RS;2025-02-26;Ativo
+10416;PF;Rio de Janeiro;RJ;2024-04-25;Ativo
+10417;PJ;Salvador;BA;2024-09-26;Ativo
+10418;PF;Campinas;SP;2024-05-21;Ativo
+10419;PF;Santos;SP;2024-09-17;Ativo
+10420;PF;Rio de Janeiro;RJ;2024-04-04;Ativo
+10421;PJ;Campinas;SP;2023-07-17;Ativo
+10422;PJ;Campinas;SP;2023-10-26;Inativo/Churn
+10423;PJ;Recife;PE;2024-10-15;Ativo
+10424;PJ;Porto Alegre;RS;2024-08-11;Inativo/Churn
+10425;PF;Santos;SP;2023-09-28;Ativo
+10426;PJ;Rio de Janeiro;RJ;2024-04-12;Ativo
+10427;PF;Rio de Janeiro;RJ;2024-09-22;Inativo/Churn
+10428;PF;Brasília;DF;2023-01-01;Ativo
+10429;PJ;Ribeirão Preto;SP;2024-04-17;Ativo
+10430;PF;Recife;PE;2024-03-21;Ativo
+10431;PF;Niterói;RJ;2023-11-23;Ativo
+10432;PF;Ribeirão Preto;SP;2024-10-29;Ativo
+10433;PF;Salvador;BA;2024-05-15;Ativo
+10434;PJ;Salvador;BA;2024-12-23;Ativo
+10435;PF;Rio de Janeiro;RJ;2024-11-17;Inativo/Churn
+10436;PF;Porto Alegre;RS;2024-11-17;Ativo
+10437;PF;Curitiba;PR;2023-11-28;Ativo
+10438;PJ;Rio de Janeiro;RJ;2025-03-05;Ativo
+10439;PF;São Paulo;SP;2025-01-05;Ativo
+10440;PJ;Campinas;SP;2023-09-21;Ativo
+10441;PF;Salvador;BA;2023-05-12;Ativo
+10442;PJ;Belo Horizonte;MG;2024-03-16;Ativo
+10443;PF;Rio de Janeiro;RJ;2025-03-11;Ativo
+10444;PF;São Paulo;SP;2024-06-04;Ativo
+10445;PJ;São Paulo;SP;2023-05-26;Ativo
+10446;PF;Niterói;RJ;2023-12-31;Ativo
+10447;PF;Santos;SP;2024-04-27;Ativo
+10448;PF;Salvador;BA;2023-12-15;Ativo
+10449;PF;Rio de Janeiro;RJ;2023-11-06;Inativo/Churn
+10450;PJ;Santos;SP;2023-08-17;Ativo
+10451;PF;Recife;PE;2023-02-07;Ativo
+10452;PF;Curitiba;PR;2023-03-13;Ativo
+10453;PF;Porto Alegre;RS;2024-01-16;Inativo/Churn
+10454;PF;Recife;PE;2025-01-08;Ativo
+10455;PF;Belo Horizonte;MG;2023-04-24;Ativo
+10456;PF;Porto Alegre;RS;2024-12-08;Ativo
+10457;PF;São Paulo;SP;2024-10-05;Ativo
+10458;PF;Campinas;SP;2023-10-30;Ativo
+10459;PF;Campinas;SP;2024-08-19;Inativo/Churn
+10460;PF;Recife;PE;2025-02-06;Ativo
+10461;PF;Santos;SP;2024-09-12;Ativo
+10462;PF;Porto Alegre;RS;2024-01-15;Ativo
+10463;PF;São Paulo;SP;2023-08-18;Ativo
+10464;PF;Niterói;RJ;2023-01-09;Ativo
+10465;PF;Brasília;DF;2023-06-15;Ativo
+10466;PJ;Porto Alegre;RS;2024-10-22;Ativo
+10467;PF;Santos;SP;2023-12-06;Ativo
+10468;PJ;Belo Horizonte;MG;2023-10-01;Ativo
+10469;PJ;Santos;SP;2025-03-15;Inativo/Churn
+10470;PJ;São Paulo;SP;2024-12-22;Ativo
+10471;PF;Rio de Janeiro;RJ;2023-03-20;Ativo
+10472;PF;Niterói;RJ;2024-01-23;Ativo
+10473;PF;São Paulo;SP;2023-07-08;Ativo
+10474;PJ;Niterói;RJ;2024-12-10;Inativo/Churn
+10475;PF;Ribeirão Preto;SP;2023-07-27;Ativo
+10476;PF;Salvador;BA;2024-12-22;Ativo
+10477;PJ;Ribeirão Preto;SP;2025-04-05;Inativo/Churn
+10478;PF;Salvador;BA;2024-05-07;Ativo
+10479;PF;Campinas;SP;2024-11-18;Ativo
+10480;PJ;Niterói;RJ;2025-02-23;Ativo
+10481;PJ;Porto Alegre;RS;2024-10-24;Ativo
+10482;PF;Belo Horizonte;MG;2024-11-23;Ativo
+10483;PF;Brasília;DF;2023-09-05;Ativo
+10484;PF;Recife;PE;2025-01-07;Ativo
+10485;PF;Santos;SP;2024-11-30;Ativo
+10486;PF;Ribeirão Preto;SP;2024-02-07;Inativo/Churn
+10487;PF;Santos;SP;2024-01-20;Ativo
+10488;PJ;Santos;SP;2024-03-06;Ativo
+10489;PF;Belo Horizonte;MG;2025-03-20;Ativo
+10490;PF;São Paulo;SP;2025-01-22;Ativo
+10491;PF;Santos;SP;2024-01-07;Ativo
+10492;PJ;Recife;PE;2024-03-02;Ativo
+10493;PF;Niterói;RJ;2024-11-14;Ativo
+10494;PF;Belo Horizonte;MG;2023-05-01;Ativo
+10495;PF;Salvador;BA;2024-03-19;Ativo
+10496;PF;Recife;PE;2023-12-31;Ativo
+10497;PF;Ribeirão Preto;SP;2024-02-27;Ativo
+10498;PF;Rio de Janeiro;RJ;2024-06-05;Ativo
+10499;PF;Santos;SP;2024-05-11;Ativo
+10500;PF;Recife;PE;2025-04-19;Ativo
+10501;PF;Campinas;SP;2023-05-06;Ativo
+10502;PF;Belo Horizonte;MG;2023-08-03;Ativo
+10503;PF;São Paulo;SP;2023-08-23;Ativo
+10504;PF;Curitiba;PR;2023-12-26;Ativo
+10505;PF;Ribeirão Preto;SP;2024-08-18;Ativo
+10506;PF;Ribeirão Preto;SP;2023-08-26;Inativo/Churn
+10507;PF;Curitiba;PR;2023-11-29;Ativo
+10508;PF;Niterói;RJ;2023-04-10;Inativo/Churn
+10509;PF;Rio de Janeiro;RJ;2024-10-06;Ativo
+10510;PF;Ribeirão Preto;SP;2024-09-25;Ativo
+10511;PF;Ribeirão Preto;SP;2024-05-29;Ativo
+10512;PF;São Paulo;SP;2025-04-22;Inativo/Churn
+10513;PF;Salvador;BA;2024-12-24;Ativo
+10514;PF;Ribeirão Preto;SP;2024-10-07;Ativo
+10515;PF;Belo Horizonte;MG;2023-04-07;Ativo
+10516;PJ;Niterói;RJ;2023-11-18;Ativo
+10517;PF;Rio de Janeiro;RJ;2024-10-14;Ativo
+10518;PJ;Campinas;SP;2024-08-28;Ativo
+10519;PF;Rio de Janeiro;RJ;2023-01-31;Ativo
+10520;PJ;Niterói;RJ;2024-08-13;Ativo
+10521;PF;Salvador;BA;2025-01-10;Ativo
+10522;PF;Porto Alegre;RS;2023-01-10;Ativo
+10523;PF;Belo Horizonte;MG;2024-06-30;Ativo
+10524;PF;Salvador;BA;2024-04-08;Ativo
+10525;PF;Porto Alegre;RS;2024-08-28;Ativo
+10526;PF;Niterói;RJ;2024-10-12;Ativo
+10527;PF;São Paulo;SP;2025-04-16;Ativo
+10528;PF;Campinas;SP;2025-04-28;Ativo
+10529;PF;Rio de Janeiro;RJ;2023-12-09;Ativo
+10530;PF;Santos;SP;2025-01-28;Ativo
+10531;PF;Brasília;DF;2023-12-07;Inativo/Churn
+10532;PF;Rio de Janeiro;RJ;2024-02-28;Ativo
+10533;PF;São Paulo;SP;2024-11-08;Ativo
+10534;PF;Campinas;SP;2025-01-24;Ativo
+10535;PF;Brasília;DF;2023-02-15;Ativo
+10536;PF;Belo Horizonte;MG;2024-08-27;Ativo
+10537;PJ;Niterói;RJ;2024-06-06;Ativo
+10538;PF;Recife;PE;2024-09-20;Ativo
+10539;PF;Niterói;RJ;2023-09-14;Ativo
+10540;PF;Belo Horizonte;MG;2024-12-27;Inativo/Churn
+10541;PF;Brasília;DF;2023-07-18;Ativo
+10542;PF;Porto Alegre;RS;2025-04-09;Ativo
+10543;PF;Campinas;SP;2023-02-11;Ativo
+10544;PF;Belo Horizonte;MG;2024-09-04;Ativo
+10545;PF;Brasília;DF;2023-02-12;Ativo
+10546;PF;Ribeirão Preto;SP;2023-05-11;Ativo
+10547;PF;Rio de Janeiro;RJ;2024-10-27;Ativo
+10548;PF;São Paulo;SP;2023-07-30;Ativo
+10549;PF;Recife;PE;2024-12-18;Ativo
+10550;PF;Belo Horizonte;MG;2023-10-10;Ativo
+10551;PJ;São Paulo;SP;2023-03-20;Inativo/Churn
+10552;PF;Porto Alegre;RS;2024-02-09;Inativo/Churn
+10553;PF;Porto Alegre;RS;2024-08-11;Ativo
+10554;PF;Salvador;BA;2024-05-23;Ativo
+10555;PF;Recife;PE;2023-11-25;Ativo
+10556;PF;Recife;PE;2024-12-07;Ativo
+10557;PF;Recife;PE;2024-05-22;Ativo
+10558;PF;Salvador;BA;2024-06-08;Ativo
+10559;PJ;Ribeirão Preto;SP;2024-08-11;Ativo
+10560;PF;Niterói;RJ;2024-03-08;Ativo
+10561;PF;Belo Horizonte;MG;2024-10-16;Inativo/Churn
+10562;PF;Campinas;SP;2024-01-27;Ativo
+10563;PF;Salvador;BA;2023-05-08;Ativo
+10564;PJ;Niterói;RJ;2024-12-31;Ativo
+10565;PF;Brasília;DF;2023-01-31;Ativo
+10566;PF;Niterói;RJ;2025-04-17;Ativo
+10567;PJ;Salvador;BA;2023-03-22;Ativo
+10568;PF;Campinas;SP;2024-06-27;Ativo
+10569;PF;Recife;PE;2023-12-15;Ativo
+10570;PF;Rio de Janeiro;RJ;2023-04-17;Ativo
+10571;PF;Porto Alegre;RS;2023-03-04;Ativo
+10572;PF;Rio de Janeiro;RJ;2023-02-18;Ativo
+10573;PF;Salvador;BA;2024-01-20;Ativo
+10574;PF;Belo Horizonte;MG;2023-11-06;Ativo
+10575;PF;Niterói;RJ;2023-02-01;Ativo
+10576;PF;Belo Horizonte;MG;2023-08-25;Ativo
+10577;PF;Recife;PE;2024-01-06;Ativo
+10578;PF;Rio de Janeiro;RJ;2023-07-16;Ativo
+10579;PJ;Porto Alegre;RS;2025-01-05;Inativo/Churn
+10580;PF;Santos;SP;2023-06-27;Ativo
+10581;PF;Ribeirão Preto;SP;2023-12-05;Ativo
+10582;PF;Belo Horizonte;MG;2024-12-23;Ativo
+10583;PJ;Salvador;BA;2024-02-03;Ativo
+10584;PF;Belo Horizonte;MG;2024-07-27;Ativo
+10585;PJ;Salvador;BA;2023-09-18;Ativo
+10586;PF;Recife;PE;2023-06-27;Inativo/Churn
+10587;PF;Santos;SP;2023-09-12;Ativo
+10588;PF;Brasília;DF;2024-04-28;Ativo
+10589;PF;Brasília;DF;2023-06-17;Ativo
+10590;PF;Rio de Janeiro;RJ;2023-02-09;Ativo
+10591;PF;Belo Horizonte;MG;2024-04-29;Ativo
+10592;PF;Porto Alegre;RS;2024-08-06;Inativo/Churn
+10593;PJ;São Paulo;SP;2024-09-08;Inativo/Churn
+10594;PF;Rio de Janeiro;RJ;2023-11-05;Ativo
+10595;PF;Rio de Janeiro;RJ;2023-04-29;Ativo
+10596;PJ;Ribeirão Preto;SP;2024-01-13;Ativo
+10597;PF;Belo Horizonte;MG;2023-06-08;Ativo
+10598;PJ;Brasília;DF;2024-04-13;Ativo
+10599;PF;Brasília;DF;2023-07-08;Inativo/Churn
+10600;PF;Salvador;BA;2023-03-05;Ativo
+10601;PF;Niterói;RJ;2024-06-23;Ativo
+10602;PJ;Curitiba;PR;2025-04-07;Ativo
+10603;PF;Curitiba;PR;2024-10-27;Ativo
+10604;PF;Curitiba;PR;2024-07-29;Ativo
+10605;PF;Salvador;BA;2023-04-18;Inativo/Churn
+10606;PF;Ribeirão Preto;SP;2025-02-24;Ativo
+10607;PJ;Porto Alegre;RS;2024-06-14;Ativo
+10608;PF;Curitiba;PR;2023-01-20;Ativo
+10609;PJ;Recife;PE;2024-10-14;Ativo
+10610;PF;Santos;SP;2025-01-31;Ativo
+10611;PF;Salvador;BA;2023-06-13;Ativo
+10612;PF;Campinas;SP;2024-11-04;Inativo/Churn
+10613;PF;Rio de Janeiro;RJ;2024-07-16;Ativo
+10614;PF;Porto Alegre;RS;2024-12-15;Ativo
+10615;PF;Salvador;BA;2023-08-26;Ativo
+10616;PF;Salvador;BA;2024-11-07;Ativo
+10617;PF;Brasília;DF;2023-10-01;Ativo
+10618;PF;Niterói;RJ;2025-03-21;Ativo
+10619;PF;Campinas;SP;2024-02-24;Ativo
+10620;PF;Ribeirão Preto;SP;2025-04-16;Ativo
+10621;PF;Salvador;BA;2025-01-21;Ativo
+10622;PF;Rio de Janeiro;RJ;2024-12-23;Ativo
+10623;PF;Ribeirão Preto;SP;2024-11-07;Ativo
+10624;PJ;Ribeirão Preto;SP;2024-02-21;Ativo
+10625;PF;Santos;SP;2024-05-15;Ativo
+10626;PF;São Paulo;SP;2024-01-17;Ativo
+10627;PJ;São Paulo;SP;2023-05-15;Ativo
+10628;PF;Ribeirão Preto;SP;2024-03-09;Ativo
+10629;PF;Curitiba;PR;2024-12-01;Ativo
+10630;PJ;Brasília;DF;2024-01-14;Ativo
+10631;PF;Campinas;SP;2024-12-22;Ativo
+10632;PF;Curitiba;PR;2024-08-11;Ativo
+10633;PJ;Belo Horizonte;MG;2024-06-06;Ativo
+10634;PF;Salvador;BA;2023-02-14;Ativo
+10635;PF;Brasília;DF;2025-02-06;Ativo
+10636;PF;Ribeirão Preto;SP;2024-05-19;Ativo
+10637;PF;Recife;PE;2023-10-10;Ativo
+10638;PF;Recife;PE;2025-01-27;Ativo
+10639;PF;Belo Horizonte;MG;2023-11-26;Inativo/Churn
+10640;PJ;Curitiba;PR;2024-07-05;Ativo
+10641;PF;Belo Horizonte;MG;2024-02-06;Ativo
+10642;PF;Ribeirão Preto;SP;2024-06-12;Ativo
+10643;PF;Santos;SP;2024-03-10;Ativo
+10644;PJ;Salvador;BA;2024-03-05;Ativo
+10645;PJ;Recife;PE;2023-01-16;Ativo
+10646;PF;São Paulo;SP;2025-03-13;Ativo
+10647;PF;Campinas;SP;2023-10-24;Ativo
+10648;PF;Belo Horizonte;MG;2023-05-13;Ativo
+10649;PJ;Ribeirão Preto;SP;2024-01-10;Ativo
+10650;PF;Santos;SP;2024-09-23;Ativo
+10651;PJ;Recife;PE;2025-01-28;Inativo/Churn
+10652;PJ;Porto Alegre;RS;2024-01-09;Ativo
+10653;PF;Curitiba;PR;2025-01-09;Ativo
+10654;PF;São Paulo;SP;2025-02-01;Ativo
+10655;PF;Porto Alegre;RS;2024-11-27;Ativo
+10656;PJ;Ribeirão Preto;SP;2023-01-27;Inativo/Churn
+10657;PF;Campinas;SP;2023-05-25;Ativo
+10658;PF;Curitiba;PR;2024-04-02;Ativo
+10659;PF;Santos;SP;2023-12-11;Ativo
+10660;PJ;Curitiba;PR;2024-09-20;Ativo
+10661;PF;Salvador;BA;2024-01-13;Ativo
+10662;PF;Porto Alegre;RS;2024-04-20;Ativo
+10663;PF;Porto Alegre;RS;2024-07-27;Ativo
+10664;PF;Brasília;DF;2025-01-05;Ativo
+10665;PF;Niterói;RJ;2025-04-04;Ativo
+10666;PF;Curitiba;PR;2024-06-18;Ativo
+10667;PF;Brasília;DF;2024-10-22;Inativo/Churn
+10668;PF;Recife;PE;2024-05-28;Ativo
+10669;PF;Porto Alegre;RS;2024-06-30;Ativo
+10670;PJ;Belo Horizonte;MG;2024-12-05;Ativo
+10671;PF;Porto Alegre;RS;2024-02-25;Ativo
+10672;PF;Curitiba;PR;2024-04-21;Ativo
+10673;PF;Santos;SP;2024-01-26;Ativo
+10674;PF;Recife;PE;2023-12-25;Ativo
+10675;PF;Curitiba;PR;2023-07-07;Ativo
+10676;PF;Curitiba;PR;2023-10-27;Ativo
+10677;PF;Rio de Janeiro;RJ;2024-05-05;Ativo
+10678;PF;Ribeirão Preto;SP;2023-07-05;Ativo
+10679;PF;Salvador;BA;2025-04-12;Ativo
+10680;PF;Rio de Janeiro;RJ;2023-10-15;Ativo
+10681;PF;Porto Alegre;RS;2023-10-25;Ativo
+10682;PF;Curitiba;PR;2023-12-03;Ativo
+10683;PF;Salvador;BA;2025-01-22;Ativo
+10684;PF;Ribeirão Preto;SP;2024-03-05;Inativo/Churn
+10685;PJ;Rio de Janeiro;RJ;2025-03-25;Ativo
+10686;PF;Curitiba;PR;2024-03-15;Ativo
+10687;PF;Campinas;SP;2023-06-06;Ativo
+10688;PF;Recife;PE;2023-10-29;Ativo
+10689;PF;Rio de Janeiro;RJ;2024-04-05;Ativo
+10690;PF;Ribeirão Preto;SP;2023-12-20;Ativo
+10691;PJ;Rio de Janeiro;RJ;2024-07-14;Ativo
+10692;PF;Niterói;RJ;2023-10-06;Ativo
+10693;PF;Niterói;RJ;2024-04-14;Ativo
+10694;PF;Porto Alegre;RS;2023-01-22;Ativo
+10695;PF;Campinas;SP;2025-04-09;Ativo
+10696;PF;Santos;SP;2023-07-16;Ativo
+10697;PJ;Santos;SP;2024-03-02;Ativo
+10698;PF;Ribeirão Preto;SP;2023-03-12;Ativo
+10699;PF;Belo Horizonte;MG;2023-03-26;Ativo
+10700;PF;Recife;PE;2024-03-29;Ativo

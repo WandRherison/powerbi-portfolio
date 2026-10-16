@@ -27,6 +27,7 @@ Você pode explorar e interagir diretamente com os relatórios publicados no Pow
 | **2. ONG Viva Comunidade** | Terceiro Setor, Captação & Impacto Social | **Galaxy Schema** (Multi-Fato) | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/reportEmbed?reportId=caabce35-2a75-4ee1-8f99-c7bdce27fce3&autoAuth=true&ctid=0a0a7bc1-e1a1-43c9-80f0-64c1235ccc49) | [Ver Case](Projetos/Projeto%20-%20ONG/README.md) |
 | **3. PetShop Gatitos** | Varejo B2C, Customer Analytics | **Star Schema** | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiZjhhODBjZTctYTI0My00ZDE4LTgwNzctMGZjZWM1OTU0MDRjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20PetShop/README.md) |
 | **4. Supply Chain & Logística**| E-commerce, Torre de Controle & SLAs | **Star Schema** (Role-Playing) | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiNTg3Y2Y5ZGItNmI5OS00Mzk4LWI0NTMtZjVhOGMzYmRkMGU3IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20SupplyChain/README.md) |
+| **5. ONG Multi-Programas** | Terceiro Setor, Metas & Impacto Social | **Multi-Fato Star Schema** | 📦 *Em Desenvolvimento* | [Ver Case](Projetos/Projeto%20-%20ONG%20Multi-Programas/README.md) |
 
 ---
 
@@ -70,6 +71,16 @@ Você pode explorar e interagir diretamente com os relatórios publicados no Pow
   - Fórmulas DAX especializadas: **OTIF % (On-Time Delivery)**, **Lead Time Médio**, **Margem de Contribuição Líquida** e uso de relacionamentos inativos com `USERELATIONSHIP`.
 - **Arquivo PBIX:** [`Projetos/Projeto - SupplyChain/PowerBI - SupplyChain.pbix`](Projetos/Projeto%20-%20SupplyChain/PowerBI%20-%20SupplyChain.pbix)
 - **Case Detalhado & DAX:** [`Projetos/Projeto - SupplyChain/README.md`](Projetos/Projeto%20-%20SupplyChain/README.md) e [`Projetos/Projeto - SupplyChain/DAX_MEASURES.md`](Projetos/Projeto%20-%20SupplyChain/DAX_MEASURES.md)
+
+---
+
+### 🏛️ Projeto 5: ONG Multi-Programas (Gestão Estratégica, Metas & Multi-Fato)
+- **Problema de Negócio:** Gestão orçamentária integrada de múltiplos programas sociais com acompanhamento mensal de metas de captação, execução de atendimentos nas comunidades e índice de sustentabilidade.
+- **Solução Técnica:**
+  - Arquitetura **Multi-Fato Star Schema (Constellation)** com 3 fatos (`fDoacoes`, `fAtendimentos`, `fOrcamentoMetas`) e 4 dimensões compartilhadas (`dProjetos`, `dDoadores`, `dCanais`, `dRegioes`).
+  - Geração de 6.150 doações e 3.550 atendimentos distribuídos em 22 meses com picos sazonais em Nov/Dez e simulação de churn de doadores recorrentes (3% a 5%).
+  - Medidas DAX com variáveis `VAR`/`RETURN`: % Atingimento da Meta de Captação vs Meta de Atendimentos, Custo Médio por Beneficiário, Horas de Voluntariado e Índice de Eficiência Operacional.
+- **Case Detalhado & DAX:** [`Projetos/Projeto - ONG Multi-Programas/README.md`](Projetos/Projeto%20-%20ONG%20Multi-Programas/README.md) e [`Projetos/Projeto - ONG Multi-Programas/DAX_MEASURES.md`](Projetos/Projeto%20-%20ONG%20Multi-Programas/DAX_MEASURES.md)
 
 ---
 
