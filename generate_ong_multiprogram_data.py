@@ -140,38 +140,40 @@ def generate_fact_planning(df_projetos):
             
     metas_list = []
     
-    # Metas base por projeto
+    # Metas base por projeto calibradas com a escala real de captação e serviços
     base_meta_arrecadacao = {
-        101: 55000.0, # Criança Feliz
-        102: 48000.0, # Tech Jovem
-        103: 62000.0, # Saúde Plena
-        104: 38000.0, # Moradia
-        105: 32000.0, # Esporte
-        106: 22000.0  # Costura (finalizado em 2026)
+        101: 152000.0, # Criança Feliz
+        102: 122000.0, # Tech Jovem
+        103: 148000.0, # Saúde Plena
+        104: 68000.0,  # Moradia
+        105: 70000.0,  # Esporte
+        106: 32000.0   # Costura (finalizado em 2026)
     }
     
     base_meta_atendimentos = {
-        101: 65,
-        102: 45,
-        103: 75,
-        104: 25,
-        105: 50,
-        106: 30
+        101: 52,
+        102: 21,
+        103: 21,
+        104: 40,
+        105: 13,
+        106: 15
     }
     
     for anomes in meses:
         ano = int(anomes[:4])
         mes = int(anomes[4:])
         
-        # Sazonalidade de metas: Fim de ano tem meta maior, Jan/Fev mais modesta
+        # Sazonalidade de metas: Acompanha a curva real de captação e campanhas
         if mes in [11, 12]:
-            sazonal_mult = 1.45
+            sazonal_mult = 1.95 # Picos de final de ano (Campanhas de Natal)
         elif mes in [1, 2]:
-            sazonal_mult = 0.85
+            sazonal_mult = 0.72 # Início de ano mais modesto
         elif mes == 5:
-            sazonal_mult = 1.20
+            sazonal_mult = 1.15 # Mês das mães / campanha de inverno
+        elif mes in [9, 10]:
+            sazonal_mult = 1.08
         else:
-            sazonal_mult = 1.00
+            sazonal_mult = 0.95
             
         for _, proj in df_projetos.iterrows():
             id_proj = proj["ID_Projeto"]
