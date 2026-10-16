@@ -1,8 +1,12 @@
 # 🤝 Projeto 5: Gestão Estratégica & Impacto Multi-Programas - Terceiro Setor
 
-[![Power BI](https://img.shields.io/badge/Power_BI-Executive_Dashboard-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://github.com)
+[![Power BI Service](https://img.shields.io/badge/Power_BI-Live_Demo_Online-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://app.powerbi.com/view?r=eyJrIjoiYTQ3NDFmOWQtZGE5OS00OWNkLWEzZjEtODAzOTc5ZmE5MzRjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9)
 [![Modelagem](https://img.shields.io/badge/Modelagem-Multi--Fato_(Constellation)-purple?style=for-the-badge)](https://github.com)
 [![Governança](https://img.shields.io/badge/Terceiro_Setor-Transparência_%26_Metas-teal?style=for-the-badge)](https://github.com)
+
+> 🌐 **Demonstração Interativa Online:** [**Abrir Dashboard no Power BI Service**](https://app.powerbi.com/view?r=eyJrIjoiYTQ3NDFmOWQtZGE5OS00OWNkLWEzZjEtODAzOTc5ZmE5MzRjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9)
+> 
+> 📁 **Arquivo Power BI Original (.pbix):** [`PowerBI - ONG MultiProgramas.pbix`](PowerBI%20-%20ONG%20MultiProgramas.pbix)
 
 Ambiente analítico completo projetado para uma organização social de grande porte (**ONG Multi-Programas**), estruturado com **três tabelas fato integradas** e **quatro dimensões compartilhadas**, permitindo monitorar o ciclo completo do terceiro setor: captação financeira, planejamento orçamentário mensal e execução de impacto social nas comunidades assistidas.
 

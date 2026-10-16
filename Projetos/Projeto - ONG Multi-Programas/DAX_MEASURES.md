@@ -315,6 +315,18 @@ RETURN
     )
 ```
 
+```dax
+[Custo Médio por Atendimento] = 
+VAR CustoTotal = [Total Custo Atendimentos]
+VAR TotalAtd = [Total Atendimentos]
+RETURN
+    DIVIDE ( 
+        CustoTotal, 
+        TotalAtd, 
+        0.0 
+    )
+```
+
 ---
 
 ### 4.5. Horas de Voluntariado Empregadas
