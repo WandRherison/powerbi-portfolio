@@ -1,0 +1,5 @@
+﻿ID_Heroi;Nome;Classe;HP_Maximo;Ataque;Defesa;Sprite;Descricao
+1;Guerreiro;Guerreiro;150;25;20;https://dummyimage.com/32x32/000080/ffffff&text=GUE;Combatente corpo a corpo robusto com armadura pesada e alta resistência a dano.
+2;Mago;Mago;80;45;10;https://dummyimage.com/32x32/800080/ffffff&text=MAG;Conjurador arcano com poder destrutivo devastador, porém baixa defesa física.
+3;Ladino;Ladino;100;35;15;https://dummyimage.com/32x32/006400/ffffff&text=LAD;Mestre da agilidade e ataques furtivos com taxa crítica elevada.
+4;Clérigo;Clérigo;120;15;25;https://dummyimage.com/32x32/b8860b/ffffff&text=CLE;Guardião sagrado com alta defesa e bênçãos de proteção espiritual.

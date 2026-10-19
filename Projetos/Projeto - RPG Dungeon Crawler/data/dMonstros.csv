@@ -1,0 +1,6 @@
+﻿ID_Monstro;Nome;Tipo;HP;Dano;Sprite;XP_Recompensa
+1;Slime Verde;Comum;30;5;https://dummyimage.com/32x32/00ff00/000000&text=SLI;20
+2;Goblin;Comum;50;10;https://dummyimage.com/32x32/556b2f/ffffff&text=GOB;45
+3;Esqueleto;Morto-Vivo;60;15;https://dummyimage.com/32x32/a9a9a9/000000&text=ESQ;60
+4;Orc Guerreiro;Elite;90;20;https://dummyimage.com/32x32/8b4513/ffffff&text=ORC;100
+5;Dragão Ancião (Boss);Chefe Final;300;40;https://dummyimage.com/64x64/ff0000/ffffff&text=BOSS;500

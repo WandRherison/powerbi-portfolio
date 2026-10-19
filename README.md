@@ -28,6 +28,7 @@ Você pode explorar e interagir diretamente com os relatórios publicados no Pow
 | **3. PetShop Gatitos** | Varejo B2C, Customer Analytics | **Star Schema** | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiZjhhODBjZTctYTI0My00ZDE4LTgwNzctMGZjZWM1OTU0MDRjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20PetShop/README.md) |
 | **4. Supply Chain & Logística**| E-commerce, Torre de Controle & SLAs | **Star Schema** (Role-Playing) | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiNTg3Y2Y5ZGItNmI5OS00Mzk4LWI0NTMtZjVhOGMzYmRkMGU3IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20SupplyChain/README.md) |
 | **5. ONG Multi-Programas** | Terceiro Setor, Metas & Impacto Social | **Multi-Fato Star Schema** | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiOTQyODQ1ZGItN2I4Mi00ZTVhLWE1ZTctODYxOGI1M2ZjNzg1IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20ONG%20Multi-Programas/README.md) |
+| **6. RPG Dungeon Crawler** | Game Engine, HTML5 Canvas & DAX | **Star Schema & Engine** | 🎮 *Executável via HTML Content* | [Ver Case](Projetos/Projeto%20-%20RPG%20Dungeon%20Crawler/README.md) |
 
 ---
 
@@ -86,6 +87,16 @@ Você pode explorar e interagir diretamente com os relatórios publicados no Pow
 
 ---
 
+### 🗡️ Projeto 6: RPG Dungeon Crawler Jogável (HTML5 Canvas & DAX Engine)
+- **Desafio Técnico:** Demonstrar a máxima versatilidade do ecossistema Power BI combinando modelagem dimensional Star Schema, injeção dinâmica de código e desenvolvimento front-end com HTML5 Canvas API dentro do visual certificado *HTML Content*.
+- **Solução Técnica:**
+  - Script Python (`gerar_banco_rpg.py`) gerando dimensões de heróis com atributos (`dHerois`), bestiário (`dMonstros`) e coordenadas espaciais em grid 32x32 (`fMapa_Spawns`).
+  - Medida DAX compiladora `[RPG_HTML_Engine]` que serializa inimigos em JSON via `CONCATENATEX` e injeta um Game Loop completo em JavaScript com detecção de colisão, combate e renderização de sprites.
+  - Persistência de coordenadas e HP via `localStorage`, permitindo alternar classes de heróis via Slicer sem perder a posição na masmorra.
+- **Case Detalhado & DAX:** [`Projetos/Projeto - RPG Dungeon Crawler/README.md`](Projetos/Projeto%20-%20RPG%20Dungeon%20Crawler/README.md) e [`Projetos/Projeto - RPG Dungeon Crawler/DAX_MEASURES.md`](Projetos/Projeto%20-%20RPG%20Dungeon%20Crawler/DAX_MEASURES.md)
+
+---
+
 ## 🏛️ Estrutura do Repositório
 
 ```text
@@ -99,6 +110,9 @@ PowerBI-Portfolio/
 │   ├── fVendas.csv                        <-- Fato de vendas da distribuidora
 │   ├── fDoacoes.csv                       <-- Fato de captação de recursos da ONG
 │   ├── fAtendimentos.csv                  <-- Fato de execução social da ONG
+│   ├── dHerois.csv                        <-- Dimensão de heróis do RPG
+│   ├── dMonstros.csv                      <-- Dimensão de monstros do RPG
+│   ├── fMapa_Spawns.csv                   <-- Fato de coordenadas do RPG
 │   ├── dClientes.csv                      <-- Dimensão de clientes B2B
 │   ├── dProdutos.csv                      <-- Dimensão de produtos de bebidas
 │   ├── dCanais.csv                        <-- Dimensão de canais de venda / doação
@@ -109,6 +123,7 @@ PowerBI-Portfolio/
 ├── generate_ong_data.py                   <-- Pipeline Python autônomo (ONG Básica)
 ├── generate_supplychain_data.py           <-- Pipeline Python autônomo (Supply Chain)
 ├── generate_ong_multiprogram_data.py      <-- Pipeline Python autônomo (ONG Multi-Programas)
+├── gerar_banco_rpg.py                     <-- Pipeline Python autônomo (RPG Dungeon Crawler)
 │
 └── Projetos/                              <-- Diretório com os cases de estudo e relatórios .pbix
     ├── Projeto - Adega/
@@ -128,11 +143,16 @@ PowerBI-Portfolio/
     │   ├── DAX_MEASURES.md                <-- Medidas DAX com Role-Playing
     │   └── README.md                      <-- Case de estudo detalhado
     │
-    └── Projeto - ONG Multi-Programas/
-        ├── PowerBI - ONG MultiProgramas.pbix <-- Arquivo fonte Power BI (Multi-Fato)
-        ├── DAX_MEASURES.md                <-- Catálogo completo de medidas DAX
-        ├── data/                          <-- Datasets CSV com integridade 100%
-        └── README.md                      <-- Case de estudo detalhado
+    ├── Projeto - ONG Multi-Programas/
+    │   ├── PowerBI - ONG MultiProgramas.pbix <-- Arquivo fonte Power BI (Multi-Fato)
+    │   ├── DAX_MEASURES.md                <-- Catálogo completo de medidas DAX
+    │   ├── data/                          <-- Datasets CSV com integridade 100%
+    │   └── README.md                      <-- Case de estudo detalhado
+    │
+    └── Projeto - RPG Dungeon Crawler/
+        ├── DAX_MEASURES.md                <-- Motor do Jogo completo em DAX + HTML/JS
+        ├── data/                          <-- Datasets CSV do RPG
+        └── README.md                      <-- Documentação e Guia de Montagem do Jogo
 ```
 
 ---
