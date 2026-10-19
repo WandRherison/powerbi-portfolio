@@ -1,19 +1,19 @@
 # 🗡️ Catálogo de Medidas DAX - RPG Dungeon Crawler no Power BI
 
-Este catálogo documenta a medida DAX **`[RPG_HTML_Engine]`**, projetada para injetar dinamicamente um motor de jogo em **HTML5 Canvas & JavaScript** dentro do visual certificado **HTML Content** no Power BI Desktop. 
-
-Além do motor interativo do jogo, este catálogo inclui métricas analíticas em DAX para exibição em Cards e visuais de RPG Analytics no dashboard.
+Este catálogo documenta a medida DAX **`[RPG_HTML_Engine]`**, corrigida e blindada para execução no visual certificado **HTML Content** (por Daniel Marsh-Patrick) no Power BI Desktop e Power BI Service.
 
 ---
 
-## 🎮 1. A Medida Motor: `[RPG_HTML_Engine]`
+## 🎮 1. A Medida Motor Corrigida: `[RPG_HTML_Engine]`
 
-> **Como usar no Power BI Desktop:**
-> 1. Importe o visual customizado gratuito e certificado **"HTML Content"** (por Daniel Marsh-Patrick) via AppSource.
-> 2. Crie uma **Nova Medida** na tabela `fMapa_Spawns` ou em uma tabela de medidas `_Medidas`.
-> 3. Cole o código DAX abaixo exatamente como está.
-> 4. Arraste a medida `[RPG_HTML_Engine]` para o campo **"Values"** do visual HTML Content.
-> 5. Ajuste a largura do visual para ~`840px` e altura para ~`680px`.
+### 🛠️ Correções Técnicas Aplicadas nesta Versão:
+1. **Eliminação de `VAR` dentro de `CONCATENATEX`:** No DAX do Power BI Desktop, declarar variáveis `VAR` no argumento de expressão de iteradores gera erro de sintaxe (*Token inesperado 'VAR'*). A nova sintaxe usa `LOOKUPVALUE` direto e inline, sendo 100% válida e funcionando mesmo que o relacionamento não tenha sido criado.
+2. **Substituição de `alert()` por HUD de Combate In-Game:** O visual *HTML Content* roda dentro de um `<iframe>` restrito (*sandboxed*) sem a permissão `allow-modals`. Chamar `alert()` causava bloqueio silencioso do navegador. Agora, as mensagens de batalha, dano recebido e vitória/derrota são renderizadas em tempo real diretamente no HUD e no Canvas!
+3. **Persistência Segura (*Safe Storage*):** O acesso a `localStorage` agora possui tratamento com `try/catch` e fallback para memória `window`, impedindo que políticas de segurança corporativas do Power BI causem `SecurityError`.
+4. **Controles Híbridos (Teclado + Botões Direcionais D-Pad):** Além das setas direcionais e WASD, foram inseridos botões na barra do HUD para permitir jogar via clique do mouse ou toque na tela (Power BI Mobile).
+5. **Fallback de Sprites Retro:** Caso haja lentidão no carregamento das imagens externas, o Canvas desenha instantaneamente tokens medievais estilizados com as siglas (`GUE`, `MAG`, `SLI`, `GOB`, `BOSS`).
+
+---
 
 ```dax
 RPG_HTML_Engine = 
@@ -24,74 +24,91 @@ VAR _HeroiAtk = CALCULATE ( MAX ( dHerois[Ataque] ), dHerois[Nome] = _HeroiAtual
 VAR _HeroiDef = CALCULATE ( MAX ( dHerois[Defesa] ), dHerois[Nome] = _HeroiAtual )
 VAR _HeroiImg = CALCULATE ( MAX ( dHerois[Sprite] ), dHerois[Nome] = _HeroiAtual )
 
--- 2. Constrói o array JSON de monstros lendo a tabela fato fMapa_Spawns
+-- 2. Constrói o array JSON de monstros lendo a tabela fMapa_Spawns (Sintaxe 100% válida sem VAR interno)
 VAR _MonstrosJSON = 
     "[" & 
     CONCATENATEX (
         fMapa_Spawns,
-        VAR _IdMonstro = fMapa_Spawns[ID_Monstro]
-        VAR _NomeMonstro = LOOKUPVALUE ( dMonstros[Nome], dMonstros[ID_Monstro], _IdMonstro )
-        VAR _HPMonstro = LOOKUPVALUE ( dMonstros[HP], dMonstros[ID_Monstro], _IdMonstro )
-        VAR _DanoMonstro = LOOKUPVALUE ( dMonstros[Dano], dMonstros[ID_Monstro], _IdMonstro )
-        VAR _SpriteMonstro = LOOKUPVALUE ( dMonstros[Sprite], dMonstros[ID_Monstro], _IdMonstro )
-        VAR _X = fMapa_Spawns[Coord_X]
-        VAR _Y = fMapa_Spawns[Coord_Y]
-        VAR _IsBoss = IF ( _IdMonstro = 5, "true", "false" )
-        RETURN
-            "{id: " & fMapa_Spawns[ID_Spawn] & 
-            ", idMonstro: " & _IdMonstro & 
-            ", nome: '" & _NomeMonstro & "'" & 
-            ", x: " & _X & 
-            ", y: " & _Y & 
-            ", hp: " & _HPMonstro & 
-            ", hpMax: " & _HPMonstro & 
-            ", dano: " & _DanoMonstro & 
-            ", isBoss: " & _IsBoss & 
-            ", sprite: '" & _SpriteMonstro & "'}",
+        "{id: " & fMapa_Spawns[ID_Spawn] & 
+        ", idMonstro: " & fMapa_Spawns[ID_Monstro] & 
+        ", nome: '" & LOOKUPVALUE ( dMonstros[Nome], dMonstros[ID_Monstro], fMapa_Spawns[ID_Monstro] ) & "'" & 
+        ", x: " & fMapa_Spawns[Coord_X] & 
+        ", y: " & fMapa_Spawns[Coord_Y] & 
+        ", hp: " & LOOKUPVALUE ( dMonstros[HP], dMonstros[ID_Monstro], fMapa_Spawns[ID_Monstro] ) & 
+        ", hpMax: " & LOOKUPVALUE ( dMonstros[HP], dMonstros[ID_Monstro], fMapa_Spawns[ID_Monstro] ) & 
+        ", dano: " & LOOKUPVALUE ( dMonstros[Dano], dMonstros[ID_Monstro], fMapa_Spawns[ID_Monstro] ) & 
+        ", isBoss: " & IF ( fMapa_Spawns[ID_Monstro] = 5, "true", "false" ) & 
+        ", sprite: '" & LOOKUPVALUE ( dMonstros[Sprite], dMonstros[ID_Monstro], fMapa_Spawns[ID_Monstro] ) & "'}",
         ", "
     ) & 
     "]"
 
--- 3. Código HTML5 + CSS + JavaScript Game Loop
+-- 3. Código HTML5 + CSS + JavaScript Game Engine
 VAR _HTML_Code = 
     "<!DOCTYPE html>" &
     "<html>" &
     "<head>" &
     "<meta charset='utf-8'>" &
     "<style>" &
-    "  body { margin: 0; padding: 10px; background-color: #121214; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; user-select: none; color: #fff; overflow: hidden; }" &
-    "  .game-container { position: relative; display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border-radius: 8px; overflow: hidden; border: 2px solid #3e3e42; }" &
-    "  .rpg-hud { width: 800px; background: linear-gradient(180deg, #252528 0%, #1a1a1c 100%); padding: 10px 16px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #b8860b; font-size: 13px; }" &
-    "  .hud-stat { display: flex; align-items: center; gap: 8px; font-weight: 600; }" &
-    "  .hud-badge { background: #2d2d30; padding: 4px 10px; border-radius: 4px; border: 1px solid #454549; color: #f1c40f; }" &
-    "  .btn-reset { background: #b8860b; color: #fff; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.2s; font-size: 12px; }" &
-    "  .btn-reset:hover { background: #d4af37; transform: scale(1.03); }" &
-    "  canvas { display: block; background: #2c2c2c; cursor: pointer; outline: none; }" &
+    "  body { margin: 0; padding: 6px; background-color: #0f0f12; font-family: 'Segoe UI', Tahoma, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; user-select: none; color: #fff; overflow: hidden; }" &
+    "  .game-wrapper { position: relative; display: flex; flex-direction: column; align-items: center; box-shadow: 0 12px 36px rgba(0,0,0,0.9); border-radius: 8px; border: 2px solid #b8860b; background: #18181b; outline: none; }" &
+    "  .rpg-hud { width: 800px; background: linear-gradient(180deg, #27272a 0%, #18181b 100%); padding: 8px 14px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #3f3f46; font-size: 13px; }" &
+    "  .hud-stats { display: flex; align-items: center; gap: 8px; font-weight: 600; }" &
+    "  .hud-pill { background: #27272a; padding: 3px 8px; border-radius: 4px; border: 1px solid #52525b; color: #facc15; font-size: 12px; }" &
+    "  .dpad-controls { display: flex; align-items: center; gap: 4px; }" &
+    "  .btn-dir { background: #3f3f46; color: #fff; border: 1px solid #71717a; width: 32px; height: 30px; border-radius: 4px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; }" &
+    "  .btn-dir:hover { background: #b8860b; }" &
+    "  .btn-reset { background: #b8860b; color: #fff; border: none; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 11px; margin-left: 8px; }" &
+    "  .btn-reset:hover { background: #d4af37; }" &
+    "  .hud-log-bar { width: 800px; background: #121214; padding: 6px 14px; box-sizing: border-box; font-size: 12px; font-weight: 500; color: #67e8f9; border-bottom: 1px solid #27272a; display: flex; justify-content: space-between; align-items: center; }" &
+    "  canvas { display: block; background: #27272a; cursor: crosshair; outline: none; }" &
+    "  .overlay-modal { position: absolute; top: 120px; left: 150px; width: 500px; background: rgba(15,15,18,0.95); border: 2px solid #b8860b; border-radius: 8px; padding: 20px; box-sizing: border-box; text-align: center; display: none; z-index: 100; box-shadow: 0 0 40px rgba(0,0,0,0.9); }" &
+    "  .overlay-modal h2 { margin-top: 0; color: #facc15; font-size: 22px; }" &
+    "  .overlay-modal p { font-size: 14px; color: #e4e4e7; line-height: 1.5; }" &
+    "  .overlay-modal button { background: #b8860b; color: #fff; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 13px; margin-top: 10px; }" &
     "</style>" &
     "</head>" &
     "<body>" &
-    "<div class='game-container'>" &
+    "<div class='game-wrapper' id='gameContainer' tabindex='0' onclick='this.focus()'>" &
     "  <div class='rpg-hud'>" &
-    "    <div class='hud-stat'>" &
+    "    <div class='hud-stats'>" &
     "      <span>🗡️ Herói:</span>" &
-    "      <span class='hud-badge' id='hudHeroiNome'>" & _HeroiAtual & "</span>" &
+    "      <span class='hud-pill' id='hudHeroiNome'>" & _HeroiAtual & "</span>" &
     "      <span>❤️ HP:</span>" &
-    "      <span class='hud-badge' id='hudHeroiHP'>" & _HeroiHP & " / " & _HeroiHP & "</span>" &
+    "      <span class='hud-pill' id='hudHeroiHP'>" & _HeroiHP & " / " & _HeroiHP & "</span>" &
     "      <span>⚔️ Atk:</span>" &
-    "      <span class='hud-badge'>" & _HeroiAtk & "</span>" &
+    "      <span class='hud-pill'>" & _HeroiAtk & "</span>" &
     "      <span>🛡️ Def:</span>" &
-    "      <span class='hud-badge'>" & _HeroiDef & "</span>" &
+    "      <span class='hud-pill'>" & _HeroiDef & "</span>" &
     "    </div>" &
-    "    <div class='hud-stat'>" &
-    "      <button class='btn-reset' onclick='window.reiniciarJogo()'>🔄 Reiniciar Masmorra</button>" &
+    "    <div class='dpad-controls'>" &
+    "      <button class='btn-dir' onclick='window.moverDirecao(0, -32)' title='Cima'>⬆️</button>" &
+    "      <button class='btn-dir' onclick='window.moverDirecao(-32, 0)' title='Esquerda'>⬅️</button>" &
+    "      <button class='btn-dir' onclick='window.moverDirecao(0, 32)' title='Baixo'>⬇️</button>" &
+    "      <button class='btn-dir' onclick='window.moverDirecao(32, 0)' title='Direita'>➡️</button>" &
+    "      <button class='btn-reset' onclick='window.reiniciarJogo()'>🔄 Reset</button>" &
     "    </div>" &
     "  </div>" &
-    "  <canvas id='gameCanvas' width='800' height='600' tabindex='1'></canvas>" &
+    "  <div class='hud-log-bar'>" &
+    "    <span id='combatLog'>⚔️ Masmorra Ativa! Use o Teclado (Setas / WASD) ou clique nos botões direcionais.</span>" &
+    "    <span style='color: #a1a1aa; font-size: 11px;'>Clique na tela para dar foco ao teclado</span>" &
+    "  </div>" &
+    "  <canvas id='gameCanvas' width='800' height='600' tabindex='0'></canvas>" &
+    "  <div class='overlay-modal' id='gameModal'>" &
+    "    <h2 id='modalTitle'>🏆 VITÓRIA ÉPICA!</h2>" &
+    "    <p id='modalMessage'>Você derrotou o Dragão Ancião e conquistou a Masmorra do Power BI!</p>" &
+    "    <button onclick='window.fecharModalEReiniciar()'>Jogar Novamente</button>" &
+    "  </div>" &
     "</div>" &
     "<script>" &
     "  (function() {" &
     "    const canvas = document.getElementById('gameCanvas');" &
     "    const ctx = canvas.getContext('2d');" &
+    "    const container = document.getElementById('gameContainer');" &
+    "    const logEl = document.getElementById('combatLog');" &
+    "    const modal = document.getElementById('gameModal');" &
+    "    const modalTitle = document.getElementById('modalTitle');" &
+    "    const modalMsg = document.getElementById('modalMessage');" &
     "    const TILE_SIZE = 32;" &
     "    const heroiNome = '" & _HeroiAtual & "';" &
     "    const heroiAtk = " & _HeroiAtk & ";" &
@@ -100,200 +117,213 @@ VAR _HTML_Code =
     "    const heroiSpriteUrl = '" & _HeroiImg & "';" &
     "    const monstrosIniciais = " & _MonstrosJSON & ";" &
     "" &
-    "    let heroiX = parseInt(localStorage.getItem('heroiX'));" &
-    "    let heroiY = parseInt(localStorage.getItem('heroiY'));" &
+    "    function safeGet(key, def) {" &
+    "      try {" &
+    "        const v = localStorage.getItem(key);" &
+    "        return (v !== null && v !== undefined) ? v : def;" &
+    "      } catch(e) {" &
+    "        return window['_rpg_' + key] !== undefined ? window['_rpg_' + key] : def;" &
+    "      }" &
+    "    }" &
+    "" &
+    "    function safeSet(key, val) {" &
+    "      try { localStorage.setItem(key, val); } catch(e) {}" &
+    "      window['_rpg_' + key] = val;" &
+    "    }" &
+    "" &
+    "    let heroiX = parseInt(safeGet('heroiX', 32));" &
+    "    let heroiY = parseInt(safeGet('heroiY', 32));" &
     "    if (isNaN(heroiX) || heroiX % 32 !== 0) heroiX = 32;" &
     "    if (isNaN(heroiY) || heroiY % 32 !== 0) heroiY = 32;" &
     "" &
-    "    let heroiHP = parseInt(localStorage.getItem('heroiHP'));" &
+    "    let heroiHP = parseInt(safeGet('heroiHP', heroiMaxHP));" &
     "    if (isNaN(heroiHP) || heroiHP <= 0) heroiHP = heroiMaxHP;" &
     "" &
     "    let monstros = [];" &
-    "    const monstrosSalvos = localStorage.getItem('rpg_monstros_estado');" &
-    "    if (monstrosSalvos) {" &
-    "      try { monstros = JSON.parse(monstrosSalvos); } catch(e) { monstros = [...monstrosIniciais]; }" &
+    "    const salvos = safeGet('rpg_monstros', null);" &
+    "    if (salvos) {" &
+    "      try { monstros = JSON.parse(salvos); } catch(e) { monstros = JSON.parse(JSON.stringify(monstrosIniciais)); }" &
     "    } else {" &
     "      monstros = JSON.parse(JSON.stringify(monstrosIniciais));" &
     "    }" &
     "" &
-    "    const imageCache = {};" &
-    "    function getSprite(url) {" &
-    "      if (!imageCache[url]) {" &
+    "    const imgCache = {};" &
+    "    function getImg(url) {" &
+    "      if (!imgCache[url]) {" &
     "        const img = new Image();" &
     "        img.src = url;" &
-    "        imageCache[url] = img;" &
+    "        imgCache[url] = img;" &
     "      }" &
-    "      return imageCache[url];" &
+    "      return imgCache[url];" &
     "    }" &
     "" &
-    "    function salvarEstado() {" &
-    "      localStorage.setItem('heroiX', heroiX);" &
-    "      localStorage.setItem('heroiY', heroiY);" &
-    "      localStorage.setItem('heroiHP', heroiHP);" &
-    "      localStorage.setItem('rpg_monstros_estado', JSON.stringify(monstros));" &
-    "      atualizarHUD();" &
-    "    }" &
-    "" &
-    "    window.reiniciarJogo = function() {" &
-    "      localStorage.removeItem('heroiX');" &
-    "      localStorage.removeItem('heroiY');" &
-    "      localStorage.removeItem('heroiHP');" &
-    "      localStorage.removeItem('rpg_monstros_estado');" &
-    "      heroiX = 32;" &
-    "      heroiY = 32;" &
-    "      heroiHP = heroiMaxHP;" &
-    "      monstros = JSON.parse(JSON.stringify(monstrosIniciais));" &
-    "      salvarEstado();" &
-    "      desenhar();" &
-    "    };" &
-    "" &
-    "    function atualizarHUD() {" &
+    "    function salvar() {" &
+    "      safeSet('heroiX', heroiX);" &
+    "      safeSet('heroiY', heroiY);" &
+    "      safeSet('heroiHP', heroiHP);" &
+    "      safeSet('rpg_monstros', JSON.stringify(monstros));" &
     "      const elHP = document.getElementById('hudHeroiHP');" &
     "      if (elHP) elHP.innerText = heroiHP + ' / ' + heroiMaxHP;" &
     "    }" &
     "" &
-    "    function desenharMasmorra() {" &
-    "      ctx.fillStyle = '#2c2c2c';" &
-    "      ctx.fillRect(0, 0, canvas.width, canvas.height);" &
-    "      ctx.strokeStyle = '#383838';" &
+    "    function setLog(texto, cor) {" &
+    "      if (logEl) {" &
+    "        logEl.innerText = texto;" &
+    "        logEl.style.color = cor || '#67e8f9';" &
+    "      }" &
+    "    }" &
+    "" &
+    "    window.reiniciarJogo = function() {" &
+    "      safeSet('heroiX', 32);" &
+    "      safeSet('heroiY', 32);" &
+    "      safeSet('heroiHP', heroiMaxHP);" &
+    "      safeSet('rpg_monstros', JSON.stringify(monstrosIniciais));" &
+    "      heroiX = 32;" &
+    "      heroiY = 32;" &
+    "      heroiHP = heroiMaxHP;" &
+    "      monstros = JSON.parse(JSON.stringify(monstrosIniciais));" &
+    "      modal.style.display = 'none';" &
+    "      salvar();" &
+    "      setLog('🔄 Masmorra reiniciada com sucesso! Boa sorte!', '#facc15');" &
+    "      desenhar();" &
+    "    };" &
+    "" &
+    "    window.fecharModalEReiniciar = function() {" &
+    "      modal.style.display = 'none';" &
+    "      window.reiniciarJogo();" &
+    "    };" &
+    "" &
+    "    function desenhar() {" &
+    "      ctx.fillStyle = '#27272a';" &
+    "      ctx.fillRect(0, 0, 800, 600);" &
+    "      ctx.strokeStyle = '#333338';" &
     "      ctx.lineWidth = 1;" &
-    "      for (let x = 32; x < 800 - 32; x += TILE_SIZE) {" &
-    "        for (let y = 32; y < 600 - 32; y += TILE_SIZE) {" &
+    "      for (let x = 32; x < 768; x += TILE_SIZE) {" &
+    "        for (let y = 32; y < 568; y += TILE_SIZE) {" &
     "          ctx.strokeRect(x, y, TILE_SIZE, TILE_SIZE);" &
     "        }" &
     "      }" &
-    "      ctx.fillStyle = '#181818';" &
+    "      ctx.fillStyle = '#18181b';" &
     "      ctx.fillRect(0, 0, 800, 32);" &
-    "      ctx.fillRect(0, 600 - 32, 800, 32);" &
+    "      ctx.fillRect(0, 568, 800, 32);" &
     "      ctx.fillRect(0, 0, 32, 600);" &
-    "      ctx.fillRect(800 - 32, 0, 32, 600);" &
+    "      ctx.fillRect(768, 0, 32, 600);" &
     "      ctx.strokeStyle = '#b8860b';" &
     "      ctx.lineWidth = 2;" &
-    "      ctx.strokeRect(32, 32, 800 - 64, 600 - 64);" &
-    "      ctx.fillStyle = '#f1c40f';" &
-    "      ctx.font = '11px Segoe UI';" &
-    "      ctx.fillText('🚪 ENTRADA (Spawn: 32, 32)', 36, 22);" &
-    "      ctx.fillStyle = '#e74c3c';" &
-    "      ctx.fillText('🔥 CÂMARA DO BOSS (704, 64)', 610, 22);" &
-    "    }" &
+    "      ctx.strokeRect(32, 32, 736, 536);" &
+    "      ctx.fillStyle = '#facc15';" &
+    "      ctx.font = 'bold 11px Segoe UI';" &
+    "      ctx.fillText('🚪 ENTRADA (32, 32)', 36, 22);" &
+    "      ctx.fillStyle = '#ef4444';" &
+    "      ctx.fillText('🔥 CÂMARA DO BOSS (704, 64)', 600, 22);" &
     "" &
-    "    function desenharMonstros() {" &
     "      monstros.forEach(function(m) {" &
     "        if (m.hp > 0) {" &
-    "          const img = getSprite(m.sprite);" &
+    "          const img = getImg(m.sprite);" &
     "          const w = m.isBoss ? 64 : 32;" &
     "          const h = m.isBoss ? 64 : 32;" &
     "          if (img.complete && img.naturalWidth > 0) {" &
     "            ctx.drawImage(img, m.x, m.y, w, h);" &
     "          } else {" &
-    "            ctx.fillStyle = m.isBoss ? '#e74c3c' : '#27ae60';" &
+    "            ctx.fillStyle = m.isBoss ? '#ef4444' : '#10b981';" &
     "            ctx.fillRect(m.x, m.y, w, h);" &
+    "            ctx.fillStyle = '#fff';" &
+    "            ctx.font = 'bold 10px Segoe UI';" &
+    "            ctx.fillText(m.isBoss ? 'BOSS' : m.nome.substr(0,3).toUpperCase(), m.x + 3, m.y + 20);" &
     "          }" &
-    "          const barW = w;" &
-    "          const barH = 4;" &
     "          const pct = Math.max(0, m.hp / m.hpMax);" &
     "          ctx.fillStyle = '#000';" &
-    "          ctx.fillRect(m.x, m.y - 7, barW, barH);" &
-    "          ctx.fillStyle = pct > 0.5 ? '#2ecc71' : pct > 0.2 ? '#f39c12' : '#e74c3c';" &
-    "          ctx.fillRect(m.x, m.y - 7, barW * pct, barH);" &
+    "          ctx.fillRect(m.x, m.y - 6, w, 4);" &
+    "          ctx.fillStyle = pct > 0.5 ? '#22c55e' : pct > 0.2 ? '#f59e0b' : '#ef4444';" &
+    "          ctx.fillRect(m.x, m.y - 6, w * pct, 4);" &
     "          ctx.fillStyle = '#fff';" &
     "          ctx.font = '9px Segoe UI';" &
-    "          ctx.fillText(m.nome.split(' ')[0], m.x, m.y - 9);" &
+    "          ctx.fillText(m.nome.split(' ')[0], m.x, m.y - 8);" &
     "        }" &
     "      });" &
-    "    }" &
     "" &
-    "    function desenharHeroi() {" &
-    "      const img = getSprite(heroiSpriteUrl);" &
-    "      if (img.complete && img.naturalWidth > 0) {" &
-    "        ctx.drawImage(img, heroiX, heroiY, 32, 32);" &
+    "      const heroImg = getImg(heroiSpriteUrl);" &
+    "      if (heroImg.complete && heroImg.naturalWidth > 0) {" &
+    "        ctx.drawImage(heroImg, heroiX, heroiY, 32, 32);" &
     "      } else {" &
-    "        ctx.fillStyle = '#3498db';" &
+    "        ctx.fillStyle = '#3b82f6';" &
     "        ctx.fillRect(heroiX, heroiY, 32, 32);" &
+    "        ctx.fillStyle = '#fff';" &
+    "        ctx.font = 'bold 10px Segoe UI';" &
+    "        ctx.fillText(heroiNome.substr(0,3).toUpperCase(), heroiX + 4, heroiY + 20);" &
     "      }" &
-    "      const barW = 32;" &
-    "      const barH = 4;" &
-    "      const pct = Math.max(0, heroiHP / heroiMaxHP);" &
+    "      const heroPct = Math.max(0, heroiHP / heroiMaxHP);" &
     "      ctx.fillStyle = '#000';" &
-    "      ctx.fillRect(heroiX, heroiY - 7, barW, barH);" &
-    "      ctx.fillStyle = '#3498db';" &
-    "      ctx.fillRect(heroiX, heroiY - 7, barW * pct, barH);" &
+    "      ctx.fillRect(heroiX, heroiY - 6, 32, 4);" &
+    "      ctx.fillStyle = '#3b82f6';" &
+    "      ctx.fillRect(heroiX, heroiY - 6, 32 * heroPct, 4);" &
     "    }" &
     "" &
-    "    function desenhar() {" &
-    "      desenharMasmorra();" &
-    "      desenharMonstros();" &
-    "      desenharHeroi();" &
-    "    }" &
-    "" &
-    "    function processarCombate(monstro) {" &
-    "      alert('⚔️ COMBATE INICIADO!\\nVocê atacou ' + monstro.nome + '! Dano causado: ' + heroiAtk);" &
-    "      monstro.hp -= heroiAtk;" &
-    "      if (monstro.hp <= 0) {" &
-    "        monstro.hp = 0;" &
-    "        if (monstro.isBoss) {" &
-    "          alert('🏆 VITÓRIA ÉPICA!\\nVocê derrotou o lendário Dragão Ancião e conquistou a Masmorra do Power BI!');" &
+    "    function combate(m) {" &
+    "      m.hp -= heroiAtk;" &
+    "      if (m.hp <= 0) {" &
+    "        m.hp = 0;" &
+    "        if (m.isBoss) {" &
+    "          setLog('🏆 VITÓRIA ÉPICA! Você derrotou o Dragão Ancião!', '#22c55e');" &
+    "          modalTitle.innerText = '🏆 VITÓRIA ÉPICA!';" &
+    "          modalMsg.innerText = 'Parabéns, valoroso ' + heroiNome + '! Você derrotou o lendário Dragão Ancião e limpou a Masmorra do Power BI!';" &
+    "          modal.style.display = 'block';" &
     "        } else {" &
-    "          alert('💀 ' + monstro.nome + ' foi derrotado!');" &
+    "          setLog('💀 ' + m.nome + ' foi eliminado! Dano desferido: ' + heroiAtk, '#facc15');" &
     "        }" &
     "      } else {" &
-    "        const danoSofrido = Math.max(1, monstro.dano - Math.floor(heroiDef / 5));" &
-    "        heroiHP -= danoSofrido;" &
-    "        alert('💥 ' + monstro.nome + ' contra-atacou! Dano recebido: ' + danoSofrido + '\\nSeu HP atual: ' + Math.max(0, heroiHP) + ' / ' + heroiMaxHP);" &
+    "        const dano = Math.max(1, m.dano - Math.floor(heroiDef / 5));" &
+    "        heroiHP -= dano;" &
+    "        setLog('⚔️ Ataque em ' + m.nome + ' (-' + heroiAtk + ' HP). Contra-ataque sofrido: -' + dano + ' HP!', '#fb923c');" &
     "        if (heroiHP <= 0) {" &
-    "          alert('⚰️ VOCÊ CAIU EM BATALHA!\\nSeu herói sucumbiu aos perigos da masmorra. Retornando ao ponto de início...');" &
+    "          heroiHP = heroiMaxHP;" &
     "          heroiX = 32;" &
     "          heroiY = 32;" &
-    "          heroiHP = heroiMaxHP;" &
+    "          setLog('⚰️ VOCÊ CAIU! Renascendo na entrada da masmorra...', '#ef4444');" &
+    "          modalTitle.innerText = '⚰️ VOCÊ CAIU EM BATALHA!';" &
+    "          modalMsg.innerText = 'Seu herói foi vencido por ' + m.nome + '. Suas forças foram restauradas na entrada da masmorra!';" &
+    "          modal.style.display = 'block';" &
     "        }" &
     "      }" &
-    "      salvarEstado();" &
+    "      salvar();" &
     "      desenhar();" &
     "    }" &
     "" &
-    "    window.addEventListener('keydown', function(e) {" &
-    "      let moveu = false;" &
-    "      let novoX = heroiX;" &
-    "      let novoY = heroiY;" &
-    "      if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {" &
-    "        novoY -= TILE_SIZE;" &
-    "        moveu = true;" &
-    "      } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {" &
-    "        novoY += TILE_SIZE;" &
-    "        moveu = true;" &
-    "      } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {" &
-    "        novoX -= TILE_SIZE;" &
-    "        moveu = true;" &
-    "      } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {" &
-    "        novoX += TILE_SIZE;" &
-    "        moveu = true;" &
-    "      }" &
-    "      if (moveu) {" &
-    "        e.preventDefault();" &
-    "        if (novoX >= 32 && novoX <= 800 - 64 && novoY >= 32 && novoY <= 600 - 64) {" &
-    "          heroiX = novoX;" &
-    "          heroiY = novoY;" &
-    "          salvarEstado();" &
-    "          desenhar();" &
-    "          const monstroColidido = monstros.find(function(m) {" &
-    "            if (m.hp <= 0) return false;" &
-    "            if (m.isBoss) {" &
-    "              return (heroiX >= m.x && heroiX <= m.x + 32 && heroiY >= m.y && heroiY <= m.y + 32);" &
-    "            }" &
-    "            return (m.x === heroiX && m.y === heroiY);" &
-    "          });" &
-    "          if (monstroColidido) {" &
-    "            processarCombate(monstroColidido);" &
+    "    window.moverDirecao = function(dx, dy) {" &
+    "      const nx = heroiX + dx;" &
+    "      const ny = heroiY + dy;" &
+    "      if (nx >= 32 && nx <= 736 && ny >= 32 && ny <= 536) {" &
+    "        heroiX = nx;" &
+    "        heroiY = ny;" &
+    "        salvar();" &
+    "        desenhar();" &
+    "        const col = monstros.find(function(m) {" &
+    "          if (m.hp <= 0) return false;" &
+    "          if (m.isBoss) {" &
+    "            return (heroiX >= m.x && heroiX <= m.x + 32 && heroiY >= m.y && heroiY <= m.y + 32);" &
     "          }" &
-    "        }" &
+    "          return (m.x === heroiX && m.y === heroiY);" &
+    "        });" &
+    "        if (col) combate(col);" &
+    "      }" &
+    "    };" &
+    "" &
+    "    window.addEventListener('keydown', function(e) {" &
+    "      let dx = 0, dy = 0, move = false;" &
+    "      if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') { dy = -TILE_SIZE; move = true; }" &
+    "      else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') { dy = TILE_SIZE; move = true; }" &
+    "      else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') { dx = -TILE_SIZE; move = true; }" &
+    "      else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') { dx = TILE_SIZE; move = true; }" &
+    "      if (move) {" &
+    "        e.preventDefault();" &
+    "        window.moverDirecao(dx, dy);" &
     "      }" &
     "    });" &
     "" &
-    "    canvas.focus();" &
-    "    atualizarHUD();" &
-    "    salvarEstado();" &
+    "    container.focus();" &
+    "    salvar();" &
     "    desenhar();" &
-    "    setTimeout(desenhar, 400);" &
+    "    setTimeout(desenhar, 350);" &
     "  })();" &
     "</script>" &
     "</body>" &

@@ -8,13 +8,13 @@
 
 Projeto inovador de engenharia analítica e desenvolvimento front-end avançado: um **RPG Dungeon Crawler 2D jogável** com temática de Fantasia Medieval executado **100% dentro do Power BI Desktop** utilizando o visual certificado **HTML Content** (por Daniel Marsh-Patrick).
 
-O motor do jogo combina **Modelagem Dimensional Star Schema**, **Compilação Just-in-Time em DAX** e **Renderização nativa via HTML5 Canvas API**, com detecção de colisão em grid 32x32, combate por turnos, sistema de classes com sprites dinâmicos e persistência de estado via `localStorage`!
+O motor do jogo combina **Modelagem Dimensional Star Schema**, **Compilação Just-in-Time em DAX** e **Renderização nativa via HTML5 Canvas API**, com detecção de colisão em grid 32x32, combate por turnos, sistema de classes com sprites dinâmicos, persistência de estado segura e controles híbridos (teclado e D-Pad na tela)!
 
 ---
 
 ## 🏛️ 1. Arquitetura da Solução & Star Schema
 
-O jogo é alimentado por uma modelagem dimensional rigorosa gerada via script Python autônomo ([`gerar_banco_rpg.py`](../../gerar_banco_rpg.py)):
+O jogo é alimentado por uma modelagem dimensional gerada via script Python autônomo ([`gerar_banco_rpg.py`](../../gerar_banco_rpg.py)):
 
 ```mermaid
 erDiagram
@@ -49,6 +49,10 @@ erDiagram
         string Sala_Masmorra
     }
 ```
+
+> ⚠️ **Regra Fundamental de Modelagem:**
+> - `dMonstros` conecta-se a `fMapa_Spawns` em relação **1 para Muitos (1:\*)**.
+> - `dHerois` é uma **Tabela Desconectada (*Disconnected Table*)**. Ela **NÃO** deve ser relacionada a nenhuma tabela no modelo. O herói é selecionado via Slicer e seus atributos são injetados no motor via `SELECTEDVALUE()` no DAX!
 
 ---
 
@@ -90,84 +94,113 @@ Mapeia a posição exata de cada criatura no grid de 800x600 pixels (múltiplos 
 ## ⚙️ 3. A Engenharia do Jogo: Como Funciona o Middleware DAX
 
 ```
-┌───────────────────────────────┐
-│  Segmentador de Heróis        │ (Filtro Power BI: dHerois[Nome])
-└──────────────┬────────────────┘
+┌─────────────────────────────────┐
+│  Segmentador de Heróis          │ (Filtro Power BI: dHerois[Nome])
+└──────────────┬──────────────────┘
                ▼
-┌───────────────────────────────┐
-│  Medida DAX: [RPG_HTML_Engine]│
-│  - Captura Atributos do Herói │
-│  - Serializa Monstros em JSON │
-│  - Injeta HTML5, CSS e JS     │
-└──────────────┬────────────────┘
+┌─────────────────────────────────┐
+│  Medida DAX: [RPG_HTML_Engine]  │
+│  - Captura Atributos do Herói   │
+│  - Serializa Monstros em JSON   │
+│  - Injeta HTML5, CSS e JS       │
+└──────────────┬──────────────────┘
                ▼
-┌───────────────────────────────┐
-│  Visual: HTML Content         │
-│  - Renderiza <canvas> 800x600 │
-│  - Executa o Game Loop JS     │
-│  - Persiste via localStorage  │
-└───────────────────────────────┘
+┌─────────────────────────────────┐
+│  Visual: HTML Content           │
+│  - Renderiza <canvas> 800x600   │
+│  - Executa o Game Loop JS       │
+│  - Persiste via Safe Storage    │
+└─────────────────────────────────┘
 ```
 
-1. **Serialização Declarativa em DAX:**
-   A função `CONCATENATEX` itera sobre `fMapa_Spawns`, buscando atributos com `LOOKUPVALUE` e montando um array de objetos JavaScript em tempo de execução:
+1. **Serialização Declarativa em DAX (Sintaxe Corrigida):**
+   A função `CONCATENATEX` itera sobre `fMapa_Spawns`, buscando atributos com `LOOKUPVALUE` inline (sem declarar `VAR` internos que quebram o parser do DAX) e montando o array JSON em tempo de execução:
    ```javascript
-   [{id: 1, nome: 'Slime Verde', x: 128, y: 96, hp: 30, dano: 5, sprite: 'url...'}, ...]
+   [{id: 1, idMonstro: 1, nome: 'Slime Verde', x: 128, y: 96, hp: 30, dano: 5, sprite: '...'}, ...]
    ```
-2. **Persistência de Estado com `localStorage`:**
-   Ao trocar de classe no segmentador lateral do Power BI (ex: de *Guerreiro* para *Mago*), o Power BI recalcula a medida DAX. O script lê a posição salva no navegador (`localStorage.getItem('heroiX')` e `heroiY`), impedindo que a masmorra reinicie do zero!
-3. **Detecção de Colisão & Combate:**
-   A cada movimento (teclas direcionais ⬆️ ⬇️ ⬅️ ➡️ ou WASD), o motor valida os limites da masmorra (paredes perimetrais) e verifica se há um monstro vivo na mesma coordenada `(X, Y)`. O combate ocorre por cálculo de ataque do herói versus defesa e contra-ataque do monstro com alertas interativos!
+2. **Eliminação de `alert()` por HUD In-Game:**
+   Como o visual roda em `<iframe>` protegido sem a flag `allow-modals`, o motor utiliza um HUD de mensagens de batalha em tempo real (`#combatLog`) e modal estilizado in-canvas para vitória épica e queda em batalha, garantindo que o jogo nunca trave!
+3. **Persistência Segura com `Safe Storage`:**
+   Ao trocar de classe no segmentador lateral do Power BI (ex: de *Guerreiro* para *Mago*), o script lê a posição salva com tratamento `try/catch` e fallback em memória `window`, permitindo trocar de herói sem perder a posição na masmorra!
+4. **Controles Híbridos (Teclado + Botões Direcionais):**
+   O jogador pode navegar com as **Setas Direcionais** ou **W, A, S, D** no teclado, ou clicando nos botões `⬆️`, `⬇️`, `⬅️`, `➡️` integrados no topo do visual.
 
 ---
 
-## 🚀 4. Guia de Montagem no Power BI Desktop
+## 🚀 4. Guia Definitivo de Implementação no Power BI Desktop
 
-### Passo 1: Ingestão dos Dados
-1. No Power BI Desktop, clique em **Obter Dados** $\rightarrow$ **Texto/CSV**.
-2. Carregue os 3 arquivos da pasta `data/`:
+Siga estes passos exatos para colocar o RPG para rodar sem nenhum erro de sintaxe:
+
+### Passo 1: Ingestão dos Dados via Power Query
+1. No Power BI Desktop, clique em **Página Inicial** $\rightarrow$ **Obter Dados** $\rightarrow$ **Texto/CSV**.
+2. Carregue os 3 arquivos da pasta `Projetos/Projeto - RPG Dungeon Crawler/data/`:
    - `dHerois.csv`
    - `dMonstros.csv`
    - `fMapa_Spawns.csv`
-3. Na exibição de **Modelo**, crie o relacionamento:
-   - `dMonstros[ID_Monstro]` (1) $\rightarrow$ `fMapa_Spawns[ID_Monstro]` (*) [Filtro Único, Ativo].
+3. ⚠️ **Atenção nas Configurações da Janela de Importação:**
+   - **Delimitador:** Selecione **Ponto e vírgula (;)**.
+   - **Origem do Arquivo:** Selecione **65001: Unicode (UTF-8)** (para garantir acentuação correta de Guerreiro, Clérigo e Dragão Ancião).
+4. Clique em **Carregar**.
 
 ---
 
-### Passo 2: Importar o Visual "HTML Content"
-1. No painel de **Visualizações**, clique nos três pontinhos (`...`) $\rightarrow$ **Obter mais visuais** (*Get more visuals*).
-2. Na barra de pesquisa, digite **`HTML Content`** (autor: *Daniel Marsh-Patrick* - visual gratuito e certificado pela Microsoft).
-3. Clique em **Adicionar**.
+### Passo 2: Configurar o Modelo de Dados (Relacionamento)
+1. Vá para a exibição de **Modelo** (ícone de relacionamentos à esquerda).
+2. Conecte:
+   - `dMonstros[ID_Monstro]` (1) $\longrightarrow$ `fMapa_Spawns[ID_Monstro]` (*)
+   - Cardinalidade: **1 para muitos (1:\*)**
+   - Direção do filtro cruzado: **Única**
+   - Ativo: **Sim**
+3. 🛑 **NÃO conecte a tabela `dHerois`:** Ela deve ficar solta (desconectada) no diagrama de relacionamento.
 
 ---
 
-### Passo 3: Criar a Medida do Motor
-1. Clique em **Nova Medida**.
-2. Copie e cole o código completo da medida **`[RPG_HTML_Engine]`** disponível no arquivo [`DAX_MEASURES.md`](DAX_MEASURES.md).
-3. Pressione Enter.
+### Passo 3: Importar o Visual "HTML Content"
+1. No painel de **Visualizações** (lado direito), clique no botão de três pontinhos (**`...`**) $\rightarrow$ **Obter mais visuais** (*Get more visuals*).
+2. Na barra de pesquisa, digite **`HTML Content`**.
+3. Localize o visual criado por **Daniel Marsh-Patrick** (certificado pela Microsoft e gratuito) e clique em **Adicionar**.
 
 ---
 
-### Passo 4: Montagem do Dashboard
-1. **Visual do Jogo:**
-   - Adicione o visual **HTML Content** na tela.
-   - Arraste a medida **`[RPG_HTML_Engine]`** para o campo **"Values"**.
-   - Ajuste o tamanho do visual para **Largura: 850px** e **Altura: 720px**.
-2. **Segmentador de Heróis (Troca de Classe em Tempo Real):**
+### Passo 4: Criar a Medida DAX do Motor
+1. Clique com o botão direito na tabela `fMapa_Spawns` e selecione **Nova Medida**.
+2. Abra o arquivo [`DAX_MEASURES.md`](DAX_MEASURES.md).
+3. Copie o código integral da medida **`RPG_HTML_Engine`** e cole na barra de fórmulas do Power BI Desktop.
+4. Pressione **Enter**.
+
+---
+
+### Passo 5: Montar o Layout na Tela
+1. **Adicionar o Jogo:**
+   - Clique no ícone do visual **HTML Content** para adicioná-lo à página.
+   - Arraste a medida **`[RPG_HTML_Engine]`** para o campo **"Values"** do visual.
+   - Redimensione o visual para:
+     - **Largura:** ~`850 px`
+     - **Altura:** ~`710 px`
+2. **Adicionar o Seletor de Heróis (Troca de Classe em Tempo Real):**
    - Adicione uma **Segmentação de Dados** (*Slicer*).
-   - Arraste o campo `dHerois[Nome]`.
-   - Configure o estilo para **Blocos / Botões Horizontais**.
-3. **Cards de Status (Opcional):**
-   - Adicione cartões com as medidas analíticas: `[Poder de Ataque]`, `[Poder de Defesa]`, `[HP Máximo Herói]` e `[Golpes Estimados Boss]`.
+   - Arraste o campo `dHerois[Nome]` para ela.
+   - No painel de formatação do slicer $\rightarrow$ *Configurações da segmentação* $\rightarrow$ *Estilo*: escolha **Bloco (*Tile*)** ou **Linha Horizontal**.
+3. **Adicionar Cards Analíticos de RPG (Opcional):**
+   - Crie cartões com as medidas complementares de [`DAX_MEASURES.md`](DAX_MEASURES.md):
+     - `[Herói Atual]`
+     - `[Poder de Ataque]`
+     - `[Poder de Defesa]`
+     - `[HP Máximo Herói]`
+     - `[Total de Monstros Ativos]`
 
 ---
 
-## 🎮 5. Controles do Jogo
+## 🎮 5. Como Jogar
 
-- **Mover:** Use as **Setas Direcionais do Teclado** (`⬆️`, `⬇️`, `⬅️`, `➡️`) ou as teclas **W, A, S, D**.
-- **Combate:** Mova o herói para a mesma célula de um monstro para desferir um ataque.
-- **Troca de Classe:** Clique no filtro do Power BI para mudar instantaneamente entre Guerreiro, Mago, Ladino e Clérigo.
-- **Reiniciar:** Clique no botão dourado **"🔄 Reiniciar Masmorra"** no topo da tela do jogo.
+1. **Ativar o Foco:** Clique uma vez com o mouse dentro da masmorra para que o navegador direcione o teclado para o jogo.
+2. **Mover o Herói:**
+   - Use as **Setas Direcionais do Teclado** (`⬆️`, `⬇️`, `⬅️`, `➡️`) ou as teclas **W, A, S, D**.
+   - Ou clique nos botões direcionais no topo da tela!
+3. **Batalhar:** Mova seu herói para a mesma célula de um monstro para atacar. O dano causado e o contra-ataque do monstro aparecerão na barra de log em tempo real!
+4. **Troca de Classe Instantânea:** Clique em *Guerreiro*, *Mago*, *Ladino* ou *Clérigo* no filtro lateral do Power BI a qualquer momento. Seus atributos e sprite mudarão instantaneamente, mantendo a sua posição salva na masmorra!
+5. **Derrotar o Boss:** Atravesse a masmorra até a câmara no canto superior direito (`X=704, Y=64`) e derrote o temível Dragão Ancião!
+6. **Reiniciar a Masmorra:** Clique no botão dourado **"🔄 Reset"** no topo da tela do jogo.
 
 ---
 
