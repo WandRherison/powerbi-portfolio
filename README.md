@@ -30,7 +30,7 @@ Você pode explorar e interagir diretamente com os relatórios publicados no Pow
 | **3. PetShop Gatitos** | Varejo B2C, Customer Analytics | **Star Schema** | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiZjhhODBjZTctYTI0My00ZDE4LTgwNzctMGZjZWM1OTU0MDRjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20PetShop/README.md) |
 | **4. Supply Chain & Logística**| E-commerce, Torre de Controle & SLAs | **Star Schema** (Role-Playing) | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiNTg3Y2Y5ZGItNmI5OS00Mzk4LWI0NTMtZjVhOGMzYmRkMGU3IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20SupplyChain/README.md) |
 | **5. ONG Multi-Programas** | Terceiro Setor, Metas & Impacto Social | **Multi-Fato Star Schema** | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiOTQyODQ1ZGItN2I4Mi00ZTVhLWE1ZTctODYxOGI1M2ZjNzg1IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20ONG%20Multi-Programas/README.md) |
-| **6. Padaria Diniz** | E-commerce, Panificação & Governança LGPD | **Star Schema & MySQL Cloud** | 🌐 [**Acessar E-commerce no Render**](https://padaria-antigravity.onrender.com/padaria-landinpage.html) | [Ver Case](Projetos/Projeto%20-%20Padaria%20Diniz/README.md) |
+| **6. Padaria** | E-commerce, Panificação & Governança LGPD | **Star Schema & MySQL Cloud** | 🌐 [**Acessar E-commerce no Render**](https://padaria-antigravity.onrender.com/padaria-landinpage.html) | [Ver Case](Projetos/Projeto%20-%20Padaria%20Diniz/README.md) |
 
 ---
 
