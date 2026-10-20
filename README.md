@@ -13,6 +13,8 @@ Este repositório reúne projetos completos de ponta a ponta (*End-to-End*), cob
 ![Python](https://img.shields.io/badge/Python-Data_Pipelines_%26_Faker-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-ETL_%26_Data_Quality-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![Modelagem](https://img.shields.io/badge/Modelagem-Star_Schema_%26_Galaxy-4E79A7?style=for-the-badge)
+![SQL & Cloud](https://img.shields.io/badge/MySQL-AWS_RDS_Cloud-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Full-Stack](https://img.shields.io/badge/E--Commerce-Full--Stack_%26_LGPD-46E3B7?style=for-the-badge&logo=render&logoColor=black)
 ![Git](https://img.shields.io/badge/Git-Versionamento-F05032?style=for-the-badge&logo=git&logoColor=white)
 
 ---
@@ -28,6 +30,7 @@ Você pode explorar e interagir diretamente com os relatórios publicados no Pow
 | **3. PetShop Gatitos** | Varejo B2C, Customer Analytics | **Star Schema** | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiZjhhODBjZTctYTI0My00ZDE4LTgwNzctMGZjZWM1OTU0MDRjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20PetShop/README.md) |
 | **4. Supply Chain & Logística**| E-commerce, Torre de Controle & SLAs | **Star Schema** (Role-Playing) | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiNTg3Y2Y5ZGItNmI5OS00Mzk4LWI0NTMtZjVhOGMzYmRkMGU3IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20SupplyChain/README.md) |
 | **5. ONG Multi-Programas** | Terceiro Setor, Metas & Impacto Social | **Multi-Fato Star Schema** | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiOTQyODQ1ZGItN2I4Mi00ZTVhLWE1ZTctODYxOGI1M2ZjNzg1IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20ONG%20Multi-Programas/README.md) |
+| **6. Padaria Diniz** | E-commerce, Panificação & Governança LGPD | **Star Schema & MySQL Cloud** | 🌐 [**Acessar E-commerce no Render**](https://padaria-antigravity.onrender.com/padaria-landinpage.html) | [Ver Case](Projetos/Projeto%20-%20Padaria%20Diniz/README.md) |
 
 ---
 
@@ -83,6 +86,20 @@ Você pode explorar e interagir diretamente com os relatórios publicados no Pow
   - Medidas DAX avançadas: % Atingimento da Meta de Captação calibrada, Custo Médio por Beneficiário, Horas de Voluntariado, Arrecadação MoM % dinâmica para Cards e Índice de Eficiência Operacional.
 - **Arquivo PBIX:** [`Projetos/Projeto - ONG Multi-Programas/PowerBI - ONG MultiProgramas.pbix`](Projetos/Projeto%20-%20ONG%20Multi-Programas/PowerBI%20-%20ONG%20MultiProgramas.pbix)
 - **Case Detalhado & DAX:** [`Projetos/Projeto - ONG Multi-Programas/README.md`](Projetos/Projeto%20-%20ONG%20Multi-Programas/README.md) e [`Projetos/Projeto - ONG Multi-Programas/DAX_MEASURES.md`](Projetos/Projeto%20-%20ONG%20Multi-Programas/DAX_MEASURES.md)
+
+---
+
+### 🥖 Projeto 6: Padaria Diniz (E-commerce Full-Stack, MySQL na AWS RDS & BI com Governança LGPD)
+- **Problema de Negócio:** Gestão operacional e financeira de uma microempresa de panificação e confeitaria artesanal, integrando pedidos online com agendamento ("Peça e Retire"), esteira de produção e total adequação à LGPD na camada analítica.
+- **Solução Técnica:**
+  - Aplicação Web Full-Stack hospedada no Render integrada a banco de dados relacional **MySQL 8.0 na AWS RDS**.
+  - Camada de **Segurança & LGPD**: Criação de views SQL analíticas com *Data Masking* irreversível (CPF, telefone, e-mail) e usuário dedicado `powerbi_user` sob o **Princípio do Menor Privilégio (*Least Privilege*)**, blindando credenciais e dados pessoais.
+  - Modelagem **Star Schema** puro no Power BI (`vw_fato_vendas`, `vw_dim_produtos`, `vw_dim_setor`, `vw_dim_clientes`, `dCalendario`).
+  - Motor analítico com mais de 30 medidas DAX: **Lucro Real (Receita Bruta - CMV)**, **Margem de Lucro %**, **Markup Médio**, **SLA de Produção / Lead Time Médio (Meta 30 min)**, **% de Pedidos no Prazo**, **Monitoramento de Ruptura de Estoque** e **Time Intelligence (MoM e YTD)**.
+- **Live Web App:** [Padaria Diniz no Render](https://padaria-antigravity.onrender.com/padaria-landinpage.html)
+- **Arquivo PBIX:** [`Projetos/Projeto - Padaria Diniz/PowerBI - Padaria Diniz.pbix`](Projetos/Projeto%20-%20Padaria%20Diniz/PowerBI%20-%20Padaria%20Diniz.pbix)
+- **Case Detalhado & DAX:** [`Projetos/Projeto - Padaria Diniz/README.md`](Projetos/Projeto%20-%20Padaria%20Diniz/README.md) e [`Projetos/Projeto - Padaria Diniz/DAX_MEASURES.md`](Projetos/Projeto%20-%20Padaria%20Diniz/DAX_MEASURES.md)
+
 ---
 
 ## 🏛️ Estrutura do Repositório
@@ -98,9 +115,6 @@ PowerBI-Portfolio/
 │   ├── fVendas.csv                        <-- Fato de vendas da distribuidora
 │   ├── fDoacoes.csv                       <-- Fato de captação de recursos da ONG
 │   ├── fAtendimentos.csv                  <-- Fato de execução social da ONG
-│   ├── dHerois.csv                        <-- Dimensão de heróis do RPG
-│   ├── dMonstros.csv                      <-- Dimensão de monstros do RPG
-│   ├── fMapa_Spawns.csv                   <-- Fato de coordenadas do RPG
 │   ├── dClientes.csv                      <-- Dimensão de clientes B2B
 │   ├── dProdutos.csv                      <-- Dimensão de produtos de bebidas
 │   ├── dCanais.csv                        <-- Dimensão de canais de venda / doação
@@ -111,7 +125,6 @@ PowerBI-Portfolio/
 ├── generate_ong_data.py                   <-- Pipeline Python autônomo (ONG Básica)
 ├── generate_supplychain_data.py           <-- Pipeline Python autônomo (Supply Chain)
 ├── generate_ong_multiprogram_data.py      <-- Pipeline Python autônomo (ONG Multi-Programas)
-├── gerar_banco_rpg.py                     <-- Pipeline Python autônomo (RPG Dungeon Crawler)
 │
 └── Projetos/                              <-- Diretório com os cases de estudo e relatórios .pbix
     ├── Projeto - Adega/
@@ -136,6 +149,12 @@ PowerBI-Portfolio/
     │   ├── DAX_MEASURES.md                <-- Catálogo completo de medidas DAX
     │   ├── data/                          <-- Datasets CSV com integridade 100%
     │   └── README.md                      <-- Case de estudo detalhado
+    │
+    └── Projeto - Padaria Diniz/
+        ├── PowerBI - Padaria Diniz.pbix   <-- Arquivo fonte Power BI (Importado)
+        ├── views_powerbi_lgpd.sql         <-- Views SQL analíticas com Data Masking e Least Privilege
+        ├── DAX_MEASURES.md                <-- Catálogo completo de 30+ medidas DAX
+        └── README.md                      <-- Case de estudo executivo e arquitetura
 ```
 
 ---
