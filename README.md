@@ -84,17 +84,6 @@ Você pode explorar e interagir diretamente com os relatórios publicados no Pow
   - Medidas DAX avançadas: % Atingimento da Meta de Captação calibrada, Custo Médio por Beneficiário, Horas de Voluntariado, Arrecadação MoM % dinâmica para Cards e Índice de Eficiência Operacional.
 - **Arquivo PBIX:** [`Projetos/Projeto - ONG Multi-Programas/PowerBI - ONG MultiProgramas.pbix`](Projetos/Projeto%20-%20ONG%20Multi-Programas/PowerBI%20-%20ONG%20MultiProgramas.pbix)
 - **Case Detalhado & DAX:** [`Projetos/Projeto - ONG Multi-Programas/README.md`](Projetos/Projeto%20-%20ONG%20Multi-Programas/README.md) e [`Projetos/Projeto - ONG Multi-Programas/DAX_MEASURES.md`](Projetos/Projeto%20-%20ONG%20Multi-Programas/DAX_MEASURES.md)
-
----
-
-### 🗡️ Projeto 6: RPG Dungeon Crawler Jogável (HTML5 Canvas & DAX Engine)
-- **Desafio Técnico:** Demonstrar a máxima versatilidade do ecossistema Power BI combinando modelagem dimensional Star Schema, injeção dinâmica de código e desenvolvimento front-end com HTML5 Canvas API dentro do visual certificado *HTML Content*.
-- **Solução Técnica:**
-  - Script Python (`gerar_banco_rpg.py`) gerando dimensões de heróis com atributos (`dHerois`), bestiário (`dMonstros`) e coordenadas espaciais em grid 32x32 (`fMapa_Spawns`).
-  - Medida DAX compiladora `[RPG_HTML_Engine]` que serializa inimigos em JSON via `CONCATENATEX` e injeta um Game Loop completo em JavaScript com detecção de colisão, combate e renderização de sprites.
-  - Persistência de coordenadas e HP via `localStorage`, permitindo alternar classes de heróis via Slicer sem perder a posição na masmorra.
-- **Case Detalhado & DAX:** [`Projetos/Projeto - RPG Dungeon Crawler/README.md`](Projetos/Projeto%20-%20RPG%20Dungeon%20Crawler/README.md) e [`Projetos/Projeto - RPG Dungeon Crawler/DAX_MEASURES.md`](Projetos/Projeto%20-%20RPG%20Dungeon%20Crawler/DAX_MEASURES.md)
-
 ---
 
 ## 🏛️ Estrutura do Repositório
@@ -148,11 +137,6 @@ PowerBI-Portfolio/
     │   ├── DAX_MEASURES.md                <-- Catálogo completo de medidas DAX
     │   ├── data/                          <-- Datasets CSV com integridade 100%
     │   └── README.md                      <-- Case de estudo detalhado
-    │
-    └── Projeto - RPG Dungeon Crawler/
-        ├── DAX_MEASURES.md                <-- Motor do Jogo completo em DAX + HTML/JS
-        ├── data/                          <-- Datasets CSV do RPG
-        └── README.md                      <-- Documentação e Guia de Montagem do Jogo
 ```
 
 ---
