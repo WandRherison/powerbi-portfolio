@@ -18,5 +18,8 @@ venv/
 *.temp
 ~$*
 
-# Logs
+# Logs e Node
 *.log
+node_modules/
+dist/
+.tmp/

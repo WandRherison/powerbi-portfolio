@@ -30,7 +30,7 @@ Você pode explorar e interagir diretamente com os relatórios publicados no Pow
 | **3. PetShop Gatitos** | Varejo B2C, Customer Analytics | **Star Schema** | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiZjhhODBjZTctYTI0My00ZDE4LTgwNzctMGZjZWM1OTU0MDRjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20PetShop/README.md) |
 | **4. Supply Chain & Logística**| E-commerce, Torre de Controle & SLAs | **Star Schema** (Role-Playing) | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiNTg3Y2Y5ZGItNmI5OS00Mzk4LWI0NTMtZjVhOGMzYmRkMGU3IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20SupplyChain/README.md) |
 | **5. ONG Multi-Programas** | Terceiro Setor, Metas & Impacto Social | **Multi-Fato Star Schema** | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiOTQyODQ1ZGItN2I4Mi00ZTVhLWE1ZTctODYxOGI1M2ZjNzg1IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) | [Ver Case](Projetos/Projeto%20-%20ONG%20Multi-Programas/README.md) |
-| **6. Padaria Diniz** | E-commerce, Panificação & Governança LGPD | **Star Schema & MySQL Cloud** | 🌐 [**Acessar E-commerce no Render**](https://padaria-antigravity.onrender.com/padaria-landinpage.html) | [Ver Case](Projetos/Projeto%20-%20Padaria%20Diniz/README.md) |
+| **6. Padaria Diniz** | E-commerce, Panificação & Governança LGPD | **Star Schema & MySQL Cloud** | 🔗 [**Abrir Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiZjEwNDJjZjgtNzY3NS00NWFjLThhYjEtYjU3YzgzMzA3NmYxIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) <br/> 🌐 [**Acessar E-commerce**](https://padaria-antigravity.onrender.com/padaria-landinpage.html) | [Ver Case](Projetos/Projeto%20-%20Padaria%20Diniz/README.md) |
 
 ---
 
@@ -96,7 +96,8 @@ Você pode explorar e interagir diretamente com os relatórios publicados no Pow
   - Camada de **Segurança & LGPD**: Criação de views SQL analíticas com *Data Masking* irreversível (CPF, telefone, e-mail) e usuário dedicado `powerbi_user` sob o **Princípio do Menor Privilégio (*Least Privilege*)**, blindando credenciais e dados pessoais.
   - Modelagem **Star Schema** puro no Power BI (`vw_fato_vendas`, `vw_dim_produtos`, `vw_dim_setor`, `vw_dim_clientes`, `dCalendario`).
   - Motor analítico com mais de 30 medidas DAX: **Lucro Real (Receita Bruta - CMV)**, **Margem de Lucro %**, **Markup Médio**, **SLA de Produção / Lead Time Médio (Meta 30 min)**, **% de Pedidos no Prazo**, **Monitoramento de Ruptura de Estoque** e **Time Intelligence (MoM e YTD)**.
-- **Live Web App:** [Padaria Diniz no Render](https://padaria-antigravity.onrender.com/padaria-landinpage.html)
+- **Demonstração Interativa:** 🔗 [**Abrir Dashboard no Power BI Service**](https://app.powerbi.com/view?r=eyJrIjoiZjEwNDJjZjgtNzY3NS00NWFjLThhYjEtYjU3YzgzMzA3NmYxIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9)
+- **Live Web App:** 🌐 [Padaria Diniz no Render](https://padaria-antigravity.onrender.com/padaria-landinpage.html)
 - **Arquivo PBIX:** [`Projetos/Projeto - Padaria Diniz/PowerBI - Padaria Diniz.pbix`](Projetos/Projeto%20-%20Padaria%20Diniz/PowerBI%20-%20Padaria%20Diniz.pbix)
 - **Case Detalhado & DAX:** [`Projetos/Projeto - Padaria Diniz/README.md`](Projetos/Projeto%20-%20Padaria%20Diniz/README.md) e [`Projetos/Projeto - Padaria Diniz/DAX_MEASURES.md`](Projetos/Projeto%20-%20Padaria%20Diniz/DAX_MEASURES.md)
 

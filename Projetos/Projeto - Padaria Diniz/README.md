@@ -1,11 +1,12 @@
 # 🥖 Projeto 6: Padaria Diniz (E-commerce Full-Stack, MySQL na AWS RDS & BI com Governança LGPD)
 
-[![Power BI](https://img.shields.io/badge/Power_BI-Desktop_%26_Modelagem-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](#)
+[![Power BI](https://img.shields.io/badge/Power_BI-Online_Demo-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://app.powerbi.com/view?r=eyJrIjoiZjEwNDJjZjgtNzY3NS00NWFjLThhYjEtYjU3YzgzMzA3NmYxIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9)
 [![Live Web App](https://img.shields.io/badge/Web_App-Live_no_Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)](https://padaria-antigravity.onrender.com/padaria-landinpage.html)
 [![MySQL AWS RDS](https://img.shields.io/badge/MySQL_8.0-AWS_RDS_Cloud-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://aws.amazon.com/rds/)
 [![LGPD](https://img.shields.io/badge/Compliance-LGPD_%26_Least_Privilege-green?style=for-the-badge)](views_powerbi_lgpd.sql)
 [![Modelagem](https://img.shields.io/badge/Modelagem-Star_Schema-00599C?style=for-the-badge)](DAX_MEASURES.md)
 
+🔗 **[Clique aqui para interagir com o Dashboard Online](https://app.powerbi.com/view?r=eyJrIjoiZjEwNDJjZjgtNzY3NS00NWFjLThhYjEtYjU3YzgzMzA3NmYxIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9)**  
 🌐 **Aplicação Web em Produção:** [**Padaria Diniz | O Sabor Artesanal da Região**](https://padaria-antigravity.onrender.com/padaria-landinpage.html)  
 📊 **Arquivo Power BI (.pbix):** [`PowerBI - Padaria Diniz.pbix`](PowerBI%20-%20Padaria%20Diniz.pbix)  
 📜 **Script SQL das Views & LGPD:** [`views_powerbi_lgpd.sql`](views_powerbi_lgpd.sql)  
@@ -218,10 +219,12 @@ DIVIDE (
 
 ## 🛠️ 6. Como Executar e Replicar
 
-1. **Acessar a Aplicação Web:**
+1. **Interagir com o Dashboard Online:**
+   - Acesse o relatório publicado no [Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiZjEwNDJjZjgtNzY3NS00NWFjLThhYjEtYjU3YzgzMzA3NmYxIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9) para testar os filtros dinâmicos de setor, KPIs de faturamento e análise de SLA de preparo.
+2. **Acessar a Aplicação Web:**
    - Navegue até [Padaria Diniz Online](https://padaria-antigravity.onrender.com/padaria-landinpage.html) para experimentar o catálogo de produtos, o fluxo de pedidos e o design da interface.
-2. **Executar o Script SQL no Banco:**
+3. **Executar o Script SQL no Banco:**
    - Execute o script [`views_powerbi_lgpd.sql`](views_powerbi_lgpd.sql) em seu ambiente MySQL para provisionar as views e o usuário analítico.
-3. **Explorar o Arquivo Power BI:**
+4. **Explorar o Arquivo Power BI (.pbix):**
    - Abra o arquivo [`PowerBI - Padaria Diniz.pbix`](PowerBI%20-%20Padaria%20Diniz.pbix) no **Power BI Desktop**.
    - Os dados já estão importados e o modelo relacional está configurado com todas as medidas, formatações e colunas calculadas de calendário.
