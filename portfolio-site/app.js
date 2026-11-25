@@ -413,7 +413,7 @@
   spatialCards.forEach((card) => {
     card.addEventListener('click', (e) => {
       if (spatialShell.classList.contains('is-grid')) return;
-      if (e.target.closest('a')) return;
+      if (e.target.closest('a, button')) return;
       const visible = getVisibleCards();
       const idx = visible.indexOf(card);
       if (idx !== -1 && idx !== activeIndex) {
@@ -565,6 +565,139 @@
       // Gentle initial swing impulse on load
       velX = 6;
       requestAnimationFrame(stepLanyard);
+    }
+  }
+  /* =========================================================
+     9. IN-SITE CASE STUDY DOSSIER MODAL (Dados do GitHub)
+     ========================================================= */
+  const caseDialog = document.getElementById('case-dialog');
+  const caseCode = document.getElementById('case-dialog-code');
+  const caseTitle = document.getElementById('case-dialog-title');
+  const caseSubtitle = document.getElementById('case-dialog-subtitle');
+  const caseHighlights = document.getElementById('case-highlights');
+  const caseContextList = document.getElementById('case-context-list');
+  const caseInsightsList = document.getElementById('case-insights-list');
+  const caseArchText = document.getElementById('case-architecture-text');
+  const caseTablesGrid = document.getElementById('case-tables-grid');
+  const caseDaxList = document.getElementById('case-dax-list');
+  const caseLiveDashboard = document.getElementById('case-live-dashboard');
+  const caseLiveApp = document.getElementById('case-live-app');
+  const caseTabs = document.querySelectorAll('.case-tab');
+  const casePanels = document.querySelectorAll('.case-panel');
+
+  function activateCaseTab(tabKey) {
+    caseTabs.forEach((t) => {
+      const active = t.dataset.caseTab === tabKey;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', String(active));
+    });
+    casePanels.forEach((p) => {
+      p.classList.toggle('is-active', p.id === `case-tab-${tabKey}`);
+    });
+  }
+
+  caseTabs.forEach((tab) => {
+    tab.addEventListener('click', () => activateCaseTab(tab.dataset.caseTab));
+  });
+
+  function openCaseDossier(caseId) {
+    const casesMap = window.PORTFOLIO_CASES || {};
+    const data = casesMap[caseId];
+    if (!data || !caseDialog) return;
+
+    caseCode.textContent = data.code;
+    caseTitle.textContent = data.title;
+    caseSubtitle.textContent = data.subtitle;
+
+    caseHighlights.innerHTML = '';
+    data.highlights.forEach((item) => {
+      const box = document.createElement('div');
+      box.className = 'case-kpi';
+      const val = document.createElement('strong');
+      val.textContent = item.value;
+      const lbl = document.createElement('span');
+      lbl.textContent = item.label;
+      box.append(val, lbl);
+      caseHighlights.appendChild(box);
+    });
+
+    caseContextList.innerHTML = '';
+    data.businessContext.forEach((text) => {
+      const li = document.createElement('li');
+      li.textContent = text;
+      caseContextList.appendChild(li);
+    });
+
+    caseInsightsList.innerHTML = '';
+    data.insights.forEach((text) => {
+      const li = document.createElement('li');
+      li.textContent = text;
+      caseInsightsList.appendChild(li);
+    });
+
+    caseArchText.textContent = data.architecture;
+
+    caseTablesGrid.innerHTML = '';
+    data.tables.forEach((tbl) => {
+      const card = document.createElement('div');
+      card.className = 'case-table-card';
+      const role = document.createElement('span');
+      role.className = 'table-role';
+      role.textContent = tbl.role;
+      const name = document.createElement('strong');
+      name.textContent = tbl.name;
+      const desc = document.createElement('p');
+      desc.textContent = tbl.desc;
+      card.append(role, name, desc);
+      caseTablesGrid.appendChild(card);
+    });
+
+    caseDaxList.innerHTML = '';
+    data.daxMeasures.forEach((measure) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'case-dax-item';
+      const head = document.createElement('header');
+      head.textContent = measure.name;
+      const pre = document.createElement('pre');
+      pre.textContent = measure.code;
+      wrap.append(head, pre);
+      caseDaxList.appendChild(wrap);
+    });
+
+    caseLiveDashboard.href = data.dashboardUrl;
+    if (data.liveAppUrl) {
+      caseLiveApp.href = data.liveAppUrl;
+      caseLiveApp.classList.remove('is-hidden');
+    } else {
+      caseLiveApp.classList.add('is-hidden');
+    }
+
+    activateCaseTab('negocio');
+    if (lenis) lenis.stop();
+    caseDialog.showModal();
+  }
+
+  document.querySelectorAll('[data-open-case]').forEach((btn) => {
+    btn.addEventListener('click', () => openCaseDossier(btn.dataset.openCase));
+  });
+
+  if (caseDialog) {
+    caseDialog.addEventListener('close', () => {
+      if (lenis) lenis.start();
+    });
+
+    // Fallback obrigatório de light-dismiss para navegadores sem suporte a closedby (ex.: Safari)
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      caseDialog.addEventListener('click', (event) => {
+        if (event.target !== caseDialog) return;
+        const rect = caseDialog.getBoundingClientRect();
+        const inside =
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width;
+        if (!inside) caseDialog.close();
+      });
     }
   }
 })();

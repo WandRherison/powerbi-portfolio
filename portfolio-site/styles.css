@@ -1282,6 +1282,242 @@ code {
   font-size: 0.95rem;
 }
 
+/* Case Study Dossier Modal */
+.case-dialog {
+  width: min(94vw, 920px);
+  max-height: 88vh;
+  padding: 0;
+  border: 1px solid rgba(255, 90, 31, 0.42);
+  border-radius: var(--radius);
+  background: #0b0e15;
+  color: var(--text);
+  overflow: hidden;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.78);
+}
+
+.case-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-dialog::backdrop {
+  background: rgba(5, 6, 8, 0.84);
+  backdrop-filter: blur(8px);
+}
+
+.case-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.35rem 1.5rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 90, 31, 0.08), transparent);
+}
+
+.case-code {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.case-dialog-header h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  margin: 0;
+}
+
+.case-subtitle {
+  margin: 0.25rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.case-dialog-scroll {
+  padding: 1.25rem 1.5rem 1.5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  flex: 1;
+}
+
+.case-highlights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.35rem;
+}
+
+.case-kpi {
+  padding: 0.85rem 0.95rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.025);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.case-kpi strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.25rem;
+  color: var(--accent-bright);
+}
+
+.case-kpi span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.67rem;
+  color: var(--text-muted);
+}
+
+.case-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.case-tab {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  padding: 0.48rem 0.85rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.case-tab:hover,
+.case-tab.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #050608;
+  font-weight: 600;
+}
+
+.case-panel {
+  display: none;
+}
+
+.case-panel.is-active {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.case-block h4 {
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-bright);
+  margin: 0 0 0.65rem;
+}
+
+.case-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.55rem;
+  color: var(--text-muted);
+  font-size: 0.93rem;
+}
+
+.case-list-accent li::marker {
+  color: var(--accent);
+}
+
+.case-arch-text {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+
+.case-tables-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.85rem;
+}
+
+.case-table-card {
+  padding: 0.95rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(14, 17, 24, 0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.case-table-card .table-role {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.64rem;
+  color: var(--accent-bright);
+  letter-spacing: 0.06em;
+}
+
+.case-table-card strong {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+.case-table-card p {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.case-dax-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.case-dax-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #07090e;
+}
+
+.case-dax-item header {
+  padding: 0.6rem 0.95rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  color: var(--accent-bright);
+}
+
+.case-dax-item pre {
+  margin: 0;
+  padding: 0.95rem;
+  overflow-x: auto;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.case-dialog-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+  background: rgba(5, 6, 8, 0.9);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .case-highlights {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* Responsive */
 @media (max-width: 960px) {
   .hero-grid,
