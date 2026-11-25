@@ -26,21 +26,29 @@
   <canvas id="halftone-canvas" class="halftone-layer" aria-hidden="true"></canvas>
   <div class="grid-overlay" aria-hidden="true"></div>
 
-  <!-- Header -->
+  <!-- Header (Retro-PC OS Clock + Strata Availability Pill) -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#topo" class="brand" aria-label="Wand Rherison - Início">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span class="brand-code" data-scramble="WAND.RHERISON">WAND.RHERISON</span>
-        <span class="brand-sep" aria-hidden="true">//</span>
-        <span class="brand-role">BI &amp; DATA</span>
-      </a>
+      <div class="brand-cluster">
+        <a href="#topo" class="brand" aria-label="Wand Rherison - Início">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-code" data-scramble="WAND.RHERISON">WAND.RHERISON</span>
+          <span class="brand-sep" aria-hidden="true">//</span>
+          <span class="brand-role">BI &amp; DATA</span>
+        </a>
+        <span class="os-avail mono">
+          <i class="status-pulse" aria-hidden="true"></i>
+          DISPONÍVEL · BI &amp; DADOS
+        </span>
+      </div>
 
       <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#processo" data-scramble="00.PROCESSO">00.PROCESSO</a>
         <a href="#destaques" data-scramble="01.REAIS">01.REAIS</a>
-        <a href="#clube-gringas" data-scramble="02.CLUBE_GRINGAS">02.CLUBE_GRINGAS</a>
-        <a href="#powerbi" data-scramble="03.ORBIT_BI">03.ORBIT_BI</a>
+        <a href="#powerbi" data-scramble="02.ORBIT_BI">02.ORBIT_BI</a>
+        <a href="#indice" data-scramble="03.ÍNDICE">03.ÍNDICE</a>
         <a href="#sobre" data-scramble="04.CREDENCIAL">04.CREDENCIAL</a>
+        <span id="os-clock" class="mono os-clock" aria-label="Horário de Brasília">--:-- BRT</span>
         <a href="#contato" class="pixel-btn pixel-btn-sm pixel-btn-accent">
           <span class="pixel-label">CONTATO</span>
         </a>
@@ -49,7 +57,7 @@
   </header>
 
   <main id="conteudo-principal">
-    <!-- ARTISTIC ORYNTHIQ HERO — Multi-Layer Scroll Parallax & State Morph -->
+    <!-- EDITORIAL CINEMA HERO (Umbra + Strata + Orynthiq Parallax) -->
     <section id="topo" class="hero-parallax-shell">
       <div class="hero-sticky">
         <!-- Parallax Background Artwork (LCP Candidate) -->
@@ -66,66 +74,37 @@
           <div class="hero-ember-mist"></div>
         </div>
 
-        <!-- State 01: Primary Hero Copy + Atomic Globe -->
+        <!-- State 01: Clean Single-Focus Editorial Hero -->
         <div class="container hero-stage-primary" id="hero-state-1">
-          <div class="hero-grid">
-            <div class="hero-copy">
-              <div class="hud-pill">
-                <span class="status-pulse" aria-hidden="true"></span>
-                <span class="mono" data-scramble="SYS.ONLINE // HORTOLÂNDIA_SP // 2026">SYS.ONLINE // HORTOLÂNDIA_SP // 2026</span>
-              </div>
-
-              <h1 class="hero-title" data-scramble="ENGENHARIA DE DADOS &amp; SISTEMAS DE DECISÃO.">
-                ENGENHARIA DE DADOS &amp; SISTEMAS DE DECISÃO.
-              </h1>
-
-              <p class="hero-lead">
-                Portfólio de <strong>Wand Rherison</strong> — Análise e Desenvolvimento de Sistemas (UNISAL).
-                Construo pipelines em <strong>Python &amp; SQL</strong>, modelagem dimensional (<strong>Star &amp; Galaxy Schema</strong>),
-                dashboards executivos no <strong>Power BI</strong> e aplicações web integradas.
-              </p>
-
-              <div class="hero-actions">
-                <a href="#powerbi" class="pixel-btn pixel-btn-accent">
-                  <span class="pixel-label">EXPLORAR DASHBOARDS</span>
-                </a>
-                <a href="https://github.com/WandRherison/powerbi-portfolio" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost">
-                  <span class="pixel-label">GITHUB PORTFOLIO</span>
-                </a>
-                <a href="https://www.linkedin.com/in/wand-rherison-derley-pereira-alves-silva-b55293225/" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost">
-                  <span class="pixel-label">LINKEDIN</span>
-                </a>
-              </div>
-
-              <div class="telemetry-strip" aria-label="Indicadores principais do portfólio">
-                <div class="telemetry-cell">
-                  <span class="telemetry-num">06</span>
-                  <span class="telemetry-key">LIVE BI REPORTS</span>
-                </div>
-                <div class="telemetry-cell">
-                  <span class="telemetry-num">02</span>
-                  <span class="telemetry-key">PROJETOS REAIS</span>
-                </div>
-                <div class="telemetry-cell">
-                  <span class="telemetry-num">30+</span>
-                  <span class="telemetry-key">MEDIDAS DAX</span>
-                </div>
-              </div>
+          <div class="hero-editorial">
+            <div class="hud-pill">
+              <span class="status-pulse" aria-hidden="true"></span>
+              <span class="mono" data-scramble="SYS.ONLINE // HORTOLÂNDIA_SP // 2026">SYS.ONLINE // HORTOLÂNDIA_SP // 2026</span>
             </div>
 
-            <!-- Atomic Globe Stage -->
-            <div class="globe-stage" aria-label="Visualização interativa Atomic Globe de nós de dados">
-              <div class="globe-hud-top">
-                <span class="mono">NODE.MAP // ATOMIC_GLOBE</span>
-                <button type="button" id="globe-toggle" class="hud-control-btn">Pausar globo</button>
-              </div>
+            <h1 class="hero-title" data-scramble="ENGENHARIA DE DADOS &amp; SISTEMAS DE DECISÃO.">
+              ENGENHARIA DE DADOS &amp; SISTEMAS DE DECISÃO.
+            </h1>
 
-              <canvas id="atomic-globe" width="520" height="520" role="img" aria-label="Globo 3D interativo de partículas representando pipelines de dados e Business Intelligence"></canvas>
+            <p class="hero-lead">
+              Portfólio de <strong>Wand Rherison</strong> — Business Intelligence (Power BI, DAX &amp; Star Schema),
+              pipelines em Python/SQL com governança LGPD e interfaces web em produção.
+            </p>
 
-              <div class="globe-hud-bottom mono">
-                <span>ARRASTE PARA ROTACIONAR</span>
-                <span class="accent-text">STAR · GALAXY · OLTP</span>
-              </div>
+            <div class="hero-actions">
+              <a href="#powerbi" class="pixel-btn pixel-btn-accent">
+                <span class="pixel-label">EXPLORAR DASHBOARDS</span>
+              </a>
+              <a href="#indice" class="hero-link-inline mono">
+                VER ÍNDICE DE PROJETOS &rarr;
+              </a>
+            </div>
+
+            <div class="hero-inline-kpis mono" aria-label="Resumo quantitativo do portfólio">
+              <span><strong>06</strong> LIVE BI REPORTS</span>
+              <span><strong>02</strong> PROJETOS REAIS</span>
+              <span><strong>30+</strong> MEDIDAS DAX</span>
+              <span><strong>08</strong> ENTREGAS AUDITÁVEIS</span>
             </div>
           </div>
         </div>
@@ -158,6 +137,88 @@
       </div>
     </section>
 
+    <!-- STRATA STACK MARQUEE -->
+    <div class="marquee-band" aria-label="Principais tecnologias e competências">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>Power BI</span><span class="mq-star" aria-hidden="true">&#10035;</span>
+          <span>DAX Time Intelligence</span><span class="mq-star" aria-hidden="true">&#10035;</span>
+          <span>Python &amp; Pandas</span><span class="mq-star" aria-hidden="true">&#10035;</span>
+          <span>MySQL AWS RDS</span><span class="mq-star" aria-hidden="true">&#10035;</span>
+          <span>Star Schema</span><span class="mq-star" aria-hidden="true">&#10035;</span>
+          <span>Galaxy Schema</span><span class="mq-star" aria-hidden="true">&#10035;</span>
+          <span>LGPD Masking</span><span class="mq-star" aria-hidden="true">&#10035;</span>
+          <span>Node.js</span><span class="mq-star" aria-hidden="true">&#10035;</span>
+          <span>Chart.js</span><span class="mq-star" aria-hidden="true">&#10035;</span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span>Power BI</span><span class="mq-star">&#10035;</span>
+          <span>DAX Time Intelligence</span><span class="mq-star">&#10035;</span>
+          <span>Python &amp; Pandas</span><span class="mq-star">&#10035;</span>
+          <span>MySQL AWS RDS</span><span class="mq-star">&#10035;</span>
+          <span>Star Schema</span><span class="mq-star">&#10035;</span>
+          <span>Galaxy Schema</span><span class="mq-star">&#10035;</span>
+          <span>LGPD Masking</span><span class="mq-star">&#10035;</span>
+          <span>Node.js</span><span class="mq-star">&#10035;</span>
+          <span>Chart.js</span><span class="mq-star">&#10035;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYS.00 — PROCESSO & ECOSSISTEMA (Umbra + Strata + Atomic Globe) -->
+    <section id="processo" class="section section-banded">
+      <div class="container process-grid">
+        <div class="process-copy">
+          <div class="section-head process-head">
+            <span class="section-index mono" data-scramble="SYS.00 // PROCESSO &amp; ECOSSISTEMA">SYS.00 // PROCESSO &amp; ECOSSISTEMA</span>
+            <h2 data-scramble="Da fonte transacional à decisão executiva.">Da fonte transacional à decisão executiva.</h2>
+            <p class="section-sub">
+              Cada projeto segue uma disciplina clara de engenharia analítica: dados confiáveis na origem, modelagem sem redundâncias e leitura imediata para quem decide.
+            </p>
+          </div>
+
+          <ol class="process-steps">
+            <li class="process-step">
+              <span class="step-num mono">01</span>
+              <div>
+                <h3>Ingestão &amp; Governança LGPD</h3>
+                <p>Extração via Python/Pandas ou MySQL na nuvem com Views mascaradas e Princípio do Menor Privilégio.</p>
+              </div>
+            </li>
+            <li class="process-step">
+              <span class="step-num mono">02</span>
+              <div>
+                <h3>Modelagem Dimensional &amp; DAX</h3>
+                <p>Esquemas Estrela, Galaxy e Constellation com Role-Playing Calendar e métricas auditáveis de margem, SLA e metas.</p>
+              </div>
+            </li>
+            <li class="process-step">
+              <span class="step-num mono">03</span>
+              <div>
+                <h3>Interface Executiva &amp; Web</h3>
+                <p>Relatórios publicados no Power BI Service e aplicações web responsivas integradas para operação real.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Dedicated Stage for Atomic Globe -->
+        <div class="globe-stage" aria-label="Visualização interativa Atomic Globe de nós de dados">
+          <div class="globe-hud-top">
+            <span class="mono">NODE.MAP // ATOMIC_GLOBE</span>
+            <button type="button" id="globe-toggle" class="hud-control-btn">Pausar globo</button>
+          </div>
+
+          <canvas id="atomic-globe" width="520" height="520" role="img" aria-label="Globo 3D interativo de partículas representando pipelines de dados e Business Intelligence"></canvas>
+
+          <div class="globe-hud-bottom mono">
+            <span>ARRASTE PARA ROTACIONAR</span>
+            <span class="accent-text">STAR · GALAXY · OLTP</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SYS.01 — PROJETOS REAIS (Padaria Diniz + Resumo Clube Gringas) -->
     <section id="destaques" class="section">
       <div class="container">
@@ -170,7 +231,6 @@
         </div>
 
         <div class="real-projects-grid">
-          <!-- Padaria Diniz -->
           <article class="ory-card">
             <div class="ory-card-header">
               <span class="mono tag-orange">E-COMMERCE · BI · LGPD</span>
@@ -201,7 +261,6 @@
             </div>
           </article>
 
-          <!-- Clube Gringas Summary -->
           <article class="ory-card ory-card-classified">
             <div class="ory-card-header">
               <span class="mono tag-glass">PROJETO REAL · ONG</span>
@@ -323,13 +382,12 @@
       </div>
     </section>
 
-    <!-- SYS.03 — STRATA ORBIT GALLERY — POWER BI DASHBOARDS -->
+    <!-- SYS.03 — STRATA ORBIT GALLERY WITH VISUAL MINI-CHARTS — POWER BI DASHBOARDS -->
     <section id="powerbi" class="orbit-section">
       <div class="orbit-shell" id="orbit-shell">
         <div class="orbit-viewport" id="orbit-viewport">
           <div class="orbit-ember-glow" aria-hidden="true"></div>
 
-          <!-- Top HUD: Filters & Mode Switch -->
           <div class="orbit-top-hud container">
             <div class="filter-bar orbit-filters" role="group" aria-label="Filtrar dashboards por segmento">
               <button type="button" class="filter-btn is-active" data-filter="all">TODOS [06]</button>
@@ -344,25 +402,34 @@
             </div>
           </div>
 
-          <!-- Centerpiece Title (z-index 500: Front cards pass in front, back cards pass behind) -->
           <div class="orbit-centerpiece" aria-hidden="true">
             <span class="mono orbit-kicker">&sect; WORK IN MOTION // POWER BI</span>
             <h2>Dashboards, in orbit</h2>
             <p class="mono">2026 &mdash; role ou arraste para orbitar os 6 projetos</p>
           </div>
 
-          <!-- Orbiting Cards Stage -->
           <div class="orbit-ring" id="orbit-ring" tabindex="0" aria-label="Galeria orbital de dashboards Power BI. Use as setas ou arraste para girar.">
+            <!-- 01. Adega -->
             <article class="orbit-card" data-category="comercial" data-index="0">
               <div class="orbit-card-veil" aria-hidden="true"></div>
+              <div class="orbit-visual" aria-hidden="true">
+                <svg viewBox="0 0 260 72" fill="none">
+                  <rect x="16" y="42" width="22" height="22" rx="3" fill="rgba(244,243,239,0.18)"/>
+                  <rect x="48" y="46" width="22" height="18" rx="3" fill="rgba(244,243,239,0.18)"/>
+                  <rect x="80" y="38" width="22" height="26" rx="3" fill="rgba(244,243,239,0.22)"/>
+                  <rect x="112" y="18" width="22" height="46" rx="3" fill="#ff5a1f"/>
+                  <rect x="144" y="10" width="22" height="54" rx="3" fill="#ff7a45"/>
+                  <rect x="176" y="14" width="22" height="50" rx="3" fill="#ff5a1f"/>
+                  <rect x="208" y="36" width="22" height="28" rx="3" fill="rgba(244,243,239,0.2)"/>
+                </svg>
+                <span class="orbit-visual-tag mono">68,6% WEEKEND RUSH</span>
+              </div>
               <div class="spatial-top">
                 <span class="mono tag-orange">STAR SCHEMA</span>
                 <span class="mono muted">01 / B2B</span>
               </div>
               <h3>Adega &amp; Distribuidora</h3>
-              <p>
-                Análise de ruptura de estoque no <em>Weekend Rush</em> (5.250 pedidos via Python), mix giro vs. rentabilidade, YTD e MoM%.
-              </p>
+              <p>Ruptura B2B, sazonalidade de pico e equilíbrio giro vs. margem.</p>
               <div class="orbit-kpi-line mono">
                 <strong>R$ 9,32 Mi</strong>
                 <span>33,43% MARGEM</span>
@@ -377,16 +444,23 @@
               </div>
             </article>
 
+            <!-- 02. ONG Viva Comunidade -->
             <article class="orbit-card" data-category="terceiro-setor" data-index="1">
               <div class="orbit-card-veil" aria-hidden="true"></div>
+              <div class="orbit-visual" aria-hidden="true">
+                <svg viewBox="0 0 260 72" fill="none">
+                  <path d="M14 54 C52 46, 84 22, 128 32 C172 42, 206 14, 246 18 L246 66 L14 66 Z" fill="rgba(255,90,31,0.18)"/>
+                  <path d="M14 54 C52 46, 84 22, 128 32 C172 42, 206 14, 246 18" stroke="#ff5a1f" stroke-width="2.4" stroke-linecap="round"/>
+                  <path d="M14 60 C54 56, 92 48, 132 50 C176 52, 208 42, 246 38" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 4"/>
+                </svg>
+                <span class="orbit-visual-tag mono">PF 80% · IMPACTO SOCIAL</span>
+              </div>
               <div class="spatial-top">
                 <span class="mono tag-orange">GALAXY SCHEMA</span>
                 <span class="mono muted">02 / ONG</span>
               </div>
               <h3>ONG Viva Comunidade</h3>
-              <p>
-                Arquitetura Multi-Fato relacionando captação (<code>fDoacoes</code>) e execução social (<code>fAtendimentos</code>) por projeto e canal.
-              </p>
+              <p>Captação vs. execução social com rastreabilidade Multi-Fato.</p>
               <div class="orbit-kpi-line mono">
                 <strong>R$ 2,62 Mi</strong>
                 <span>1.550 ATENDIMENTOS</span>
@@ -401,16 +475,23 @@
               </div>
             </article>
 
+            <!-- 03. PetShop Gatitos -->
             <article class="orbit-card" data-category="comercial" data-index="2">
               <div class="orbit-card-veil" aria-hidden="true"></div>
+              <div class="orbit-visual" aria-hidden="true">
+                <svg viewBox="0 0 260 72" fill="none">
+                  <path d="M14 62 L52 48 L92 44 L132 34 L172 16 L212 18 L246 42 L246 66 L14 66 Z" fill="rgba(255,90,31,0.22)"/>
+                  <path d="M14 62 L52 48 L92 44 L132 34 L172 16 L212 18 L246 42" stroke="#ff7a45" stroke-width="2.5" stroke-linejoin="round"/>
+                  <circle cx="172" cy="16" r="3.5" fill="#f4f3ef"/>
+                </svg>
+                <span class="orbit-visual-tag mono">MULTI-PET +45% TICKET</span>
+              </div>
               <div class="spatial-top">
                 <span class="mono tag-orange">STAR SCHEMA</span>
                 <span class="mono muted">03 / B2C</span>
               </div>
               <h3>PetShop Gatitos</h3>
-              <p>
-                Customer Analytics focado em retenção, efeito Multi-Pet (+45% ticket), bairros de maior faturamento e evolução 2020–2022.
-              </p>
+              <p>Customer Analytics, perfil de tutores e receita por bairro.</p>
               <div class="orbit-kpi-line mono">
                 <strong>R$ 2,03 Mi</strong>
                 <span>57 MIL ITENS</span>
@@ -425,19 +506,28 @@
               </div>
             </article>
 
+            <!-- 04. Supply Chain -->
             <article class="orbit-card" data-category="logistica" data-index="3">
               <div class="orbit-card-veil" aria-hidden="true"></div>
+              <div class="orbit-visual" aria-hidden="true">
+                <svg viewBox="0 0 260 72" fill="none">
+                  <line x1="12" y1="22" x2="248" y2="22" stroke="rgba(34,197,94,0.65)" stroke-width="1.4" stroke-dasharray="5 4"/>
+                  <rect x="20" y="28" width="32" height="34" rx="3" fill="#ff5a1f"/>
+                  <rect x="74" y="18" width="32" height="44" rx="3" fill="#22c55e"/>
+                  <rect x="128" y="24" width="32" height="38" rx="3" fill="#ff7a45"/>
+                  <rect x="182" y="16" width="32" height="46" rx="3" fill="#22c55e"/>
+                </svg>
+                <span class="orbit-visual-tag mono">OTIF 84,58% · META 85%</span>
+              </div>
               <div class="spatial-top">
                 <span class="mono tag-orange">ROLE-PLAYING</span>
                 <span class="mono muted">04 / LOGÍSTICA</span>
               </div>
               <h3>Supply Chain &amp; Logística</h3>
-              <p>
-                Torre de controle logística com 4 datas em <code>USERELATIONSHIP</code>, OTIF, SLA de transportadoras e subsídio de frete.
-              </p>
+              <p>Torre de controle com 4 datas em USERELATIONSHIP e SLAs.</p>
               <div class="orbit-kpi-line mono">
                 <strong>R$ 13,83 Mi</strong>
-                <span>84,58% OTIF</span>
+                <span>5,57 DIAS LEAD</span>
               </div>
               <div class="spatial-actions">
                 <button type="button" class="pixel-btn pixel-btn-accent pixel-btn-sm" data-open-dashboard="supplychain">
@@ -449,19 +539,28 @@
               </div>
             </article>
 
+            <!-- 05. ONG Multi-Programas -->
             <article class="orbit-card" data-category="terceiro-setor" data-index="4">
               <div class="orbit-card-veil" aria-hidden="true"></div>
+              <div class="orbit-visual" aria-hidden="true">
+                <svg viewBox="0 0 260 72" fill="none">
+                  <path d="M16 48 Q74 30 132 34 T246 20" stroke="#f4f3ef" stroke-width="1.6" stroke-dasharray="4 4"/>
+                  <path d="M16 52 Q74 26 132 28 T246 14" stroke="#ff5a1f" stroke-width="2.6"/>
+                  <circle cx="74" cy="34" r="3" fill="#ff5a1f"/>
+                  <circle cx="132" cy="28" r="3" fill="#ff5a1f"/>
+                  <circle cx="192" cy="20" r="3" fill="#ff5a1f"/>
+                </svg>
+                <span class="orbit-visual-tag mono">3 FATOS · 2 PAINÉIS</span>
+              </div>
               <div class="spatial-top">
                 <span class="mono tag-orange">CONSTELLATION</span>
                 <span class="mono muted">05 / ONG</span>
               </div>
               <h3>ONG Multi-Programas</h3>
-              <p>
-                Modelo com 3 tabelas fato (<code>fDoacoes</code>, <code>fAtendimentos</code>, <code>fOrcamentoMetas</code>) em 2 painéis executivos.
-              </p>
+              <p>Metas orçamentárias, captação líquida e impacto territorial.</p>
               <div class="orbit-kpi-line mono">
                 <strong>R$ 13,12 Mi</strong>
-                <span>2 PAINÉIS BI</span>
+                <span>3.550 ATENDIMENTOS</span>
               </div>
               <div class="spatial-actions">
                 <button type="button" class="pixel-btn pixel-btn-accent pixel-btn-sm" data-open-dashboard="ong-multi">
@@ -473,16 +572,24 @@
               </div>
             </article>
 
+            <!-- 06. Padaria Diniz -->
             <article class="orbit-card" data-category="comercial" data-index="5">
               <div class="orbit-card-veil" aria-hidden="true"></div>
+              <div class="orbit-visual" aria-hidden="true">
+                <svg viewBox="0 0 260 72" fill="none">
+                  <rect x="16" y="14" width="168" height="9" rx="4" fill="#ff5a1f"/>
+                  <rect x="16" y="28" width="96" height="9" rx="4" fill="#ff9f43"/>
+                  <rect x="16" y="42" width="68" height="9" rx="4" fill="#38bdf8"/>
+                  <rect x="16" y="56" width="54" height="9" rx="4" fill="rgba(244,243,239,0.4)"/>
+                </svg>
+                <span class="orbit-visual-tag mono">SLA 28 MIN · LGPD</span>
+              </div>
               <div class="spatial-top">
                 <span class="mono tag-orange">MYSQL + LGPD</span>
                 <span class="mono muted">06 / E-COMMERCE</span>
               </div>
               <h3>Padaria Diniz (BI)</h3>
-              <p>
-                4 páginas analíticas sobre Views SQL mascaradas (LGPD), margem real de 43,62%, SLA de 28 min e controle de ruptura.
-              </p>
+              <p>4 páginas analíticas em Views mascaradas e margem de 43,6%.</p>
               <div class="orbit-kpi-line mono">
                 <strong>R$ 79,3 Mil</strong>
                 <span>4 PÁGINAS BI</span>
@@ -498,7 +605,6 @@
             </article>
           </div>
 
-          <!-- Bottom Strata HUD Bar -->
           <div class="orbit-bottom-hud container mono">
             <span>SELECTED DASHBOARDS</span>
             <div class="orbit-nav-btns">
@@ -511,8 +617,118 @@
       </div>
     </section>
 
+    <!-- SYS.03B — INTERACTIVE PROJECT INDEX (Umbra Index Pattern) -->
+    <section id="indice" class="section section-banded">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index mono" data-scramble="SYS.03B // ÍNDICE COMPLETO">SYS.03B // ÍNDICE COMPLETO</span>
+          <h2 data-scramble="Todos os 8 projetos, de ponta a ponta.">Todos os 8 projetos, de ponta a ponta.</h2>
+          <p class="section-sub">
+            Passe o cursor sobre qualquer linha para inspecionar o resumo técnico ou clique para abrir diretamente.
+          </p>
+        </div>
+
+        <div class="index-layout">
+          <ul class="index-list" id="project-index-list">
+            <li>
+              <button type="button" class="index-row is-active" data-index-id="adega">
+                <span class="idx-num mono">01</span>
+                <strong class="idx-name">Adega &amp; Distribuidora</strong>
+                <span class="idx-cat mono">BI · COMERCIAL B2B</span>
+                <span class="idx-metric mono">R$ 9,32 Mi</span>
+                <span class="idx-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="index-row" data-index-id="ong-viva">
+                <span class="idx-num mono">02</span>
+                <strong class="idx-name">ONG Viva Comunidade</strong>
+                <span class="idx-cat mono">BI · GALAXY SCHEMA</span>
+                <span class="idx-metric mono">R$ 2,62 Mi</span>
+                <span class="idx-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="index-row" data-index-id="petshop">
+                <span class="idx-num mono">03</span>
+                <strong class="idx-name">PetShop Gatitos</strong>
+                <span class="idx-cat mono">BI · CUSTOMER ANALYTICS</span>
+                <span class="idx-metric mono">R$ 2,03 Mi</span>
+                <span class="idx-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="index-row" data-index-id="supplychain">
+                <span class="idx-num mono">04</span>
+                <strong class="idx-name">Supply Chain &amp; Logística</strong>
+                <span class="idx-cat mono">BI · ROLE-PLAYING</span>
+                <span class="idx-metric mono">84,58% OTIF</span>
+                <span class="idx-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="index-row" data-index-id="ong-multi">
+                <span class="idx-num mono">05</span>
+                <strong class="idx-name">ONG Multi-Programas</strong>
+                <span class="idx-cat mono">BI · CONSTELLATION</span>
+                <span class="idx-metric mono">R$ 13,12 Mi</span>
+                <span class="idx-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="index-row" data-index-id="padaria">
+                <span class="idx-num mono">06</span>
+                <strong class="idx-name">Padaria Diniz (BI &amp; LGPD)</strong>
+                <span class="idx-cat mono">BI · MYSQL CLOUD</span>
+                <span class="idx-metric mono">43,62% MARGEM</span>
+                <span class="idx-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="index-row" data-index-id="padaria-web">
+                <span class="idx-num mono">07</span>
+                <strong class="idx-name">Padaria Diniz (E-commerce)</strong>
+                <span class="idx-cat mono">FULL-STACK · WCAG 2.1</span>
+                <span class="idx-metric mono">160+ ITENS</span>
+                <span class="idx-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="index-row" data-index-id="clube-gringas">
+                <span class="idx-num mono">08</span>
+                <strong class="idx-name">ONG Clube Gringas</strong>
+                <span class="idx-cat mono">WEB · RESTRITO A PRINTS</span>
+                <span class="idx-metric mono">VISUAL ONLY</span>
+                <span class="idx-arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </li>
+          </ul>
+
+          <aside class="index-preview" aria-live="polite">
+            <span id="index-preview-tag" class="mono tag-orange">BI · STAR SCHEMA · 2026</span>
+            <h3 id="index-preview-title">Adega &amp; Distribuidora</h3>
+            <p id="index-preview-desc">
+              Modelo Star Schema sobre 5.250 pedidos B2B simulados em Python, revelando 68,6% de concentração de receita no Weekend Rush e margem global de 33,43%.
+            </p>
+            <div class="index-preview-metric mono">
+              <span>DESTAQUE ANALÍTICO</span>
+              <strong id="index-preview-metric">R$ 9,32 Mi · 5.250 pedidos</strong>
+            </div>
+            <div class="index-preview-actions" id="index-preview-actions">
+              <button type="button" id="index-primary-btn" class="pixel-btn pixel-btn-accent pixel-btn-sm">
+                <span class="pixel-label">ABRIR DASHBOARD</span>
+              </button>
+              <button type="button" id="index-secondary-btn" class="pixel-btn pixel-btn-ghost pixel-btn-sm">
+                <span class="pixel-label">VER CASE</span>
+              </button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
     <!-- SYS.04 — LANYARD PASS (BuiltByKern) — SOBRE & CREDENCIAL INTERATIVA -->
-    <section id="sobre" class="section section-banded">
+    <section id="sobre" class="section">
       <div class="container lanyard-layout">
         <div class="lanyard-stage" id="lanyard-stage">
           <div class="lanyard-anchor" aria-hidden="true"></div>
@@ -599,13 +815,64 @@
         </div>
       </div>
     </section>
+
+    <!-- SYS.05 — FAQ ACCORDION (Umbra + Strata Pattern, Accessible Native <details>) -->
+    <section id="faq" class="section section-banded faq-section" aria-labelledby="faq-heading">
+      <div class="container faq-layout">
+        <div class="faq-intro">
+          <span class="section-index mono" data-scramble="SYS.05 // PERGUNTAS FREQUENTES">SYS.05 // PERGUNTAS FREQUENTES</span>
+          <h2 id="faq-heading" data-scramble="Respostas diretas.">Respostas diretas.</h2>
+          <p class="section-sub">
+            O que recrutadores, líderes técnicos e parceiros costumam perguntar antes da primeira conversa.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Você está disponível para estágio, vaga júnior ou projetos freelance em BI e Dados?</summary>
+            <div class="faq-answer">
+              <p>
+                Sim. Estou cursando Análise e Desenvolvimento de Sistemas (UNISAL, conclusão em 2026) após passagem pelo Itaú Unibanco como Jovem Aprendiz, e estou aberto a posições de estágio, analista de dados/BI júnior e projetos sob demanda.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Os dados exibidos nos dashboards do portfólio são reais ou simulados?</summary>
+            <div class="faq-answer">
+              <p>
+                O projeto <strong>Padaria Diniz</strong> opera sobre arquitetura real com MySQL na AWS RDS e Views mascaradas (LGPD), refletindo as métricas exatas do painel publicado. Os cases de <strong>Adega</strong>, <strong>ONGs</strong>, <strong>PetShop</strong> e <strong>Supply Chain</strong> utilizam datasets sintéticos gerados em Python com integridade referencial estrita para demonstrar cenários corporativos realistas.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Por que o projeto da ONG Clube Gringas exibe apenas prints e nenhum código?</summary>
+            <div class="faq-answer">
+              <p>
+                Por ser um projeto real em ambiente de produção de uma organização sem fins lucrativos, adoto sigilo rigoroso sobre código-fonte, URLs internas e dados de associadas — apresentando exclusivamente capturas visuais sanitizadas.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>É possível baixar os arquivos .pbix, scripts Python e Views SQL de LGPD?</summary>
+            <div class="faq-answer">
+              <p>
+                Sim. Todos os arquivos <code>.pbix</code>, scripts Python (<code>generate_*.py</code>), CSVs e o script <code>views_powerbi_lgpd.sql</code> dos projetos de BI estão públicos no repositório <a href="https://github.com/WandRherison/powerbi-portfolio" target="_blank" rel="noopener noreferrer" class="accent-text">WandRherison/powerbi-portfolio</a>.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
   <footer id="contato" class="site-footer">
     <div class="container footer-inner">
       <div>
-        <span class="section-index mono">SYS.05 // COMUNICAÇÃO</span>
+        <span class="section-index mono">SYS.06 // COMUNICAÇÃO</span>
         <h2 data-scramble="Iniciar Conversa.">Iniciar Conversa.</h2>
         <p>Disponível para oportunidades em Business Intelligence, Análise de Dados e projetos web.</p>
       </div>
@@ -627,16 +894,19 @@
     </div>
   </footer>
 
-  <!-- Lightbox Modal para Prints do Clube Gringas -->
+  <!-- Lightbox Modal para Prints do Clube Gringas (src injected only on open) -->
   <dialog id="print-dialog" class="print-dialog" closedby="any" aria-labelledby="dialog-title">
     <div class="dialog-header">
-      <h3 id="dialog-title">Visualização de Print</h3>
+      <div class="win-title-group">
+        <span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <h3 id="dialog-title">Visualização de Print</h3>
+      </div>
       <form method="dialog">
         <button type="submit" class="dialog-close" aria-label="Fechar visualização">&times;</button>
       </form>
     </div>
     <div class="dialog-body">
-      <img id="dialog-img" src="" alt="" />
+      <img id="dialog-img" alt="" />
       <p id="dialog-desc"></p>
     </div>
   </dialog>
@@ -645,7 +915,10 @@
   <dialog id="case-dialog" class="case-dialog" closedby="any" aria-labelledby="case-dialog-title">
     <div class="case-dialog-header">
       <div>
-        <span id="case-dialog-code" class="mono accent-text case-code">CASE // BI</span>
+        <div class="win-title-group">
+          <span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span id="case-dialog-code" class="mono accent-text case-code">CASE // BI</span>
+        </div>
         <h3 id="case-dialog-title">Título do Case</h3>
         <p id="case-dialog-subtitle" class="case-subtitle"></p>
       </div>
@@ -701,6 +974,7 @@
   <dialog id="dashboard-dialog" class="bi-dialog" closedby="any" aria-labelledby="bi-dialog-title">
     <div class="bi-dialog-header">
       <div class="bi-title-wrap">
+        <span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span>
         <span id="bi-dialog-code" class="mono accent-text case-code">BI // COMMAND CENTER</span>
         <h3 id="bi-dialog-title">Dashboard BI</h3>
       </div>

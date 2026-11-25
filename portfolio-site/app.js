@@ -3,6 +3,23 @@
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* =========================================================
+     0. OS CLOCK (Retro-PC Live Brasilia Time)
+     ========================================================= */
+  const osClock = document.getElementById('os-clock');
+  if (osClock) {
+    const formatter = new Intl.DateTimeFormat('pt-BR', {
+      timeZone: 'America/Sao_Paulo',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+    const tickClock = () => {
+      osClock.textContent = `${formatter.format(new Date())} BRT`;
+    };
+    tickClock();
+    window.setInterval(tickClock, 30000);
+  }
+
+  /* =========================================================
      1. LENIS SMOOTH SCROLL (darkroom.engineering)
      ========================================================= */
   let lenis = null;
@@ -72,7 +89,7 @@
       const overNative = e.target.closest('input, select, textarea, iframe');
       dirCursor.classList.toggle('is-visible', !overNative);
 
-      const interactive = e.target.closest('a, button, [role="button"], .orbit-card, .lanyard-card');
+      const interactive = e.target.closest('a, button, summary, [role="button"], .orbit-card, .lanyard-card');
       dirCursor.classList.toggle('is-interactive', Boolean(interactive));
     });
 
@@ -132,14 +149,12 @@
       const totalScrollable = Math.max(1, heroShell.offsetHeight - window.innerHeight);
       const progress = Math.max(0, Math.min(1, -rect.top / totalScrollable));
 
-      // JS Parallax fallback for browsers without native CSS scroll-driven animations
       if (!supportsNativeParallax && heroArtImg) {
         const yShift = -24 + progress * 88;
         const scale = 1.03 + progress * 0.13;
         heroArtImg.style.transform = `translate3d(0, ${yShift.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
       }
 
-      // State 01 fades & recedes gracefully from 0.15 -> 0.57
       if (heroState1) {
         const p1 = Math.max(0, Math.min(1, (progress - 0.15) / 0.42));
         heroState1.style.opacity = String(1 - p1);
@@ -147,7 +162,6 @@
         heroState1.style.pointerEvents = p1 > 0.7 ? 'none' : 'auto';
       }
 
-      // State 02 rises into focus from 0.42 -> 0.78
       if (heroState2) {
         const p2 = Math.max(0, Math.min(1, (progress - 0.42) / 0.36));
         heroState2.style.opacity = String(p2);
@@ -291,9 +305,7 @@
         }
         needsRender = false;
       }
-      if (!prefersReducedMotion) {
-        requestAnimationFrame(drawHalftone);
-      }
+      if (!prefersReducedMotion) requestAnimationFrame(drawHalftone);
     }
 
     window.addEventListener('resize', resizeHalftone);
@@ -309,7 +321,7 @@
   }
 
   /* =========================================================
-     7. ATOMIC GLOBE (3D Particle & Orbital Canvas)
+     7. ATOMIC GLOBE (Dedicated Stage in SYS.00)
      ========================================================= */
   const globeCanvas = document.getElementById('atomic-globe');
   const globeToggle = document.getElementById('globe-toggle');
@@ -450,7 +462,7 @@
   }
 
   /* =========================================================
-     8. MILK GLASS FOLDER TOGGLE + PRINT LIGHTBOX DIALOG
+     8. MILK GLASS FOLDER + PRINT LIGHTBOX DIALOG (Clean src reset)
      ========================================================= */
   const folderBtn = document.getElementById('milk-folder-btn');
   const printsVault = document.getElementById('clube-gringas-prints');
@@ -481,21 +493,27 @@
     });
   });
 
-  if (printDialog && !('closedBy' in HTMLDialogElement.prototype)) {
-    printDialog.addEventListener('click', (event) => {
-      if (event.target !== printDialog) return;
-      const rect = printDialog.getBoundingClientRect();
-      const inside =
-        rect.top <= event.clientY &&
-        event.clientY <= rect.top + rect.height &&
-        rect.left <= event.clientX &&
-        event.clientX <= rect.left + rect.width;
-      if (!inside) printDialog.close();
+  if (printDialog) {
+    printDialog.addEventListener('close', () => {
+      if (dialogImg) dialogImg.removeAttribute('src');
     });
+
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      printDialog.addEventListener('click', (event) => {
+        if (event.target !== printDialog) return;
+        const rect = printDialog.getBoundingClientRect();
+        const inside =
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width;
+        if (!inside) printDialog.close();
+      });
+    }
   }
 
   /* =========================================================
-     9. STRATA ORBIT GALLERY (Elliptical 3D Scroll + Drag Orbit)
+     9. STRATA ORBIT GALLERY (Compact Front Scale for 1366x768)
      ========================================================= */
   const orbitShell = document.getElementById('orbit-shell');
   const orbitRing = document.getElementById('orbit-ring');
@@ -507,9 +525,9 @@
   const orbitModeBtn = document.getElementById('orbit-mode-btn');
   const gridModeBtn = document.getElementById('grid-mode-btn');
 
-  let orbitManualOffset = 0; // radians added via clicks/drag
-  let orbitScrollAngle = 0;  // radians driven by scrolling through .orbit-shell
-  let currentOrbitAngle = 0; // smoothed angle
+  let orbitManualOffset = 0;
+  let orbitScrollAngle = 0;
+  let currentOrbitAngle = 0;
 
   function getVisibleOrbitCards() {
     return orbitCards.filter((card) => !card.classList.contains('is-filtered-out'));
@@ -537,7 +555,7 @@
 
     const vw = window.innerWidth;
     const rx = Math.min(480, Math.max(210, vw * 0.34));
-    const ry = vw < 768 ? 95 : 135;
+    const ry = vw < 768 ? 85 : 115;
 
     let frontIdx = 0;
     let maxDepth = -1;
@@ -548,7 +566,7 @@
 
       const sinT = Math.sin(theta);
       const cosT = Math.cos(theta);
-      const depth = (cosT + 1) / 2; // 1 = front center, 0 = far back
+      const depth = (cosT + 1) / 2;
 
       if (depth > maxDepth) {
         maxDepth = depth;
@@ -556,10 +574,10 @@
       }
 
       const tx = sinT * rx;
-      const ty = cosT * ry - ry * 0.38;
-      const scale = 0.62 + depth * 0.56; // 0.62 back -> 1.18 front
+      const ty = cosT * ry - ry * 0.35;
+      const scale = 0.62 + depth * 0.48; // 0.62 back -> 1.10 front
       const rotY = -sinT * 28;
-      const zIdx = Math.round(depth * 1000); // > 500 in front of title, < 500 behind title
+      const zIdx = Math.round(depth * 1000);
 
       card.style.transform = `translate3d(${tx.toFixed(1)}px, ${ty.toFixed(1)}px, 0) scale(${scale.toFixed(3)}) perspective(1400px) rotateY(${rotY.toFixed(2)}deg)`;
       card.style.zIndex = String(zIdx);
@@ -668,7 +686,161 @@
   }
 
   /* =========================================================
-     10. LANYARD PASS PHYSICS (BuiltByKern Style)
+     10. INTERACTIVE PROJECT INDEX (Umbra Index Pattern)
+     ========================================================= */
+  const INDEX_PROJECTS = {
+    adega: {
+      tag: 'BI · STAR SCHEMA · COMERCIAL B2B',
+      title: 'Adega & Distribuidora',
+      desc: 'Modelo Star Schema sobre 5.250 pedidos B2B simulados em Python, revelando 68,6% de concentração de receita no Weekend Rush e margem global de 33,43%.',
+      metric: 'R$ 9,32 Mi · 5.250 pedidos',
+      primaryLabel: 'ABRIR DASHBOARD',
+      primaryAction: () => window.openPortfolioDashboard && window.openPortfolioDashboard('adega'),
+      secondaryLabel: 'VER CASE',
+      secondaryAction: () => window.openPortfolioCase && window.openPortfolioCase('adega'),
+    },
+    'ong-viva': {
+      tag: 'BI · GALAXY SCHEMA · TERCEIRO SETOR',
+      title: 'ONG Viva Comunidade',
+      desc: 'Arquitetura Multi-Fato ligando captação (fDoacoes) e execução social (fAtendimentos) por programa e perfil PF vs. PJ.',
+      metric: 'R$ 2,62 Mi · 1.550 atendimentos',
+      primaryLabel: 'ABRIR DASHBOARD',
+      primaryAction: () => window.openPortfolioDashboard && window.openPortfolioDashboard('ong-viva'),
+      secondaryLabel: 'VER CASE',
+      secondaryAction: () => window.openPortfolioCase && window.openPortfolioCase('ong-viva'),
+    },
+    petshop: {
+      tag: 'BI · STAR SCHEMA · CUSTOMER ANALYTICS',
+      title: 'PetShop Gatitos',
+      desc: 'Análise de comportamento de tutores (efeito Multi-Pet +45% ticket), bairros estratégicos e evolução de receita 2020–2022.',
+      metric: 'R$ 2,03 Mi · 57 mil itens',
+      primaryLabel: 'ABRIR DASHBOARD',
+      primaryAction: () => window.openPortfolioDashboard && window.openPortfolioDashboard('petshop'),
+      secondaryLabel: 'VER CASE',
+      secondaryAction: () => window.openPortfolioCase && window.openPortfolioCase('petshop'),
+    },
+    supplychain: {
+      tag: 'BI · ROLE-PLAYING · LOGÍSTICA',
+      title: 'Supply Chain & Logística',
+      desc: 'Torre de controle logística com 8.150 pedidos, 4 datas via USERELATIONSHIP, OTIF de transportadoras e subsídio de frete por região.',
+      metric: 'R$ 13,83 Mi · 84,58% OTIF',
+      primaryLabel: 'ABRIR DASHBOARD',
+      primaryAction: () => window.openPortfolioDashboard && window.openPortfolioDashboard('supplychain'),
+      secondaryLabel: 'VER CASE',
+      secondaryAction: () => window.openPortfolioCase && window.openPortfolioCase('supplychain'),
+    },
+    'ong-multi': {
+      tag: 'BI · CONSTELLATION SCHEMA · 3 FATOS',
+      title: 'ONG Multi-Programas',
+      desc: 'Três tabelas fato (doações, atendimentos e orçamento mensal) em 2 painéis executivos com prestação de contas por zona e área de foco.',
+      metric: 'R$ 13,12 Mi · 3.550 atendimentos',
+      primaryLabel: 'ABRIR DASHBOARD',
+      primaryAction: () => window.openPortfolioDashboard && window.openPortfolioDashboard('ong-multi'),
+      secondaryLabel: 'VER CASE',
+      secondaryAction: () => window.openPortfolioCase && window.openPortfolioCase('ong-multi'),
+    },
+    padaria: {
+      tag: 'BI · MYSQL AWS RDS · LGPD',
+      title: 'Padaria Diniz (BI & LGPD)',
+      desc: '4 páginas analíticas sobre Views SQL mascaradas (CPF, telefone e e-mail ofuscados), margem real de 43,62%, SLA de 28 min e gestão de estoque.',
+      metric: 'R$ 79,3 Mil · 4 páginas BI',
+      primaryLabel: 'ABRIR DASHBOARD',
+      primaryAction: () => window.openPortfolioDashboard && window.openPortfolioDashboard('padaria'),
+      secondaryLabel: 'VER CASE',
+      secondaryAction: () => window.openPortfolioCase && window.openPortfolioCase('padaria'),
+    },
+    'padaria-web': {
+      tag: 'FULL-STACK · NODE.JS · WCAG 2.1 AA',
+      title: 'Padaria Diniz (E-commerce Live)',
+      desc: 'Plataforma web em produção no Render com catálogo de 160+ itens, fluxo "Peça e Retire", transações ACID em MySQL e acessibilidade AA.',
+      metric: '160+ itens · Live no Render',
+      primaryLabel: 'ACESSAR SITE LIVE',
+      primaryAction: () => window.open('https://padaria-antigravity.onrender.com/padaria-landinpage.html', '_blank', 'noopener,noreferrer'),
+      secondaryLabel: 'VER CASE COMPLETO',
+      secondaryAction: () => window.openPortfolioCase && window.openPortfolioCase('padaria'),
+    },
+    'clube-gringas': {
+      tag: 'PROJETO REAL · ONG · RESTRITO A PRINTS',
+      title: 'ONG Clube Gringas',
+      desc: 'Projeto real para organização sem fins lucrativos exibido estritamente por capturas visuais na pasta Milk Glass, sem exposição de código ou dados sensíveis.',
+      metric: '04 slots visuais · Prints Only',
+      primaryLabel: 'IR PARA PASTA DE PRINTS',
+      primaryAction: () => {
+        const el = document.getElementById('clube-gringas');
+        if (lenis && el) lenis.scrollTo(el, { offset: -68 });
+        else if (el) el.scrollIntoView({ behavior: 'smooth' });
+      },
+      secondaryLabel: null,
+      secondaryAction: null,
+    },
+  };
+
+  const indexRows = document.querySelectorAll('.index-row');
+  const idxTag = document.getElementById('index-preview-tag');
+  const idxTitle = document.getElementById('index-preview-title');
+  const idxDesc = document.getElementById('index-preview-desc');
+  const idxMetric = document.getElementById('index-preview-metric');
+  const idxPrimaryBtn = document.getElementById('index-primary-btn');
+  const idxSecondaryBtn = document.getElementById('index-secondary-btn');
+  let activeIndexKey = 'adega';
+
+  function selectIndexProject(key) {
+    const item = INDEX_PROJECTS[key];
+    if (!item) return;
+    activeIndexKey = key;
+
+    indexRows.forEach((row) => {
+      row.classList.toggle('is-active', row.dataset.indexId === key);
+    });
+
+    if (idxTag) idxTag.textContent = item.tag;
+    if (idxTitle) idxTitle.textContent = item.title;
+    if (idxDesc) idxDesc.textContent = item.desc;
+    if (idxMetric) idxMetric.textContent = item.metric;
+
+    if (idxPrimaryBtn) {
+      const lbl = idxPrimaryBtn.querySelector('.pixel-label');
+      if (lbl) lbl.textContent = item.primaryLabel;
+    }
+
+    if (idxSecondaryBtn) {
+      if (item.secondaryLabel) {
+        const lbl2 = idxSecondaryBtn.querySelector('.pixel-label');
+        if (lbl2) lbl2.textContent = item.secondaryLabel;
+        idxSecondaryBtn.classList.remove('is-hidden');
+      } else {
+        idxSecondaryBtn.classList.add('is-hidden');
+      }
+    }
+  }
+
+  indexRows.forEach((row) => {
+    const key = row.dataset.indexId;
+    row.addEventListener('mouseenter', () => selectIndexProject(key));
+    row.addEventListener('focus', () => selectIndexProject(key));
+    row.addEventListener('click', () => {
+      selectIndexProject(key);
+      const item = INDEX_PROJECTS[key];
+      if (item && item.primaryAction) item.primaryAction();
+    });
+  });
+
+  if (idxPrimaryBtn) {
+    idxPrimaryBtn.addEventListener('click', () => {
+      const item = INDEX_PROJECTS[activeIndexKey];
+      if (item && item.primaryAction) item.primaryAction();
+    });
+  }
+
+  if (idxSecondaryBtn) {
+    idxSecondaryBtn.addEventListener('click', () => {
+      const item = INDEX_PROJECTS[activeIndexKey];
+      if (item && item.secondaryAction) item.secondaryAction();
+    });
+  }
+
+  /* =========================================================
+     11. LANYARD PASS PHYSICS (BuiltByKern Style)
      ========================================================= */
   const lanyardCard = document.getElementById('lanyard-card');
   const lanyardStrap = document.getElementById('lanyard-strap-path');
@@ -748,7 +920,7 @@
   }
 
   /* =========================================================
-     11. IN-SITE CASE STUDY DOSSIER MODAL (Dados do GitHub)
+     12. IN-SITE CASE STUDY DOSSIER MODAL (Dados do GitHub)
      ========================================================= */
   const caseDialog = document.getElementById('case-dialog');
   const caseCode = document.getElementById('case-dialog-code');
