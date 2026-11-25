@@ -3567,18 +3567,22 @@ dialog::backdrop {
   }
 
   .bi-toolbar {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    scrollbar-width: none;
-    padding-bottom: 0.1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.42rem;
+    overflow: visible;
   }
 
-  .bi-toolbar::-webkit-scrollbar {
-    display: none;
+  .bi-select {
+    flex: 1 1 100%;
+    width: 100%;
   }
 
-  .bi-toolbar > * {
-    flex-shrink: 0;
+  .bi-mode-switch {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .bi-toolbar form[method="dialog"] {
@@ -3613,11 +3617,23 @@ dialog::backdrop {
     gap: 0.5rem;
   }
 
+  .bi-charts-grid {
+    flex: none;
+    min-height: auto;
+    height: auto;
+  }
+
   .bi-charts-grid.cols-2,
   .bi-charts-grid.cols-3,
   .bi-charts-grid.cols-4 {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+  }
+
+  .bi-chart-panel {
+    min-height: auto;
+    height: auto;
+    overflow: visible;
   }
 
   .bi-chart-expand-btn {
