@@ -73,9 +73,9 @@
     return div;
   }
 
-  function createChartPanel(title, spanFull = false) {
+  function createChartPanel(title) {
     const panel = document.createElement('div');
-    panel.className = `bi-chart-panel${spanFull ? ' span-full' : ''}`;
+    panel.className = 'bi-chart-panel';
     const h = document.createElement('header');
     h.className = 'bi-chart-head mono';
     h.textContent = title;
@@ -88,9 +88,9 @@
     return canvas;
   }
 
-  function createTablePanel(title, headers, rows, spanFull = false) {
+  function createTablePanel(title, headers, rows) {
     const panel = document.createElement('div');
-    panel.className = `bi-chart-panel${spanFull ? ' span-full' : ''}`;
+    panel.className = 'bi-chart-panel';
     const h = document.createElement('header');
     h.className = 'bi-chart-head mono';
     h.textContent = title;
@@ -753,6 +753,13 @@
         });
       }
     }
+
+    // Auto-stretch horizontally so all panels fit in a single zero-scroll screen on desktop
+    const panelCount = chartsGrid.children.length;
+    chartsGrid.classList.remove('cols-2', 'cols-3', 'cols-4');
+    if (panelCount <= 2) chartsGrid.classList.add('cols-2');
+    else if (panelCount === 3) chartsGrid.classList.add('cols-3');
+    else chartsGrid.classList.add('cols-4');
   }
 
   function applyMode(mode) {

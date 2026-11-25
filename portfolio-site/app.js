@@ -1,5 +1,6 @@
 (() => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* =========================================================
      1. LENIS SMOOTH SCROLL (darkroom.engineering)
@@ -26,21 +27,163 @@
         const targetEl = document.querySelector(targetId);
         if (targetEl) {
           event.preventDefault();
-          lenis.scrollTo(targetEl, { offset: -72 });
+          lenis.scrollTo(targetEl, { offset: -68 });
         }
       });
     });
   }
 
   /* =========================================================
-     2. PIXEL BUTTON (Imesh Dilshan Style)
+     2. DIRECTIONAL CURSOR (Soyeb / Framer Marketplace Style)
+     ========================================================= */
+  const dirCursor = document.getElementById('directional-cursor');
+  if (dirCursor && finePointer && !prefersReducedMotion) {
+    document.body.classList.add('has-directional-cursor');
+    const arrow = dirCursor.querySelector('.cursor-arrow');
+
+    let targetX = -100;
+    let targetY = -100;
+    let curX = -100;
+    let curY = -100;
+    let curAngle = -45;
+    let targetAngle = -45;
+    let curScale = 1;
+    let targetScale = 1;
+    let lastScrollY = window.scrollY;
+
+    function normalizeAngleDelta(current, target) {
+      const diff = ((target - current + 540) % 360) - 180;
+      return current + diff;
+    }
+
+    window.addEventListener('pointermove', (e) => {
+      const dx = e.clientX - targetX;
+      const dy = e.clientY - targetY;
+      targetX = e.clientX;
+      targetY = e.clientY;
+
+      const speed = Math.hypot(dx, dy);
+      if (speed > 2.2) {
+        const deg = (Math.atan2(dy, dx) * 180) / Math.PI;
+        targetAngle = normalizeAngleDelta(targetAngle, deg);
+        targetScale = Math.min(1.32, 1 + speed * 0.012);
+      }
+
+      const overNative = e.target.closest('input, select, textarea, iframe');
+      dirCursor.classList.toggle('is-visible', !overNative);
+
+      const interactive = e.target.closest('a, button, [role="button"], .orbit-card, .lanyard-card');
+      dirCursor.classList.toggle('is-interactive', Boolean(interactive));
+    });
+
+    window.addEventListener('scroll', () => {
+      const sy = window.scrollY;
+      const dy = sy - lastScrollY;
+      lastScrollY = sy;
+      if (Math.abs(dy) > 2) {
+        targetAngle = normalizeAngleDelta(targetAngle, dy > 0 ? 90 : -90);
+        targetScale = 1.18;
+      }
+    }, { passive: true });
+
+    document.addEventListener('pointerleave', () => {
+      dirCursor.classList.remove('is-visible');
+    });
+
+    function animateCursor() {
+      curX += (targetX - curX) * 0.22;
+      curY += (targetY - curY) * 0.22;
+      curAngle += (targetAngle - curAngle) * 0.16;
+      targetScale += (1 - targetScale) * 0.1;
+      curScale += (targetScale - curScale) * 0.18;
+
+      dirCursor.style.transform = `translate3d(${(curX - 11).toFixed(2)}px, ${(curY - 11).toFixed(2)}px, 0)`;
+      if (arrow) {
+        arrow.style.transform = `rotate(${curAngle.toFixed(1)}deg) scale(${curScale.toFixed(3)})`;
+      }
+      requestAnimationFrame(animateCursor);
+    }
+    requestAnimationFrame(animateCursor);
+  }
+
+  /* =========================================================
+     3. ARTISTIC HERO PARALLAX & SCROLL-STATE MORPH (Orynthiq)
+     ========================================================= */
+  const heroShell = document.getElementById('topo');
+  const heroArtImg = document.querySelector('.hero-art-img');
+  const heroState1 = document.getElementById('hero-state-1');
+  const heroState2 = document.getElementById('hero-state-2');
+  const heroFill = document.getElementById('hero-progress-fill');
+  const heroPct = document.getElementById('hero-progress-pct');
+
+  const supportsNativeParallax = CSS.supports('(animation-timeline: view()) and (animation-range: entry)');
+
+  if (heroShell && !prefersReducedMotion) {
+    function updateHeroScrollState() {
+      if (window.innerWidth <= 980) {
+        if (heroState1) {
+          heroState1.style.opacity = '1';
+          heroState1.style.transform = 'none';
+        }
+        return;
+      }
+
+      const rect = heroShell.getBoundingClientRect();
+      const totalScrollable = Math.max(1, heroShell.offsetHeight - window.innerHeight);
+      const progress = Math.max(0, Math.min(1, -rect.top / totalScrollable));
+
+      // JS Parallax fallback for browsers without native CSS scroll-driven animations
+      if (!supportsNativeParallax && heroArtImg) {
+        const yShift = -24 + progress * 88;
+        const scale = 1.03 + progress * 0.13;
+        heroArtImg.style.transform = `translate3d(0, ${yShift.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
+      }
+
+      // State 01 fades & recedes gracefully from 0.15 -> 0.57
+      if (heroState1) {
+        const p1 = Math.max(0, Math.min(1, (progress - 0.15) / 0.42));
+        heroState1.style.opacity = String(1 - p1);
+        heroState1.style.transform = `translate3d(0, ${(-p1 * 48).toFixed(1)}px, 0) scale(${(1 - p1 * 0.04).toFixed(3)})`;
+        heroState1.style.pointerEvents = p1 > 0.7 ? 'none' : 'auto';
+      }
+
+      // State 02 rises into focus from 0.42 -> 0.78
+      if (heroState2) {
+        const p2 = Math.max(0, Math.min(1, (progress - 0.42) / 0.36));
+        heroState2.style.opacity = String(p2);
+        heroState2.style.transform = `translate3d(0, ${((1 - p2) * 56).toFixed(1)}px, 0) scale(${(0.96 + p2 * 0.04).toFixed(3)})`;
+        heroState2.setAttribute('aria-hidden', String(p2 < 0.25));
+      }
+
+      if (heroFill) heroFill.style.width = `${Math.round(progress * 100)}%`;
+      if (heroPct) heroPct.textContent = `${String(Math.round(progress * 100)).padStart(2, '0')}%`;
+    }
+
+    if ('IntersectionObserver' in window) {
+      let heroActive = true;
+      const heroObs = new IntersectionObserver((entries) => {
+        heroActive = entries[0].isIntersecting;
+      });
+      heroObs.observe(heroShell);
+      window.addEventListener('scroll', () => {
+        if (heroActive) updateHeroScrollState();
+      }, { passive: true });
+      window.addEventListener('resize', updateHeroScrollState);
+    } else {
+      window.addEventListener('scroll', updateHeroScrollState, { passive: true });
+    }
+    updateHeroScrollState();
+  }
+
+  /* =========================================================
+     4. PIXEL BUTTON (Imesh Dilshan Style)
      ========================================================= */
   document.querySelectorAll('.pixel-btn').forEach((btn) => {
     const grid = document.createElement('span');
     grid.className = 'pixel-grid';
     grid.setAttribute('aria-hidden', 'true');
 
-    const totalCells = 30; // 10 x 3
+    const totalCells = 30;
     for (let i = 0; i < totalCells; i++) {
       const cell = document.createElement('span');
       cell.className = 'pixel-cell';
@@ -52,7 +195,7 @@
   });
 
   /* =========================================================
-     3. TEXT SCRAMBLE (Aidan Looker Style)
+     5. TEXT SCRAMBLE (Aidan Looker Style)
      ========================================================= */
   const GLYPHS = '01/_#<>+=-*ABCDEF';
 
@@ -106,7 +249,7 @@
   }
 
   /* =========================================================
-     4. HALFTONE PRO BACKDROP CANVAS
+     6. HALFTONE PRO BACKDROP CANVAS
      ========================================================= */
   const halftoneCanvas = document.getElementById('halftone-canvas');
   if (halftoneCanvas) {
@@ -126,7 +269,7 @@
       if (needsRender) {
         const w = window.innerWidth;
         const h = window.innerHeight;
-        const spacing = 22;
+        const spacing = 24;
         ctx.clearRect(0, 0, w, h);
 
         for (let y = spacing / 2; y < h; y += spacing) {
@@ -135,14 +278,14 @@
             const dy = y - mouse.y;
             const dist = Math.hypot(dx, dy);
             const influence = Math.max(0, 1 - dist / 240);
-            const radius = 0.75 + influence * 2.1;
+            const radius = 0.7 + influence * 2.0;
 
             ctx.beginPath();
             ctx.arc(x, y, radius, 0, Math.PI * 2);
             ctx.fillStyle =
               influence > 0.15
-                ? `rgba(255, 90, 31, ${0.14 + influence * 0.42})`
-                : 'rgba(244, 243, 239, 0.08)';
+                ? `rgba(255, 90, 31, ${0.14 + influence * 0.4})`
+                : 'rgba(244, 243, 239, 0.065)';
             ctx.fill();
           }
         }
@@ -166,7 +309,7 @@
   }
 
   /* =========================================================
-     5. ATOMIC GLOBE (3D Particle & Orbital Canvas)
+     7. ATOMIC GLOBE (3D Particle & Orbital Canvas)
      ========================================================= */
   const globeCanvas = document.getElementById('atomic-globe');
   const globeToggle = document.getElementById('globe-toggle');
@@ -196,9 +339,7 @@
     let lastY = 0;
     let isPaused = prefersReducedMotion;
 
-    if (globeToggle && isPaused) {
-      globeToggle.textContent = 'Retomar globo';
-    }
+    if (globeToggle && isPaused) globeToggle.textContent = 'Retomar globo';
 
     if (globeToggle) {
       globeToggle.addEventListener('click', () => {
@@ -238,7 +379,6 @@
 
       ctx.clearRect(0, 0, w, h);
 
-      // Orbital rings (Atomic aesthetic)
       ctx.save();
       ctx.translate(cx, cy);
       [0.42, -0.58, 1.15].forEach((tilt, idx) => {
@@ -248,7 +388,7 @@
         ctx.beginPath();
         ctx.arc(0, 0, radius * (1.22 + idx * 0.05), 0, Math.PI * 2);
         ctx.strokeStyle =
-          idx === 0 ? 'rgba(255, 90, 31, 0.45)' : 'rgba(244, 243, 239, 0.14)';
+          idx === 0 ? 'rgba(255, 90, 31, 0.48)' : 'rgba(244, 243, 239, 0.15)';
         ctx.lineWidth = idx === 0 ? 1.5 : 1;
         ctx.stroke();
         ctx.restore();
@@ -277,9 +417,8 @@
 
       projected.sort((a, b) => a.z - b.z);
 
-      // Subtle data links between highlighted nodes on front hemisphere
       const frontHot = projected.filter((p) => p.highlight && p.z > -0.15);
-      ctx.strokeStyle = 'rgba(255, 90, 31, 0.28)';
+      ctx.strokeStyle = 'rgba(255, 90, 31, 0.3)';
       ctx.lineWidth = 1;
       for (let i = 0; i < frontHot.length - 1; i++) {
         ctx.beginPath();
@@ -301,9 +440,7 @@
     }
 
     function animateGlobe() {
-      if (!isPaused && !dragging) {
-        rotY += 0.0045;
-      }
+      if (!isPaused && !dragging) rotY += 0.0045;
       renderGlobe();
       requestAnimationFrame(animateGlobe);
     }
@@ -313,7 +450,7 @@
   }
 
   /* =========================================================
-     6. MILK GLASS FOLDER TOGGLE + PRINT LIGHTBOX DIALOG
+     8. MILK GLASS FOLDER TOGGLE + PRINT LIGHTBOX DIALOG
      ========================================================= */
   const folderBtn = document.getElementById('milk-folder-btn');
   const printsVault = document.getElementById('clube-gringas-prints');
@@ -344,7 +481,6 @@
     });
   });
 
-  // Fallback obrigatório para navegadores sem closedBy (Safari)
   if (printDialog && !('closedBy' in HTMLDialogElement.prototype)) {
     printDialog.addEventListener('click', (event) => {
       if (event.target !== printDialog) return;
@@ -359,95 +495,146 @@
   }
 
   /* =========================================================
-     7. 3D SPATIAL GALLERY (Studio Digital Style)
+     9. STRATA ORBIT GALLERY (Elliptical 3D Scroll + Drag Orbit)
      ========================================================= */
-  const spatialShell = document.getElementById('spatial-shell');
-  const spatialStage = document.getElementById('spatial-stage');
-  const spatialCards = Array.from(document.querySelectorAll('.spatial-card'));
-  const spatialCounter = document.getElementById('spatial-counter');
-  const prevBtn = document.getElementById('spatial-prev');
-  const nextBtn = document.getElementById('spatial-next');
+  const orbitShell = document.getElementById('orbit-shell');
+  const orbitRing = document.getElementById('orbit-ring');
+  const orbitCards = Array.from(document.querySelectorAll('.orbit-card'));
+  const orbitCounter = document.getElementById('orbit-counter');
+  const orbitPrev = document.getElementById('orbit-prev');
+  const orbitNext = document.getElementById('orbit-next');
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const spatialModeBtn = document.getElementById('spatial-mode-btn');
+  const orbitModeBtn = document.getElementById('orbit-mode-btn');
   const gridModeBtn = document.getElementById('grid-mode-btn');
 
-  let activeIndex = 0;
+  let orbitManualOffset = 0; // radians added via clicks/drag
+  let orbitScrollAngle = 0;  // radians driven by scrolling through .orbit-shell
+  let currentOrbitAngle = 0; // smoothed angle
 
-  function getVisibleCards() {
-    return spatialCards.filter((card) => !card.classList.contains('is-filtered-out'));
+  function getVisibleOrbitCards() {
+    return orbitCards.filter((card) => !card.classList.contains('is-filtered-out'));
   }
 
-  function layoutSpatial() {
-    const visible = getVisibleCards();
-    if (visible.length === 0) return;
+  function computeOrbitScrollAngle() {
+    if (!orbitShell || orbitShell.classList.contains('is-grid') || window.innerWidth <= 980) {
+      orbitScrollAngle = 0;
+      return;
+    }
+    const rect = orbitShell.getBoundingClientRect();
+    const scrollable = Math.max(1, orbitShell.offsetHeight - window.innerHeight);
+    const p = Math.max(0, Math.min(1, -rect.top / scrollable));
+    orbitScrollAngle = p * Math.PI * 2;
+  }
 
-    activeIndex = ((activeIndex % visible.length) + visible.length) % visible.length;
+  function renderOrbit() {
+    if (!orbitShell || orbitShell.classList.contains('is-grid')) return;
+    const visible = getVisibleOrbitCards();
+    const count = visible.length;
+    if (count === 0) return;
+
+    const targetAngle = orbitScrollAngle + orbitManualOffset;
+    currentOrbitAngle += (targetAngle - currentOrbitAngle) * (prefersReducedMotion ? 1 : 0.14);
+
+    const vw = window.innerWidth;
+    const rx = Math.min(480, Math.max(210, vw * 0.34));
+    const ry = vw < 768 ? 95 : 135;
+
+    let frontIdx = 0;
+    let maxDepth = -1;
 
     visible.forEach((card, i) => {
-      let offset = i - activeIndex;
-      if (offset > visible.length / 2) offset -= visible.length;
-      if (offset < -visible.length / 2) offset += visible.length;
+      const baseAngle = (i / count) * Math.PI * 2;
+      const theta = baseAngle - currentOrbitAngle;
 
-      const absOffset = Math.abs(offset);
-      const isCenter = offset === 0;
-      card.classList.toggle('is-center', isCenter);
+      const sinT = Math.sin(theta);
+      const cosT = Math.cos(theta);
+      const depth = (cosT + 1) / 2; // 1 = front center, 0 = far back
 
-      const tx = offset * 285;
-      const tz = -absOffset * 170;
-      const ry = Math.max(-36, Math.min(36, offset * -22));
-      const scale = Math.max(0.72, 1 - absOffset * 0.13);
-      const opacity = absOffset > 2 ? 0 : Math.max(0.28, 1 - absOffset * 0.34);
+      if (depth > maxDepth) {
+        maxDepth = depth;
+        frontIdx = i;
+      }
 
-      card.style.transform = `translate(-50%, -50%) translate3d(${tx}px, 0px, ${tz}px) rotateY(${ry}deg) scale(${scale})`;
-      card.style.opacity = String(opacity);
-      card.style.zIndex = String(20 - absOffset);
-      card.style.pointerEvents = absOffset > 2 ? 'none' : 'auto';
+      const tx = sinT * rx;
+      const ty = cosT * ry - ry * 0.38;
+      const scale = 0.62 + depth * 0.56; // 0.62 back -> 1.18 front
+      const rotY = -sinT * 28;
+      const zIdx = Math.round(depth * 1000); // > 500 in front of title, < 500 behind title
+
+      card.style.transform = `translate3d(${tx.toFixed(1)}px, ${ty.toFixed(1)}px, 0) scale(${scale.toFixed(3)}) perspective(1400px) rotateY(${rotY.toFixed(2)}deg)`;
+      card.style.zIndex = String(zIdx);
+
+      const veil = card.querySelector('.orbit-card-veil');
+      if (veil) {
+        const veilAlpha = Math.max(0, (1 - depth) * 0.68);
+        veil.style.opacity = veilAlpha.toFixed(3);
+      }
     });
 
-    if (spatialCounter) {
-      const cur = String(activeIndex + 1).padStart(2, '0');
-      const tot = String(visible.length).padStart(2, '0');
-      spatialCounter.textContent = `${cur} / ${tot}`;
+    visible.forEach((card, i) => {
+      card.classList.toggle('is-front', i === frontIdx);
+    });
+
+    if (orbitCounter) {
+      orbitCounter.textContent = `${String(frontIdx + 1).padStart(2, '0')} / ${String(count).padStart(2, '0')}`;
     }
   }
 
-  spatialCards.forEach((card) => {
+  function stepOrbitLoop() {
+    computeOrbitScrollAngle();
+    renderOrbit();
+    requestAnimationFrame(stepOrbitLoop);
+  }
+  requestAnimationFrame(stepOrbitLoop);
+
+  function rotateByStep(dir) {
+    const count = Math.max(1, getVisibleOrbitCards().length);
+    orbitManualOffset += (dir * (Math.PI * 2)) / count;
+  }
+
+  if (orbitPrev) orbitPrev.addEventListener('click', () => rotateByStep(-1));
+  if (orbitNext) orbitNext.addEventListener('click', () => rotateByStep(1));
+
+  orbitCards.forEach((card) => {
     card.addEventListener('click', (e) => {
-      if (spatialShell.classList.contains('is-grid')) return;
+      if (orbitShell.classList.contains('is-grid')) return;
       if (e.target.closest('a, button')) return;
-      const visible = getVisibleCards();
+      const visible = getVisibleOrbitCards();
       const idx = visible.indexOf(card);
-      if (idx !== -1 && idx !== activeIndex) {
-        activeIndex = idx;
-        layoutSpatial();
-      }
+      if (idx === -1) return;
+      const targetBase = (idx / visible.length) * Math.PI * 2;
+      const currentTotal = orbitScrollAngle + orbitManualOffset;
+      const delta = ((targetBase - currentTotal + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
+      orbitManualOffset += delta;
     });
   });
 
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      activeIndex -= 1;
-      layoutSpatial();
-    });
-  }
+  if (orbitRing) {
+    let draggingOrbit = false;
+    let dragStartX = 0;
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      activeIndex += 1;
-      layoutSpatial();
+    orbitRing.addEventListener('pointerdown', (e) => {
+      if (e.target.closest('a, button') || orbitShell.classList.contains('is-grid')) return;
+      draggingOrbit = true;
+      dragStartX = e.clientX;
+      orbitRing.setPointerCapture(e.pointerId);
     });
-  }
 
-  if (spatialStage) {
-    spatialStage.addEventListener('keydown', (e) => {
-      if (spatialShell.classList.contains('is-grid')) return;
-      if (e.key === 'ArrowRight') {
-        activeIndex += 1;
-        layoutSpatial();
-      } else if (e.key === 'ArrowLeft') {
-        activeIndex -= 1;
-        layoutSpatial();
-      }
+    orbitRing.addEventListener('pointermove', (e) => {
+      if (!draggingOrbit) return;
+      const dx = e.clientX - dragStartX;
+      dragStartX = e.clientX;
+      orbitManualOffset -= dx * 0.0055;
+    });
+
+    orbitRing.addEventListener('pointerup', () => {
+      draggingOrbit = false;
+    });
+
+    orbitRing.addEventListener('keydown', (e) => {
+      if (orbitShell.classList.contains('is-grid')) return;
+      if (e.key === 'ArrowRight') rotateByStep(1);
+      else if (e.key === 'ArrowLeft') rotateByStep(-1);
     });
   }
 
@@ -457,35 +644,31 @@
       filterButtons.forEach((b) => b.classList.remove('is-active'));
       btn.classList.add('is-active');
 
-      spatialCards.forEach((card) => {
+      orbitCards.forEach((card) => {
         const match = cat === 'all' || card.dataset.category === cat;
         card.classList.toggle('is-filtered-out', !match);
       });
 
-      activeIndex = 0;
-      layoutSpatial();
+      orbitManualOffset = -orbitScrollAngle;
     });
   });
 
-  if (spatialModeBtn && gridModeBtn && spatialShell) {
-    spatialModeBtn.addEventListener('click', () => {
-      spatialShell.classList.remove('is-grid');
-      spatialModeBtn.classList.add('is-active');
+  if (orbitModeBtn && gridModeBtn && orbitShell) {
+    orbitModeBtn.addEventListener('click', () => {
+      orbitShell.classList.remove('is-grid');
+      orbitModeBtn.classList.add('is-active');
       gridModeBtn.classList.remove('is-active');
-      layoutSpatial();
     });
 
     gridModeBtn.addEventListener('click', () => {
-      spatialShell.classList.add('is-grid');
+      orbitShell.classList.add('is-grid');
       gridModeBtn.classList.add('is-active');
-      spatialModeBtn.classList.remove('is-active');
+      orbitModeBtn.classList.remove('is-active');
     });
   }
 
-  layoutSpatial();
-
   /* =========================================================
-     8. LANYARD PASS PHYSICS (BuiltByKern Style)
+     10. LANYARD PASS PHYSICS (BuiltByKern Style)
      ========================================================= */
   const lanyardCard = document.getElementById('lanyard-card');
   const lanyardStrap = document.getElementById('lanyard-strap-path');
@@ -529,7 +712,6 @@
 
     function stepLanyard() {
       if (!isDragging) {
-        // Spring return + pendulum damping
         const stiffness = 0.085;
         const damping = 0.88;
         velX = (velX - posX * stiffness) * damping;
@@ -544,7 +726,6 @@
 
       lanyardCard.style.transform = `translate3d(${posX.toFixed(2)}px, ${posY.toFixed(2)}px, 0) rotateZ(${rotZ.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) rotateX(${rotX.toFixed(2)}deg)`;
 
-      // Update SVG lanyard strap curve dynamically
       const endX = 130 + posX;
       const endY = 128 + posY;
       const ctrlX = 130 + posX * 0.35;
@@ -557,19 +738,17 @@
         lanyardGlare.style.background = `radial-gradient(circle at ${gx.toFixed(1)}% ${gy.toFixed(1)}%, rgba(255, 255, 255, 0.26), transparent 55%)`;
       }
 
-      if (!prefersReducedMotion) {
-        requestAnimationFrame(stepLanyard);
-      }
+      if (!prefersReducedMotion) requestAnimationFrame(stepLanyard);
     }
 
     if (!prefersReducedMotion) {
-      // Gentle initial swing impulse on load
       velX = 6;
       requestAnimationFrame(stepLanyard);
     }
   }
+
   /* =========================================================
-     9. IN-SITE CASE STUDY DOSSIER MODAL (Dados do GitHub)
+     11. IN-SITE CASE STUDY DOSSIER MODAL (Dados do GitHub)
      ========================================================= */
   const caseDialog = document.getElementById('case-dialog');
   const caseCode = document.getElementById('case-dialog-code');
@@ -689,7 +868,6 @@
       if (lenis) lenis.start();
     });
 
-    // Fallback obrigatório de light-dismiss para navegadores sem suporte a closedby (ex.: Safari)
     if (!('closedBy' in HTMLDialogElement.prototype)) {
       caseDialog.addEventListener('click', (event) => {
         if (event.target !== caseDialog) return;

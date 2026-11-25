@@ -14,9 +14,16 @@
 <body>
   <a class="skip-link" href="#conteudo-principal">Ir para o conteúdo principal</a>
 
+  <!-- Directional Cursor (Soyeb / Framer Marketplace style) -->
+  <div id="directional-cursor" class="directional-cursor" aria-hidden="true">
+    <div class="cursor-ring"></div>
+    <svg class="cursor-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M21 12L4 5.5L8.2 12L4 18.5L21 12Z" fill="#ff5a1f" stroke="#f4f3ef" stroke-width="1.2" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
   <!-- Halftone Pro Ambient Layer -->
   <canvas id="halftone-canvas" class="halftone-layer" aria-hidden="true"></canvas>
-  <div class="ambient-glow" aria-hidden="true"></div>
   <div class="grid-overlay" aria-hidden="true"></div>
 
   <!-- Header -->
@@ -32,7 +39,7 @@
       <nav class="main-nav" aria-label="Navegação principal">
         <a href="#destaques" data-scramble="01.REAIS">01.REAIS</a>
         <a href="#clube-gringas" data-scramble="02.CLUBE_GRINGAS">02.CLUBE_GRINGAS</a>
-        <a href="#powerbi" data-scramble="03.POWER_BI">03.POWER_BI</a>
+        <a href="#powerbi" data-scramble="03.ORBIT_BI">03.ORBIT_BI</a>
         <a href="#sobre" data-scramble="04.CREDENCIAL">04.CREDENCIAL</a>
         <a href="#contato" class="pixel-btn pixel-btn-sm pixel-btn-accent">
           <span class="pixel-label">CONTATO</span>
@@ -42,66 +49,111 @@
   </header>
 
   <main id="conteudo-principal">
-    <!-- HERO — Orynthiq Architecture + Text Scramble + Atomic Globe -->
-    <section id="topo" class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="hud-pill">
-            <span class="status-pulse" aria-hidden="true"></span>
-            <span class="mono" data-scramble="SYS.ONLINE // HORTOLÂNDIA_SP // 2026">SYS.ONLINE // HORTOLÂNDIA_SP // 2026</span>
-          </div>
+    <!-- ARTISTIC ORYNTHIQ HERO — Multi-Layer Scroll Parallax & State Morph -->
+    <section id="topo" class="hero-parallax-shell">
+      <div class="hero-sticky">
+        <!-- Parallax Background Artwork (LCP Candidate) -->
+        <div class="hero-art-layer" id="hero-art-layer" aria-hidden="true">
+          <img
+            src="assets/hero-orynthiq.jpg"
+            alt=""
+            class="hero-art-img"
+            fetchpriority="high"
+            width="1920"
+            height="1080"
+          />
+          <div class="hero-art-vignette"></div>
+          <div class="hero-ember-mist"></div>
+        </div>
 
-          <h1 class="hero-title" data-scramble="ENGENHARIA DE DADOS &amp; SISTEMAS DE DECISÃO.">
-            ENGENHARIA DE DADOS &amp; SISTEMAS DE DECISÃO.
-          </h1>
+        <!-- State 01: Primary Hero Copy + Atomic Globe -->
+        <div class="container hero-stage-primary" id="hero-state-1">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="hud-pill">
+                <span class="status-pulse" aria-hidden="true"></span>
+                <span class="mono" data-scramble="SYS.ONLINE // HORTOLÂNDIA_SP // 2026">SYS.ONLINE // HORTOLÂNDIA_SP // 2026</span>
+              </div>
 
-          <p class="hero-lead">
-            Portfólio de <strong>Wand Rherison</strong> — Análise e Desenvolvimento de Sistemas (UNISAL).
-            Construo pipelines em <strong>Python &amp; SQL</strong>, modelagem dimensional (<strong>Star &amp; Galaxy Schema</strong>),
-            dashboards executivos no <strong>Power BI</strong> e aplicações web integradas.
-          </p>
+              <h1 class="hero-title" data-scramble="ENGENHARIA DE DADOS &amp; SISTEMAS DE DECISÃO.">
+                ENGENHARIA DE DADOS &amp; SISTEMAS DE DECISÃO.
+              </h1>
 
-          <div class="hero-actions">
-            <a href="#powerbi" class="pixel-btn pixel-btn-accent">
-              <span class="pixel-label">EXPLORAR DASHBOARDS</span>
-            </a>
-            <a href="https://github.com/WandRherison/powerbi-portfolio" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost">
-              <span class="pixel-label">GITHUB PORTFOLIO</span>
-            </a>
-            <a href="https://www.linkedin.com/in/wand-rherison-derley-pereira-alves-silva-b55293225/" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost">
-              <span class="pixel-label">LINKEDIN</span>
-            </a>
-          </div>
+              <p class="hero-lead">
+                Portfólio de <strong>Wand Rherison</strong> — Análise e Desenvolvimento de Sistemas (UNISAL).
+                Construo pipelines em <strong>Python &amp; SQL</strong>, modelagem dimensional (<strong>Star &amp; Galaxy Schema</strong>),
+                dashboards executivos no <strong>Power BI</strong> e aplicações web integradas.
+              </p>
 
-          <div class="telemetry-strip" aria-label="Indicadores principais do portfólio">
-            <div class="telemetry-cell">
-              <span class="telemetry-num">06</span>
-              <span class="telemetry-key">LIVE BI REPORTS</span>
+              <div class="hero-actions">
+                <a href="#powerbi" class="pixel-btn pixel-btn-accent">
+                  <span class="pixel-label">EXPLORAR DASHBOARDS</span>
+                </a>
+                <a href="https://github.com/WandRherison/powerbi-portfolio" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost">
+                  <span class="pixel-label">GITHUB PORTFOLIO</span>
+                </a>
+                <a href="https://www.linkedin.com/in/wand-rherison-derley-pereira-alves-silva-b55293225/" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost">
+                  <span class="pixel-label">LINKEDIN</span>
+                </a>
+              </div>
+
+              <div class="telemetry-strip" aria-label="Indicadores principais do portfólio">
+                <div class="telemetry-cell">
+                  <span class="telemetry-num">06</span>
+                  <span class="telemetry-key">LIVE BI REPORTS</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="telemetry-num">02</span>
+                  <span class="telemetry-key">PROJETOS REAIS</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="telemetry-num">30+</span>
+                  <span class="telemetry-key">MEDIDAS DAX</span>
+                </div>
+              </div>
             </div>
-            <div class="telemetry-cell">
-              <span class="telemetry-num">02</span>
-              <span class="telemetry-key">PROJETOS REAIS</span>
-            </div>
-            <div class="telemetry-cell">
-              <span class="telemetry-num">30+</span>
-              <span class="telemetry-key">MEDIDAS DAX</span>
+
+            <!-- Atomic Globe Stage -->
+            <div class="globe-stage" aria-label="Visualização interativa Atomic Globe de nós de dados">
+              <div class="globe-hud-top">
+                <span class="mono">NODE.MAP // ATOMIC_GLOBE</span>
+                <button type="button" id="globe-toggle" class="hud-control-btn">Pausar globo</button>
+              </div>
+
+              <canvas id="atomic-globe" width="520" height="520" role="img" aria-label="Globo 3D interativo de partículas representando pipelines de dados e Business Intelligence"></canvas>
+
+              <div class="globe-hud-bottom mono">
+                <span>ARRASTE PARA ROTACIONAR</span>
+                <span class="accent-text">STAR · GALAXY · OLTP</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Atomic Globe Stage -->
-        <div class="globe-stage" aria-label="Visualização interativa Atomic Globe de nós de dados">
-          <div class="globe-hud-top">
-            <span class="mono">NODE.MAP // ATOMIC_GLOBE</span>
-            <button type="button" id="globe-toggle" class="hud-control-btn">Pausar globo</button>
+        <!-- State 02: Orynthiq Scroll-Revealed Atmospheric Statement -->
+        <div class="hero-stage-morph" id="hero-state-2" aria-hidden="true">
+          <div class="container morph-card">
+            <span class="mono accent-text">00 // ARQUITETURA EM MOVIMENTO</span>
+            <h2>Menos achismo. Mais negócio guiado por dados em tempo real.</h2>
+            <p>
+              Do banco relacional com governança LGPD ao painel executivo interativo — cada projeto abaixo roda com modelagem real e métricas auditáveis.
+            </p>
+            <div class="morph-pills mono">
+              <span>OLTP &rarr; OLAP</span>
+              <span>DATA MASKING LGPD</span>
+              <span>STAR &amp; CONSTELLATION SCHEMA</span>
+              <span>WEB + POWER BI</span>
+            </div>
           </div>
+        </div>
 
-          <canvas id="atomic-globe" width="520" height="520" role="img" aria-label="Globo 3D interativo de partículas representando pipelines de dados e Business Intelligence"></canvas>
-
-          <div class="globe-hud-bottom mono">
-            <span>ARRASTE PARA ROTACIONAR</span>
-            <span class="accent-text">STAR · GALAXY · OLTP</span>
+        <!-- Bottom Scroll Telemetry Bar -->
+        <div class="hero-scroll-hud container mono">
+          <span>ROLE PARA TRANSFORMAR A CENA &darr;</span>
+          <div class="hero-progress-track" aria-hidden="true">
+            <div class="hero-progress-fill" id="hero-progress-fill"></div>
           </div>
+          <span id="hero-progress-pct">00%</span>
         </div>
       </div>
     </section>
@@ -190,14 +242,12 @@
         </div>
 
         <div class="milk-folder-stage">
-          <!-- Interactive Milk Glass Folder -->
           <div class="milk-folder-wrapper">
             <button type="button" id="milk-folder-btn" class="milk-folder" aria-expanded="true" aria-controls="clube-gringas-prints">
               <div class="folder-back">
                 <span class="folder-tab mono">ONG // PRINTS_ONLY</span>
               </div>
 
-              <!-- Peeking Mini Print Cards inside the Milk Glass Folder -->
               <div class="folder-sheets" aria-hidden="true">
                 <div class="sheet sheet-1"><span>01</span></div>
                 <div class="sheet sheet-2"><span>02</span></div>
@@ -205,7 +255,6 @@
                 <div class="sheet sheet-4"><span>04</span></div>
               </div>
 
-              <!-- Frosted Milk Glass Front Pocket -->
               <div class="folder-glass-front">
                 <div class="folder-glass-shine" aria-hidden="true"></div>
                 <div class="folder-front-meta">
@@ -217,7 +266,6 @@
             </button>
           </div>
 
-          <!-- 4 Clean Blank Print Slots (Strictly Prints, No Code / No Paths) -->
           <div class="prints-vault is-open" id="clube-gringas-prints">
             <figure class="print-slot-card">
               <button type="button" class="print-trigger" data-print-src="assets/clube-gringas/dashboard.png" data-print-title="Painel Executivo — Clube Gringas" data-print-desc="Captura visual do painel gerencial da organização.">
@@ -275,47 +323,49 @@
       </div>
     </section>
 
-    <!-- SYS.03 — 3D SPATIAL GALLERY (Studio Digital) — POWER BI DASHBOARDS -->
-    <section id="powerbi" class="section">
-      <div class="container">
-        <div class="section-head section-head-row">
-          <div>
-            <span class="section-index mono" data-scramble="SYS.03 // 3D SPATIAL GALLERY · POWER BI">SYS.03 // 3D SPATIAL GALLERY · POWER BI</span>
-            <h2 data-scramble="Dashboards Interativos no Power BI">Dashboards Interativos no Power BI</h2>
-            <p class="section-sub">
-              Navegue em profundidade espacial pelos 6 projetos publicados no Power BI Service (Python, SQL, Star/Galaxy Schema e DAX).
-            </p>
+    <!-- SYS.03 — STRATA ORBIT GALLERY — POWER BI DASHBOARDS -->
+    <section id="powerbi" class="orbit-section">
+      <div class="orbit-shell" id="orbit-shell">
+        <div class="orbit-viewport" id="orbit-viewport">
+          <div class="orbit-ember-glow" aria-hidden="true"></div>
+
+          <!-- Top HUD: Filters & Mode Switch -->
+          <div class="orbit-top-hud container">
+            <div class="filter-bar orbit-filters" role="group" aria-label="Filtrar dashboards por segmento">
+              <button type="button" class="filter-btn is-active" data-filter="all">TODOS [06]</button>
+              <button type="button" class="filter-btn" data-filter="comercial">COMERCIAL</button>
+              <button type="button" class="filter-btn" data-filter="terceiro-setor">TERCEIRO SETOR</button>
+              <button type="button" class="filter-btn" data-filter="logistica">SUPPLY CHAIN</button>
+            </div>
+
+            <div class="view-controls">
+              <button type="button" id="orbit-mode-btn" class="hud-control-btn is-active">Órbita Strata</button>
+              <button type="button" id="grid-mode-btn" class="hud-control-btn">Grade</button>
+            </div>
           </div>
 
-          <div class="view-controls">
-            <button type="button" id="spatial-mode-btn" class="hud-control-btn is-active" data-mode="spatial">3D Espacial</button>
-            <button type="button" id="grid-mode-btn" class="hud-control-btn" data-mode="grid">Grade</button>
+          <!-- Centerpiece Title (z-index 500: Front cards pass in front, back cards pass behind) -->
+          <div class="orbit-centerpiece" aria-hidden="true">
+            <span class="mono orbit-kicker">&sect; WORK IN MOTION // POWER BI</span>
+            <h2>Dashboards, in orbit</h2>
+            <p class="mono">2026 &mdash; role ou arraste para orbitar os 6 projetos</p>
           </div>
-        </div>
 
-        <!-- Category Filters -->
-        <div class="filter-bar" role="group" aria-label="Filtrar dashboards por segmento">
-          <button type="button" class="filter-btn is-active" data-filter="all">TODOS [06]</button>
-          <button type="button" class="filter-btn" data-filter="comercial">COMERCIAL &amp; VAREJO</button>
-          <button type="button" class="filter-btn" data-filter="terceiro-setor">TERCEIRO SETOR (ONGS)</button>
-          <button type="button" class="filter-btn" data-filter="logistica">SUPPLY CHAIN</button>
-        </div>
-
-        <!-- 3D Spatial Gallery Viewport -->
-        <div class="spatial-shell" id="spatial-shell">
-          <div class="spatial-stage" id="spatial-stage" tabindex="0" aria-label="Galeria espacial 3D de dashboards Power BI. Use as setas esquerda e direita para navegar.">
-            <article class="spatial-card" data-category="comercial" data-index="0">
+          <!-- Orbiting Cards Stage -->
+          <div class="orbit-ring" id="orbit-ring" tabindex="0" aria-label="Galeria orbital de dashboards Power BI. Use as setas ou arraste para girar.">
+            <article class="orbit-card" data-category="comercial" data-index="0">
+              <div class="orbit-card-veil" aria-hidden="true"></div>
               <div class="spatial-top">
                 <span class="mono tag-orange">STAR SCHEMA</span>
                 <span class="mono muted">01 / B2B</span>
               </div>
               <h3>Adega &amp; Distribuidora</h3>
               <p>
-                Análise de ruptura de estoque no <em>Weekend Rush</em> (5.250 pedidos via Python), mix giro vs. rentabilidade, Faturamento Líquido, YTD e MoM%.
+                Análise de ruptura de estoque no <em>Weekend Rush</em> (5.250 pedidos via Python), mix giro vs. rentabilidade, YTD e MoM%.
               </p>
-              <div class="spatial-metrics mono">
-                <span>5.250 PEDIDOS</span>
-                <span>PYTHON + DAX</span>
+              <div class="orbit-kpi-line mono">
+                <strong>R$ 9,32 Mi</strong>
+                <span>33,43% MARGEM</span>
               </div>
               <div class="spatial-actions">
                 <button type="button" class="pixel-btn pixel-btn-accent pixel-btn-sm" data-open-dashboard="adega">
@@ -327,18 +377,19 @@
               </div>
             </article>
 
-            <article class="spatial-card" data-category="terceiro-setor" data-index="1">
+            <article class="orbit-card" data-category="terceiro-setor" data-index="1">
+              <div class="orbit-card-veil" aria-hidden="true"></div>
               <div class="spatial-top">
                 <span class="mono tag-orange">GALAXY SCHEMA</span>
                 <span class="mono muted">02 / ONG</span>
               </div>
               <h3>ONG Viva Comunidade</h3>
               <p>
-                Arquitetura Multi-Fato relacionando captação de recursos (<code>fDoacoes</code>) e execução social (<code>fAtendimentos</code>) por projeto e canal.
+                Arquitetura Multi-Fato relacionando captação (<code>fDoacoes</code>) e execução social (<code>fAtendimentos</code>) por projeto e canal.
               </p>
-              <div class="spatial-metrics mono">
-                <span>MULTI-FATO</span>
-                <span>IMPACTO SOCIAL</span>
+              <div class="orbit-kpi-line mono">
+                <strong>R$ 2,62 Mi</strong>
+                <span>1.550 ATENDIMENTOS</span>
               </div>
               <div class="spatial-actions">
                 <button type="button" class="pixel-btn pixel-btn-accent pixel-btn-sm" data-open-dashboard="ong-viva">
@@ -350,18 +401,19 @@
               </div>
             </article>
 
-            <article class="spatial-card" data-category="comercial" data-index="2">
+            <article class="orbit-card" data-category="comercial" data-index="2">
+              <div class="orbit-card-veil" aria-hidden="true"></div>
               <div class="spatial-top">
                 <span class="mono tag-orange">STAR SCHEMA</span>
                 <span class="mono muted">03 / B2C</span>
               </div>
               <h3>PetShop Gatitos</h3>
               <p>
-                Customer Analytics focado em retenção, recorrência de compra, ticket médio por categoria e desempenho de vendas no varejo B2C.
+                Customer Analytics focado em retenção, efeito Multi-Pet (+45% ticket), bairros de maior faturamento e evolução 2020–2022.
               </p>
-              <div class="spatial-metrics mono">
-                <span>CUSTOMER ANALYTICS</span>
-                <span>VAREJO B2C</span>
+              <div class="orbit-kpi-line mono">
+                <strong>R$ 2,03 Mi</strong>
+                <span>57 MIL ITENS</span>
               </div>
               <div class="spatial-actions">
                 <button type="button" class="pixel-btn pixel-btn-accent pixel-btn-sm" data-open-dashboard="petshop">
@@ -373,18 +425,19 @@
               </div>
             </article>
 
-            <article class="spatial-card" data-category="logistica" data-index="3">
+            <article class="orbit-card" data-category="logistica" data-index="3">
+              <div class="orbit-card-veil" aria-hidden="true"></div>
               <div class="spatial-top">
                 <span class="mono tag-orange">ROLE-PLAYING</span>
                 <span class="mono muted">04 / LOGÍSTICA</span>
               </div>
               <h3>Supply Chain &amp; Logística</h3>
               <p>
-                Torre de controle logística com dimensão calendário Role-Playing (<code>USERELATIONSHIP</code>), monitoramento de SLAs, OTIF e gargalos operacionais.
+                Torre de controle logística com 4 datas em <code>USERELATIONSHIP</code>, OTIF, SLA de transportadoras e subsídio de frete.
               </p>
-              <div class="spatial-metrics mono">
-                <span>SLAs &amp; OTIF</span>
-                <span>USERELATIONSHIP</span>
+              <div class="orbit-kpi-line mono">
+                <strong>R$ 13,83 Mi</strong>
+                <span>84,58% OTIF</span>
               </div>
               <div class="spatial-actions">
                 <button type="button" class="pixel-btn pixel-btn-accent pixel-btn-sm" data-open-dashboard="supplychain">
@@ -396,18 +449,19 @@
               </div>
             </article>
 
-            <article class="spatial-card" data-category="terceiro-setor" data-index="4">
+            <article class="orbit-card" data-category="terceiro-setor" data-index="4">
+              <div class="orbit-card-veil" aria-hidden="true"></div>
               <div class="spatial-top">
-                <span class="mono tag-orange">MULTI-FATO</span>
+                <span class="mono tag-orange">CONSTELLATION</span>
                 <span class="mono muted">05 / ONG</span>
               </div>
               <h3>ONG Multi-Programas</h3>
               <p>
-                Acompanhamento de metas, eficiência alocativa e impacto social multi-programas com integridade referencial validada via pipeline Python.
+                Modelo com 3 tabelas fato (<code>fDoacoes</code>, <code>fAtendimentos</code>, <code>fOrcamentoMetas</code>) em 2 painéis executivos.
               </p>
-              <div class="spatial-metrics mono">
-                <span>METAS &amp; IMPACTO</span>
-                <span>PYTHON PIPELINE</span>
+              <div class="orbit-kpi-line mono">
+                <strong>R$ 13,12 Mi</strong>
+                <span>2 PAINÉIS BI</span>
               </div>
               <div class="spatial-actions">
                 <button type="button" class="pixel-btn pixel-btn-accent pixel-btn-sm" data-open-dashboard="ong-multi">
@@ -419,18 +473,19 @@
               </div>
             </article>
 
-            <article class="spatial-card" data-category="comercial" data-index="5">
+            <article class="orbit-card" data-category="comercial" data-index="5">
+              <div class="orbit-card-veil" aria-hidden="true"></div>
               <div class="spatial-top">
                 <span class="mono tag-orange">MYSQL + LGPD</span>
                 <span class="mono muted">06 / E-COMMERCE</span>
               </div>
               <h3>Padaria Diniz (BI)</h3>
               <p>
-                Conexão a Views SQL mascaradas (LGPD), 30+ medidas DAX de margem real, ticket médio, curva por setor e Lead Time de preparo de pedidos.
+                4 páginas analíticas sobre Views SQL mascaradas (LGPD), margem real de 43,62%, SLA de 28 min e controle de ruptura.
               </p>
-              <div class="spatial-metrics mono">
-                <span>30+ MEDIDAS DAX</span>
-                <span>VIEWS LGPD</span>
+              <div class="orbit-kpi-line mono">
+                <strong>R$ 79,3 Mil</strong>
+                <span>4 PÁGINAS BI</span>
               </div>
               <div class="spatial-actions">
                 <button type="button" class="pixel-btn pixel-btn-accent pixel-btn-sm" data-open-dashboard="padaria">
@@ -443,14 +498,14 @@
             </article>
           </div>
 
-          <div class="spatial-nav" id="spatial-nav">
-            <button type="button" id="spatial-prev" class="pixel-btn pixel-btn-ghost pixel-btn-sm" aria-label="Projeto anterior">
-              <span class="pixel-label">&larr; ANTERIOR</span>
-            </button>
-            <span class="mono spatial-counter" id="spatial-counter">01 / 06</span>
-            <button type="button" id="spatial-next" class="pixel-btn pixel-btn-ghost pixel-btn-sm" aria-label="Próximo projeto">
-              <span class="pixel-label">PRÓXIMO &rarr;</span>
-            </button>
+          <!-- Bottom Strata HUD Bar -->
+          <div class="orbit-bottom-hud container mono">
+            <span>SELECTED DASHBOARDS</span>
+            <div class="orbit-nav-btns">
+              <button type="button" id="orbit-prev" class="hud-control-btn" aria-label="Dashboard anterior">&larr; ANT</button>
+              <button type="button" id="orbit-next" class="hud-control-btn" aria-label="Próximo dashboard">PRÓX &rarr;</button>
+            </div>
+            <span class="orbit-counter" id="orbit-counter">01 / 06</span>
           </div>
         </div>
       </div>
@@ -459,7 +514,6 @@
     <!-- SYS.04 — LANYARD PASS (BuiltByKern) — SOBRE & CREDENCIAL INTERATIVA -->
     <section id="sobre" class="section section-banded">
       <div class="container lanyard-layout">
-        <!-- Interactive Physics Lanyard Pass -->
         <div class="lanyard-stage" id="lanyard-stage">
           <div class="lanyard-anchor" aria-hidden="true"></div>
           <svg class="lanyard-strap-svg" viewBox="0 0 260 180" aria-hidden="true">
@@ -508,7 +562,6 @@
           <p class="mono lanyard-tip">ARRASTE A CREDENCIAL PARA BALANÇAR</p>
         </div>
 
-        <!-- Bio & Technical Matrix -->
         <div class="about-copy">
           <span class="section-index mono" data-scramble="SYS.04 // CREDENCIAL OPERACIONAL">SYS.04 // CREDENCIAL OPERACIONAL</span>
           <h2 data-scramble="Sobre Mim &amp; Stack Técnica">Sobre Mim &amp; Stack Técnica</h2>
@@ -644,7 +697,7 @@
     </div>
   </dialog>
 
-  <!-- Hybrid BI Command Center Dialog (Web Nativo Chart.js + Power BI Embed) -->
+  <!-- Panoramic Widescreen Hybrid BI Command Center Dialog (Zero Vertical Scroll on Desktop) -->
   <dialog id="dashboard-dialog" class="bi-dialog" closedby="any" aria-labelledby="bi-dialog-title">
     <div class="bi-dialog-header">
       <div class="bi-title-wrap">
@@ -677,14 +730,12 @@
       </div>
     </div>
 
-    <!-- Modo 1: Web Nativo (Chart.js + Orynthiq + Filtros Reais) -->
     <div id="bi-native-view" class="bi-native-view">
       <div id="bi-subbar" class="bi-subbar"></div>
       <div id="bi-kpi-grid" class="bi-kpi-grid"></div>
       <div id="bi-charts-grid" class="bi-charts-grid"></div>
     </div>
 
-    <!-- Modo 2: Embed Oficial do Power BI Service -->
     <div id="bi-embed-view" class="bi-embed-view is-hidden">
       <iframe
         id="bi-embed-iframe"
