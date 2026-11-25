@@ -11,6 +11,7 @@
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
+    window.__portfolioLenis = lenis;
 
     function rafLenis(time) {
       lenis.raf(time);
@@ -664,7 +665,7 @@
       caseDaxList.appendChild(wrap);
     });
 
-    caseLiveDashboard.href = data.dashboardUrl;
+    caseLiveDashboard.dataset.openDashboard = caseId;
     if (data.liveAppUrl) {
       caseLiveApp.href = data.liveAppUrl;
       caseLiveApp.classList.remove('is-hidden');
@@ -676,6 +677,8 @@
     if (lenis) lenis.stop();
     caseDialog.showModal();
   }
+
+  window.openPortfolioCase = openCaseDossier;
 
   document.querySelectorAll('[data-open-case]').forEach((btn) => {
     btn.addEventListener('click', () => openCaseDossier(btn.dataset.openCase));

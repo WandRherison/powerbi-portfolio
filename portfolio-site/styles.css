@@ -1518,6 +1518,271 @@ code {
   }
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================================================
+   HYBRID BI COMMAND CENTER DIALOG (Chart.js + Power BI Embed)
+   ========================================================= */
+.bi-dialog {
+  width: min(96vw, 1280px);
+  height: min(92vh, 880px);
+  padding: 0;
+  border: 1px solid rgba(255, 90, 31, 0.45);
+  border-radius: var(--radius);
+  background: #07090e;
+  color: var(--text);
+  overflow: hidden;
+  box-shadow: 0 36px 100px rgba(0, 0, 0, 0.85);
+}
+
+.bi-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.bi-dialog::backdrop {
+  background: rgba(5, 6, 8, 0.88);
+  backdrop-filter: blur(8px);
+}
+
+.bi-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.95rem 1.35rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 90, 31, 0.09), rgba(11, 14, 21, 0.95));
+}
+
+.bi-title-wrap h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.bi-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.bi-select {
+  font-size: 0.74rem;
+  padding: 0.36rem 0.65rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-strong);
+  background: #0e1118;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.bi-mode-switch {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.18rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+}
+
+.bi-native-view {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1.15rem 1.35rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.bi-subbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.bi-sub-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.bi-sub-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-right: 0.2rem;
+}
+
+.bi-chip {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  padding: 0.34rem 0.72rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.bi-chip:hover,
+.bi-chip.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #050608;
+  font-weight: 600;
+}
+
+.bi-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.bi-kpi-card {
+  padding: 0.95rem 1.1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(20, 25, 35, 0.88), rgba(11, 14, 21, 0.96));
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.bi-kpi-card.is-accent {
+  border-color: rgba(255, 90, 31, 0.48);
+  background: linear-gradient(160deg, rgba(255, 90, 31, 0.14), rgba(11, 14, 21, 0.96));
+}
+
+.bi-kpi-label {
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.bi-kpi-val {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  color: var(--text);
+}
+
+.bi-kpi-card.is-accent .bi-kpi-val {
+  color: var(--accent-bright);
+}
+
+.bi-kpi-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.bi-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.bi-chart-panel {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(14, 17, 24, 0.92);
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bi-chart-panel.span-full {
+  grid-column: 1 / -1;
+}
+
+.bi-chart-head {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--accent-bright);
+}
+
+.bi-canvas-wrap {
+  position: relative;
+  height: 255px;
+  width: 100%;
+}
+
+.bi-table-wrap {
+  overflow-x: auto;
+}
+
+.bi-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.bi-table th,
+.bi-table td {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.bi-table th {
+  font-size: 0.7rem;
+  color: var(--accent-bright);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.bi-table td {
+  color: var(--text-muted);
+}
+
+.bi-table tbody tr:hover td {
+  color: var(--text);
+  background: rgba(255, 90, 31, 0.06);
+}
+
+.bi-embed-view {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background: #0b0e15;
+}
+
+.bi-embed-view iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+@media (max-width: 960px) {
+  .bi-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bi-charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .bi-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Responsive */
 @media (max-width: 960px) {
   .hero-grid,
