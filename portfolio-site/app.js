@@ -86,7 +86,8 @@
         targetScale = Math.min(1.32, 1 + speed * 0.012);
       }
 
-      const overNative = e.target.closest('input, select, textarea, iframe');
+      const hasOpenDialog = Boolean(document.querySelector('dialog[open]'));
+      const overNative = hasOpenDialog || Boolean(e.target.closest('input, select, textarea, iframe, dialog'));
       dirCursor.classList.toggle('is-visible', !overNative);
 
       const interactive = e.target.closest('a, button, summary, [role="button"], .orbit-card, .lanyard-card, .flip-card');

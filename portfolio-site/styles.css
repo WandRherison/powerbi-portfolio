@@ -37,7 +37,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Directional Cursor: hide default cursor on desktop fine pointers except form controls/iframes */
+/* Directional Cursor: hide default cursor on desktop fine pointers except form controls/iframes and open modals */
 @media (hover: hover) and (pointer: fine) {
   body.has-directional-cursor,
   body.has-directional-cursor a,
@@ -51,6 +51,29 @@ body {
   body.has-directional-cursor textarea,
   body.has-directional-cursor iframe {
     cursor: auto;
+  }
+
+  body.has-directional-cursor:has(dialog[open]),
+  body.has-directional-cursor dialog[open],
+  body.has-directional-cursor dialog[open]::backdrop {
+    cursor: auto;
+  }
+
+  body.has-directional-cursor dialog[open] a,
+  body.has-directional-cursor dialog[open] button,
+  body.has-directional-cursor dialog[open] summary,
+  body.has-directional-cursor dialog[open] [role="button"] {
+    cursor: pointer;
+  }
+
+  body.has-directional-cursor dialog[open] input,
+  body.has-directional-cursor dialog[open] select,
+  body.has-directional-cursor dialog[open] textarea {
+    cursor: auto;
+  }
+
+  body:has(dialog[open]) .directional-cursor {
+    opacity: 0 !important;
   }
 }
 
@@ -1175,17 +1198,6 @@ code {
 .sf-top-hud h2 {
   margin: 0;
   font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-}
-
-.sf-counter {
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  color: var(--accent-bright);
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 90, 31, 0.38);
-  background: rgba(255, 90, 31, 0.1);
-  white-space: nowrap;
 }
 
 .sf-stage {

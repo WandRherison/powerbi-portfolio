@@ -1,10 +1,7 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
 
-const TOTAL_FRAMES = 120;
-
 const shell = document.getElementById('scrollframes-shell');
 const canvas = document.getElementById('scrollframes-canvas');
-const counterEl = document.getElementById('sf-frame-counter');
 const scrubberFillEl = document.getElementById('sf-scrubber-fill');
 const captions = Array.from(document.querySelectorAll('.sf-caption'));
 
@@ -409,7 +406,6 @@ function init2DFallback(screenCanvas) {
 
   drawStatic();
   window.addEventListener('resize', drawStatic, { passive: true });
-  if (counterEl) counterEl.textContent = 'FRAME 060 / 120';
   if (scrubberFillEl) scrubberFillEl.style.width = '50%';
   captions.forEach((el) => el.classList.toggle('is-active', Number(el.dataset.sfStep) === 1));
 }
@@ -649,7 +645,6 @@ function initScrollframesLaptop() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let targetP = prefersReducedMotion ? 0.5 : 0;
   let currentP = targetP;
-  let lastHudFrame = -1;
   let isVisible = true;
   let rafId = 0;
 
@@ -700,13 +695,6 @@ function initScrollframesLaptop() {
   }
 
   function updateHud(p) {
-    const frameIndex = clamp(Math.round(p * (TOTAL_FRAMES - 1)), 0, TOTAL_FRAMES - 1);
-    if (frameIndex !== lastHudFrame) {
-      lastHudFrame = frameIndex;
-      if (counterEl) {
-        counterEl.textContent = `FRAME ${String(frameIndex + 1).padStart(3, '0')} / ${TOTAL_FRAMES}`;
-      }
-    }
     if (scrubberFillEl) {
       scrubberFillEl.style.width = `${(p * 100).toFixed(2)}%`;
     }
