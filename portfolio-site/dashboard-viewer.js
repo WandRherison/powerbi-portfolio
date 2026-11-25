@@ -43,6 +43,18 @@
   const fmtInt = (v) => Number(v || 0).toLocaleString('pt-BR', { maximumFractionDigits: 0 });
   const fmtDec = (v, suffix = '') =>
     `${Number(v || 0).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}${suffix}`;
+  const isMobileChart = () => window.innerWidth <= 980;
+  const truncateLabel = (text, max = 12) => {
+    const str = String(text ?? '');
+    return str.length > max ? `${str.slice(0, max - 1).trimEnd()}…` : str;
+  };
+  const fmtAxisCompact = (v) => {
+    const n = Number(v || 0);
+    const abs = Math.abs(n);
+    if (abs >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace('.', ',')}M`;
+    if (abs >= 1_000) return `${Math.round(n / 1_000)}k`;
+    return fmtInt(n);
+  };
 
   const PALETTE = {
     orange: '#ff5a1f',
@@ -79,11 +91,33 @@
     panel.className = 'bi-chart-panel';
     const h = document.createElement('header');
     h.className = 'bi-chart-head mono';
-    h.textContent = title;
+
+    const titleSpan = document.createElement('span');
+    titleSpan.className = 'bi-chart-title';
+    titleSpan.textContent = title;
+
+    const expandBtn = document.createElement('button');
+    expandBtn.type = 'button';
+    expandBtn.className = 'bi-chart-expand-btn mono';
+    expandBtn.setAttribute('aria-label', `Expandir gráfico ${title}`);
+    expandBtn.setAttribute('aria-pressed', 'false');
+    expandBtn.textContent = '⤢ AMPLIAR';
+
     const wrap = document.createElement('div');
     wrap.className = 'bi-canvas-wrap';
     const canvas = document.createElement('canvas');
     wrap.appendChild(canvas);
+
+    expandBtn.addEventListener('click', () => {
+      const zoomed = panel.classList.toggle('is-zoomed');
+      expandBtn.setAttribute('aria-pressed', String(zoomed));
+      expandBtn.textContent = zoomed ? '✕ FECHAR' : '⤢ AMPLIAR';
+      window.requestAnimationFrame(() => {
+        if (canvas.__chartInstance) canvas.__chartInstance.resize();
+      });
+    });
+
+    h.append(titleSpan, expandBtn);
     panel.append(h, wrap);
     chartsGrid.appendChild(panel);
     return canvas;
@@ -91,10 +125,13 @@
 
   function createTablePanel(title, headers, rows) {
     const panel = document.createElement('div');
-    panel.className = 'bi-chart-panel';
+    panel.className = 'bi-chart-panel is-kind-table';
     const h = document.createElement('header');
     h.className = 'bi-chart-head mono';
-    h.textContent = title;
+    const titleSpan = document.createElement('span');
+    titleSpan.className = 'bi-chart-title';
+    titleSpan.textContent = title;
+    h.appendChild(titleSpan);
     const wrap = document.createElement('div');
     wrap.className = 'bi-table-wrap';
     const table = document.createElement('table');
@@ -113,9 +150,10 @@
     const tbody = document.createElement('tbody');
     rows.forEach((r) => {
       const tr = document.createElement('tr');
-      r.forEach((cell) => {
+      r.forEach((cell, colIdx) => {
         const td = document.createElement('td');
         td.textContent = cell;
+        if (headers[colIdx]) td.dataset.label = headers[colIdx];
         tr.appendChild(td);
       });
       tbody.appendChild(tr);
@@ -129,6 +167,30 @@
 
   function makeChart(canvas, config) {
     if (typeof window.Chart !== 'function') return;
+    const mobile = isMobileChart();
+    const indexAxis = config.options?.indexAxis || 'x';
+    const datasetCount = config.data?.datasets?.length || 1;
+    const isDoughnut = config.type === 'doughnut';
+    const panel = canvas.closest('.bi-chart-panel');
+
+    if (panel) {
+      panel.classList.remove('is-kind-doughnut', 'is-kind-hbar', 'is-kind-combo', 'is-kind-standard');
+      if (isDoughnut) {
+        panel.classList.add('is-kind-doughnut');
+        panel.style.setProperty('--mobile-chart-h', '295px');
+      } else if (indexAxis === 'y') {
+        panel.classList.add('is-kind-hbar');
+        const rowCount = config.data?.labels?.length || 4;
+        panel.style.setProperty('--mobile-chart-h', `${Math.max(270, rowCount * 42 + 64)}px`);
+      } else if (config.options?.scales?.y1) {
+        panel.classList.add('is-kind-combo');
+        panel.style.setProperty('--mobile-chart-h', '285px');
+      } else {
+        panel.classList.add('is-kind-standard');
+        panel.style.setProperty('--mobile-chart-h', '265px');
+      }
+    }
+
     const defaults = {
       responsive: true,
       maintainAspectRatio: false,
@@ -145,7 +207,8 @@
         },
       },
     };
-    config.options = {
+
+    const nextOptions = {
       ...defaults,
       ...(config.options || {}),
       plugins: {
@@ -153,7 +216,118 @@
         ...((config.options && config.options.plugins) || {}),
       },
     };
+
+    if (mobile) {
+      nextOptions.interaction = {
+        mode: isDoughnut ? 'nearest' : 'index',
+        intersect: isDoughnut,
+      };
+      nextOptions.layout = { padding: { top: 4, right: 6, bottom: 2, left: 0 } };
+
+      if (isDoughnut) {
+        nextOptions.cutout = '56%';
+      }
+
+      if (!isDoughnut && datasetCount <= 1) {
+        nextOptions.plugins.legend = { ...nextOptions.plugins.legend, display: false };
+      } else {
+        nextOptions.plugins.legend = {
+          ...nextOptions.plugins.legend,
+          display: true,
+          position: 'bottom',
+          labels: {
+            color: PALETTE.text,
+            boxWidth: 10,
+            boxHeight: 10,
+            padding: 10,
+            font: { family: 'JetBrains Mono', size: 10 },
+          },
+        };
+      }
+
+      // Full-precision tooltips even when axis ticks are compact/truncated
+      const origYCb = config.options?.scales?.y?.ticks?.callback;
+      const origXCb = config.options?.scales?.x?.ticks?.callback;
+      const numOrigCb = indexAxis === 'y' ? origXCb : origYCb;
+      const isCurrencyChart = numOrigCb === fmtBRLShort;
+
+      nextOptions.plugins.tooltip = {
+        ...nextOptions.plugins.tooltip,
+        padding: 10,
+        titleFont: { family: 'Space Grotesk', size: 12, weight: '700' },
+        bodyFont: { family: 'JetBrains Mono', size: 11 },
+        callbacks: {
+          title: (items) => items?.[0]?.label || '',
+          label: (ctx) => {
+            const rawVal = isDoughnut ? ctx.parsed : indexAxis === 'y' ? ctx.parsed.x : ctx.parsed.y;
+            const prefix = ctx.dataset?.label ? `${ctx.dataset.label}: ` : '';
+            if (isDoughnut) {
+              const total = (ctx.dataset.data || []).reduce((acc, v) => acc + Number(v || 0), 0);
+              const pct = total > 0 ? ((rawVal / total) * 100).toFixed(1).replace('.', ',') : '0,0';
+              const valText = Math.abs(rawVal) >= 1000 ? fmtBRLShort(rawVal) : fmtInt(rawVal);
+              return ` ${ctx.label}: ${valText} (${pct}%)`;
+            }
+            const dsYId = ctx.dataset?.yAxisID;
+            if (dsYId === 'y1') {
+              const y1Cb = config.options?.scales?.y1?.ticks?.callback;
+              const strVal = typeof y1Cb === 'function' ? y1Cb(rawVal) : fmtDec(rawVal);
+              return ` ${prefix}${strVal}`;
+            }
+            if (isCurrencyChart || /receita|fatur|lucro|meta|arrecad|bruto|l[ií]quido|valor|subs[ií]dio|frete/i.test(prefix)) {
+              return ` ${prefix}${fmtBRL(rawVal)}`;
+            }
+            if (typeof numOrigCb === 'function' && String(numOrigCb(50)).includes('%')) {
+              return ` ${prefix}${fmtDec(rawVal, '%')}`;
+            }
+            return ` ${prefix}${fmtInt(rawVal)}`;
+          },
+        },
+      };
+
+      if (nextOptions.scales) {
+        const scaled = {};
+        Object.entries(nextOptions.scales).forEach(([axisKey, axisCfg]) => {
+          if (!axisCfg) return;
+          const isCatAxis = (indexAxis === 'y' && axisKey === 'y') || (indexAxis !== 'y' && axisKey === 'x');
+          const origTicks = axisCfg.ticks || {};
+          const origCb = origTicks.callback;
+          const isPctAxis = typeof origCb === 'function' && String(origCb(50)).includes('%');
+
+          const newTicks = {
+            ...origTicks,
+            font: { family: 'JetBrains Mono', size: 9.5 },
+          };
+
+          if (isCatAxis) {
+            newTicks.maxRotation = indexAxis === 'y' ? 0 : 35;
+            newTicks.minRotation = 0;
+            newTicks.autoSkip = indexAxis !== 'y';
+            if (indexAxis !== 'y') newTicks.maxTicksLimit = 6;
+            const limit = indexAxis === 'y' ? 14 : 11;
+            newTicks.callback = function (val) {
+              return truncateLabel(this.getLabelForValue(val), limit);
+            };
+          } else {
+            newTicks.maxTicksLimit = axisKey === 'x' ? 4 : 5;
+            if (isPctAxis) {
+              newTicks.callback = (v) => `${Math.round(Number(v))}%`;
+            } else {
+              newTicks.callback = (v) => fmtAxisCompact(v);
+            }
+          }
+
+          scaled[axisKey] = {
+            ...axisCfg,
+            ticks: newTicks,
+          };
+        });
+        nextOptions.scales = scaled;
+      }
+    }
+
+    config.options = nextOptions;
     const chart = new window.Chart(canvas.getContext('2d'), config);
+    canvas.__chartInstance = chart;
     activeCharts.push(chart);
   }
 
@@ -836,6 +1010,45 @@
     embedIframe.src = 'about:blank';
     if (window.__portfolioLenis) window.__portfolioLenis.start();
   });
+
+  // Escape exits fullscreen mobile chart zoom before dismissing dialog
+  dialog.addEventListener('cancel', (e) => {
+    const zoomedPanel = dialog.querySelector('.bi-chart-panel.is-zoomed');
+    if (zoomedPanel) {
+      e.preventDefault();
+      zoomedPanel.classList.remove('is-zoomed');
+      const btn = zoomedPanel.querySelector('.bi-chart-expand-btn');
+      if (btn) {
+        btn.setAttribute('aria-pressed', 'false');
+        btn.textContent = '⤢ AMPLIAR';
+      }
+      const c = zoomedPanel.querySelector('canvas');
+      if (c && c.__chartInstance) {
+        window.requestAnimationFrame(() => c.__chartInstance.resize());
+      }
+    }
+  });
+
+  // Re-adapt charts cleanly if crossing 980px breakpoint or rotating device
+  let lastViewportWidth = window.innerWidth;
+  let lastMobileFlag = isMobileChart();
+  let resizeTimer = 0;
+  window.addEventListener(
+    'resize',
+    () => {
+      if (!dialog.open || currentMode !== 'native') return;
+      const nowMobile = isMobileChart();
+      const nowW = window.innerWidth;
+      if (nowMobile === lastMobileFlag && Math.abs(nowW - lastViewportWidth) < 80) return;
+      if (resizeTimer) window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        lastViewportWidth = window.innerWidth;
+        lastMobileFlag = isMobileChart();
+        renderNative();
+      }, 180);
+    },
+    { passive: true }
+  );
 
   // Fallback obrigatório de light-dismiss para Safari
   if (!('closedBy' in HTMLDialogElement.prototype)) {

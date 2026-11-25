@@ -1204,12 +1204,14 @@ code {
 }
 
 .sf-top-hud {
+  position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 1.5rem;
   flex-wrap: wrap;
   z-index: 4;
+  pointer-events: none;
 }
 
 .sf-top-hud h2 {
@@ -1218,10 +1220,11 @@ code {
 }
 
 .sf-stage {
-  position: relative;
-  flex: 1;
-  min-height: 0;
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1247,7 +1250,7 @@ code {
 .sf-caption {
   position: absolute;
   left: 1.5rem;
-  bottom: 1.25rem;
+  bottom: 4.35rem;
   max-width: 390px;
   padding: 1.15rem 1.25rem;
   border-radius: 14px;
@@ -1284,6 +1287,7 @@ code {
 }
 
 .sf-bottom-hud {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -1291,6 +1295,7 @@ code {
   letter-spacing: 0.08em;
   color: var(--text-muted);
   z-index: 4;
+  pointer-events: none;
 }
 
 .sf-scrubber-bar {
@@ -2831,10 +2836,22 @@ code {
 }
 
 .bi-chart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
   font-size: 0.67rem;
   letter-spacing: 0.06em;
   color: var(--accent-bright);
   flex-shrink: 0;
+}
+
+.bi-chart-title {
+  min-width: 0;
+}
+
+.bi-chart-expand-btn {
+  display: none;
 }
 
 .bi-canvas-wrap {
@@ -3234,6 +3251,8 @@ dialog::backdrop {
   }
 
   .sf-stage {
+    position: relative;
+    inset: auto;
     height: auto;
     min-height: 0;
     flex: none;
@@ -3601,9 +3620,96 @@ dialog::backdrop {
     grid-template-rows: auto;
   }
 
-  .bi-canvas-wrap {
-    height: 230px;
+  .bi-chart-expand-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-height: 28px;
+    padding: 0.22rem 0.54rem;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 90, 31, 0.42);
+    background: rgba(255, 90, 31, 0.12);
+    color: var(--accent-bright);
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .bi-chart-panel .bi-canvas-wrap {
+    height: var(--mobile-chart-h, 265px);
     flex: none;
+  }
+
+  .bi-chart-panel.is-zoomed {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    border-radius: 0;
+    border: 0;
+    background: #07090e;
+    padding: calc(0.95rem + env(safe-area-inset-top)) 0.9rem calc(1rem + env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bi-chart-panel.is-zoomed .bi-canvas-wrap {
+    flex: 1;
+    height: auto;
+    min-height: 0;
+  }
+
+  .bi-chart-panel.is-kind-table {
+    overflow: visible;
+  }
+
+  .bi-chart-panel.is-kind-table .bi-table-wrap {
+    overflow: visible;
+  }
+
+  .bi-table thead {
+    display: none;
+  }
+
+  .bi-table tbody {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .bi-table tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem 0.75rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+  .bi-table td {
+    border: 0;
+    padding: 0;
+    font-size: 0.82rem;
+    color: var(--text);
+  }
+
+  .bi-table td:first-child {
+    grid-column: 1 / -1;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+  }
+
+  .bi-table td:not(:first-child)::before {
+    content: attr(data-label);
+    display: block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.58rem;
+    color: var(--accent-bright);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.12rem;
   }
 
   #bi-embed-view:not(.is-hidden) {
@@ -3748,6 +3854,8 @@ dialog::backdrop {
     gap: 1.5rem;
   }
   .sf-stage {
+    position: relative;
+    inset: auto;
     height: auto;
     flex-direction: column;
   }

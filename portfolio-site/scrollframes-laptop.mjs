@@ -467,7 +467,7 @@ function initScrollframesLaptop() {
   });
   const shadowMesh = new THREE.Mesh(new THREE.PlaneGeometry(5.2, 4.2), shadowMat);
   shadowMesh.rotation.x = -Math.PI / 2;
-  shadowMesh.position.y = -0.34;
+  shadowMesh.position.y = -1.14;
   stageGroup.add(shadowMesh);
 
   const floorRingMat = new THREE.MeshBasicMaterial({
@@ -478,7 +478,7 @@ function initScrollframesLaptop() {
   });
   const floorRing = new THREE.Mesh(new THREE.RingGeometry(2.1, 2.13, 72), floorRingMat);
   floorRing.rotation.x = -Math.PI / 2;
-  floorRing.position.y = -0.33;
+  floorRing.position.y = -1.13;
   stageGroup.add(floorRing);
 
   // Root Laptop Assembly
@@ -643,12 +643,17 @@ function initScrollframesLaptop() {
 
   // Scrollframes State
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   const phaseBtns = Array.from(document.querySelectorAll('.sf-phase-btn'));
   const PHASE_TARGETS = [0.24, 0.56, 0.96];
   let targetP = prefersReducedMotion ? 0.5 : 0;
   let currentP = targetP;
   let targetYaw = 0;
   let currentYaw = 0;
+  let targetParallaxX = 0;
+  let targetParallaxY = 0;
+  let curParallaxX = 0;
+  let curParallaxY = 0;
   let manualPhaseLock = false;
   let lockScrollY = window.scrollY;
   let isVisible = true;
@@ -657,46 +662,49 @@ function initScrollframesLaptop() {
   function applyPose(p) {
     const aspect = camera.aspect || 16 / 9;
     const isDesktopWide = window.innerWidth > 980;
-    const mobileDistBoost = aspect < 1.1 ? (1.1 - aspect) * 2.6 : 0;
+    const vTan = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+    const minVerticalZ = 1.48 / (vTan * 0.72);
+    const minHorizontalZ = aspect < 1.25 ? 2.15 / (vTan * aspect * 0.85) : 0;
+    const baseFitZ = Math.max(minVerticalZ, minHorizontalZ);
 
     // 1. Frame pose interpolation across 3 phases (0..0.294 open, 0.294..0.756 360 spin, 0.756..1 lock-in)
     if (p <= 0.294) {
       const t = easeOutCubic(p / 0.294);
       // Closed (+1.45 rad flat forward over keyboard) -> Open (-0.19 rad)
       lidPivot.rotation.x = lerp(1.45, -0.19, t);
-      laptopRoot.rotation.y = lerp(-0.55, 0.16, t) + currentYaw;
-      laptopRoot.rotation.x = lerp(0.42, 0.22, t);
-      laptopRoot.position.y = lerp(-0.08, -0.22, t);
-      laptopRoot.position.x = isDesktopWide ? lerp(0.15, 0.42, t) : 0;
-      camera.position.z = lerp(5.55, 5.2, t) + mobileDistBoost;
-      camera.position.y = lerp(0.85, 0.65, t);
+      laptopRoot.rotation.y = lerp(-0.55, 0.16, t) + currentYaw + curParallaxY;
+      laptopRoot.rotation.x = lerp(0.36, 0.18, t) + curParallaxX;
+      laptopRoot.position.y = lerp(-0.68, -0.82, t);
+      stageGroup.position.x = isDesktopWide ? lerp(0.32, 0.62, t) : 0;
+      camera.position.z = lerp(baseFitZ * 1.04, baseFitZ * 0.98, t);
+      camera.position.y = lerp(0.52, 0.4, t);
       screenMat.emissiveIntensity = lerp(0.04, 0.82, t);
     } else if (p <= 0.756) {
       const t = (p - 0.294) / (0.756 - 0.294);
       const smoothT = easeInOutCubic(t);
       lidPivot.rotation.x = -0.19;
-      laptopRoot.rotation.y = 0.16 + smoothT * Math.PI * 2 + currentYaw;
-      laptopRoot.rotation.x = 0.22 + Math.sin(smoothT * Math.PI) * 0.08;
-      laptopRoot.position.y = -0.22;
-      laptopRoot.position.x = isDesktopWide ? 0.42 : 0;
-      camera.position.z = 5.2 + Math.sin(smoothT * Math.PI) * 0.42 + mobileDistBoost;
-      camera.position.y = 0.65;
+      laptopRoot.rotation.y = 0.16 + smoothT * Math.PI * 2 + currentYaw + curParallaxY;
+      laptopRoot.rotation.x = 0.18 + Math.sin(smoothT * Math.PI) * 0.06 + curParallaxX;
+      laptopRoot.position.y = -0.82;
+      stageGroup.position.x = isDesktopWide ? 0.62 : 0;
+      camera.position.z = baseFitZ * 0.98 + Math.sin(smoothT * Math.PI) * 0.45;
+      camera.position.y = 0.4;
       screenMat.emissiveIntensity = 0.84;
     } else {
       const t = easeInOutCubic((p - 0.756) / (1.0 - 0.756));
       lidPivot.rotation.x = lerp(-0.19, -0.14, t);
-      laptopRoot.rotation.y = lerp(0.16 + Math.PI * 2, -0.05 + Math.PI * 2, t) + currentYaw;
-      laptopRoot.rotation.x = lerp(0.22, 0.14, t);
-      laptopRoot.position.y = lerp(-0.22, -0.34, t);
-      laptopRoot.position.x = isDesktopWide ? lerp(0.42, 0.56, t) : 0;
-      camera.position.z = lerp(5.2, 4.1, t) + mobileDistBoost;
-      camera.position.y = lerp(0.65, 0.52, t);
+      laptopRoot.rotation.y = lerp(0.16 + Math.PI * 2, -0.05 + Math.PI * 2, t) + currentYaw + curParallaxY;
+      laptopRoot.rotation.x = lerp(0.18, 0.12, t) + curParallaxX;
+      laptopRoot.position.y = lerp(-0.82, -0.88, t);
+      stageGroup.position.x = isDesktopWide ? lerp(0.62, 0.72, t) : 0;
+      camera.position.z = lerp(baseFitZ * 0.98, baseFitZ * 0.86, t);
+      camera.position.y = lerp(0.4, 0.3, t);
       screenMat.emissiveIntensity = lerp(0.84, 0.94, t);
     }
 
-    camera.lookAt(0, 0.28, 0);
+    camera.lookAt(0, 0.12, 0);
 
-    // Subtle rotation of floor glow ring synced to frame
+    // Subtle glow pulse synced to frame
     floorRingMat.opacity = 0.18 + Math.sin(p * Math.PI) * 0.14;
   }
 
@@ -736,16 +744,32 @@ function initScrollframesLaptop() {
     rafId = 0;
     const diff = targetP - currentP;
     const yawDiff = targetYaw - currentYaw;
-    if (Math.abs(diff) > 0.00025 || Math.abs(yawDiff) > 0.0005) {
+    const pxDiff = targetParallaxX - curParallaxX;
+    const pyDiff = targetParallaxY - curParallaxY;
+    if (
+      Math.abs(diff) > 0.00025 ||
+      Math.abs(yawDiff) > 0.0005 ||
+      Math.abs(pxDiff) > 0.0004 ||
+      Math.abs(pyDiff) > 0.0004
+    ) {
       currentP += diff * 0.16;
       currentYaw += yawDiff * 0.16;
+      curParallaxX += pxDiff * 0.1;
+      curParallaxY += pyDiff * 0.1;
       renderFrame();
       if (isVisible) {
         rafId = window.requestAnimationFrame(tick);
       }
-    } else if (currentP !== targetP || currentYaw !== targetYaw) {
+    } else if (
+      currentP !== targetP ||
+      currentYaw !== targetYaw ||
+      curParallaxX !== targetParallaxX ||
+      curParallaxY !== targetParallaxY
+    ) {
       currentP = targetP;
       currentYaw = targetYaw;
+      curParallaxX = targetParallaxX;
+      curParallaxY = targetParallaxY;
       renderFrame();
     }
   }
@@ -769,8 +793,35 @@ function initScrollframesLaptop() {
       manualPhaseLock = false;
       targetYaw = 0;
       currentYaw = 0;
+    } else {
+      targetParallaxX = 0;
+      targetParallaxY = 0;
+      curParallaxX = 0;
+      curParallaxY = 0;
     }
     renderFrame();
+  }
+
+  // Subtle Desktop Mouse Parallax (> 980px fine pointers only)
+  if (finePointer && !prefersReducedMotion) {
+    window.addEventListener(
+      'pointermove',
+      (e) => {
+        if (!isVisible || window.innerWidth <= 980 || e.pointerType === 'touch') return;
+        const nx = clamp((e.clientX / Math.max(1, window.innerWidth) - 0.5) * 2, -1, 1);
+        const ny = clamp((e.clientY / Math.max(1, window.innerHeight) - 0.5) * 2, -1, 1);
+        targetParallaxY = nx * 0.14;
+        targetParallaxX = ny * 0.06;
+        scheduleRender();
+      },
+      { passive: true }
+    );
+
+    document.addEventListener('pointerleave', () => {
+      targetParallaxX = 0;
+      targetParallaxY = 0;
+      scheduleRender();
+    });
   }
 
   // Mobile Phase Pills Controller
