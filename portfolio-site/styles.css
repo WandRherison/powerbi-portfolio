@@ -37,55 +37,72 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Directional Cursor: hide default cursor on desktop fine pointers except form controls/iframes and open modals */
+/* Directional Cursor: hide default cursor on desktop fine pointers except form controls/iframes */
 @media (hover: hover) and (pointer: fine) {
   body.has-directional-cursor,
   body.has-directional-cursor a,
   body.has-directional-cursor button,
-  body.has-directional-cursor summary {
+  body.has-directional-cursor summary,
+  body.has-directional-cursor.has-toplayer-cursor dialog[open],
+  body.has-directional-cursor.has-toplayer-cursor dialog[open]::backdrop,
+  body.has-directional-cursor.has-toplayer-cursor dialog[open] a,
+  body.has-directional-cursor.has-toplayer-cursor dialog[open] button,
+  body.has-directional-cursor.has-toplayer-cursor dialog[open] summary,
+  body.has-directional-cursor.has-toplayer-cursor dialog[open] [role="button"] {
     cursor: none;
   }
 
   body.has-directional-cursor input,
   body.has-directional-cursor select,
   body.has-directional-cursor textarea,
-  body.has-directional-cursor iframe {
+  body.has-directional-cursor iframe,
+  body.has-directional-cursor dialog[open] input,
+  body.has-directional-cursor dialog[open] select,
+  body.has-directional-cursor dialog[open] textarea,
+  body.has-directional-cursor dialog[open] iframe {
     cursor: auto;
   }
 
-  body.has-directional-cursor:has(dialog[open]),
-  body.has-directional-cursor dialog[open],
-  body.has-directional-cursor dialog[open]::backdrop {
+  /* Fallback for browsers without native Top Layer Popover API */
+  body.has-directional-cursor:not(.has-toplayer-cursor):has(dialog[open]),
+  body.has-directional-cursor:not(.has-toplayer-cursor) dialog[open],
+  body.has-directional-cursor:not(.has-toplayer-cursor) dialog[open]::backdrop {
     cursor: auto;
   }
 
-  body.has-directional-cursor dialog[open] a,
-  body.has-directional-cursor dialog[open] button,
-  body.has-directional-cursor dialog[open] summary,
-  body.has-directional-cursor dialog[open] [role="button"] {
+  body.has-directional-cursor:not(.has-toplayer-cursor) dialog[open] a,
+  body.has-directional-cursor:not(.has-toplayer-cursor) dialog[open] button,
+  body.has-directional-cursor:not(.has-toplayer-cursor) dialog[open] summary,
+  body.has-directional-cursor:not(.has-toplayer-cursor) dialog[open] [role="button"] {
     cursor: pointer;
   }
 
-  body.has-directional-cursor dialog[open] input,
-  body.has-directional-cursor dialog[open] select,
-  body.has-directional-cursor dialog[open] textarea {
-    cursor: auto;
-  }
-
-  body:has(dialog[open]) .directional-cursor {
+  body.has-directional-cursor:not(.has-toplayer-cursor):has(dialog[open]) .directional-cursor {
     opacity: 0 !important;
   }
 }
 
 .directional-cursor {
   position: fixed;
+  inset: auto;
   top: 0;
   left: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
   z-index: 99999;
   pointer-events: none;
   opacity: 0;
   will-change: transform, opacity;
   transition: opacity 0.2s ease;
+}
+
+.directional-cursor::backdrop {
+  display: none;
 }
 
 .directional-cursor.is-visible {

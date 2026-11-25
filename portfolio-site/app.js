@@ -57,6 +57,40 @@
   if (dirCursor && finePointer && !prefersReducedMotion) {
     document.body.classList.add('has-directional-cursor');
     const arrow = dirCursor.querySelector('.cursor-arrow');
+    const supportsPopover =
+      Object.hasOwn(HTMLElement.prototype, 'popover') &&
+      typeof dirCursor.showPopover === 'function';
+
+    function promoteCursorToTopLayer() {
+      if (!supportsPopover) return;
+      try {
+        if (dirCursor.matches(':popover-open')) {
+          dirCursor.hidePopover();
+        }
+        dirCursor.showPopover();
+      } catch {
+        // Ignore transient top-layer state errors
+      }
+    }
+
+    if (supportsPopover) {
+      dirCursor.setAttribute('popover', 'manual');
+      document.body.classList.add('has-toplayer-cursor');
+      promoteCursorToTopLayer();
+
+      const dialogObserver = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          if (m.type === 'attributes' && m.target instanceof HTMLDialogElement && m.target.hasAttribute('open')) {
+            promoteCursorToTopLayer();
+            break;
+          }
+        }
+      });
+
+      document.querySelectorAll('dialog').forEach((dlg) => {
+        dialogObserver.observe(dlg, { attributes: true, attributeFilter: ['open'] });
+      });
+    }
 
     let targetX = -100;
     let targetY = -100;
@@ -86,12 +120,19 @@
         targetScale = Math.min(1.32, 1 + speed * 0.012);
       }
 
-      const hasOpenDialog = Boolean(document.querySelector('dialog[open]'));
-      const overNative = hasOpenDialog || Boolean(e.target.closest('input, select, textarea, iframe, dialog'));
+      const targetEl = e.target instanceof Element ? e.target : null;
+      const blockedByModalFallback = !supportsPopover && Boolean(document.querySelector('dialog[open]'));
+      const overNative = blockedByModalFallback || Boolean(targetEl?.closest('input, select, textarea, iframe'));
       dirCursor.classList.toggle('is-visible', !overNative);
 
-      const interactive = e.target.closest('a, button, summary, [role="button"], .orbit-card, .lanyard-card, .flip-card');
+      const interactive = targetEl?.closest('a, button, summary, [role="button"], .orbit-card, .lanyard-card, .flip-card');
       dirCursor.classList.toggle('is-interactive', Boolean(interactive));
+    });
+
+    document.querySelectorAll('iframe').forEach((frame) => {
+      const hideOnIframe = () => dirCursor.classList.remove('is-visible');
+      frame.addEventListener('mouseenter', hideOnIframe);
+      frame.addEventListener('pointerenter', hideOnIframe);
     });
 
     window.addEventListener('scroll', () => {
