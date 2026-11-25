@@ -9,6 +9,7 @@
   const modeEmbedBtn = document.getElementById('bi-mode-embed');
   const openCaseBtn = document.getElementById('bi-switch-case');
   const externalLink = document.getElementById('bi-external-link');
+  const mobileExternalLink = document.getElementById('bi-mobile-open-tab');
   const nativeContainer = document.getElementById('bi-native-view');
   const embedContainer = document.getElementById('bi-embed-view');
   const embedIframe = document.getElementById('bi-embed-iframe');
@@ -794,6 +795,7 @@
     titleEl.textContent = meta.title;
     if (projectSelect) projectSelect.value = id;
     if (externalLink) externalLink.href = dbMap[id].embedUrl;
+    if (mobileExternalLink) mobileExternalLink.href = dbMap[id].embedUrl;
 
     // Reset iframe when switching project so embed loads fresh if toggled
     embedIframe.src = 'about:blank';

@@ -643,8 +643,14 @@ function initScrollframesLaptop() {
 
   // Scrollframes State
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const phaseBtns = Array.from(document.querySelectorAll('.sf-phase-btn'));
+  const PHASE_TARGETS = [0.24, 0.56, 0.96];
   let targetP = prefersReducedMotion ? 0.5 : 0;
   let currentP = targetP;
+  let targetYaw = 0;
+  let currentYaw = 0;
+  let manualPhaseLock = false;
+  let lockScrollY = window.scrollY;
   let isVisible = true;
   let rafId = 0;
 
@@ -658,7 +664,7 @@ function initScrollframesLaptop() {
       const t = easeOutCubic(p / 0.294);
       // Closed (+1.45 rad flat forward over keyboard) -> Open (-0.19 rad)
       lidPivot.rotation.x = lerp(1.45, -0.19, t);
-      laptopRoot.rotation.y = lerp(-0.55, 0.16, t);
+      laptopRoot.rotation.y = lerp(-0.55, 0.16, t) + currentYaw;
       laptopRoot.rotation.x = lerp(0.42, 0.22, t);
       laptopRoot.position.y = lerp(-0.08, -0.22, t);
       laptopRoot.position.x = isDesktopWide ? lerp(0.15, 0.42, t) : 0;
@@ -669,7 +675,7 @@ function initScrollframesLaptop() {
       const t = (p - 0.294) / (0.756 - 0.294);
       const smoothT = easeInOutCubic(t);
       lidPivot.rotation.x = -0.19;
-      laptopRoot.rotation.y = 0.16 + smoothT * Math.PI * 2;
+      laptopRoot.rotation.y = 0.16 + smoothT * Math.PI * 2 + currentYaw;
       laptopRoot.rotation.x = 0.22 + Math.sin(smoothT * Math.PI) * 0.08;
       laptopRoot.position.y = -0.22;
       laptopRoot.position.x = isDesktopWide ? 0.42 : 0;
@@ -679,7 +685,7 @@ function initScrollframesLaptop() {
     } else {
       const t = easeInOutCubic((p - 0.756) / (1.0 - 0.756));
       lidPivot.rotation.x = lerp(-0.19, -0.14, t);
-      laptopRoot.rotation.y = lerp(0.16 + Math.PI * 2, -0.05 + Math.PI * 2, t);
+      laptopRoot.rotation.y = lerp(0.16 + Math.PI * 2, -0.05 + Math.PI * 2, t) + currentYaw;
       laptopRoot.rotation.x = lerp(0.22, 0.14, t);
       laptopRoot.position.y = lerp(-0.22, -0.34, t);
       laptopRoot.position.x = isDesktopWide ? lerp(0.42, 0.56, t) : 0;
@@ -701,6 +707,11 @@ function initScrollframesLaptop() {
     const step = p < 0.33 ? 0 : p < 0.68 ? 1 : 2;
     captions.forEach((cap) => {
       cap.classList.toggle('is-active', Number(cap.dataset.sfStep) === step);
+    });
+    phaseBtns.forEach((btn) => {
+      const active = Number(btn.dataset.sfTarget) === step;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-selected', String(active));
     });
   }
 
@@ -724,14 +735,17 @@ function initScrollframesLaptop() {
   function tick() {
     rafId = 0;
     const diff = targetP - currentP;
-    if (Math.abs(diff) > 0.00025) {
+    const yawDiff = targetYaw - currentYaw;
+    if (Math.abs(diff) > 0.00025 || Math.abs(yawDiff) > 0.0005) {
       currentP += diff * 0.16;
+      currentYaw += yawDiff * 0.16;
       renderFrame();
       if (isVisible) {
         rafId = window.requestAnimationFrame(tick);
       }
-    } else if (currentP !== targetP) {
+    } else if (currentP !== targetP || currentYaw !== targetYaw) {
       currentP = targetP;
+      currentYaw = targetYaw;
       renderFrame();
     }
   }
@@ -746,12 +760,81 @@ function initScrollframesLaptop() {
     const w = canvas.clientWidth;
     const h = canvas.clientHeight;
     if (w < 10 || h < 10) return;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    const maxDpr = window.innerWidth <= 980 ? 1.5 : 2;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxDpr));
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
+    if (window.innerWidth > 980) {
+      manualPhaseLock = false;
+      targetYaw = 0;
+      currentYaw = 0;
+    }
     renderFrame();
   }
+
+  // Mobile Phase Pills Controller
+  phaseBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.dataset.sfTarget);
+      if (Number.isNaN(idx) || PHASE_TARGETS[idx] === undefined) return;
+      manualPhaseLock = true;
+      lockScrollY = window.scrollY;
+      targetP = PHASE_TARGETS[idx];
+      targetYaw = 0;
+      scheduleRender();
+    });
+  });
+
+  // Mobile Touch / Drag 360° Inspection on Canvas (preserves vertical page scroll)
+  let dragPointerId = null;
+  let dragStartX = 0;
+  let dragStartY = 0;
+  let dragStartYaw = 0;
+  let dragAxis = null;
+
+  canvas.addEventListener('pointerdown', (e) => {
+    if (window.innerWidth > 980 && e.pointerType !== 'touch') return;
+    dragPointerId = e.pointerId;
+    dragStartX = e.clientX;
+    dragStartY = e.clientY;
+    dragStartYaw = targetYaw;
+    dragAxis = null;
+  });
+
+  canvas.addEventListener('pointermove', (e) => {
+    if (dragPointerId !== e.pointerId) return;
+    const dx = e.clientX - dragStartX;
+    const dy = e.clientY - dragStartY;
+    if (dragAxis === null) {
+      if (Math.hypot(dx, dy) < 6) return;
+      if (Math.abs(dx) > Math.abs(dy)) {
+        dragAxis = 'x';
+        try {
+          canvas.setPointerCapture(e.pointerId);
+        } catch {
+          // Ignore capture errors
+        }
+        canvas.style.cursor = 'grabbing';
+      } else {
+        dragAxis = 'y';
+        dragPointerId = null;
+        return;
+      }
+    }
+    if (dragAxis === 'x') {
+      targetYaw = dragStartYaw + dx * 0.012;
+      scheduleRender();
+    }
+  });
+
+  const endCanvasDrag = () => {
+    dragPointerId = null;
+    dragAxis = null;
+    canvas.style.cursor = '';
+  };
+  canvas.addEventListener('pointerup', endCanvasDrag);
+  canvas.addEventListener('pointercancel', endCanvasDrag);
 
   // Initial sizing & pose
   handleResize();
@@ -774,11 +857,16 @@ function initScrollframesLaptop() {
     (entries) => {
       isVisible = Boolean(entries[0]?.isIntersecting);
       if (isVisible) {
-        targetP = computeScrollProgress();
+        if (!manualPhaseLock) {
+          targetP = computeScrollProgress();
+        }
         scheduleRender();
-      } else if (rafId) {
-        window.cancelAnimationFrame(rafId);
-        rafId = 0;
+      } else {
+        manualPhaseLock = false;
+        if (rafId) {
+          window.cancelAnimationFrame(rafId);
+          rafId = 0;
+        }
       }
     },
     { rootMargin: '240px 0px' }
@@ -788,6 +876,13 @@ function initScrollframesLaptop() {
   window.addEventListener(
     'scroll',
     () => {
+      if (manualPhaseLock) {
+        if (Math.abs(window.scrollY - lockScrollY) > 150) {
+          manualPhaseLock = false;
+        } else {
+          return;
+        }
+      }
       targetP = computeScrollProgress();
       scheduleRender();
     },

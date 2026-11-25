@@ -53,6 +53,11 @@
           <span class="pixel-label">CONTATO</span>
         </a>
       </nav>
+
+      <button type="button" id="mobile-menu-btn" class="mobile-menu-btn mono" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <span class="menu-bars" aria-hidden="true"><i></i><i></i></span>
+        <span>MENU</span>
+      </button>
     </div>
   </header>
 
@@ -374,6 +379,15 @@
 
           <div class="sf-stage">
             <canvas id="scrollframes-canvas" aria-label="Notebook 3D que abre e rotaciona conforme a rolagem exibindo o dashboard da Padaria Diniz"></canvas>
+
+            <div class="sf-mobile-controls">
+              <span class="sf-drag-hint mono">ARRASTE PARA GIRAR EM 360°</span>
+              <div class="sf-phase-tabs" role="tablist" aria-label="Fases da apresentação 3D">
+                <button type="button" role="tab" class="sf-phase-btn is-active" data-sf-target="0" aria-selected="true">01 · Engenharia</button>
+                <button type="button" role="tab" class="sf-phase-btn" data-sf-target="1" aria-selected="false">02 · Padaria BI</button>
+                <button type="button" role="tab" class="sf-phase-btn" data-sf-target="2" aria-selected="false">03 · Inspecione</button>
+              </div>
+            </div>
 
             <!-- Scroll-scrubbed Narrative Captions -->
             <div class="sf-captions container">
@@ -1017,6 +1031,72 @@
     </div>
   </footer>
 
+  <!-- Mobile Bottom Thumb Dock (Hidden > 980px & when dialogs open) -->
+  <nav id="mobile-dock" class="mobile-dock" aria-label="Atalhos mobile">
+    <a href="#topo" class="mobile-dock-item is-active" data-dock-target="topo" aria-current="location">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+      <span>Início</span>
+    </a>
+    <a href="#destaques" class="mobile-dock-item" data-dock-target="destaques">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="3" y="4" width="8" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="13" y="4" width="8" height="11" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="3" y="13" width="8" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="13" y="17" width="8" height="3" rx="1.2" stroke="currentColor" stroke-width="1.8"/>
+      </svg>
+      <span>Reais</span>
+    </a>
+    <a href="#powerbi" class="mobile-dock-item" data-dock-target="powerbi">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5 19V11M12 19V5M19 19V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Dashboards</span>
+    </a>
+    <a href="#sobre" class="mobile-dock-item" data-dock-target="sobre">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M5 20a7 7 0 0 1 14 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <span>Sobre</span>
+    </a>
+  </nav>
+
+  <!-- Mobile Top-Layer Swipeable Navigation Drawer -->
+  <dialog id="mobile-drawer" class="mobile-drawer" aria-label="Menu de navegação">
+    <div class="mobile-drawer-scroller">
+      <nav class="mobile-drawer-sheet" aria-label="Navegação mobile">
+        <div class="mobile-drawer-head">
+          <span class="mono accent-text">SYS.NAV // MENU</span>
+          <button type="button" id="mobile-drawer-close" class="dialog-close" aria-label="Fechar menu" autofocus>&times;</button>
+        </div>
+
+        <div class="mobile-drawer-status mono">
+          <span class="os-avail"><i class="status-pulse" aria-hidden="true"></i> DISPONÍVEL · BI &amp; DADOS</span>
+          <span id="mobile-os-clock" class="os-clock">--:-- BRT</span>
+        </div>
+
+        <ul class="mobile-drawer-links">
+          <li><a href="#processo"><span class="mono">00</span><strong>Processo &amp; Globe</strong></a></li>
+          <li><a href="#destaques"><span class="mono">01</span><strong>Projetos Reais</strong></a></li>
+          <li><a href="#showcase-3d"><span class="mono">01B</span><strong>Workstation 3D</strong></a></li>
+          <li><a href="#clube-gringas"><span class="mono">02</span><strong>ONG Clube Gringas</strong></a></li>
+          <li><a href="#powerbi"><span class="mono">03</span><strong>Dashboards Power BI</strong></a></li>
+          <li><a href="#indice"><span class="mono">04</span><strong>Índice Completo</strong></a></li>
+          <li><a href="#sobre"><span class="mono">05</span><strong>Credencial &amp; Sobre</strong></a></li>
+          <li><a href="#faq"><span class="mono">06</span><strong>Perguntas Frequentes</strong></a></li>
+        </ul>
+
+        <div class="mobile-drawer-cta">
+          <a href="#contato" class="pixel-btn pixel-btn-accent">
+            <span class="pixel-label">ENTRAR EM CONTATO</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </dialog>
+
   <!-- Lightbox Modal para Prints do Clube Gringas (src injected only on open) -->
   <dialog id="print-dialog" class="print-dialog" closedby="any" aria-labelledby="dialog-title">
     <div class="dialog-header">
@@ -1134,6 +1214,10 @@
     </div>
 
     <div id="bi-embed-view" class="bi-embed-view is-hidden">
+      <div class="bi-mobile-embed-notice">
+        <span class="mono">RELATÓRIO 16:9 · GIRE O CELULAR OU ABRA EM TELA CHEIA</span>
+        <a id="bi-mobile-open-tab" href="#" target="_blank" rel="noopener noreferrer" class="hud-control-btn">Abrir Power BI &nearr;</a>
+      </div>
       <iframe
         id="bi-embed-iframe"
         title="Relatório Interativo Microsoft Power BI"

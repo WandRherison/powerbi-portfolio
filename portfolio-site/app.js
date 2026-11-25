@@ -6,24 +6,28 @@
      0. OS CLOCK (Retro-PC Live Brasilia Time)
      ========================================================= */
   const osClock = document.getElementById('os-clock');
-  if (osClock) {
+  const mobileOsClock = document.getElementById('mobile-os-clock');
+  if (osClock || mobileOsClock) {
     const formatter = new Intl.DateTimeFormat('pt-BR', {
       timeZone: 'America/Sao_Paulo',
       hour: '2-digit',
       minute: '2-digit',
     });
     const tickClock = () => {
-      osClock.textContent = `${formatter.format(new Date())} BRT`;
+      const label = `${formatter.format(new Date())} BRT`;
+      if (osClock) osClock.textContent = label;
+      if (mobileOsClock) mobileOsClock.textContent = label;
     };
     tickClock();
     window.setInterval(tickClock, 30000);
   }
 
   /* =========================================================
-     1. LENIS SMOOTH SCROLL (darkroom.engineering)
+     1. LENIS SMOOTH SCROLL (Desktop >980px only; Touch stays native)
      ========================================================= */
   let lenis = null;
-  if (!prefersReducedMotion && typeof window.Lenis === 'function') {
+  const desktopFine = finePointer && window.innerWidth > 980;
+  if (!prefersReducedMotion && desktopFine && typeof window.Lenis === 'function') {
     lenis = new window.Lenis({
       duration: 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -36,17 +40,155 @@
       requestAnimationFrame(rafLenis);
     }
     requestAnimationFrame(rafLenis);
+  }
 
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', (event) => {
-        const targetId = anchor.getAttribute('href');
-        if (!targetId || targetId === '#') return;
-        const targetEl = document.querySelector(targetId);
-        if (targetEl) {
-          event.preventDefault();
-          lenis.scrollTo(targetEl, { offset: -68 });
+  function scrollToAnchor(targetEl) {
+    if (!targetEl) return;
+    if (lenis) {
+      lenis.scrollTo(targetEl, { offset: -68 });
+      return;
+    }
+    const y = targetEl.getBoundingClientRect().top + window.scrollY - 64;
+    window.scrollTo({
+      top: Math.max(0, y),
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    if (anchor.closest('#mobile-drawer')) return;
+    anchor.addEventListener('click', (event) => {
+      const targetId = anchor.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        event.preventDefault();
+        scrollToAnchor(targetEl);
+      }
+    });
+  });
+
+  /* =========================================================
+     1B. MOBILE SWIPEABLE NAVIGATION DRAWER & BOTTOM DOCK
+     ========================================================= */
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileDrawerClose = document.getElementById('mobile-drawer-close');
+  if (mobileDrawer && mobileMenuBtn && mobileDrawerClose) {
+    const scroller = mobileDrawer.querySelector('.mobile-drawer-scroller');
+    const sheet = mobileDrawer.querySelector('.mobile-drawer-sheet');
+    if (scroller && sheet) {
+      let pendingTargetEl = null;
+
+      async function openDrawer() {
+        pendingTargetEl = null;
+        if (!mobileDrawer.open) {
+          mobileDrawer.showModal();
+        }
+        if (!CSS.supports('scroll-initial-target', 'nearest')) {
+          scroller.scrollTo({ left: sheet.offsetWidth, behavior: 'instant' });
+          await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+        }
+        if (mobileDrawer.open) {
+          scroller.scrollTo({ left: 0, behavior: prefersReducedMotion ? 'instant' : 'auto' });
+        }
+      }
+
+      function closeDrawer(targetEl = null) {
+        pendingTargetEl = targetEl;
+        if (!mobileDrawer.open) return;
+        scroller.scrollTo({ left: sheet.offsetWidth, behavior: prefersReducedMotion ? 'instant' : 'auto' });
+      }
+
+      if (!CSS.supports('animation-timeline: scroll()')) {
+        scroller.addEventListener(
+          'scroll',
+          () => {
+            const w = Math.max(1, sheet.offsetWidth);
+            const ratio = Math.max(0, Math.min(1, 1 - scroller.scrollLeft / w));
+            mobileDrawer.style.setProperty('--drawer-backdrop', ratio.toFixed(3));
+          },
+          { passive: true }
+        );
+      }
+
+      const visibleThreshold = 1 / Math.max(320, window.innerWidth);
+      const drawerObserver = new IntersectionObserver(
+        (entries) => {
+          const entry = entries.at(-1);
+          if (!entry) return;
+          if (entry.intersectionRatio < visibleThreshold && mobileDrawer.open) {
+            mobileDrawer.close();
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            if (pendingTargetEl) {
+              const target = pendingTargetEl;
+              pendingTargetEl = null;
+              window.requestAnimationFrame(() => scrollToAnchor(target));
+            }
+          } else if (entry.intersectionRatio >= 0.99 && mobileDrawer.open) {
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+          }
+        },
+        { root: mobileDrawer, threshold: [visibleThreshold, 0.99] }
+      );
+      drawerObserver.observe(sheet);
+
+      mobileMenuBtn.addEventListener('click', openDrawer);
+      mobileDrawerClose.addEventListener('click', () => closeDrawer());
+
+      mobileDrawer.addEventListener('click', (e) => {
+        if (!sheet.contains(e.target)) closeDrawer();
+      });
+
+      mobileDrawer.addEventListener('cancel', (e) => {
+        if (e.cancelable) {
+          e.preventDefault();
+          closeDrawer();
         }
       });
+
+      mobileDrawer.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          const id = link.getAttribute('href');
+          const el = id && id !== '#' ? document.querySelector(id) : null;
+          e.preventDefault();
+          closeDrawer(el);
+        });
+      });
+
+      window.matchMedia('(min-width: 981px)').addEventListener('change', (mq) => {
+        if (mq.matches && mobileDrawer.open) {
+          mobileDrawer.close();
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  }
+
+  const dockItems = Array.from(document.querySelectorAll('.mobile-dock-item'));
+  if (dockItems.length) {
+    const setActiveDock = (id) => {
+      dockItems.forEach((item) => {
+        const active = item.dataset.dockTarget === id;
+        item.classList.toggle('is-active', active);
+        if (active) item.setAttribute('aria-current', 'location');
+        else item.removeAttribute('aria-current');
+      });
+    };
+
+    const dockObserver = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]?.target?.id) {
+          setActiveDock(visible[0].target.id);
+        }
+      },
+      { rootMargin: '-32% 0px -48% 0px', threshold: [0.05, 0.25, 0.5] }
+    );
+
+    dockItems.forEach((item) => {
+      const sec = item.dataset.dockTarget && document.getElementById(item.dataset.dockTarget);
+      if (sec) dockObserver.observe(sec);
     });
   }
 
@@ -314,7 +456,8 @@
     let needsRender = true;
 
     function resizeHalftone() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const mobileCap = window.innerWidth <= 980 ? 1.25 : 2;
+      const dpr = Math.min(window.devicePixelRatio || 1, mobileCap);
       halftoneCanvas.width = Math.floor(window.innerWidth * dpr);
       halftoneCanvas.height = Math.floor(window.innerHeight * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -325,7 +468,7 @@
       if (needsRender) {
         const w = window.innerWidth;
         const h = window.innerHeight;
-        const spacing = 24;
+        const spacing = w <= 980 ? 34 : 24;
         ctx.clearRect(0, 0, w, h);
 
         for (let y = spacing / 2; y < h; y += spacing) {
@@ -570,9 +713,44 @@
   let orbitManualOffset = 0;
   let orbitScrollAngle = 0;
   let currentOrbitAngle = 0;
+  let orbitLoopId = 0;
 
   function getVisibleOrbitCards() {
     return orbitCards.filter((card) => !card.classList.contains('is-filtered-out'));
+  }
+
+  function isMobileCarouselMode() {
+    return Boolean(orbitShell && !orbitShell.classList.contains('is-grid') && window.innerWidth <= 980);
+  }
+
+  function syncModeButtonLabel() {
+    if (!orbitModeBtn) return;
+    orbitModeBtn.textContent = window.innerWidth <= 980 ? 'Carrossel' : 'Órbita Strata';
+  }
+
+  function clearInlineOrbitTransforms() {
+    orbitCards.forEach((card) => {
+      card.style.transform = '';
+      card.style.zIndex = '';
+      const veil = card.querySelector('.orbit-card-veil');
+      if (veil) veil.style.opacity = '';
+    });
+  }
+
+  function setFrontCardByIndex(idx) {
+    const visible = getVisibleOrbitCards();
+    const count = visible.length;
+    if (!count) {
+      if (orbitCounter) orbitCounter.textContent = '00 / 00';
+      return;
+    }
+    const clamped = Math.max(0, Math.min(count - 1, idx));
+    visible.forEach((card, i) => {
+      card.classList.toggle('is-front', i === clamped);
+    });
+    if (orbitCounter) {
+      orbitCounter.textContent = `${String(clamped + 1).padStart(2, '0')} / ${String(count).padStart(2, '0')}`;
+    }
   }
 
   function computeOrbitScrollAngle() {
@@ -587,7 +765,7 @@
   }
 
   function renderOrbit() {
-    if (!orbitShell || orbitShell.classList.contains('is-grid')) return;
+    if (!orbitShell || orbitShell.classList.contains('is-grid') || isMobileCarouselMode()) return;
     const visible = getVisibleOrbitCards();
     const count = visible.length;
     if (count === 0) return;
@@ -631,24 +809,89 @@
       }
     });
 
-    visible.forEach((card, i) => {
-      card.classList.toggle('is-front', i === frontIdx);
-    });
-
-    if (orbitCounter) {
-      orbitCounter.textContent = `${String(frontIdx + 1).padStart(2, '0')} / ${String(count).padStart(2, '0')}`;
-    }
+    setFrontCardByIndex(frontIdx);
   }
 
   function stepOrbitLoop() {
+    orbitLoopId = 0;
+    if (!orbitShell || orbitShell.classList.contains('is-grid') || isMobileCarouselMode()) {
+      clearInlineOrbitTransforms();
+      return;
+    }
     computeOrbitScrollAngle();
     renderOrbit();
-    requestAnimationFrame(stepOrbitLoop);
+    orbitLoopId = requestAnimationFrame(stepOrbitLoop);
   }
-  requestAnimationFrame(stepOrbitLoop);
+
+  function ensureOrbitLoop() {
+    syncModeButtonLabel();
+    if (!orbitShell || orbitShell.classList.contains('is-grid') || isMobileCarouselMode()) {
+      if (orbitLoopId) {
+        cancelAnimationFrame(orbitLoopId);
+        orbitLoopId = 0;
+      }
+      clearInlineOrbitTransforms();
+      if (isMobileCarouselMode()) setFrontCardByIndex(0);
+      return;
+    }
+    if (!orbitLoopId) {
+      orbitLoopId = requestAnimationFrame(stepOrbitLoop);
+    }
+  }
+
+  ensureOrbitLoop();
+  window.addEventListener('resize', ensureOrbitLoop, { passive: true });
+
+  // Mobile Scroll-Snap State Sync for Orbit Counter
+  if (orbitRing) {
+    if ('onscrollsnapchange' in HTMLElement.prototype) {
+      orbitRing.addEventListener('scrollsnapchange', (e) => {
+        if (!isMobileCarouselMode()) return;
+        const visible = getVisibleOrbitCards();
+        const idx = visible.indexOf(e.snapTargetInline);
+        if (idx !== -1) setFrontCardByIndex(idx);
+      });
+    } else {
+      const snapObserver = new IntersectionObserver(
+        (entries) => {
+          if (!isMobileCarouselMode()) return;
+          const visible = getVisibleOrbitCards();
+          let best = null;
+          let bestRatio = 0;
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio > bestRatio) {
+              bestRatio = entry.intersectionRatio;
+              best = entry.target;
+            }
+          });
+          if (best) {
+            const idx = visible.indexOf(best);
+            if (idx !== -1) setFrontCardByIndex(idx);
+          }
+        },
+        { root: orbitRing, threshold: [0.55, 0.85] }
+      );
+      orbitCards.forEach((c) => snapObserver.observe(c));
+    }
+  }
 
   function rotateByStep(dir) {
-    const count = Math.max(1, getVisibleOrbitCards().length);
+    const visible = getVisibleOrbitCards();
+    const count = Math.max(1, visible.length);
+    if (isMobileCarouselMode() && orbitRing) {
+      const curIdx = Math.max(0, visible.findIndex((c) => c.classList.contains('is-front')));
+      const nextIdx = (curIdx + dir + count) % count;
+      const targetCard = visible[nextIdx];
+      if (targetCard) {
+        const left = targetCard.offsetLeft - (orbitRing.clientWidth - targetCard.offsetWidth) / 2;
+        orbitRing.scrollTo({
+          left: Math.max(0, left),
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
+        });
+        setFrontCardByIndex(nextIdx);
+      }
+      return;
+    }
     orbitManualOffset += (dir * (Math.PI * 2)) / count;
   }
 
@@ -657,7 +900,7 @@
 
   orbitCards.forEach((card) => {
     card.addEventListener('click', (e) => {
-      if (orbitShell.classList.contains('is-grid')) return;
+      if (orbitShell.classList.contains('is-grid') || isMobileCarouselMode()) return;
       if (e.target.closest('a, button')) return;
       const visible = getVisibleOrbitCards();
       const idx = visible.indexOf(card);
@@ -674,7 +917,7 @@
     let dragStartX = 0;
 
     orbitRing.addEventListener('pointerdown', (e) => {
-      if (e.target.closest('a, button') || orbitShell.classList.contains('is-grid')) return;
+      if (e.target.closest('a, button') || orbitShell.classList.contains('is-grid') || isMobileCarouselMode()) return;
       draggingOrbit = true;
       dragStartX = e.clientX;
       orbitRing.setPointerCapture(e.pointerId);
@@ -710,6 +953,10 @@
       });
 
       orbitManualOffset = -orbitScrollAngle;
+      if (isMobileCarouselMode() && orbitRing) {
+        orbitRing.scrollTo({ left: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        setFrontCardByIndex(0);
+      }
     });
   });
 
@@ -718,12 +965,14 @@
       orbitShell.classList.remove('is-grid');
       orbitModeBtn.classList.add('is-active');
       gridModeBtn.classList.remove('is-active');
+      ensureOrbitLoop();
     });
 
     gridModeBtn.addEventListener('click', () => {
       orbitShell.classList.add('is-grid');
       gridModeBtn.classList.add('is-active');
       orbitModeBtn.classList.remove('is-active');
+      ensureOrbitLoop();
     });
   }
 
@@ -809,8 +1058,7 @@
       primaryLabel: 'IR PARA PASTA DE PRINTS',
       primaryAction: () => {
         const el = document.getElementById('clube-gringas');
-        if (lenis && el) lenis.scrollTo(el, { offset: -68 });
-        else if (el) el.scrollIntoView({ behavior: 'smooth' });
+        if (el) scrollToAnchor(el);
       },
       secondaryLabel: null,
       secondaryAction: null,
@@ -824,7 +1072,77 @@
   const idxMetric = document.getElementById('index-preview-metric');
   const idxPrimaryBtn = document.getElementById('index-primary-btn');
   const idxSecondaryBtn = document.getElementById('index-secondary-btn');
+  const mobileDrawersMap = new Map();
   let activeIndexKey = 'adega';
+
+  function buildMobileIndexDrawer(row, item) {
+    const li = row.closest('li');
+    if (!li) return null;
+
+    const drawer = document.createElement('div');
+    drawer.className = 'idx-mobile-drawer';
+
+    const inner = document.createElement('div');
+    inner.className = 'idx-mobile-inner';
+
+    const content = document.createElement('div');
+    content.className = 'idx-mobile-content';
+
+    const tag = document.createElement('span');
+    tag.className = 'mono tag-orange';
+    tag.style.alignSelf = 'flex-start';
+    tag.textContent = item.tag;
+
+    const desc = document.createElement('p');
+    desc.textContent = item.desc;
+
+    const metric = document.createElement('div');
+    metric.className = 'index-preview-metric mono';
+    const metricLabel = document.createElement('span');
+    metricLabel.textContent = 'DESTAQUE';
+    const metricVal = document.createElement('strong');
+    metricVal.textContent = item.metric;
+    metric.append(metricLabel, metricVal);
+
+    const actions = document.createElement('div');
+    actions.className = 'idx-mobile-actions';
+
+    if (item.primaryLabel && item.primaryAction) {
+      const btn1 = document.createElement('button');
+      btn1.type = 'button';
+      btn1.className = 'pixel-btn pixel-btn-accent pixel-btn-sm';
+      const lbl1 = document.createElement('span');
+      lbl1.className = 'pixel-label';
+      lbl1.textContent = item.primaryLabel;
+      btn1.appendChild(lbl1);
+      btn1.addEventListener('click', (e) => {
+        e.stopPropagation();
+        item.primaryAction();
+      });
+      actions.appendChild(btn1);
+    }
+
+    if (item.secondaryLabel && item.secondaryAction) {
+      const btn2 = document.createElement('button');
+      btn2.type = 'button';
+      btn2.className = 'pixel-btn pixel-btn-ghost pixel-btn-sm';
+      const lbl2 = document.createElement('span');
+      lbl2.className = 'pixel-label';
+      lbl2.textContent = item.secondaryLabel;
+      btn2.appendChild(lbl2);
+      btn2.addEventListener('click', (e) => {
+        e.stopPropagation();
+        item.secondaryAction();
+      });
+      actions.appendChild(btn2);
+    }
+
+    content.append(tag, desc, metric, actions);
+    inner.appendChild(content);
+    drawer.appendChild(inner);
+    li.appendChild(drawer);
+    return drawer;
+  }
 
   function selectIndexProject(key) {
     const item = INDEX_PROJECTS[key];
@@ -858,11 +1176,35 @@
 
   indexRows.forEach((row) => {
     const key = row.dataset.indexId;
+    const item = INDEX_PROJECTS[key];
+    if (item) {
+      const drawer = buildMobileIndexDrawer(row, item);
+      if (drawer) {
+        mobileDrawersMap.set(key, drawer);
+        if (row.classList.contains('is-active') && window.innerWidth <= 980) {
+          drawer.classList.add('is-open');
+          row.setAttribute('aria-expanded', 'true');
+        } else {
+          row.setAttribute('aria-expanded', 'false');
+        }
+      }
+    }
+
     row.addEventListener('mouseenter', () => selectIndexProject(key));
     row.addEventListener('focus', () => selectIndexProject(key));
     row.addEventListener('click', () => {
       selectIndexProject(key);
-      const item = INDEX_PROJECTS[key];
+      if (window.innerWidth <= 980) {
+        const currentDrawer = mobileDrawersMap.get(key);
+        const wasOpen = currentDrawer?.classList.contains('is-open');
+        mobileDrawersMap.forEach((d, k) => {
+          d.classList.toggle('is-open', k === key && !wasOpen);
+        });
+        indexRows.forEach((r) => {
+          r.setAttribute('aria-expanded', String(r.dataset.indexId === key && !wasOpen));
+        });
+        return;
+      }
       if (item && item.primaryAction) item.primaryAction();
     });
   });
@@ -894,21 +1236,52 @@
     let velX = 0;
     let velY = 0;
     let isDragging = false;
+    let pendingTouchId = null;
     let startPointerX = 0;
     let startPointerY = 0;
     let startPosX = 0;
     let startPosY = 0;
 
     lanyardCard.addEventListener('pointerdown', (e) => {
-      isDragging = true;
       startPointerX = e.clientX;
       startPointerY = e.clientY;
       startPosX = posX;
       startPosY = posY;
-      lanyardCard.setPointerCapture(e.pointerId);
+      if (e.pointerType === 'touch') {
+        pendingTouchId = e.pointerId;
+        isDragging = false;
+      } else {
+        isDragging = true;
+        pendingTouchId = null;
+        velX = 0;
+        velY = 0;
+        try {
+          lanyardCard.setPointerCapture(e.pointerId);
+        } catch {
+          // Ignore capture errors
+        }
+      }
     });
 
     lanyardCard.addEventListener('pointermove', (e) => {
+      if (pendingTouchId === e.pointerId && !isDragging) {
+        const dx = e.clientX - startPointerX;
+        const dy = e.clientY - startPointerY;
+        if (Math.hypot(dx, dy) < 6) return;
+        if (Math.abs(dx) >= Math.abs(dy)) {
+          isDragging = true;
+          velX = 0;
+          velY = 0;
+          try {
+            lanyardCard.setPointerCapture(e.pointerId);
+          } catch {
+            // Ignore capture errors
+          }
+        } else {
+          pendingTouchId = null;
+          return;
+        }
+      }
       if (!isDragging) return;
       const targetX = Math.max(-95, Math.min(95, startPosX + (e.clientX - startPointerX)));
       const targetY = Math.max(-40, Math.min(70, startPosY + (e.clientY - startPointerY)));
@@ -920,6 +1293,7 @@
 
     const releaseCard = () => {
       isDragging = false;
+      pendingTouchId = null;
     };
     lanyardCard.addEventListener('pointerup', releaseCard);
     lanyardCard.addEventListener('pointercancel', releaseCard);
