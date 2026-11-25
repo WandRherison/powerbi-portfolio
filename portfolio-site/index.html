@@ -3,352 +3,543 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wand Rherison | Business Intelligence, Dados &amp; Desenvolvimento Web</title>
-  <meta name="description" content="Portfólio profissional de Wand Rherison: Business Intelligence (Power BI, DAX, Star Schema), Engenharia Analítica e Desenvolvimento Web." />
+  <title>WAND RHERISON // Business Intelligence &amp; Engenharia Analítica</title>
+  <meta name="description" content="Portfólio profissional de Wand Rherison — Business Intelligence (Power BI, DAX, Star Schema), Engenharia Analítica e Desenvolvimento Web." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.1/dist/lenis.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#conteudo-principal">Ir para o conteúdo principal</a>
 
+  <!-- Halftone Pro Ambient Layer -->
+  <canvas id="halftone-canvas" class="halftone-layer" aria-hidden="true"></canvas>
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="#topo" class="brand" aria-label="Wand Rherison - Início">
-        <span class="brand-mark" aria-hidden="true">WR</span>
-        <span class="brand-name">Wand Rherison</span>
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-code" data-scramble="WAND.RHERISON">WAND.RHERISON</span>
+        <span class="brand-sep" aria-hidden="true">//</span>
+        <span class="brand-role">BI &amp; DATA</span>
       </a>
 
       <nav class="main-nav" aria-label="Navegação principal">
-        <a href="#destaques">Projetos Reais</a>
-        <a href="#clube-gringas">Clube Gringas</a>
-        <a href="#powerbi">Power BI</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato" class="nav-cta">Contato</a>
+        <a href="#destaques" data-scramble="01.REAIS">01.REAIS</a>
+        <a href="#clube-gringas" data-scramble="02.CLUBE_GRINGAS">02.CLUBE_GRINGAS</a>
+        <a href="#powerbi" data-scramble="03.POWER_BI">03.POWER_BI</a>
+        <a href="#sobre" data-scramble="04.CREDENCIAL">04.CREDENCIAL</a>
+        <a href="#contato" class="pixel-btn pixel-btn-sm pixel-btn-accent">
+          <span class="pixel-label">CONTATO</span>
+        </a>
       </nav>
     </div>
   </header>
 
   <main id="conteudo-principal">
-    <!-- Hero -->
+    <!-- HERO — Orynthiq Architecture + Text Scramble + Atomic Globe -->
     <section id="topo" class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Business Intelligence · Engenharia Analítica · Web</p>
-          <h1>Transformo dados e sistemas web em decisões estratégicas.</h1>
+          <div class="hud-pill">
+            <span class="status-pulse" aria-hidden="true"></span>
+            <span class="mono" data-scramble="SYS.ONLINE // HORTOLÂNDIA_SP // 2026">SYS.ONLINE // HORTOLÂNDIA_SP // 2026</span>
+          </div>
+
+          <h1 class="hero-title" data-scramble="ENGENHARIA DE DADOS &amp; SISTEMAS DE DECISÃO.">
+            ENGENHARIA DE DADOS &amp; SISTEMAS DE DECISÃO.
+          </h1>
+
           <p class="hero-lead">
-            Estudante de Análise e Desenvolvimento de Sistemas (UNISAL) com foco em
-            <strong>Power BI, DAX, Modelagem Dimensional</strong> e soluções web integradas a bancos relacionais e plataformas de pagamento.
+            Portfólio de <strong>Wand Rherison</strong> — Análise e Desenvolvimento de Sistemas (UNISAL).
+            Construo pipelines em <strong>Python &amp; SQL</strong>, modelagem dimensional (<strong>Star &amp; Galaxy Schema</strong>),
+            dashboards executivos no <strong>Power BI</strong> e aplicações web integradas.
           </p>
+
           <div class="hero-actions">
-            <a href="#destaques" class="btn btn-primary">Explorar Projetos</a>
-            <a href="https://github.com/WandRherison/powerbi-portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              GitHub BI Portfolio
+            <a href="#powerbi" class="pixel-btn pixel-btn-accent">
+              <span class="pixel-label">EXPLORAR DASHBOARDS</span>
             </a>
-            <a href="https://www.linkedin.com/in/wand-rherison-derley-pereira-alves-silva-b55293225/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-              LinkedIn
+            <a href="https://github.com/WandRherison/powerbi-portfolio" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost">
+              <span class="pixel-label">GITHUB PORTFOLIO</span>
             </a>
+            <a href="https://www.linkedin.com/in/wand-rherison-derley-pereira-alves-silva-b55293225/" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost">
+              <span class="pixel-label">LINKEDIN</span>
+            </a>
+          </div>
+
+          <div class="telemetry-strip" aria-label="Indicadores principais do portfólio">
+            <div class="telemetry-cell">
+              <span class="telemetry-num">06</span>
+              <span class="telemetry-key">LIVE BI REPORTS</span>
+            </div>
+            <div class="telemetry-cell">
+              <span class="telemetry-num">02</span>
+              <span class="telemetry-key">PROJETOS REAIS</span>
+            </div>
+            <div class="telemetry-cell">
+              <span class="telemetry-num">30+</span>
+              <span class="telemetry-key">MEDIDAS DAX</span>
+            </div>
           </div>
         </div>
 
-        <aside class="hero-panel" aria-label="Resumo de especialidades">
-          <div class="stat-row">
-            <span class="stat-value">6</span>
-            <span class="stat-label">Dashboards publicados no Power BI Service</span>
+        <!-- Atomic Globe Stage -->
+        <div class="globe-stage" aria-label="Visualização interativa Atomic Globe de nós de dados">
+          <div class="globe-hud-top">
+            <span class="mono">NODE.MAP // ATOMIC_GLOBE</span>
+            <button type="button" id="globe-toggle" class="hud-control-btn">Pausar globo</button>
           </div>
-          <div class="stat-row">
-            <span class="stat-value">2</span>
-            <span class="stat-label">Projetos reais em produção (Comércio &amp; ONG)</span>
+
+          <canvas id="atomic-globe" width="520" height="520" role="img" aria-label="Globo 3D interativo de partículas representando pipelines de dados e Business Intelligence"></canvas>
+
+          <div class="globe-hud-bottom mono">
+            <span>ARRASTE PARA ROTACIONAR</span>
+            <span class="accent-text">STAR · GALAXY · OLTP</span>
           </div>
-          <div class="stat-row">
-            <span class="stat-value">End-to-End</span>
-            <span class="stat-label">Do banco relacional / Python ao Star Schema &amp; DAX</span>
-          </div>
-        </aside>
+        </div>
       </div>
     </section>
 
-    <!-- Projetos Reais em Destaque -->
+    <!-- SYS.01 — PROJETOS REAIS (Padaria Diniz + Resumo Clube Gringas) -->
     <section id="destaques" class="section">
       <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">Aplicação Real</p>
-          <h2>Projetos em Produção &amp; Caso Integrador</h2>
-          <p class="section-desc">
-            Soluções desenvolvidas para demandas reais de negócio e terceiro setor, conectando experiência do usuário e inteligência analítica.
+        <div class="section-head">
+          <span class="section-index mono" data-scramble="SYS.01 // DEPLOY EM PRODUÇÃO">SYS.01 // DEPLOY EM PRODUÇÃO</span>
+          <h2 data-scramble="Projetos Reais &amp; Arquitetura End-to-End">Projetos Reais &amp; Arquitetura End-to-End</h2>
+          <p class="section-sub">
+            Sistemas desenvolvidos para operações reais — unindo interface web, integridade transacional, privacidade e inteligência analítica.
           </p>
         </div>
 
-        <div class="featured-grid">
+        <div class="real-projects-grid">
           <!-- Padaria Diniz -->
-          <article class="card card-featured">
-            <div class="card-top">
-              <span class="badge badge-accent">E-commerce + BI + LGPD</span>
-              <span class="card-meta">UNISAL 2026 · Hortolândia/SP</span>
+          <article class="ory-card">
+            <div class="ory-card-header">
+              <span class="mono tag-orange">E-COMMERCE · BI · LGPD</span>
+              <span class="mono muted">UNISAL 2026</span>
             </div>
             <h3>Padaria Diniz — Plataforma Web &amp; BI</h3>
             <p>
-              Digitalização completa de comércio local com catálogo setorizado (160+ itens), agendamento <em>"Peça e Retire"</em> com transações ACID em Node.js/MySQL, acessibilidade WCAG 2.1 AA e camada analítica em Power BI com Views mascaradas para LGPD.
+              Digitalização completa de comércio local em Hortolândia/SP: catálogo setorizado com 160+ itens,
+              agendamento <em>"Peça e Retire"</em> com transações ACID em Node.js/MySQL, acessibilidade WCAG 2.1 AA
+              e camada analítica no Power BI com <strong>Views SQL mascaradas (LGPD)</strong> e Soft Delete.
             </p>
-            <ul class="tag-list" aria-label="Tecnologias utilizadas">
-              <li>Power BI &amp; DAX</li>
-              <li>MySQL Cloud</li>
-              <li>Node.js &amp; Express</li>
-              <li>HTML5 / CSS3 / JS</li>
-              <li>LGPD Views</li>
-            </ul>
-            <div class="card-actions">
-              <a href="https://padaria-antigravity.onrender.com/padaria-landinpage.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                Acessar E-commerce
+            <div class="spec-bar mono">
+              <span>Power BI &amp; DAX</span>
+              <span>MySQL Cloud</span>
+              <span>Node.js / Express</span>
+              <span>WCAG 2.1 AA</span>
+            </div>
+            <div class="ory-actions">
+              <a href="https://padaria-antigravity.onrender.com/padaria-landinpage.html" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-accent pixel-btn-sm">
+                <span class="pixel-label">ACESSAR E-COMMERCE</span>
               </a>
-              <a href="https://app.powerbi.com/view?r=eyJrIjoiZjEwNDJjZjgtNzY3NS00NWFjLThhYjEtYjU3YzgzMzA3NmYxIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                Abrir Dashboard BI
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiZjEwNDJjZjgtNzY3NS00NWFjLThhYjEtYjU3YzgzMzA3NmYxIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost pixel-btn-sm">
+                <span class="pixel-label">DASHBOARD POWER BI</span>
               </a>
-              <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20Padaria%20Diniz" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-                Ver Case no GitHub
+              <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20Padaria%20Diniz" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost pixel-btn-sm">
+                <span class="pixel-label">CASE GITHUB</span>
               </a>
             </div>
           </article>
 
-          <!-- Clube Gringas (Resumo) -->
-          <article class="card card-featured">
-            <div class="card-top">
-              <span class="badge badge-gold">Projeto Real · ONG</span>
-              <span class="card-meta">Exclusivamente Visual (Prints)</span>
+          <!-- Clube Gringas Summary -->
+          <article class="ory-card ory-card-classified">
+            <div class="ory-card-header">
+              <span class="mono tag-glass">PROJETO REAL · ONG</span>
+              <span class="mono accent-text">RESTRITO A PRINTS</span>
             </div>
-            <h3>Clube Gringas — Portal de Membros &amp; Painel</h3>
+            <h3>ONG Clube Gringas — Portal &amp; Painel Gerencial</h3>
             <p>
-              Atuação em projeto real para organização sem fins lucrativos, contemplando área de membros, carteirinha digital interativa, clube do livro, vitrine de benefícios e painel gerencial de assinaturas.
+              Atuação em projeto real para organização sem fins lucrativos, englobando área de membros,
+              carteirinha digital 3D, clube do livro, área de benefícios exclusivos e painel gerencial de assinaturas.
+              Por política de privacidade, nenhuma linha de código ou dado sensível é exposto.
             </p>
-            <ul class="tag-list" aria-label="Entregas visuais">
-              <li>Dashboard Executivo</li>
-              <li>Carteirinha 3D</li>
-              <li>Clube do Livro</li>
-              <li>Área de Benefícios</li>
-            </ul>
-            <div class="card-actions">
-              <a href="#clube-gringas" class="btn btn-primary">Ver Galeria de Prints</a>
+            <div class="spec-bar mono">
+              <span>Painel Executivo</span>
+              <span>Carteirinha 3D</span>
+              <span>Clube do Livro</span>
+              <span>Benefícios</span>
+            </div>
+            <div class="ory-actions">
+              <a href="#clube-gringas" class="pixel-btn pixel-btn-accent pixel-btn-sm">
+                <span class="pixel-label">ABRIR PASTA DE PRINTS</span>
+              </a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Seção Dedicada: Clube Gringas (ESTRITAMENTE PRINTS) -->
-    <section id="clube-gringas" class="section section-alt">
+    <!-- SYS.02 — MILK GLASS FOLDER (KOJA Studios) — ONG CLUBE GRINGAS (ESTRITAMENTE PRINTS) -->
+    <section id="clube-gringas" class="section section-banded">
       <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">Vitrine Visual · Sem Exposição de Código</p>
-          <h2>ONG Clube Gringas — Galeria de Prints</h2>
-          <p class="section-desc">
-            Por confidencialidade e segurança da organização, este projeto é apresentado <strong>estritamente por capturas de tela</strong> das interfaces entregues, sem divulgação de código-fonte ou dados sensíveis.
+        <div class="section-head">
+          <span class="section-index mono" data-scramble="SYS.02 // MILK GLASS FOLDER · ARQUIVO VISUAL">SYS.02 // MILK GLASS FOLDER · ARQUIVO VISUAL</span>
+          <h2 data-scramble="ONG Clube Gringas — Dossiê de Prints">ONG Clube Gringas — Dossiê de Prints</h2>
+          <p class="section-sub">
+            Exibição <strong>estritamente visual</strong> por confidencialidade da ONG (zero código-fonte, zero dados sensíveis).
+            Clique na pasta <em>Milk Glass</em> para expandir os 4 espaços reservados aos prints.
           </p>
         </div>
 
-        <div class="prints-grid" id="clube-gringas-gallery">
-          <figure class="print-card">
-            <button type="button" class="print-trigger" data-print-src="assets/clube-gringas/dashboard.png" data-print-title="Painel Executivo de Assinaturas — Clube Gringas" data-print-desc="Visão consolidada de planos, métricas gerenciais e acompanhamento de membros.">
-              <div class="print-frame">
-                <img src="assets/clube-gringas/dashboard.png" alt="Print do Painel Executivo do Clube Gringas" loading="lazy" onerror="this.closest('.print-frame').classList.add('is-placeholder'); this.remove();" />
-                <div class="print-placeholder" aria-hidden="true"></div>
+        <div class="milk-folder-stage">
+          <!-- Interactive Milk Glass Folder -->
+          <div class="milk-folder-wrapper">
+            <button type="button" id="milk-folder-btn" class="milk-folder" aria-expanded="true" aria-controls="clube-gringas-prints">
+              <div class="folder-back">
+                <span class="folder-tab mono">ONG // PRINTS_ONLY</span>
               </div>
-              <figcaption class="print-caption">
-                <strong>Painel Executivo</strong>
-                <span>Visão gerencial de planos e acompanhamento</span>
-              </figcaption>
-            </button>
-          </figure>
 
-          <figure class="print-card">
-            <button type="button" class="print-trigger" data-print-src="assets/clube-gringas/carteirinha.png" data-print-title="Carteirinha Digital 3D — Clube Gringas" data-print-desc="Interface interativa de identificação oficial para membras do clube.">
-              <div class="print-frame">
-                <img src="assets/clube-gringas/carteirinha.png" alt="Print da Carteirinha Digital 3D do Clube Gringas" loading="lazy" onerror="this.closest('.print-frame').classList.add('is-placeholder'); this.remove();" />
-                <div class="print-placeholder" aria-hidden="true"></div>
+              <!-- Peeking Mini Print Cards inside the Milk Glass Folder -->
+              <div class="folder-sheets" aria-hidden="true">
+                <div class="sheet sheet-1"><span>01</span></div>
+                <div class="sheet sheet-2"><span>02</span></div>
+                <div class="sheet sheet-3"><span>03</span></div>
+                <div class="sheet sheet-4"><span>04</span></div>
               </div>
-              <figcaption class="print-caption">
-                <strong>Carteirinha Digital 3D</strong>
-                <span>Identificação visual interativa para membras</span>
-              </figcaption>
-            </button>
-          </figure>
 
-          <figure class="print-card">
-            <button type="button" class="print-trigger" data-print-src="assets/clube-gringas/clube-livro.png" data-print-title="Clube do Livro — Clube Gringas" data-print-desc="Vitrine editorial com cards responsivos e navegação para leitura.">
-              <div class="print-frame">
-                <img src="assets/clube-gringas/clube-livro.png" alt="Print da seção Clube do Livro do Clube Gringas" loading="lazy" onerror="this.closest('.print-frame').classList.add('is-placeholder'); this.remove();" />
-                <div class="print-placeholder" aria-hidden="true"></div>
+              <!-- Frosted Milk Glass Front Pocket -->
+              <div class="folder-glass-front">
+                <div class="folder-glass-shine" aria-hidden="true"></div>
+                <div class="folder-front-meta">
+                  <span class="mono folder-status">CLASSIFICAÇÃO: VISUAL_ONLY</span>
+                  <strong>Clube Gringas</strong>
+                  <span class="folder-hint mono">04 SLOTS DE PRINT · CLIQUE PARA ALTERNAR</span>
+                </div>
               </div>
-              <figcaption class="print-caption">
-                <strong>Clube do Livro</strong>
-                <span>Vitrine editorial e acesso às edições</span>
-              </figcaption>
             </button>
-          </figure>
+          </div>
 
-          <figure class="print-card">
-            <button type="button" class="print-trigger" data-print-src="assets/clube-gringas/beneficios.png" data-print-title="Benefícios Exclusivos — Clube Gringas" data-print-desc="Catálogo de parcerias e páginas individuais de benefícios para associadas.">
-              <div class="print-frame">
-                <img src="assets/clube-gringas/beneficios.png" alt="Print da área de Benefícios Exclusivos do Clube Gringas" loading="lazy" onerror="this.closest('.print-frame').classList.add('is-placeholder'); this.remove();" />
-                <div class="print-placeholder" aria-hidden="true"></div>
-              </div>
-              <figcaption class="print-caption">
-                <strong>Benefícios Exclusivos</strong>
-                <span>Catálogo de parcerias e vantagens</span>
-              </figcaption>
-            </button>
-          </figure>
+          <!-- 4 Clean Blank Print Slots (Strictly Prints, No Code / No Paths) -->
+          <div class="prints-vault is-open" id="clube-gringas-prints">
+            <figure class="print-slot-card">
+              <button type="button" class="print-trigger" data-print-src="assets/clube-gringas/dashboard.png" data-print-title="Painel Executivo — Clube Gringas" data-print-desc="Captura visual do painel gerencial da organização.">
+                <div class="print-frame">
+                  <img src="assets/clube-gringas/dashboard.png" alt="Print do Painel Executivo do Clube Gringas" loading="lazy" onerror="this.closest('.print-frame').classList.add('is-placeholder'); this.remove();" />
+                  <div class="print-blank" aria-hidden="true"></div>
+                </div>
+                <figcaption class="print-meta">
+                  <span class="mono">PRINT 01</span>
+                  <strong>Painel Executivo</strong>
+                </figcaption>
+              </button>
+            </figure>
+
+            <figure class="print-slot-card">
+              <button type="button" class="print-trigger" data-print-src="assets/clube-gringas/carteirinha.png" data-print-title="Carteirinha Digital 3D — Clube Gringas" data-print-desc="Captura visual da carteirinha interativa das membras.">
+                <div class="print-frame">
+                  <img src="assets/clube-gringas/carteirinha.png" alt="Print da Carteirinha Digital 3D do Clube Gringas" loading="lazy" onerror="this.closest('.print-frame').classList.add('is-placeholder'); this.remove();" />
+                  <div class="print-blank" aria-hidden="true"></div>
+                </div>
+                <figcaption class="print-meta">
+                  <span class="mono">PRINT 02</span>
+                  <strong>Carteirinha Digital 3D</strong>
+                </figcaption>
+              </button>
+            </figure>
+
+            <figure class="print-slot-card">
+              <button type="button" class="print-trigger" data-print-src="assets/clube-gringas/clube-livro.png" data-print-title="Clube do Livro — Clube Gringas" data-print-desc="Captura visual da vitrine editorial do Clube do Livro.">
+                <div class="print-frame">
+                  <img src="assets/clube-gringas/clube-livro.png" alt="Print do Clube do Livro do Clube Gringas" loading="lazy" onerror="this.closest('.print-frame').classList.add('is-placeholder'); this.remove();" />
+                  <div class="print-blank" aria-hidden="true"></div>
+                </div>
+                <figcaption class="print-meta">
+                  <span class="mono">PRINT 03</span>
+                  <strong>Clube do Livro</strong>
+                </figcaption>
+              </button>
+            </figure>
+
+            <figure class="print-slot-card">
+              <button type="button" class="print-trigger" data-print-src="assets/clube-gringas/beneficios.png" data-print-title="Benefícios Exclusivos — Clube Gringas" data-print-desc="Captura visual da página de parcerias e benefícios.">
+                <div class="print-frame">
+                  <img src="assets/clube-gringas/beneficios.png" alt="Print da área de Benefícios Exclusivos do Clube Gringas" loading="lazy" onerror="this.closest('.print-frame').classList.add('is-placeholder'); this.remove();" />
+                  <div class="print-blank" aria-hidden="true"></div>
+                </div>
+                <figcaption class="print-meta">
+                  <span class="mono">PRINT 04</span>
+                  <strong>Benefícios Exclusivos</strong>
+                </figcaption>
+              </button>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Vitrine Power BI -->
+    <!-- SYS.03 — 3D SPATIAL GALLERY (Studio Digital) — POWER BI DASHBOARDS -->
     <section id="powerbi" class="section">
       <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">Business Intelligence &amp; Data Analytics</p>
-          <h2>Dashboards Interativos no Power BI</h2>
-          <p class="section-desc">
-            Projetos End-to-End com ingestão via Python/SQL, modelagem dimensional (Star Schema &amp; Galaxy Schema) e métricas DAX avançadas.
-          </p>
+        <div class="section-head section-head-row">
+          <div>
+            <span class="section-index mono" data-scramble="SYS.03 // 3D SPATIAL GALLERY · POWER BI">SYS.03 // 3D SPATIAL GALLERY · POWER BI</span>
+            <h2 data-scramble="Dashboards Interativos no Power BI">Dashboards Interativos no Power BI</h2>
+            <p class="section-sub">
+              Navegue em profundidade espacial pelos 6 projetos publicados no Power BI Service (Python, SQL, Star/Galaxy Schema e DAX).
+            </p>
+          </div>
+
+          <div class="view-controls">
+            <button type="button" id="spatial-mode-btn" class="hud-control-btn is-active" data-mode="spatial">3D Espacial</button>
+            <button type="button" id="grid-mode-btn" class="hud-control-btn" data-mode="grid">Grade</button>
+          </div>
         </div>
 
-        <div class="filter-bar" role="group" aria-label="Filtrar projetos por área">
-          <button type="button" class="filter-btn is-active" data-filter="all">Todos (6)</button>
-          <button type="button" class="filter-btn" data-filter="comercial">Comercial &amp; Varejo</button>
-          <button type="button" class="filter-btn" data-filter="terceiro-setor">Terceiro Setor (ONGs)</button>
-          <button type="button" class="filter-btn" data-filter="logistica">Supply Chain</button>
+        <!-- Category Filters -->
+        <div class="filter-bar" role="group" aria-label="Filtrar dashboards por segmento">
+          <button type="button" class="filter-btn is-active" data-filter="all">TODOS [06]</button>
+          <button type="button" class="filter-btn" data-filter="comercial">COMERCIAL &amp; VAREJO</button>
+          <button type="button" class="filter-btn" data-filter="terceiro-setor">TERCEIRO SETOR (ONGS)</button>
+          <button type="button" class="filter-btn" data-filter="logistica">SUPPLY CHAIN</button>
         </div>
 
-        <div class="bi-grid" id="bi-projects-grid">
-          <article class="card bi-card" data-category="comercial">
-            <div class="card-top">
-              <span class="badge">Star Schema</span>
-              <span class="card-meta">Comercial B2B</span>
-            </div>
-            <h3>1. Adega &amp; Distribuidora</h3>
-            <p>
-              Análise de quebra de estoque no <em>Weekend Rush</em> (5.250 pedidos simulados em Python), calibragem de mix entre giro e rentabilidade, vendas YTD e MoM%.
-            </p>
-            <div class="card-actions">
-              <a href="https://app.powerbi.com/view?r=eyJrIjoiNmVhZmZhMDYtOGExZi00MDIyLTg2MmQtMzM3NWFlZmExZjZjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Abrir Dashboard</a>
-              <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20Adega" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Ver Case</a>
-            </div>
-          </article>
+        <!-- 3D Spatial Gallery Viewport -->
+        <div class="spatial-shell" id="spatial-shell">
+          <div class="spatial-stage" id="spatial-stage" tabindex="0" aria-label="Galeria espacial 3D de dashboards Power BI. Use as setas esquerda e direita para navegar.">
+            <article class="spatial-card" data-category="comercial" data-index="0">
+              <div class="spatial-top">
+                <span class="mono tag-orange">STAR SCHEMA</span>
+                <span class="mono muted">01 / B2B</span>
+              </div>
+              <h3>Adega &amp; Distribuidora</h3>
+              <p>
+                Análise de ruptura de estoque no <em>Weekend Rush</em> (5.250 pedidos via Python), mix giro vs. rentabilidade, Faturamento Líquido, YTD e MoM%.
+              </p>
+              <div class="spatial-metrics mono">
+                <span>5.250 PEDIDOS</span>
+                <span>PYTHON + DAX</span>
+              </div>
+              <div class="spatial-actions">
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiNmVhZmZhMDYtOGExZi00MDIyLTg2MmQtMzM3NWFlZmExZjZjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-accent pixel-btn-sm">
+                  <span class="pixel-label">ABRIR DASHBOARD</span>
+                </a>
+                <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20Adega" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost pixel-btn-sm">
+                  <span class="pixel-label">VER CASE</span>
+                </a>
+              </div>
+            </article>
 
-          <article class="card bi-card" data-category="terceiro-setor">
-            <div class="card-top">
-              <span class="badge">Galaxy Schema</span>
-              <span class="card-meta">Terceiro Setor</span>
-            </div>
-            <h3>2. ONG Viva Comunidade</h3>
-            <p>
-              Modelagem Multi-Fato conectando captação de recursos (<code>fDoacoes</code>) e execução social (<code>fAtendimentos</code>) por programa e canal de doação.
-            </p>
-            <div class="card-actions">
-              <a href="https://app.powerbi.com/view?r=eyJrIjoiNTYzNjE5YmYtYWRmMy00YzFhLTg1NWMtOTE5OTAyYmRjOWJlIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Abrir Dashboard</a>
-              <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20ONG" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Ver Case</a>
-            </div>
-          </article>
+            <article class="spatial-card" data-category="terceiro-setor" data-index="1">
+              <div class="spatial-top">
+                <span class="mono tag-orange">GALAXY SCHEMA</span>
+                <span class="mono muted">02 / ONG</span>
+              </div>
+              <h3>ONG Viva Comunidade</h3>
+              <p>
+                Arquitetura Multi-Fato relacionando captação de recursos (<code>fDoacoes</code>) e execução social (<code>fAtendimentos</code>) por projeto e canal.
+              </p>
+              <div class="spatial-metrics mono">
+                <span>MULTI-FATO</span>
+                <span>IMPACTO SOCIAL</span>
+              </div>
+              <div class="spatial-actions">
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiNTYzNjE5YmYtYWRmMy00YzFhLTg1NWMtOTE5OTAyYmRjOWJlIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-accent pixel-btn-sm">
+                  <span class="pixel-label">ABRIR DASHBOARD</span>
+                </a>
+                <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20ONG" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost pixel-btn-sm">
+                  <span class="pixel-label">VER CASE</span>
+                </a>
+              </div>
+            </article>
 
-          <article class="card bi-card" data-category="comercial">
-            <div class="card-top">
-              <span class="badge">Star Schema</span>
-              <span class="card-meta">Varejo B2C</span>
-            </div>
-            <h3>3. PetShop Gatitos</h3>
-            <p>
-              Customer Analytics com análise de retenção, recorrência de compra, ticket médio por categoria e comportamento de consumo no varejo B2C.
-            </p>
-            <div class="card-actions">
-              <a href="https://app.powerbi.com/view?r=eyJrIjoiZjhhODBjZTctYTI0My00ZDE4LTgwNzctMGZjZWM1OTU0MDRjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Abrir Dashboard</a>
-              <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20PetShop" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Ver Case</a>
-            </div>
-          </article>
+            <article class="spatial-card" data-category="comercial" data-index="2">
+              <div class="spatial-top">
+                <span class="mono tag-orange">STAR SCHEMA</span>
+                <span class="mono muted">03 / B2C</span>
+              </div>
+              <h3>PetShop Gatitos</h3>
+              <p>
+                Customer Analytics focado em retenção, recorrência de compra, ticket médio por categoria e desempenho de vendas no varejo B2C.
+              </p>
+              <div class="spatial-metrics mono">
+                <span>CUSTOMER ANALYTICS</span>
+                <span>VAREJO B2C</span>
+              </div>
+              <div class="spatial-actions">
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiZjhhODBjZTctYTI0My00ZDE4LTgwNzctMGZjZWM1OTU0MDRjIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-accent pixel-btn-sm">
+                  <span class="pixel-label">ABRIR DASHBOARD</span>
+                </a>
+                <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20PetShop" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost pixel-btn-sm">
+                  <span class="pixel-label">VER CASE</span>
+                </a>
+              </div>
+            </article>
 
-          <article class="card bi-card" data-category="logistica">
-            <div class="card-top">
-              <span class="badge">Role-Playing</span>
-              <span class="card-meta">Supply Chain</span>
-            </div>
-            <h3>4. Supply Chain &amp; Logística</h3>
-            <p>
-              Torre de controle logística com dimensão calendário Role-Playing (<code>USERELATIONSHIP</code>), monitoramento de SLAs, OTIF e gargalos de entrega.
-            </p>
-            <div class="card-actions">
-              <a href="https://app.powerbi.com/view?r=eyJrIjoiNTg3Y2Y5ZGItNmI5OS00Mzk4LWI0NTMtZjVhOGMzYmRkMGU3IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Abrir Dashboard</a>
-              <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20SupplyChain" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Ver Case</a>
-            </div>
-          </article>
+            <article class="spatial-card" data-category="logistica" data-index="3">
+              <div class="spatial-top">
+                <span class="mono tag-orange">ROLE-PLAYING</span>
+                <span class="mono muted">04 / LOGÍSTICA</span>
+              </div>
+              <h3>Supply Chain &amp; Logística</h3>
+              <p>
+                Torre de controle logística com dimensão calendário Role-Playing (<code>USERELATIONSHIP</code>), monitoramento de SLAs, OTIF e gargalos operacionais.
+              </p>
+              <div class="spatial-metrics mono">
+                <span>SLAs &amp; OTIF</span>
+                <span>USERELATIONSHIP</span>
+              </div>
+              <div class="spatial-actions">
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiNTg3Y2Y5ZGItNmI5OS00Mzk4LWI0NTMtZjVhOGMzYmRkMGU3IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-accent pixel-btn-sm">
+                  <span class="pixel-label">ABRIR DASHBOARD</span>
+                </a>
+                <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20SupplyChain" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost pixel-btn-sm">
+                  <span class="pixel-label">VER CASE</span>
+                </a>
+              </div>
+            </article>
 
-          <article class="card bi-card" data-category="terceiro-setor">
-            <div class="card-top">
-              <span class="badge">Multi-Fato</span>
-              <span class="card-meta">Terceiro Setor</span>
-            </div>
-            <h3>5. ONG Multi-Programas</h3>
-            <p>
-              Gestão de metas, eficiência operacional e impacto social multi-programas com integridade referencial validada via pipeline Python.
-            </p>
-            <div class="card-actions">
-              <a href="https://app.powerbi.com/view?r=eyJrIjoiOTQyODQ1ZGItN2I4Mi00ZTVhLWE1ZTctODYxOGI1M2ZjNzg1IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Abrir Dashboard</a>
-              <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20ONG%20Multi-Programas" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Ver Case</a>
-            </div>
-          </article>
+            <article class="spatial-card" data-category="terceiro-setor" data-index="4">
+              <div class="spatial-top">
+                <span class="mono tag-orange">MULTI-FATO</span>
+                <span class="mono muted">05 / ONG</span>
+              </div>
+              <h3>ONG Multi-Programas</h3>
+              <p>
+                Acompanhamento de metas, eficiência alocativa e impacto social multi-programas com integridade referencial validada via pipeline Python.
+              </p>
+              <div class="spatial-metrics mono">
+                <span>METAS &amp; IMPACTO</span>
+                <span>PYTHON PIPELINE</span>
+              </div>
+              <div class="spatial-actions">
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiOTQyODQ1ZGItN2I4Mi00ZTVhLWE1ZTctODYxOGI1M2ZjNzg1IiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-accent pixel-btn-sm">
+                  <span class="pixel-label">ABRIR DASHBOARD</span>
+                </a>
+                <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20ONG%20Multi-Programas" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost pixel-btn-sm">
+                  <span class="pixel-label">VER CASE</span>
+                </a>
+              </div>
+            </article>
 
-          <article class="card bi-card" data-category="comercial">
-            <div class="card-top">
-              <span class="badge">Star Schema + MySQL</span>
-              <span class="card-meta">E-commerce &amp; LGPD</span>
-            </div>
-            <h3>6. Padaria Diniz (BI)</h3>
-            <p>
-              Integração direta com views MySQL mascaradas (LGPD), 30+ medidas DAX de margem real, ticket médio, curva por setor e Lead Time de preparo.
-            </p>
-            <div class="card-actions">
-              <a href="https://app.powerbi.com/view?r=eyJrIjoiZjEwNDJjZjgtNzY3NS00NWFjLThhYjEtYjU3YzgzMzA3NmYxIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Abrir Dashboard</a>
-              <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20Padaria%20Diniz" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Ver Case</a>
-            </div>
-          </article>
+            <article class="spatial-card" data-category="comercial" data-index="5">
+              <div class="spatial-top">
+                <span class="mono tag-orange">MYSQL + LGPD</span>
+                <span class="mono muted">06 / E-COMMERCE</span>
+              </div>
+              <h3>Padaria Diniz (BI)</h3>
+              <p>
+                Conexão a Views SQL mascaradas (LGPD), 30+ medidas DAX de margem real, ticket médio, curva por setor e Lead Time de preparo de pedidos.
+              </p>
+              <div class="spatial-metrics mono">
+                <span>30+ MEDIDAS DAX</span>
+                <span>VIEWS LGPD</span>
+              </div>
+              <div class="spatial-actions">
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiZjEwNDJjZjgtNzY3NS00NWFjLThhYjEtYjU3YzgzMzA3NmYxIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-accent pixel-btn-sm">
+                  <span class="pixel-label">ABRIR DASHBOARD</span>
+                </a>
+                <a href="https://github.com/WandRherison/powerbi-portfolio/tree/main/Projetos/Projeto%20-%20Padaria%20Diniz" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost pixel-btn-sm">
+                  <span class="pixel-label">VER CASE</span>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="spatial-nav" id="spatial-nav">
+            <button type="button" id="spatial-prev" class="pixel-btn pixel-btn-ghost pixel-btn-sm" aria-label="Projeto anterior">
+              <span class="pixel-label">&larr; ANTERIOR</span>
+            </button>
+            <span class="mono spatial-counter" id="spatial-counter">01 / 06</span>
+            <button type="button" id="spatial-next" class="pixel-btn pixel-btn-ghost pixel-btn-sm" aria-label="Próximo projeto">
+              <span class="pixel-label">PRÓXIMO &rarr;</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Sobre & Stack -->
-    <section id="sobre" class="section section-alt">
-      <div class="container about-grid">
-        <div>
-          <p class="eyebrow">Perfil Profissional</p>
-          <h2>Sobre mim</h2>
-          <p>
-            Sou estudante de <strong>Análise e Desenvolvimento de Sistemas na UNISAL</strong> (2023–2026) e técnico formado pela ETEC, com vivência corporativa no <strong>Itaú Unibanco</strong> (Jovem Aprendiz).
-          </p>
-          <p>
-            Uno a base de engenharia de software (Node.js, MySQL, Python, HTML/CSS/JS) à prática de <strong>Business Intelligence</strong> para construir soluções que vão da coleta transacional segura ao painel executivo.
-          </p>
+    <!-- SYS.04 — LANYARD PASS (BuiltByKern) — SOBRE & CREDENCIAL INTERATIVA -->
+    <section id="sobre" class="section section-banded">
+      <div class="container lanyard-layout">
+        <!-- Interactive Physics Lanyard Pass -->
+        <div class="lanyard-stage" id="lanyard-stage">
+          <div class="lanyard-anchor" aria-hidden="true"></div>
+          <svg class="lanyard-strap-svg" viewBox="0 0 260 180" aria-hidden="true">
+            <path id="lanyard-strap-path" d="M 130 0 Q 130 90 130 170" />
+          </svg>
+
+          <div class="lanyard-card" id="lanyard-card" tabindex="0" role="region" aria-label="Credencial 3D interativa de Wand Rherison. Arraste para balançar.">
+            <div class="lanyard-clip" aria-hidden="true"></div>
+            <div class="lanyard-glare" id="lanyard-glare" aria-hidden="true"></div>
+
+            <div class="pass-top mono">
+              <span>ACCESS // BI_ENGINEER</span>
+              <span class="pass-id">ID: WR-2026</span>
+            </div>
+
+            <div class="pass-identity">
+              <div class="pass-avatar" aria-hidden="true">WR</div>
+              <div>
+                <h3>Wand Rherison</h3>
+                <p class="mono">ADS · UNISAL (2023–2026)</p>
+              </div>
+            </div>
+
+            <div class="pass-divider"></div>
+
+            <dl class="pass-specs mono">
+              <div>
+                <dt>BASE</dt>
+                <dd>Hortolândia, SP</dd>
+              </div>
+              <div>
+                <dt>EXPERIÊNCIA</dt>
+                <dd>Itaú Unibanco</dd>
+              </div>
+              <div>
+                <dt>CORE STACK</dt>
+                <dd>Power BI · DAX · SQL · Python</dd>
+              </div>
+            </dl>
+
+            <div class="pass-barcode" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <p class="mono lanyard-tip">ARRASTE A CREDENCIAL PARA BALANÇAR</p>
         </div>
 
-        <div class="stack-box">
-          <h3>Competências Principais</h3>
-          <div class="stack-columns">
-            <div>
-              <h4>Dados &amp; BI</h4>
+        <!-- Bio & Technical Matrix -->
+        <div class="about-copy">
+          <span class="section-index mono" data-scramble="SYS.04 // CREDENCIAL OPERACIONAL">SYS.04 // CREDENCIAL OPERACIONAL</span>
+          <h2 data-scramble="Sobre Mim &amp; Stack Técnica">Sobre Mim &amp; Stack Técnica</h2>
+          <p>
+            Sou estudante de <strong>Análise e Desenvolvimento de Sistemas na UNISAL</strong> e formado técnico pela <strong>ETEC</strong>,
+            com experiência corporativa no <strong>Itaú Unibanco</strong> (Jovem Aprendiz).
+          </p>
+          <p>
+            Conecto desenvolvimento de software e governança de dados para transformar bases operacionais em
+            painéis estratégicos confiáveis — do esquema relacional ao storytelling executivo.
+          </p>
+
+          <div class="matrix-grid">
+            <div class="matrix-col">
+              <h4 class="mono">01 // DADOS &amp; BI</h4>
               <ul>
                 <li>Power BI Desktop &amp; Service</li>
                 <li>DAX &amp; Time Intelligence</li>
                 <li>Star Schema &amp; Galaxy Schema</li>
-                <li>SQL / MySQL &amp; Views LGPD</li>
-                <li>Python &amp; Pandas</li>
+                <li>MySQL / SQL &amp; Views LGPD</li>
+                <li>Python &amp; Pandas ETL</li>
               </ul>
             </div>
-            <div>
-              <h4>Web &amp; Engenharia</h4>
+            <div class="matrix-col">
+              <h4 class="mono">02 // ENGENHARIA WEB</h4>
               <ul>
-                <li>HTML5 Semântico &amp; WCAG</li>
-                <li>CSS3 Responsivo</li>
+                <li>HTML5 Semântico &amp; WCAG 2.1</li>
+                <li>CSS3 Moderno &amp; Responsivo</li>
                 <li>JavaScript (ES6+) &amp; Node.js</li>
-                <li>Git &amp; Deploy no Render</li>
-                <li>Figma</li>
+                <li>Git / GitHub &amp; Deploy Render</li>
+                <li>Figma &amp; Prototipação</li>
               </ul>
             </div>
           </div>
@@ -357,20 +548,29 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer id="contato" class="site-footer">
     <div class="container footer-inner">
       <div>
-        <h2>Vamos conversar?</h2>
-        <p>Disponível para oportunidades em Análise de Dados, Business Intelligence e projetos web.</p>
+        <span class="section-index mono">SYS.05 // COMUNICAÇÃO</span>
+        <h2 data-scramble="Iniciar Conversa.">Iniciar Conversa.</h2>
+        <p>Disponível para oportunidades em Business Intelligence, Análise de Dados e projetos web.</p>
       </div>
       <div class="footer-links">
-        <a href="mailto:wandrherison@gmail.com" class="btn btn-primary">wandrherison@gmail.com</a>
-        <a href="https://www.linkedin.com/in/wand-rherison-derley-pereira-alves-silva-b55293225/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
-        <a href="https://github.com/WandRherison/powerbi-portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub</a>
+        <a href="mailto:wandrherison@gmail.com" class="pixel-btn pixel-btn-accent">
+          <span class="pixel-label">WANDRHERISON@GMAIL.COM</span>
+        </a>
+        <a href="https://www.linkedin.com/in/wand-rherison-derley-pereira-alves-silva-b55293225/" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost">
+          <span class="pixel-label">LINKEDIN</span>
+        </a>
+        <a href="https://github.com/WandRherison/powerbi-portfolio" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-ghost">
+          <span class="pixel-label">GITHUB</span>
+        </a>
       </div>
     </div>
-    <div class="container footer-bottom">
-      <span>&copy; 2026 Wand Rherison Derley Pereira Alves Silva · Hortolândia, SP</span>
+    <div class="container footer-bottom mono">
+      <span>&copy; 2026 WAND RHERISON DERLEY PEREIRA ALVES SILVA</span>
+      <span>HORTOLÂNDIA, SP · RENDER DEPLOY</span>
     </div>
   </footer>
 
@@ -388,6 +588,7 @@
     </div>
   </dialog>
 
-  <script src="app.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
