@@ -89,7 +89,7 @@
       const overNative = e.target.closest('input, select, textarea, iframe');
       dirCursor.classList.toggle('is-visible', !overNative);
 
-      const interactive = e.target.closest('a, button, summary, [role="button"], .orbit-card, .lanyard-card');
+      const interactive = e.target.closest('a, button, summary, [role="button"], .orbit-card, .lanyard-card, .flip-card');
       dirCursor.classList.toggle('is-interactive', Boolean(interactive));
     });
 
@@ -1053,4 +1053,82 @@
       });
     }
   }
+
+  /* =========================================================
+     3D TILT ON FLIP CARDS (Padaria Diniz & ONG Clube Gringas)
+     ========================================================= */
+  document.querySelectorAll('[data-flip-card]').forEach((card) => {
+    const inner = card.querySelector('.flip-card-inner');
+    if (!inner) return;
+
+    const glares = card.querySelectorAll('.flip-glare');
+    let isFlipped = false;
+    let tiltX = 0;
+    let tiltY = 0;
+    let flipTimer = 0;
+
+    function renderTransform() {
+      const baseY = isFlipped ? 180 : 0;
+      if (prefersReducedMotion) {
+        inner.style.transform = `rotateY(${baseY}deg)`;
+        return;
+      }
+      inner.style.transform = `rotateX(${tiltX.toFixed(2)}deg) rotateY(${(baseY + tiltY).toFixed(2)}deg)`;
+    }
+
+    function toggleFlip() {
+      isFlipped = !isFlipped;
+      card.classList.add('is-flipping');
+      card.classList.toggle('is-flipped', isFlipped);
+      if (flipTimer) window.clearTimeout(flipTimer);
+      flipTimer = window.setTimeout(() => {
+        card.classList.remove('is-flipping');
+      }, 680);
+      renderTransform();
+    }
+
+    if (finePointer && !prefersReducedMotion) {
+      card.addEventListener('pointermove', (e) => {
+        if (e.pointerType === 'touch') return;
+        const rect = card.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        const nx = (e.clientX - rect.left) / rect.width - 0.5;
+        const ny = (e.clientY - rect.top) / rect.height - 0.5;
+        tiltX = -ny * 20;
+        tiltY = nx * 24;
+
+        const gx = `${((nx + 0.5) * 100).toFixed(1)}%`;
+        const gy = `${((ny + 0.5) * 100).toFixed(1)}%`;
+        glares.forEach((g) => {
+          g.style.setProperty('--gx', gx);
+          g.style.setProperty('--gy', gy);
+        });
+
+        card.classList.add('is-tilting');
+        renderTransform();
+      });
+
+      const resetTilt = () => {
+        tiltX = 0;
+        tiltY = 0;
+        card.classList.remove('is-tilting');
+        renderTransform();
+      };
+
+      card.addEventListener('pointerleave', resetTilt);
+      card.addEventListener('pointercancel', resetTilt);
+    }
+
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a, button:not([data-flip-trigger])')) return;
+      toggleFlip();
+    });
+
+    card.addEventListener('keydown', (e) => {
+      if (e.target === card && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        toggleFlip();
+      }
+    });
+  });
 })();

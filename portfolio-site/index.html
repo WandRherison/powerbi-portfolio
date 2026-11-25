@@ -202,88 +202,212 @@
           </ol>
         </div>
 
-        <!-- Dedicated Stage for Atomic Globe -->
+        <!-- Dedicated Free-Floating Stage for Atomic Globe -->
         <div class="globe-stage" aria-label="Visualização interativa Atomic Globe de nós de dados">
-          <div class="globe-hud-top">
-            <span class="mono">NODE.MAP // ATOMIC_GLOBE</span>
-            <button type="button" id="globe-toggle" class="hud-control-btn">Pausar globo</button>
-          </div>
-
           <canvas id="atomic-globe" width="520" height="520" role="img" aria-label="Globo 3D interativo de partículas representando pipelines de dados e Business Intelligence"></canvas>
 
           <div class="globe-hud-bottom mono">
-            <span>ARRASTE PARA ROTACIONAR</span>
-            <span class="accent-text">STAR · GALAXY · OLTP</span>
+            <span>NODE.MAP // ARRASTE PARA ROTACIONAR</span>
+            <button type="button" id="globe-toggle" class="hud-control-btn">Pausar globo</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SYS.01 — PROJETOS REAIS (Padaria Diniz + Resumo Clube Gringas) -->
+    <!-- SYS.01 — PROJETOS REAIS (3D Tilt on Flip Cards) -->
     <section id="destaques" class="section">
       <div class="container">
         <div class="section-head">
           <span class="section-index mono" data-scramble="SYS.01 // DEPLOY EM PRODUÇÃO">SYS.01 // DEPLOY EM PRODUÇÃO</span>
           <h2 data-scramble="Projetos Reais &amp; Arquitetura End-to-End">Projetos Reais &amp; Arquitetura End-to-End</h2>
           <p class="section-sub">
-            Sistemas desenvolvidos para operações reais — unindo interface web, integridade transacional, privacidade e inteligência analítica.
+            Passe o cursor para inclinar em 3D e clique nos cartões para revelar a arquitetura e os acessos de cada projeto real.
           </p>
         </div>
 
         <div class="real-projects-grid">
-          <article class="ory-card">
-            <div class="ory-card-header">
-              <span class="mono tag-orange">E-COMMERCE · BI · LGPD</span>
-              <span class="mono muted">UNISAL 2026</span>
-            </div>
-            <h3>Padaria Diniz — Plataforma Web &amp; BI</h3>
-            <p>
-              Digitalização completa de comércio local em Hortolândia/SP: catálogo setorizado com 160+ itens,
-              agendamento <em>"Peça e Retire"</em> com transações ACID em Node.js/MySQL, acessibilidade WCAG 2.1 AA
-              e camada analítica no Power BI com <strong>Views SQL mascaradas (LGPD)</strong> e Soft Delete.
-            </p>
-            <div class="spec-bar mono">
-              <span>Power BI &amp; DAX</span>
-              <span>MySQL Cloud</span>
-              <span>Node.js / Express</span>
-              <span>WCAG 2.1 AA</span>
-            </div>
-            <div class="ory-actions">
-              <a href="https://padaria-antigravity.onrender.com/padaria-landinpage.html" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-accent pixel-btn-sm">
-                <span class="pixel-label">ACESSAR E-COMMERCE</span>
-              </a>
-              <button type="button" class="pixel-btn pixel-btn-ghost pixel-btn-sm" data-open-dashboard="padaria">
-                <span class="pixel-label">DASHBOARD POWER BI</span>
-              </button>
-              <button type="button" class="pixel-btn pixel-btn-ghost pixel-btn-sm" data-open-case="padaria">
-                <span class="pixel-label">VER CASE COMPLETO</span>
-              </button>
+          <!-- Card 1: Padaria Diniz (3D Tilt on Flip Card) -->
+          <article class="flip-card" data-flip-card tabindex="0" aria-label="Padaria Diniz — Plataforma Web e BI. Clique ou pressione Enter para virar o cartão.">
+            <div class="flip-card-inner">
+              <!-- Front Face -->
+              <div class="flip-face flip-front">
+                <div class="flip-glare" aria-hidden="true"></div>
+                <div class="ory-card-header">
+                  <span class="mono tag-orange">E-COMMERCE · BI · LGPD</span>
+                  <span class="mono muted">UNISAL 2026</span>
+                </div>
+
+                <div class="flip-visual-banner" aria-hidden="true">
+                  <svg viewBox="0 0 360 88" fill="none">
+                    <rect x="14" y="16" width="190" height="12" rx="4" fill="#ff5a1f"/>
+                    <rect x="14" y="36" width="122" height="12" rx="4" fill="#ff9f43"/>
+                    <rect x="14" y="56" width="88" height="12" rx="4" fill="#38bdf8"/>
+                    <text x="236" y="34" fill="#f4f3ef" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="700">43,6%</text>
+                    <text x="236" y="52" fill="#8b93a3" font-family="JetBrains Mono, monospace" font-size="9">MARGEM REAL</text>
+                    <text x="236" y="72" fill="#22c55e" font-family="JetBrains Mono, monospace" font-size="9">SLA 28,0 MIN</text>
+                  </svg>
+                </div>
+
+                <h3>Padaria Diniz — Plataforma Web &amp; BI</h3>
+                <p>
+                  E-commerce completo com agendamento <em>"Peça e Retire"</em> em Node.js/MySQL na nuvem e 4 painéis analíticos Power BI protegidos por Views LGPD.
+                </p>
+
+                <div class="flip-footer-bar">
+                  <span class="mono muted">160+ ITENS · WCAG 2.1 AA</span>
+                  <button type="button" class="flip-hint-btn mono" data-flip-trigger>VIRAR CARD &#8635;</button>
+                </div>
+              </div>
+
+              <!-- Back Face -->
+              <div class="flip-face flip-back">
+                <div class="flip-glare" aria-hidden="true"></div>
+                <div class="ory-card-header">
+                  <span class="mono accent-text">ARQUITETURA &amp; ACESSOS</span>
+                  <button type="button" class="flip-hint-btn mono" data-flip-trigger>&larr; VOLTAR</button>
+                </div>
+
+                <h3>Stack &amp; Entrega End-to-End</h3>
+                <p>
+                  Transações ACID em MySQL 8.0 (AWS RDS), Soft Delete para preservação histórica, Data Masking irreversível (CPF, telefone e e-mail) e 30+ medidas DAX.
+                </p>
+
+                <div class="spec-bar mono">
+                  <span>Power BI &amp; DAX</span>
+                  <span>MySQL Cloud</span>
+                  <span>Node.js / Express</span>
+                  <span>LGPD Views</span>
+                </div>
+
+                <div class="ory-actions">
+                  <a href="https://padaria-antigravity.onrender.com/padaria-landinpage.html" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-accent pixel-btn-sm">
+                    <span class="pixel-label">ACESSAR E-COMMERCE</span>
+                  </a>
+                  <button type="button" class="pixel-btn pixel-btn-ghost pixel-btn-sm" data-open-dashboard="padaria">
+                    <span class="pixel-label">DASHBOARD BI</span>
+                  </button>
+                  <button type="button" class="pixel-btn pixel-btn-ghost pixel-btn-sm" data-open-case="padaria">
+                    <span class="pixel-label">VER CASE</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="ory-card ory-card-classified">
-            <div class="ory-card-header">
-              <span class="mono tag-glass">PROJETO REAL · ONG</span>
-              <span class="mono accent-text">RESTRITO A PRINTS</span>
-            </div>
-            <h3>ONG Clube Gringas — Portal &amp; Painel Gerencial</h3>
-            <p>
-              Atuação em projeto real para organização sem fins lucrativos, englobando área de membros,
-              carteirinha digital 3D, clube do livro, área de benefícios exclusivos e painel gerencial de assinaturas.
-              Por política de privacidade, nenhuma linha de código ou dado sensível é exposto.
-            </p>
-            <div class="spec-bar mono">
-              <span>Painel Executivo</span>
-              <span>Carteirinha 3D</span>
-              <span>Clube do Livro</span>
-              <span>Benefícios</span>
-            </div>
-            <div class="ory-actions">
-              <a href="#clube-gringas" class="pixel-btn pixel-btn-accent pixel-btn-sm">
-                <span class="pixel-label">ABRIR PASTA DE PRINTS</span>
-              </a>
+          <!-- Card 2: ONG Clube Gringas (3D Tilt on Flip Card — STRICTLY PRINTS ONLY) -->
+          <article class="flip-card" data-flip-card tabindex="0" aria-label="ONG Clube Gringas — Portal e Painel. Clique ou pressione Enter para virar o cartão.">
+            <div class="flip-card-inner">
+              <!-- Front Face -->
+              <div class="flip-face flip-front flip-front-classified">
+                <div class="flip-glare" aria-hidden="true"></div>
+                <div class="ory-card-header">
+                  <span class="mono tag-glass">PROJETO REAL · ONG</span>
+                  <span class="mono accent-text">RESTRITO A PRINTS</span>
+                </div>
+
+                <div class="flip-visual-banner" aria-hidden="true">
+                  <svg viewBox="0 0 360 88" fill="none">
+                    <rect x="14" y="14" width="76" height="58" rx="6" stroke="rgba(255,255,255,0.28)" stroke-dasharray="4 4"/>
+                    <rect x="102" y="14" width="76" height="58" rx="6" stroke="rgba(255,255,255,0.28)" stroke-dasharray="4 4"/>
+                    <rect x="190" y="14" width="76" height="58" rx="6" stroke="rgba(255,255,255,0.28)" stroke-dasharray="4 4"/>
+                    <rect x="278" y="14" width="68" height="58" rx="6" stroke="rgba(255,90,31,0.55)" stroke-dasharray="4 4"/>
+                    <text x="52" y="47" text-anchor="middle" fill="#8b93a3" font-family="JetBrains Mono, monospace" font-size="10">01</text>
+                    <text x="140" y="47" text-anchor="middle" fill="#8b93a3" font-family="JetBrains Mono, monospace" font-size="10">02</text>
+                    <text x="228" y="47" text-anchor="middle" fill="#8b93a3" font-family="JetBrains Mono, monospace" font-size="10">03</text>
+                    <text x="312" y="47" text-anchor="middle" fill="#ff7a45" font-family="JetBrains Mono, monospace" font-size="10">04</text>
+                  </svg>
+                </div>
+
+                <h3>ONG Clube Gringas — Portal &amp; Painel</h3>
+                <p>
+                  Projeto real para organização sem fins lucrativos envolvendo área de membros, carteirinha 3D, clube do livro, benefícios e painel gerencial.
+                </p>
+
+                <div class="flip-footer-bar">
+                  <span class="mono muted">VISUAL ONLY · ZERO CÓDIGO</span>
+                  <button type="button" class="flip-hint-btn mono" data-flip-trigger>VIRAR CARD &#8635;</button>
+                </div>
+              </div>
+
+              <!-- Back Face (Strictly Prints Only, zero code or sensitive details) -->
+              <div class="flip-face flip-back flip-back-classified">
+                <div class="flip-glare" aria-hidden="true"></div>
+                <div class="ory-card-header">
+                  <span class="mono accent-text">POLÍTICA DE PRIVACIDADE</span>
+                  <button type="button" class="flip-hint-btn mono" data-flip-trigger>&larr; VOLTAR</button>
+                </div>
+
+                <h3>Galeria Sanitizada (Apenas Prints)</h3>
+                <p>
+                  Por confidencialidade da organização, nenhuma linha de código, URL interna ou dado sensível é exibido — apenas as 4 capturas visuais na pasta Milk Glass.
+                </p>
+
+                <div class="spec-bar mono">
+                  <span>Painel Executivo</span>
+                  <span>Carteirinha 3D</span>
+                  <span>Clube do Livro</span>
+                  <span>Benefícios</span>
+                </div>
+
+                <div class="ory-actions">
+                  <a href="#clube-gringas" class="pixel-btn pixel-btn-accent pixel-btn-sm">
+                    <span class="pixel-label">ABRIR PASTA DE PRINTS</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYS.01B — SCROLLFRAMES 3D WORKSTATION (120 Frames Rotating Laptop with Live BI Screen) -->
+    <section id="showcase-3d" class="scrollframes-section" aria-label="Apresentação 3D interativa do Workstation de BI">
+      <div class="scrollframes-shell" id="scrollframes-shell">
+        <div class="scrollframes-sticky">
+          <div class="sf-top-hud container">
+            <div>
+              <span class="section-index mono" data-scramble="SYS.01B // SCROLLFRAMES · 3D BI WORKSTATION">SYS.01B // SCROLLFRAMES · 3D BI WORKSTATION</span>
+              <h2>Inteligência analítica em três dimensões.</h2>
+            </div>
+            <span id="sf-frame-counter" class="mono sf-counter">FRAME 001 / 120</span>
+          </div>
+
+          <div class="sf-stage">
+            <canvas id="scrollframes-canvas" aria-label="Notebook 3D que abre e rotaciona conforme a rolagem exibindo o dashboard da Padaria Diniz"></canvas>
+
+            <!-- Scroll-scrubbed Narrative Captions -->
+            <div class="sf-captions container">
+              <article class="sf-caption is-active" data-sf-step="0">
+                <span class="mono accent-text">FASE 01 // ENGENHARIA</span>
+                <h3>Da base SQL na nuvem ao visor executivo.</h3>
+                <p>Continue rolando para abrir o workstation e girar o modelo 3D em tempo real.</p>
+              </article>
+
+              <article class="sf-caption" data-sf-step="1">
+                <span class="mono accent-text">FASE 02 // PADARIA DINIZ BI</span>
+                <h3>R$ 79.335,89 faturados · 43,62% de margem real.</h3>
+                <p>Views mascaradas (LGPD), SLA de preparo de 28,03 min e controle completo de estoque.</p>
+              </article>
+
+              <article class="sf-caption" data-sf-step="2">
+                <span class="mono accent-text">FASE 03 // INSPECIONE AO VIVO</span>
+                <h3>Explore os 6 dashboards direto no site.</h3>
+                <p>Alterne entre gráficos nativos interativos e o relatório oficial do Power BI Service.</p>
+                <button type="button" class="pixel-btn pixel-btn-accent pixel-btn-sm" data-open-dashboard="padaria">
+                  <span class="pixel-label">ABRIR DASHBOARD NO SITE</span>
+                </button>
+              </article>
+            </div>
+          </div>
+
+          <div class="sf-bottom-hud container mono">
+            <span>SCROLL SCRUBBING · 120 FRAMES</span>
+            <div class="sf-scrubber-bar" aria-hidden="true">
+              <div class="sf-scrubber-fill" id="sf-scrubber-fill"></div>
+            </div>
+            <span>3D + CANVAS TEXTURE</span>
+          </div>
         </div>
       </div>
     </section>
@@ -1027,5 +1151,6 @@
   <script src="dashboards-data.js" defer></script>
   <script src="app.js" defer></script>
   <script src="dashboard-viewer.js" defer></script>
+  <script type="module" src="scrollframes-laptop.mjs"></script>
 </body>
 </html>
