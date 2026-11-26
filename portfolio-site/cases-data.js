@@ -216,7 +216,7 @@ window.PORTFOLIO_CASES = {
 
   padaria: {
     code: 'CASE 06 // END-TO-END · MYSQL CLOUD & LGPD',
-    title: 'Padaria Diniz — E-commerce & BI com LGPD',
+    title: 'Padaria Diniz: E-commerce & BI com LGPD',
     subtitle: 'Full-Stack, MySQL AWS RDS, Data Masking & 30+ Medidas DAX',
     dashboardUrl: 'https://app.powerbi.com/view?r=eyJrIjoiZjEwNDJjZjgtNzY3NS00NWFjLThhYjEtYjU3YzgzMzA3NmYxIiwidCI6IjBhMGE3YmMxLWUxYTEtNDNjOS04MGYwLTY0YzEyMzVjY2M0OSJ9',
     liveAppUrl: 'https://padaria-antigravity.onrender.com/padaria-landinpage.html',

@@ -878,7 +878,7 @@
           createKpiCard('PEDIDOS CANCELADOS', fmtInt(cl.kpis.cancelados), '13,26% do total')
         );
 
-        makeChart(createChartPanel('SHARE FINANCEIRO — RECEITA POR SETOR'), {
+        makeChart(createChartPanel('SHARE FINANCEIRO: RECEITA POR SETOR'), {
           type: 'doughnut',
           data: {
             labels: cl.setorReceita.labels.map((l, i) => `${l} (${cl.setorReceita.pcts[i]}%)`),
@@ -886,7 +886,7 @@
           },
         });
 
-        makeChart(createChartPanel('MIX FÍSICO — VOLUME DE ITENS POR SETOR'), {
+        makeChart(createChartPanel('MIX FÍSICO: VOLUME DE ITENS POR SETOR'), {
           type: 'bar',
           data: {
             labels: cl.setorVolume.labels,

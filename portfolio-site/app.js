@@ -725,7 +725,7 @@
 
   function syncModeButtonLabel() {
     if (!orbitModeBtn) return;
-    orbitModeBtn.textContent = window.innerWidth <= 980 ? 'Carrossel' : 'Órbita Strata';
+    orbitModeBtn.textContent = window.innerWidth <= 980 ? 'Carrossel' : 'Órbita 3D';
   }
 
   function clearInlineOrbitTransforms() {
@@ -1053,7 +1053,7 @@
     'clube-gringas': {
       tag: 'PROJETO REAL · ONG · RESTRITO A PRINTS',
       title: 'ONG Clube Gringas',
-      desc: 'Projeto real para organização sem fins lucrativos exibido estritamente por capturas visuais na pasta Milk Glass, sem exposição de código ou dados sensíveis.',
+      desc: 'Projeto real para organização sem fins lucrativos exibido estritamente por capturas visuais na pasta de prints, sem exposição de código ou dados sensíveis.',
       metric: '04 slots visuais · Prints Only',
       primaryLabel: 'IR PARA PASTA DE PRINTS',
       primaryAction: () => {

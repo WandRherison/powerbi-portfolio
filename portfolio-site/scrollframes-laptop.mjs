@@ -31,10 +31,12 @@ function easeInOutCubic(t) {
  * Generates a high-resolution 1280x800 CanvasTexture representing the live
  * Padaria Diniz Power BI dashboard inside the 3D laptop display.
  */
-function createDashboardScreenCanvas() {
-  const off = document.createElement('canvas');
-  off.width = 1280;
-  off.height = 800;
+function createDashboardScreenCanvas(existingCanvas = null) {
+  const off = existingCanvas || document.createElement('canvas');
+  if (!existingCanvas) {
+    off.width = 1280;
+    off.height = 800;
+  }
   const ctx = off.getContext('2d');
   if (!ctx) return off;
 
@@ -303,6 +305,12 @@ function createShadowDiscTexture() {
   }
   const tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;
+  tex.generateMipmaps = false;
+  tex.minFilter = THREE.LinearFilter;
+  tex.magFilter = THREE.LinearFilter;
+  tex.wrapS = THREE.ClampToEdgeWrapping;
+  tex.wrapT = THREE.ClampToEdgeWrapping;
+  tex.needsUpdate = true;
   return tex;
 }
 
@@ -352,6 +360,12 @@ function createLidBackTexture() {
   }
   const tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;
+  tex.generateMipmaps = false;
+  tex.minFilter = THREE.LinearFilter;
+  tex.magFilter = THREE.LinearFilter;
+  tex.wrapS = THREE.ClampToEdgeWrapping;
+  tex.wrapT = THREE.ClampToEdgeWrapping;
+  tex.needsUpdate = true;
   return tex;
 }
 
@@ -618,18 +632,20 @@ function initScrollframesLaptop() {
   bezelMesh.position.set(0, lidH / 2, lidDepth / 2 + 0.012);
   lidPivot.add(bezelMesh);
 
-  // Active BI Screen Texture
+  // Active BI Screen Texture (NPOT-safe + self-lit OLED material for crisp mobile & desktop GPU display)
   const screenTex = new THREE.CanvasTexture(screenCanvas);
   screenTex.colorSpace = THREE.SRGBColorSpace;
-  screenTex.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+  screenTex.generateMipmaps = false;
+  screenTex.minFilter = THREE.LinearFilter;
+  screenTex.magFilter = THREE.LinearFilter;
+  screenTex.wrapS = THREE.ClampToEdgeWrapping;
+  screenTex.wrapT = THREE.ClampToEdgeWrapping;
+  screenTex.needsUpdate = true;
 
-  const screenMat = new THREE.MeshStandardMaterial({
+  const screenMat = new THREE.MeshBasicMaterial({
     map: screenTex,
-    emissiveMap: screenTex,
-    emissive: new THREE.Color(0xffffff),
-    emissiveIntensity: 0.8,
-    roughness: 0.2,
-    metalness: 0.06,
+    color: new THREE.Color(0xffffff),
+    toneMapped: false,
   });
   const screenMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.94, 1.84), screenMat);
   screenMesh.position.set(0, lidH / 2, lidDepth / 2 + 0.02);
@@ -664,42 +680,66 @@ function initScrollframesLaptop() {
     const isDesktopWide = window.innerWidth > 980;
     const vTan = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
     const minVerticalZ = 1.48 / (vTan * 0.72);
-    const minHorizontalZ = aspect < 1.25 ? 2.15 / (vTan * aspect * 0.85) : 0;
+    const minHorizontalZ = aspect < 1.4 ? 2.05 / (vTan * aspect * 0.86) : 0;
     const baseFitZ = Math.max(minVerticalZ, minHorizontalZ);
 
-    // 1. Frame pose interpolation across 3 phases (0..0.294 open, 0.294..0.756 360 spin, 0.756..1 lock-in)
-    if (p <= 0.294) {
+    if (!isDesktopWide) {
+      // Mobile: keep laptop lid open and facing the viewer with the BI screen crisp across all 3 phases;
+      // full 360° back/side inspection remains available anytime via horizontal finger drag (currentYaw).
+      const openT = easeOutCubic(clamp(p / 0.18, 0, 1));
+      lidPivot.rotation.x = lerp(0.85, -0.18, openT);
+
+      if (p <= 0.33) {
+        const t = easeInOutCubic(p / 0.33);
+        laptopRoot.rotation.y = lerp(-0.42, -0.22, t) + currentYaw;
+      } else if (p <= 0.68) {
+        const t = easeInOutCubic((p - 0.33) / 0.35);
+        laptopRoot.rotation.y = lerp(-0.22, 0.22, t) + currentYaw;
+      } else {
+        const t = easeInOutCubic((p - 0.68) / 0.32);
+        laptopRoot.rotation.y = lerp(0.22, 0.0, t) + currentYaw;
+      }
+
+      laptopRoot.rotation.x = lerp(0.22, 0.12, p);
+      laptopRoot.position.y = -0.82;
+      stageGroup.position.x = 0;
+      camera.position.z = lerp(baseFitZ * 0.96, baseFitZ * 0.84, p);
+      camera.position.y = 0.34;
+      screenMat.color.setScalar(1.0);
+    } else if (p <= 0.294) {
+      // Desktop Phase 1: open lid from closed obsidian shell
       const t = easeOutCubic(p / 0.294);
-      // Closed (+1.45 rad flat forward over keyboard) -> Open (-0.19 rad)
       lidPivot.rotation.x = lerp(1.45, -0.19, t);
       laptopRoot.rotation.y = lerp(-0.55, 0.16, t) + currentYaw + curParallaxY;
       laptopRoot.rotation.x = lerp(0.36, 0.18, t) + curParallaxX;
       laptopRoot.position.y = lerp(-0.68, -0.82, t);
-      stageGroup.position.x = isDesktopWide ? lerp(0.32, 0.62, t) : 0;
+      stageGroup.position.x = lerp(0.32, 0.62, t);
       camera.position.z = lerp(baseFitZ * 1.04, baseFitZ * 0.98, t);
       camera.position.y = lerp(0.52, 0.4, t);
-      screenMat.emissiveIntensity = lerp(0.04, 0.82, t);
+      screenMat.color.setScalar(lerp(0.28, 1.0, t));
     } else if (p <= 0.756) {
+      // Desktop Phase 2: full 360° studio turntable
       const t = (p - 0.294) / (0.756 - 0.294);
       const smoothT = easeInOutCubic(t);
       lidPivot.rotation.x = -0.19;
       laptopRoot.rotation.y = 0.16 + smoothT * Math.PI * 2 + currentYaw + curParallaxY;
       laptopRoot.rotation.x = 0.18 + Math.sin(smoothT * Math.PI) * 0.06 + curParallaxX;
       laptopRoot.position.y = -0.82;
-      stageGroup.position.x = isDesktopWide ? 0.62 : 0;
+      stageGroup.position.x = 0.62;
       camera.position.z = baseFitZ * 0.98 + Math.sin(smoothT * Math.PI) * 0.45;
       camera.position.y = 0.4;
-      screenMat.emissiveIntensity = 0.84;
+      screenMat.color.setScalar(1.0);
     } else {
+      // Desktop Phase 3: front executive zoom lock-in
       const t = easeInOutCubic((p - 0.756) / (1.0 - 0.756));
       lidPivot.rotation.x = lerp(-0.19, -0.14, t);
       laptopRoot.rotation.y = lerp(0.16 + Math.PI * 2, -0.05 + Math.PI * 2, t) + currentYaw + curParallaxY;
       laptopRoot.rotation.x = lerp(0.18, 0.12, t) + curParallaxX;
       laptopRoot.position.y = lerp(-0.82, -0.88, t);
-      stageGroup.position.x = isDesktopWide ? lerp(0.62, 0.72, t) : 0;
+      stageGroup.position.x = lerp(0.62, 0.72, t);
       camera.position.z = lerp(baseFitZ * 0.98, baseFitZ * 0.86, t);
       camera.position.y = lerp(0.4, 0.3, t);
-      screenMat.emissiveIntensity = lerp(0.84, 0.94, t);
+      screenMat.color.setScalar(1.0);
     }
 
     camera.lookAt(0, 0.12, 0);
@@ -940,8 +980,16 @@ function initScrollframesLaptop() {
     { passive: true }
   );
 
-  // Sync initial scroll offset on reload
+  // Sync initial scroll offset on reload and refresh screen once web fonts settle
   targetP = computeScrollProgress();
   currentP = targetP;
   renderFrame();
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      createDashboardScreenCanvas(screenCanvas);
+      screenTex.needsUpdate = true;
+      renderFrame();
+    });
+  }
 }
