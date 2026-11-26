@@ -267,7 +267,7 @@
       const overNative = blockedByModalFallback || Boolean(targetEl?.closest('input, select, textarea, iframe'));
       dirCursor.classList.toggle('is-visible', !overNative);
 
-      const interactive = targetEl?.closest('a, button, summary, [role="button"], .orbit-card, .lanyard-card, .flip-card');
+      const interactive = targetEl?.closest('a, button, summary, [role="button"], .orbit-card, .lanyard-card, .flip-card, #scrollframes-canvas');
       dirCursor.classList.toggle('is-interactive', Boolean(interactive));
     });
 
